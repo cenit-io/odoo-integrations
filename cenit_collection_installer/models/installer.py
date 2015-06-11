@@ -420,8 +420,9 @@ class CollectionInstaller(models.TransientModel):
     def install_collection(self, name, version=None, params=None):
         cenit_api = self.env['cenit.api']
 
-        path = "/api/v1/shared_collection"
+        path = "/shared_collection"
         rc = cenit_api.get(path)
+        _logger.info("\n\nRC: %s\n", rc)
 
         sharedID = rc.get(
             'success', {}
@@ -433,7 +434,7 @@ class CollectionInstaller(models.TransientModel):
             # TODO: something?
             return True
 
-        path = "/api/v1/shared_collection/%s/pull" % (sharedID,)
+        path = "/shared_collection/%s/pull" % (sharedID,)
 
         data = {}
         if params:
@@ -441,7 +442,7 @@ class CollectionInstaller(models.TransientModel):
         rc = cenit_api.post(path, data)
         coll_id = rc.get('collection', {}).get('id', False)
 
-        path = "/api/v1/collection"
+        path = "/collection"
         if coll_id:
             path = "%s/%s" % (path, coll_id)
 

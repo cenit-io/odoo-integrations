@@ -37,7 +37,7 @@ class CenitCollection(models.Model):
     def _update_collection_list(self):
         param_pool = self.env['cenit.collection.parameter']
 
-        path = "/api/v1/shared_collection"
+        path = "/shared_collection"
         cenit_api = self.env['cenit.api']
         rc = cenit_api.get(path)
 
