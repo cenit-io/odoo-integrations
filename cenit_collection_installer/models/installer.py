@@ -434,11 +434,10 @@ class CollectionInstaller(models.TransientModel):
             return True
 
         path = "/api/v1/shared_collection/%s/pull" % (sharedID,)
-        data = {
-            'pull_parameters': {
-                #TODO: set the pull parameters here, but how????
-            }
-        }
+
+        data = {}
+        if params:
+            data.update({'pull_parameters':params})
         rc = cenit_api.post(path, data)
         coll_id = rc.get('collection', {}).get('id', False)
 

@@ -29,7 +29,7 @@
     'description': """
         Toolkit for Cenit-Odoo integrations
     """,
-    'depends': ['cenit_base'],
+    'depends': ['cenit_collection_installer'],
     'data': [
         'security/ir.model.access.csv',
         'view/collections.xml',

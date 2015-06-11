@@ -30,6 +30,10 @@ from openerp import models, fields
 _logger = logging.getLogger(__name__)
 
 
+COLLECTION_NAME = "Twilio API Integration"
+COLLECTION_VERSION = "1.0.0"
+
+
 class CenitTwilioSettings(models.TransientModel):
     _name = "cenit.twilio.settings"
     _inherit = 'res.config.settings'
@@ -88,8 +92,16 @@ class CenitTwilioSettings(models.TransientModel):
             return rc
 
         obj = objs[0]
-        installer = self.pool.get('cenit.twilio.installer')
-        installer.install_collection(cr, uid, context=None)
+        params = {
+            '': obj.account_sid,
+            '': obj.auth_token
+        }
+        installer = self.pool.get('cenit.collection.installer')
+        installer.install_collection(
+            cr, uid,
+            'Twilio API Integration',
+            params=params,
+            context=None
+        )
 
         return rc
-
