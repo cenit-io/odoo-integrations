@@ -29,9 +29,12 @@ from openerp import models, fields
 
 _logger = logging.getLogger(__name__)
 
-
 COLLECTION_NAME = "Twilio API Integration"
 COLLECTION_VERSION = "1.0.0"
+COLLECTION_PARAMS = {
+    "On connection 'Twilio API Conection' template parameter 'account_sid'": 'account_sid',
+    "On connection 'Twilio API Conection' template parameter 'auth_token'": 'auth_token',
+}
 
 
 class CenitTwilioSettings(models.TransientModel):
@@ -39,7 +42,6 @@ class CenitTwilioSettings(models.TransientModel):
     _inherit = 'res.config.settings'
 
     account_sid = fields.Char('Account SID')
-    auth_token = fields.Char('Auth Token')
 
     def get_default_account_sid(self, cr, uid, ids, context=None):
         account_sid = self.pool.get('ir.config_parameter').get_param(
@@ -49,15 +51,6 @@ class CenitTwilioSettings(models.TransientModel):
         )
 
         return {'account_sid': account_sid or ''}
-
-    def get_default_auth_token(self, cr, uid, ids, context=None):
-        auth_token = self.pool.get('ir.config_parameter').get_param(
-            cr, uid,
-            'odoo_cenit.twilio.auth_token', default = None,
-            context = context
-        )
-
-        return {'auth_token': auth_token or ''}
 
     def set_account_sid(self, cr, uid, ids, context=None):
         config_parameters = self.pool.get ("ir.config_parameter")
@@ -69,6 +62,18 @@ class CenitTwilioSettings(models.TransientModel):
                 context = context
             )
 
+
+    auth_token = fields.Char('Auth Token')
+
+    def get_default_auth_token(self, cr, uid, ids, context=None):
+        auth_token = self.pool.get('ir.config_parameter').get_param(
+            cr, uid,
+            'odoo_cenit.twilio.auth_token', default = None,
+            context = context
+        )
+
+        return {'auth_token': auth_token or ''}
+
     def set_auth_token(self, cr, uid, ids, context=None):
         config_parameters = self.pool.get ("ir.config_parameter")
         for record in self.browse (cr, uid, ids, context=context):
@@ -78,6 +83,7 @@ class CenitTwilioSettings(models.TransientModel):
                 record.auth_token or '',
                 context = context
             )
+
 
     def execute(self, cr, uid, ids, context=None):
         rc = super(CenitTwilioSettings, self).execute(
@@ -90,18 +96,32 @@ class CenitTwilioSettings(models.TransientModel):
         objs = self.browse(cr, uid, ids)
         if not objs:
             return rc
-
         obj = objs[0]
-        params = {
-            '': obj.account_sid,
-            '': obj.auth_token
-        }
+
         installer = self.pool.get('cenit.collection.installer')
+        data = installer.get_collection_data(
+            cr, uid,
+            COLLECTION_NAME,
+            version = COLLECTION_VERSION,
+            context = context
+        )
+
+        params = {}
+        for p in data.get('params'):
+            k = p.get('parameter')
+            id_ = p.get('id')
+            value = getattr(obj,
+                COLLECTION_PARAMS.get(k)
+            )
+            params.update ({
+                id_: value
+            })
+
         installer.install_collection(
             cr, uid,
-            'Twilio API Integration',
-            params=params,
-            context=None
+            data.get('id'),
+            params = params,
+            context = context
         )
 
         return rc

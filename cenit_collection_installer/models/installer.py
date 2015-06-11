@@ -168,7 +168,7 @@ class CollectionInstaller(models.TransientModel):
                 conn = candidates[0]
                 conn.with_context(local=True).write(conn_data)
 
-            conn_params = self._get_param_lines(conn.id, connection, "conn")[0]
+            conn_params = self._get_param_lines(conn.id, connection, "conn")
             conn.with_context(local=True).write(conn_params)
 
     @api.model
@@ -195,7 +195,7 @@ class CollectionInstaller(models.TransientModel):
                 hook = candidates[0]
                 hook.with_context(local=True).write(hook_data)
 
-            hook_params = self._get_param_lines(hook.id, webhook, "hook")[0]
+            hook_params = self._get_param_lines(hook.id, webhook, "hook")
             hook.with_context(local=True).write(hook_params)
 
     @api.model
@@ -416,32 +416,51 @@ class CollectionInstaller(models.TransientModel):
     def _install_dummy(self, values):
         pass
 
+
     @api.model
-    def install_collection(self, name, version=None, params=None):
+    def get_collection_data(self, name, version=None):
         cenit_api = self.env['cenit.api']
 
+        args = {
+            'name': name,
+        }
+        if not version:
+            args.update({
+                'sort_by': 'shared_version',
+                'limit': 1
+            })
+        else:
+            args.update({
+                'shared_version': version
+            })
+
         path = "/shared_collection"
-        rc = cenit_api.get(path)
-        _logger.info("\n\nRC: %s\n", rc)
+        rc = cenit_api.get(path, params=args)
 
-        sharedID = rc.get(
-            'success', {}
-        ).get(
-            'shared_collections', [{}]
-        )[0].get('id', False)
+        if not isinstance(rc, list) or len(rc) != 1:
+            #~ raise ValidationError
+            raise Exception("Hey!! something wicked just happened")
 
-        if not sharedID:
-            # TODO: something?
-            return True
+        rc = rc[0].get('shared_collection', {})
+        data = {
+            'id': rc.get('id'),
+            'params': rc.get('pull_parameters', [])
+        }
 
-        path = "/shared_collection/%s/pull" % (sharedID,)
+        return data
+
+    @api.model
+    def install_collection(self, cenitID, params=None):
+        cenit_api = self.env['cenit.api']
+
+        path = "/shared_collection/%s/pull" % (cenitID,)
 
         data = {}
         if params:
             data.update({'pull_parameters':params})
         rc = cenit_api.post(path, data)
-        coll_id = rc.get('collection', {}).get('id', False)
 
+        coll_id = rc.get('collection', {}).get('id', False)
         path = "/collection"
         if coll_id:
             path = "%s/%s" % (path, coll_id)
