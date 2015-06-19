@@ -29,7 +29,7 @@
     'description': """
         Odoo - Twilio API Integration via Cenit
     """,
-    'depends': ['cenit_collection_installer'],
+    'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',
         'view/config.xml',
