@@ -26,61 +26,61 @@ from openerp import models, fields
 
 _logger = logging.getLogger(__name__)
 
-COLLECTION_NAME = "twilio"
+COLLECTION_NAME = "shipwire"
 COLLECTION_VERSION = "1.0.0"
 COLLECTION_PARAMS = {
-    "On connection 'Twilio API Conection' template parameter 'account_sid'":'account_sid',
-    "On connection 'Twilio API Conection' template parameter 'auth_token'":'auth_token',
+    "On connection 'ShipWire Connection' template parameter 'shipwire_username'":'shipwire_username',
+    "On connection 'ShipWire Connection' template parameter 'shipwire_password'":'shipwire_password',
 }
 
 
 class CenitIntegrationSettings(models.TransientModel):
-    _name = "cenit.twilio.settings"
+    _name = "cenit.shipwire.settings"
     _inherit = 'res.config.settings'
 
     ############################################################################
     # Pull Parameters
     ############################################################################
-    account_sid = fields.Char('Account SID')
-    auth_token = fields.Char('Auth Token')
+    shipwire_username = fields.Char('Username')
+    shipwire_password = fields.Char('Password')
 
     ############################################################################
     # Default Getters
     ############################################################################
-    def get_default_account_sid(self, cr, uid, ids, context=None):
-        account_sid = self.pool.get('ir.config_parameter').get_param(
+    def get_default_shipwire_username(self, cr, uid, ids, context=None):
+        shipwire_username = self.pool.get('ir.config_parameter').get_param(
             cr, uid,
-            'odoo_cenit.twilio.account_sid', default=None,
+            'odoo_cenit.shipwire.shipwire_username', default=None,
             context=context
         )
-        return {'account_sid': account_sid or ''}
+        return {'shipwire_username': shipwire_username or ''}
     
-    def get_default_auth_token(self, cr, uid, ids, context=None):
-        auth_token = self.pool.get('ir.config_parameter').get_param(
+    def get_default_shipwire_password(self, cr, uid, ids, context=None):
+        shipwire_password = self.pool.get('ir.config_parameter').get_param(
             cr, uid,
-            'odoo_cenit.twilio.auth_token', default=None,
+            'odoo_cenit.shipwire.shipwire_password', default=None,
             context=context
         )
-        return {'auth_token': auth_token or ''}
+        return {'shipwire_password': shipwire_password or ''}
     
     ############################################################################
     # Default Setters
     ############################################################################
-    def set_account_sid(self, cr, uid, ids, context=None):
+    def set_shipwire_username(self, cr, uid, ids, context=None):
         config_parameters = self.pool.get('ir.config_parameter')
         for record in self.browse(cr, uid, ids, context=context):
             config_parameters.set_param (
                 cr, uid,
-                'odoo_cenit.twilio.account_sid, record.account_sid or '',
+                'odoo_cenit.shipwire.shipwire_username, record.shipwire_username or '',
                 context=context
             )
     
-    def set_auth_token(self, cr, uid, ids, context=None):
+    def set_shipwire_password(self, cr, uid, ids, context=None):
         config_parameters = self.pool.get('ir.config_parameter')
         for record in self.browse(cr, uid, ids, context=context):
             config_parameters.set_param (
                 cr, uid,
-                'odoo_cenit.twilio.auth_token, record.auth_token or '',
+                'odoo_cenit.shipwire.shipwire_password, record.shipwire_password or '',
                 context=context
             )
     

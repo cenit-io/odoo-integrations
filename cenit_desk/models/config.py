@@ -26,61 +26,80 @@ from openerp import models, fields
 
 _logger = logging.getLogger(__name__)
 
-COLLECTION_NAME = "twilio"
+COLLECTION_NAME = "desk"
 COLLECTION_VERSION = "1.0.0"
 COLLECTION_PARAMS = {
-    "On connection 'Twilio API Conection' template parameter 'account_sid'":'account_sid',
-    "On connection 'Twilio API Conection' template parameter 'auth_token'":'auth_token',
+    "On connection 'Desk Connection' template parameter 'desk_url'":'desk_url',
+    "On connection 'Desk Connection' template parameter 'desk_username'":'desk_username',
+    "On connection 'Desk Connection' template parameter 'desk_password'":'desk_password',
 }
 
 
 class CenitIntegrationSettings(models.TransientModel):
-    _name = "cenit.twilio.settings"
+    _name = "cenit.desk.settings"
     _inherit = 'res.config.settings'
 
     ############################################################################
     # Pull Parameters
     ############################################################################
-    account_sid = fields.Char('Account SID')
-    auth_token = fields.Char('Auth Token')
+    desk_url = fields.Char('Desk URL')
+    desk_username = fields.Char('Desk Username')
+    desk_password = fields.Char('Desk Password')
 
     ############################################################################
     # Default Getters
     ############################################################################
-    def get_default_account_sid(self, cr, uid, ids, context=None):
-        account_sid = self.pool.get('ir.config_parameter').get_param(
+    def get_default_desk_url(self, cr, uid, ids, context=None):
+        desk_url = self.pool.get('ir.config_parameter').get_param(
             cr, uid,
-            'odoo_cenit.twilio.account_sid', default=None,
+            'odoo_cenit.desk.desk_url', default=None,
             context=context
         )
-        return {'account_sid': account_sid or ''}
+        return {'desk_url': desk_url or ''}
     
-    def get_default_auth_token(self, cr, uid, ids, context=None):
-        auth_token = self.pool.get('ir.config_parameter').get_param(
+    def get_default_desk_username(self, cr, uid, ids, context=None):
+        desk_username = self.pool.get('ir.config_parameter').get_param(
             cr, uid,
-            'odoo_cenit.twilio.auth_token', default=None,
+            'odoo_cenit.desk.desk_username', default=None,
             context=context
         )
-        return {'auth_token': auth_token or ''}
+        return {'desk_username': desk_username or ''}
+    
+    def get_default_desk_password(self, cr, uid, ids, context=None):
+        desk_password = self.pool.get('ir.config_parameter').get_param(
+            cr, uid,
+            'odoo_cenit.desk.desk_password', default=None,
+            context=context
+        )
+        return {'desk_password': desk_password or ''}
     
     ############################################################################
     # Default Setters
     ############################################################################
-    def set_account_sid(self, cr, uid, ids, context=None):
+    def set_desk_url(self, cr, uid, ids, context=None):
         config_parameters = self.pool.get('ir.config_parameter')
         for record in self.browse(cr, uid, ids, context=context):
             config_parameters.set_param (
                 cr, uid,
-                'odoo_cenit.twilio.account_sid, record.account_sid or '',
+                'odoo_cenit.desk.desk_url, record.desk_url or '',
                 context=context
             )
     
-    def set_auth_token(self, cr, uid, ids, context=None):
+    def set_desk_username(self, cr, uid, ids, context=None):
         config_parameters = self.pool.get('ir.config_parameter')
         for record in self.browse(cr, uid, ids, context=context):
             config_parameters.set_param (
                 cr, uid,
-                'odoo_cenit.twilio.auth_token, record.auth_token or '',
+                'odoo_cenit.desk.desk_username, record.desk_username or '',
+                context=context
+            )
+    
+    def set_desk_password(self, cr, uid, ids, context=None):
+        config_parameters = self.pool.get('ir.config_parameter')
+        for record in self.browse(cr, uid, ids, context=context):
+            config_parameters.set_param (
+                cr, uid,
+                'odoo_cenit.desk.desk_password, record.desk_password or '',
                 context=context
             )
     

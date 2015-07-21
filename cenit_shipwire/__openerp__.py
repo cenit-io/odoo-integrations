@@ -20,14 +20,14 @@
 ##############################################################################
 
 {
-    'name': 'Twilio API Integration',
+    'name': 'Shipwire Collection package for install integration in CenitHub',
     'version': '1.0.0',
     'author': 'OpenJAF',
     'website': 'http://www.openjaf.com',
     #~ 'license': 'LGPL-3',
     'category': 'Integration',
     'description': """
-        Odoo - Twilio API Integration via Cenit
+        Odoo - Shipwire Collection package for install integration in CenitHub via Cenit
     """,
     'depends': ['cenit_base'],
     'data': [

@@ -41,7 +41,8 @@ class CenitDynamicMapper(models.TransientModel):
             rc.update({"line_type": "field"})
         else:
             domain = [('model', '=', field.relation)]
-            candidates = self.search(domain)
+            cdt_pool = self.env['cenit.data_type']
+            candidates = cdt_pool.search(domain)
 
             if candidates:
                 rc.update({
@@ -90,12 +91,12 @@ class CenitDynamicMapper(models.TransientModel):
         return "".join([s.capitalize() for s in slug.split("_")])
 
     @api.model
-    def schema_from_datatype(self, data_type):
+    def schema_from_data_type(self, data_type):
         schema = data_type.schema
         lines = []
         if not schema:
             schema = {
-                "title": vals["name"],
+                "title": data_type.name,
                 "type": "object",
                 "properties": {},
             }
@@ -108,10 +109,10 @@ class CenitDynamicMapper(models.TransientModel):
             )
 
             model_pool = self.env['ir.model']
-            model = model_pool.browse(vals['model'])
+            model = model_pool.browse(data_type.model)
 
-            if vals.get('lines', False):
-                for _,__,line in vals['lines']:
+            if data_type.lines:
+                for line in data_type.lines:
                     if _ == 0:
                         candidates = [
                             x.name for x in model.field_id if x.name == line[
@@ -120,7 +121,8 @@ class CenitDynamicMapper(models.TransientModel):
                         ]
 
                         if not candidates:
-                            vals['lines'].remove([_,__,line])
+                            #TODO Actually remove line
+                            data_type.lines.remove(line)
 
             for f in model.field_id:
                 if f.name not in odoo_fields:
@@ -133,15 +135,15 @@ class CenitDynamicMapper(models.TransientModel):
                     values.update(self.__match_linetype(f))
                     flag = -1
                     pos = 0
-                    if vals.get('lines', False):
-                        for line in vals['lines']:
-                            if line[2]['name'] == values['name']:
+                    if data_type.lines:
+                        for line in data_type.lines:
+                            if line.name == values['name']:
                                 flag = pos
                                 break
                             else:
                                 pos += 1
 
-                    if vals.get('lines', False) and (flag < 0):
+                    if data_type.lines and (flag < 0):
                         continue
 
                     if values['line_type'] == "field":

@@ -37,7 +37,7 @@ class CenitCollection(models.Model):
     def _update_collection_list(self):
         param_pool = self.env['cenit.collection.parameter']
 
-        path = "/shared_collection"
+        path = "/setup/shared_collection"
         cenit_api = self.env['cenit.api']
         rc = cenit_api.get(path)
 
@@ -58,7 +58,6 @@ class CenitCollection(models.Model):
             else:
                 coll = candidates[0]
                 coll.write(data)
-
 
             params = collection.get('pull_parameters', [])
             param_list = []
@@ -108,7 +107,7 @@ class CenitCollection(models.Model):
         params = dict(
             (param.cenitID, param.value) for param in self.parameters
         )
-        rc = installer.install_collection(self.name, params=params)
+        rc = installer.install_collection(self.sharedID, params=params)
 
         return rc
 

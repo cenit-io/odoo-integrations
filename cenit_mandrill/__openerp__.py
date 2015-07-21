@@ -20,14 +20,14 @@
 ##############################################################################
 
 {
-    'name': 'Twilio API Integration',
+    'name': 'Mandrill API Integration',
     'version': '1.0.0',
     'author': 'OpenJAF',
     'website': 'http://www.openjaf.com',
     #~ 'license': 'LGPL-3',
     'category': 'Integration',
     'description': """
-        Odoo - Twilio API Integration via Cenit
+        Odoo - Mandrill API Integration via Cenit
     """,
     'depends': ['cenit_base'],
     'data': [

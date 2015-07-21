@@ -19,21 +19,4 @@
 #
 ##############################################################################
 
-{
-    'name': 'Twilio API Integration',
-    'version': '1.0.0',
-    'author': 'OpenJAF',
-    'website': 'http://www.openjaf.com',
-    #~ 'license': 'LGPL-3',
-    'category': 'Integration',
-    'description': """
-        Odoo - Twilio API Integration via Cenit
-    """,
-    'depends': ['cenit_base'],
-    'data': [
-        'security/ir.model.access.csv',
-        'view/config.xml',
-        'view/wizard.xml',
-    ],
-    'installable': True
-}
+import config
