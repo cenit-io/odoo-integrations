@@ -91,7 +91,7 @@ class CenitIntegrationSettings(models.TransientModel):
         for record in self.browse(cr, uid, ids, context=context):
             config_parameters.set_param (
                 cr, uid,
-                'odoo_cenit.twitter.consumer_key, record.consumer_key or '',
+                'odoo_cenit.twitter.consumer_key', record.consumer_key or '',
                 context=context
             )
     
@@ -100,7 +100,7 @@ class CenitIntegrationSettings(models.TransientModel):
         for record in self.browse(cr, uid, ids, context=context):
             config_parameters.set_param (
                 cr, uid,
-                'odoo_cenit.twitter.consumer_secret, record.consumer_secret or '',
+                'odoo_cenit.twitter.consumer_secret', record.consumer_secret or '',
                 context=context
             )
     
@@ -109,7 +109,7 @@ class CenitIntegrationSettings(models.TransientModel):
         for record in self.browse(cr, uid, ids, context=context):
             config_parameters.set_param (
                 cr, uid,
-                'odoo_cenit.twitter.oauth_token, record.oauth_token or '',
+                'odoo_cenit.twitter.oauth_token', record.oauth_token or '',
                 context=context
             )
     
@@ -118,7 +118,7 @@ class CenitIntegrationSettings(models.TransientModel):
         for record in self.browse(cr, uid, ids, context=context):
             config_parameters.set_param (
                 cr, uid,
-                'odoo_cenit.twitter.oauth_token_secret, record.oauth_token_secret or '',
+                'odoo_cenit.twitter.oauth_token_secret', record.oauth_token_secret or '',
                 context=context
             )
     

@@ -71,7 +71,7 @@ class CenitIntegrationSettings(models.TransientModel):
         for record in self.browse(cr, uid, ids, context=context):
             config_parameters.set_param (
                 cr, uid,
-                'odoo_cenit.twilio.account_sid, record.account_sid or '',
+                'odoo_cenit.twilio.account_sid', record.account_sid or '',
                 context=context
             )
     
@@ -80,7 +80,7 @@ class CenitIntegrationSettings(models.TransientModel):
         for record in self.browse(cr, uid, ids, context=context):
             config_parameters.set_param (
                 cr, uid,
-                'odoo_cenit.twilio.auth_token, record.auth_token or '',
+                'odoo_cenit.twilio.auth_token', record.auth_token or '',
                 context=context
             )
     

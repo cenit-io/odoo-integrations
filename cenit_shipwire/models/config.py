@@ -71,7 +71,7 @@ class CenitIntegrationSettings(models.TransientModel):
         for record in self.browse(cr, uid, ids, context=context):
             config_parameters.set_param (
                 cr, uid,
-                'odoo_cenit.shipwire.shipwire_username, record.shipwire_username or '',
+                'odoo_cenit.shipwire.shipwire_username', record.shipwire_username or '',
                 context=context
             )
     
@@ -80,7 +80,7 @@ class CenitIntegrationSettings(models.TransientModel):
         for record in self.browse(cr, uid, ids, context=context):
             config_parameters.set_param (
                 cr, uid,
-                'odoo_cenit.shipwire.shipwire_password, record.shipwire_password or '',
+                'odoo_cenit.shipwire.shipwire_password', record.shipwire_password or '',
                 context=context
             )
     

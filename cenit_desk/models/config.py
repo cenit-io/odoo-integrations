@@ -81,7 +81,7 @@ class CenitIntegrationSettings(models.TransientModel):
         for record in self.browse(cr, uid, ids, context=context):
             config_parameters.set_param (
                 cr, uid,
-                'odoo_cenit.desk.desk_url, record.desk_url or '',
+                'odoo_cenit.desk.desk_url', record.desk_url or '',
                 context=context
             )
     
@@ -90,7 +90,7 @@ class CenitIntegrationSettings(models.TransientModel):
         for record in self.browse(cr, uid, ids, context=context):
             config_parameters.set_param (
                 cr, uid,
-                'odoo_cenit.desk.desk_username, record.desk_username or '',
+                'odoo_cenit.desk.desk_username', record.desk_username or '',
                 context=context
             )
     
@@ -99,7 +99,7 @@ class CenitIntegrationSettings(models.TransientModel):
         for record in self.browse(cr, uid, ids, context=context):
             config_parameters.set_param (
                 cr, uid,
-                'odoo_cenit.desk.desk_password, record.desk_password or '',
+                'odoo_cenit.desk.desk_password', record.desk_password or '',
                 context=context
             )
     

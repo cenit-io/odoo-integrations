@@ -61,7 +61,7 @@ class CenitIntegrationSettings(models.TransientModel):
         for record in self.browse(cr, uid, ids, context=context):
             config_parameters.set_param (
                 cr, uid,
-                'odoo_cenit.slack.token, record.token or '',
+                'odoo_cenit.slack.token', record.token or '',
                 context=context
             )
     

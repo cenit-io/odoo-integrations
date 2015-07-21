@@ -81,7 +81,7 @@ class CenitIntegrationSettings(models.TransientModel):
         for record in self.browse(cr, uid, ids, context=context):
             config_parameters.set_param (
                 cr, uid,
-                'odoo_cenit.mailchimp.user, record.user or '',
+                'odoo_cenit.mailchimp.user', record.user or '',
                 context=context
             )
     
@@ -90,7 +90,7 @@ class CenitIntegrationSettings(models.TransientModel):
         for record in self.browse(cr, uid, ids, context=context):
             config_parameters.set_param (
                 cr, uid,
-                'odoo_cenit.mailchimp.password, record.password or '',
+                'odoo_cenit.mailchimp.password', record.password or '',
                 context=context
             )
     
@@ -99,7 +99,7 @@ class CenitIntegrationSettings(models.TransientModel):
         for record in self.browse(cr, uid, ids, context=context):
             config_parameters.set_param (
                 cr, uid,
-                'odoo_cenit.mailchimp.node, record.node or '',
+                'odoo_cenit.mailchimp.node', record.node or '',
                 context=context
             )
     
