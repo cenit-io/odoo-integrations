@@ -26,6 +26,8 @@
     'website': 'http://www.openjaf.com',
     #~ 'license': 'LGPL-3',
     'category': 'Integration',
+    'price': 15.00,
+    'currency': 'EUR',
     'description': """
         Odoo - Mailchimp API Collection via Cenit
     """,
