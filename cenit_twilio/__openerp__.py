@@ -28,8 +28,9 @@
     'website': 'https://www.cenitsaas.com',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
+    'summary': 'Twilio API Integration',
     'description': """
-        Odoo - Twilio API Integration via Cenit
+        Odoo - Twilio integration via Cenit
     """,
     'depends': ['cenit_base'],
     'data': [

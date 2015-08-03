@@ -20,7 +20,7 @@
 ##############################################################################
 
 {
-    'name': 'Shipwire Collection package for install integration in CenitHub',
+    'name': 'Shipwire API Integration',
     'version': '1.0.0',
     'price': 15.00,
     'currency': 'EUR',
@@ -28,8 +28,9 @@
     'website': 'https://www.cenitsaas.com',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
+    'summary': 'Shipwire Collection package for install integration in CenitHub',
     'description': """
-        Odoo - Shipwire Collection package for install integration in CenitHub via Cenit
+        Odoo - Shipwire integration via Cenit
     """,
     'depends': ['cenit_base'],
     'data': [

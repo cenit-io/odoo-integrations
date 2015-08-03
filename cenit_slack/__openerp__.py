@@ -20,7 +20,7 @@
 ##############################################################################
 
 {
-    'name': 'Slack API Collection',
+    'name': 'Slack API Integration',
     'version': '1.0.0',
     'price': 15.00,
     'currency': 'EUR',
@@ -28,8 +28,9 @@
     'website': 'https://www.cenitsaas.com',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
+    'summary': 'Slack API Collection',
     'description': """
-        Odoo - Slack API Collection via Cenit
+        Odoo - Slack integration via Cenit
     """,
     'depends': ['cenit_base'],
     'data': [

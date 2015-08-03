@@ -20,7 +20,7 @@
 ##############################################################################
 
 {
-    'name': 'Mailchimp API Collection',
+    'name': 'Mailchimp API Integration',
     'version': '1.0.0',
     'price': 15.00,
     'currency': 'EUR',
@@ -28,8 +28,9 @@
     'website': 'https://www.cenitsaas.com',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
+    'summary': 'Mailchimp API Collection',
     'description': """
-        Odoo - Mailchimp API Collection via Cenit
+        Odoo - Mailchimp integration via Cenit
     """,
     'depends': ['cenit_base'],
     'data': [

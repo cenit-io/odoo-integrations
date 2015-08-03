@@ -26,8 +26,9 @@
     'website': 'https://www.cenitsaas.com',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
+    'summary': 'Twitter API Integration',
     'description': """
-        Odoo - Twitter API Integration via Cenit
+        Odoo - Twitter integration via Cenit
     """,
     'depends': ['cenit_base'],
     'data': [

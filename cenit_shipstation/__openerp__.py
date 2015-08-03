@@ -20,7 +20,7 @@
 ##############################################################################
 
 {
-    'name': 'Shipstation API Collection',
+    'name': 'Shipstation API Integration',
     'version': '1.0.0',
     'price': 15.00,
     'currency': 'EUR',
@@ -28,8 +28,9 @@
     'website': 'https://www.cenitsaas.com',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
+    'summary': 'Shipstation API Collection',
     'description': """
-        Odoo - Shipstation API Collection via Cenit
+        Odoo - Shipstation integration via Cenit
     """,
     'depends': ['cenit_base'],
     'data': [

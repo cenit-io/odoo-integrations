@@ -28,8 +28,9 @@
     'website': 'https://www.cenitsaas.com',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
+    'summary': 'Mandrill API Integration',
     'description': """
-        Odoo - Mandrill API Integration via Cenit
+        Odoo - Mandrill integration via Cenit
     """,
     'depends': ['cenit_base'],
     'data': [
