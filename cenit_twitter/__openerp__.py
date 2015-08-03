@@ -22,10 +22,10 @@
 {
     'name': 'Twitter API Integration',
     'version': '1.0.0',
-    'author': 'OpenJAF',
-    'website': 'http://www.openjaf.com',
-    #~ 'license': 'LGPL-3',
-    'category': 'Integration',
+    'author': 'Cenit, LLC',
+    'website': 'https://www.cenitsaas.com',
+    # ~ 'license': 'LGPL-3',
+    'category': 'Extra Tools',
     'description': """
         Odoo - Twitter API Integration via Cenit
     """,

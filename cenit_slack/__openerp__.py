@@ -22,12 +22,12 @@
 {
     'name': 'Slack API Collection',
     'version': '1.0.0',
-    'author': 'OpenJAF',
-    'website': 'http://www.openjaf.com',
-    #~ 'license': 'LGPL-3',
-    'category': 'Integration',
     'price': 15.00,
     'currency': 'EUR',
+    'author': 'Cenit, LLC',
+    'website': 'https://www.cenitsaas.com',
+    # ~ 'license': 'LGPL-3',
+    'category': 'Extra Tools',
     'description': """
         Odoo - Slack API Collection via Cenit
     """,
