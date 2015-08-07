@@ -21,7 +21,7 @@
 
 {
     'name': 'Twilio API Integration',
-    'version': '1.0.0',
+    'version': '1.0.1',
     'price': 15.00,
     'currency': 'EUR',
     'author': 'Cenit, LLC',
