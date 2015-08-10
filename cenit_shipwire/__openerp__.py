@@ -20,8 +20,8 @@
 ##############################################################################
 
 {
-    'name': 'Shipwire API Integration',
-    'version': '1.0.1',
+    'name': 'Shipwire Integration',
+    'version': '1.0.2',
     'price': 15.00,
     'currency': 'EUR',
     'author': 'Cenit, LLC',

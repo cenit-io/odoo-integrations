@@ -20,8 +20,8 @@
 ##############################################################################
 
 {
-    'name': 'Twitter API Integration',
-    'version': '1.0.1',
+    'name': 'Twitter Integration',
+    'version': '1.0.2',
     'author': 'Cenit, LLC',
     'website': 'https://www.cenitsaas.com',
     # ~ 'license': 'LGPL-3',

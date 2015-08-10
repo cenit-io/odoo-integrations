@@ -20,8 +20,8 @@
 ##############################################################################
 
 {
-    'name': 'Slack API Integration',
-    'version': '1.0.1',
+    'name': 'Slack Integration',
+    'version': '1.0.2',
     'price': 15.00,
     'currency': 'EUR',
     'author': 'Cenit, LLC',
