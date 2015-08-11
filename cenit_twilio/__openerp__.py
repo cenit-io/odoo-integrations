@@ -24,7 +24,7 @@
     'version': '1.0.2',
     'price': 15.00,
     'currency': 'EUR',
-    'author': 'Cenit, LLC',
+    'author': 'Cenit LLC',
     'website': 'https://www.cenitsaas.com',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
