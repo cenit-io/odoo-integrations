@@ -22,8 +22,8 @@
 {
     'name': 'Shipstation Integration',
     'version': '1.0.2',
-    'price': 15.00,
-    'currency': 'EUR',
+    # 'price': 15.00,
+    # 'currency': 'EUR',
     'author': 'Cenit, OpenJAF',
     'website': 'https://www.cenitsaas.com',
     # ~ 'license': 'LGPL-3',
