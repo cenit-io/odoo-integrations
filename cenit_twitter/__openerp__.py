@@ -21,7 +21,7 @@
 
 {
     'name': 'Twitter Integration',
-    'version': '1.0.2',
+    'version': '1.0.3',
     'author': 'Cenit, OpenJAF',
     'website': 'https://www.cenitsaas.com',
     # ~ 'license': 'LGPL-3',
