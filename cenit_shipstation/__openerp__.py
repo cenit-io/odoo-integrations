@@ -21,7 +21,7 @@
 
 {
     'name': 'Shipstation Integration',
-    'version': '1.0.2',
+    'version': '1.1.0',
     # 'price': 15.00,
     # 'currency': 'EUR',
     'author': 'Cenit, OpenJAF',

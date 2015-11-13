@@ -21,7 +21,7 @@
 
 import logging
 
-from openerp import models, fields
+from openerp import models, fields, exceptions
 
 
 _logger = logging.getLogger(__name__)
@@ -29,8 +29,10 @@ _logger = logging.getLogger(__name__)
 COLLECTION_NAME = "shipstation"
 COLLECTION_VERSION = "1.0.0"
 COLLECTION_PARAMS = {
-    "On connection 'ShipStation API Connection' template parameter 'key'":'key',
-    "On connection 'ShipStation API Connection' template parameter 'secret'":'secret',
+    "On connection 'ShipStation API Connection' template parameter 'key'":
+        'key',
+    "On connection 'ShipStation API Connection' template parameter 'secret'":
+        'secret',
 }
 
 
@@ -104,26 +106,112 @@ class CenitIntegrationSettings(models.TransientModel):
         data = installer.get_collection_data(
             cr, uid,
             COLLECTION_NAME,
-            version = COLLECTION_VERSION,
-            context = context
+            version=COLLECTION_VERSION,
+            context=context
         )
 
         params = {}
         for p in data.get('params'):
             k = p.get('parameter')
             id_ = p.get('id')
-            value = getattr(obj,
-                COLLECTION_PARAMS.get(k)
-            )
-            params.update ({
-                id_: value
-            })
+            value = getattr(obj, COLLECTION_PARAMS.get(k))
+            params.update({id_: value})
 
         installer.install_collection(
             cr, uid,
             data.get('id'),
-            params = params,
-            context = context
+            params=params,
+            context=context
         )
 
+        rc2 = self.post_install(cr, uid, context=context)
+        if not rc2:
+            raise exceptions.AccessError("Something went wrong")
         return rc
+
+    def post_install(self, cr, uid, context=None):
+        icp = self.pool.get("ir.config_parameter")
+
+        hook_pool = self.pool.get("cenit.webhook")
+        role_pool = self.pool.get("cenit.connection.role")
+        flow_pool = self.pool.get("cenit.flow")
+        evnt_pool = self.pool.get("cenit.event")
+        trns_pool = self.pool.get("cenit.translator")
+        schm_pool = self.pool.get("cenit.schema")
+        lbry_pool = self.pool.get("cenit.library")
+
+        cenit_api = self.pool.get("cenit.api")
+        cenit_installer = self.pool.get("cenit.collection.installer")
+
+        hook_id = icp.get_param(cr, uid, "cenit.odoo_feedback.hook", default=1)
+        role_id = icp.get_param(cr, uid, "cenit.odoo_feedback.role", default=1)
+
+        LIB_NAME = "Shipstation"
+        domain = [("name", "=", LIB_NAME)]
+        lbry = lbry_pool.search(cr, uid, domain, context=context)
+        if not lbry:
+            err_msg = "Expected Cenit Library '%s' not found" % (LIB_NAME,)
+            _logger.error(err_msg)
+            raise exceptions.MissingError(err_msg)
+        lib_id = lbry and lbry[0]
+
+        SCH_NAME = "Order.json"
+        domain = [("name", "=", SCH_NAME), ("library", "=", lib_id)]
+        schm = schm_pool.search(cr, uid, domain, context=context)
+        if not schm:
+            err_msg = "Expected Cenit Schema '%s %s' not found" % (
+                LIB_NAME, SCH_NAME)
+            _logger.error(err_msg)
+            raise exceptions.MissingError(err_msg)
+        sch_id = schm and schm[0]
+        schema = schm_pool.browse(cr, uid, sch_id)
+
+        TR_NAME = "Export Model"
+        domain = [("name", "=", TR_NAME), ("namespace", "=", LIB_NAME)]
+        trns = trns_pool.search(cr, uid, domain, context=context)
+        if not trns:
+            err_msg = "Expected Cenit Translator '%s %s' not found" % (
+                LIB_NAME, TR_NAME)
+            _logger.error(err_msg)
+            raise exceptions.MissingError(err_msg)
+        trans_id = trns and trns[0]
+
+        EV_NAME = "Shipstation Order update_at"
+        evnt_data = {"event": {
+            "namespace": "Odoo",
+            "name": EV_NAME,
+            "_type": "Setup::Observer",
+            "data_type": {
+                "_reference": True,
+                "id": schema.cenitID
+            },
+            "triggers":
+                '{"updated_at":{"0":{"o":"_presence_change","v":["","",""]}}}',
+            "_primary": ["namespace", "name"]
+        }}
+        rc = cenit_api.post(cr, uid, "/setup/push", evnt_data)
+        rc_data = rc.get('success', {}).get("events", [])
+        if rc_data:
+            cenit_installer._install_events(cr, uid, rc_data)
+
+        domain = [("name", "=", EV_NAME), ("namespace", "=", "Odoo")]
+        evnt = evnt_pool.search(cr, uid, domain, context=context)
+        if not evnt:
+            err_msg = "Expected Cenit Event '%s' not found" % (EV_NAME,)
+            _logger.error(err_msg)
+            raise exceptions.MissingError(err_msg)
+        ev_id = evnt and evnt[0]
+
+        flow_data = {
+            "namespace": "Odoo",
+            "name": "ShipStation API <- Order.json feedback",
+            "format_": "application/json",
+            "cenit_translator": trans_id,
+            "connection_role": role_id,
+            "webhook": hook_id,
+            "schema": sch_id,
+            "event": ev_id,
+        }
+        flow_pool.create(cr, uid, flow_data, context=context)
+
+        return True
