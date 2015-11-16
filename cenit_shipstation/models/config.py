@@ -146,6 +146,7 @@ class CenitIntegrationSettings(models.TransientModel):
         hook_id = icp.get_param(cr, uid, "cenit.odoo_feedback.hook", default=1)
         role_id = icp.get_param(cr, uid, "cenit.odoo_feedback.role", default=1)
 
+        SELF_NSPACE = "Odoo"
         LIB_NAME = "Shipstation"
         domain = [("name", "=", LIB_NAME)]
         lbry = lbry_pool.search(cr, uid, domain, context=context)
@@ -159,7 +160,7 @@ class CenitIntegrationSettings(models.TransientModel):
         domain = [("name", "=", SCH_NAME), ("library", "=", lib_id)]
         schm = schm_pool.search(cr, uid, domain, context=context)
         if not schm:
-            err_msg = "Expected Cenit Schema '%s %s' not found" % (
+            err_msg = "Expected Cenit Schema '[%s] %s' not found" % (
                 LIB_NAME, SCH_NAME)
             _logger.error(err_msg)
             raise exceptions.MissingError(err_msg)
@@ -167,10 +168,11 @@ class CenitIntegrationSettings(models.TransientModel):
         schema = schm_pool.browse(cr, uid, sch_id)
 
         TR_NAME = "Export Model"
+        NSPACE = "shipstation"
         domain = [("name", "=", TR_NAME), ("namespace", "=", LIB_NAME)]
         trns = trns_pool.search(cr, uid, domain, context=context)
         if not trns:
-            err_msg = "Expected Cenit Translator '%s %s' not found" % (
+            err_msg = "Expected Cenit Translator '[%s] %s' not found" % (
                 LIB_NAME, TR_NAME)
             _logger.error(err_msg)
             raise exceptions.MissingError(err_msg)
@@ -178,7 +180,7 @@ class CenitIntegrationSettings(models.TransientModel):
 
         EV_NAME = "Shipstation Order update_at"
         evnt_data = {"event": {
-            "namespace": "Odoo",
+            "namespace": SELF_NSPACE,
             "name": EV_NAME,
             "_type": "Setup::Observer",
             "data_type": {
@@ -202,9 +204,11 @@ class CenitIntegrationSettings(models.TransientModel):
             raise exceptions.MissingError(err_msg)
         ev_id = evnt and evnt[0]
 
+        FL_NAME = "{} API <- {} feedback".format(LIB_NAME, SCH_NAME)
+
         flow_data = {
-            "namespace": "Odoo",
-            "name": "ShipStation API <- Order.json feedback",
+            "namespace": SELF_NSPACE,
+            "name": FL_NAME,
             "format_": "application/json",
             "cenit_translator": trans_id,
             "connection_role": role_id,
@@ -212,6 +216,34 @@ class CenitIntegrationSettings(models.TransientModel):
             "schema": sch_id,
             "event": ev_id,
         }
-        flow_pool.create(cr, uid, flow_data, context=context)
+
+        domain = [
+            ("namespace", "=", SELF_NSPACE),
+            ("name", "=", FL_NAME),
+        ]
+        candidates = flow_pool.search(cr, uid, domain)
+        fid = candidates and candidates[0]
+        if fid:
+            flow_pool.write(cr, uid, fid, flow_data)
+        else:
+            flow_pool.create(cr, uid, flow_data, context=context)
+
+        feedback_flows = ["Create Order",]
+        for name in feedback_flows:
+            domain = [("namespace", "=", NSPACE), ("name", "=", name)]
+            rc = flow_pool.search(cr, uid, domain)
+            fid = rc and rc[0]
+
+            if fid:
+                flow = flow_pool.browse(cr, uid, fid)
+                if flow.discard_events:
+                    payload = {
+                        "flow": {
+                            "id": flow.cenitID,
+                            "discard_events": False,
+                        }
+                    }
+                    rc = cenit_api.post(cr, uid, "/setup/push", payload)
+                    _logger.info("\n\nRC: %s\n", rc)
 
         return True
