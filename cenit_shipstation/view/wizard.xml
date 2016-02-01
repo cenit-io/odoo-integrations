@@ -23,6 +23,7 @@
                     <group>
                             <field name='key' placeholder='Your Shipstation Key' />
                             <field name='secret' placeholder='Your Shipstation Secret' />
+                            <field name='store_id' placeholder='Your Shipstation Store' />
                     </group>
                 </separator>
             </field>
