@@ -40,6 +40,7 @@ class CenitIntegrationSettings(models.TransientModel):
     ############################################################################
     key = fields.Char('Shipstation Key')
     secret = fields.Char('Shipstation Secret')
+    store_id = fields.Char('Shipstation Store')
 
     ############################################################################
     # Default Getters
@@ -59,6 +60,14 @@ class CenitIntegrationSettings(models.TransientModel):
             context=context
         )
         return {'secret': secret or ''}
+
+    def get_default_store_id(self, cr, uid, ids, context=None):
+        store_id = self.pool.get('ir.config_parameter').get_param(
+            cr, uid,
+            'odoo_cenit.shipstation.store_id', default=None,
+            context=context
+        )
+        return {'store_id': store_id or ''}
     
     ############################################################################
     # Default Setters
@@ -71,13 +80,22 @@ class CenitIntegrationSettings(models.TransientModel):
                 'odoo_cenit.shipstation.key', record.key or '',
                 context=context
             )
-    
+
     def set_secret(self, cr, uid, ids, context=None):
         config_parameters = self.pool.get('ir.config_parameter')
         for record in self.browse(cr, uid, ids, context=context):
             config_parameters.set_param (
                 cr, uid,
                 'odoo_cenit.shipstation.secret', record.secret or '',
+                context=context
+            )
+
+    def set_store_id(self, cr, uid, ids, context=None):
+        config_parameters = self.pool.get('ir.config_parameter')
+        for record in self.browse(cr, uid, ids, context=context):
+            config_parameters.set_param(
+                cr, uid,
+                'odoo_cenit.shipstation.store_id', record.store_id or '',
                 context=context
             )
     
