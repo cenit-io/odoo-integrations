@@ -19,9 +19,6 @@
 #
 ##############################################################################
 
-<<<<<<< HEAD
+
 import models
 import controllers
-=======
-import models
->>>>>>> 16dff7ec73290dadc5d11ec125b19dc9fa96d664
