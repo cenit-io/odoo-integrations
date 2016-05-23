@@ -60,6 +60,9 @@ class SunatWebhookController(http.Controller):
                             }
                             email = request.registry['mail.message'].create(cr, SUPERUSER_ID, email_data)
 
+                            request.registry['account.invoice'].write(cr, SUPERUSER_ID, invoice,
+                                                                      {'document_state_sunat': document['state']}, context=context)
+
                 status_code = 200
             else:
                 status_code = 404

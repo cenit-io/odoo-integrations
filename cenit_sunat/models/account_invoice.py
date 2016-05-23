@@ -19,24 +19,12 @@
 #
 ##############################################################################
 
-{
-    'name': 'SUNAT Integration',
-    'version': '0.1.0',
-    # 'price': 15.00,
-    # 'currency': 'EUR',
-    'author': 'Cenit, OpenJAF',
-    'website': 'https://www.cenitsaas.com',
-    # ~ 'license': 'LGPL-3',
-    'category': 'Extra Tools',
-    'summary': 'SUNAT API Collection',
-    'description': """
-        Odoo - SUNAT integration via Cenit
-    """,
-    'depends': ['cenit_base'],
-    'data': [
-        'security/ir.model.access.csv',
-        'data.xml',
-        'view/account_invoice_view.xml',
-    ],
-    'installable': True
-}
+from openerp.osv import osv, fields
+
+
+class account_invoice(osv.osv):
+    _inherit = 'account.invoice'
+    _columns = {
+            'document_state_sunat': fields.char(string='Estado SUNAT', readonly=True, help='Estado del documento en la SUNAT'),
+        }
+account_invoice()

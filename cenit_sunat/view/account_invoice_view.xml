@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="view_doc_sunat_account_invoice_form_inherit">
+            <field name='name'>account.invoice.doc.state.sunat.form</field>
+            <field name='model'>account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_form"/>
+            <field name='type'>form</field>
+            <field name='arch' type='xml'>
+                <field name="fiscal_position" position="after">
+                    <field name="document_state_sunat" class="oe_inline" style="font-weight:bold"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</openerp>
