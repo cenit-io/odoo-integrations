@@ -19,10 +19,11 @@
 #
 ##############################################################################
 
-from openerp import fields, models
+from openerp.osv import osv, fields
 
 
-class account_invoice(models.Model):
+class account_invoice(osv.osv):
     _inherit = 'account.invoice'
-
-    document_state_sunat = fields.Char(string='Estado SUNAT', readonly=True, help='Estado del documento en la SUNAT'),
+    _columns = {
+            'document_state_sunat': fields.char(string='Estado SUNAT', readonly=True, help='Estado del documento en la SUNAT'),
+        }
