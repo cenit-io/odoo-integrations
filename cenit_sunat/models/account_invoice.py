@@ -27,4 +27,3 @@ class account_invoice(osv.osv):
     _columns = {
             'document_state_sunat': fields.char(string='Estado SUNAT', readonly=True, help='Estado del documento en la SUNAT'),
         }
-account_invoice()
