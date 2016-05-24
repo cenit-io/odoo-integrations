@@ -35,55 +35,7 @@ class CenitIntegrationSettings(models.TransientModel):
     _name = "cenit.ublpe.settings"
     _inherit = 'res.config.settings'
 
-    ############################################################################
-    # Pull Parameters
-    ############################################################################
-    #key = fields.Char('Shipstation Key')
-    #secret = fields.Char('Shipstation Secret')
-
-    ############################################################################
-    # Default Getters
-    ############################################################################
-    '''
-    def get_default_key(self, cr, uid, ids, context=None):
-        key = self.pool.get('ir.config_parameter').get_param(
-            cr, uid,
-            'odoo_cenit.shipstation.key', default=None,
-            context=context
-        )
-        return {'key': key or ''}
-
-    def get_default_secret(self, cr, uid, ids, context=None):
-        secret = self.pool.get('ir.config_parameter').get_param(
-            cr, uid,
-            'odoo_cenit.shipstation.secret', default=None,
-            context=context
-        )
-        return {'secret': secret or ''}
-    
-    ############################################################################
-    # Default Setters
-    ############################################################################
-    def set_key(self, cr, uid, ids, context=None):
-        config_parameters = self.pool.get('ir.config_parameter')
-        for record in self.browse(cr, uid, ids, context=context):
-            config_parameters.set_param (
-                cr, uid,
-                'odoo_cenit.shipstation.key', record.key or '',
-                context=context
-            )
-    
-    def set_secret(self, cr, uid, ids, context=None):
-        config_parameters = self.pool.get('ir.config_parameter')
-        for record in self.browse(cr, uid, ids, context=context):
-            config_parameters.set_param (
-                cr, uid,
-                'odoo_cenit.shipstation.secret', record.secret or '',
-                context=context
-            )
-    '''
-
-    ############################################################################
+      ############################################################################
     # Actions
     ############################################################################
     def install(self, cr, uid, context=None):
@@ -111,7 +63,33 @@ class CenitIntegrationSettings(models.TransientModel):
             context=context
         )
 
+        self.create_webhook(cr, uid, context)
+
         # rc2 = self.post_install(cr, uid, context=context)
         # if not rc2:
         #     raise exceptions.AccessError("Something went wrong")
 
+    def create_webhook(self, cr, uid, context=None):
+        hook_pool = self.pool.get("cenit.webhook")
+        names_pool = self.pool.get("cenit.namespace")
+        namesp_data = names_pool.search(cr, uid, [('name', '=', 'MyOdoo')], context=context)
+        conn_pool = self.pool.get("cenit.connection")
+        conn_data = conn_pool.search(cr, uid,
+                                     [('name', '=', 'My Odoo host'), ('namespace', '=', namesp_data[0])], context=context)
+        role_pool = self.pool.get("cenit.connection.role")
+
+        if conn_data:
+            hook_data = {
+                "name": "Cenit webhook SUNAT",
+                "path": "cenit/sunat/push",
+                "namespace": namesp_data[0],
+                "method": "post",
+            }
+            domain = [('name', '=', hook_data.get('name')), ('namespace', '=', hook_data.get('namespace'))]
+            hook = hook_pool.search(cr, uid, domain, context= context)
+
+            if not hook:
+                hook = hook_pool.create(cr, uid, hook_data, context=context)
+            #TODO Fix when hook exists
+            # el1  hook[0].with_context(context= context).write({'namespace': hook_data.get('namespace')})
+            #    # hook[0].write(cr, uid, {'namespace': hook_data.get('namespace')}, context= context)

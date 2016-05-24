@@ -25,7 +25,7 @@
     # 'price': 15.00,
     # 'currency': 'EUR',
     'author': 'Cenit, OpenJAF',
-    'website': 'https://www.cenitsaas.com',
+    'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': 'SUNAT API Collection',
@@ -35,7 +35,8 @@
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',
-        'data.xml'
+        'data.xml',
+        'view/account_invoice_view.xml',
     ],
     'installable': True
 }
