@@ -29,7 +29,7 @@ _logger = logging.getLogger(__name__)
 COLLECTION_NAME = "slack"
 COLLECTION_VERSION = "1.0.0"
 COLLECTION_PARAMS = {
-    "On connection 'Slack API Connection' template parameter 'token'":'token',
+    # "On connection 'Slack API Connection' template parameter 'token'":'token',
 }
 
 

@@ -16,7 +16,7 @@
                     </header>
                     <div>
                         <group string="Slack API Collection settings">
-                            <field name='token' placeholder='Your Slack Token' />
+                            <!--<field name='token' placeholder='Your Slack Token' />-->
                         </group>
                     </div>
                 </form>
