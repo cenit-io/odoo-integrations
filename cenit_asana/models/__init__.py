@@ -19,24 +19,4 @@
 #
 ##############################################################################
 
-{
-    'name': 'Mailchimp Integration',
-    'version': '1.0.3',
-    # 'price': 15.00,
-    # 'currency': 'EUR',
-    'author': 'Cenit, OpenJAF',
-    'website': 'https://www.cenitsaas.com',
-    # ~ 'license': 'LGPL-3',
-    'category': 'Extra Tools',
-    'summary': 'Mailchimp API Collection',
-    'description': """
-        Odoo - Mailchimp integration via Cenit
-    """,
-    'depends': ['cenit_base', 'cenit_mandrill'],
-    'data': [
-        'security/ir.model.access.csv',
-        'view/config.xml',
-        'view/wizard.xml',
-    ],
-    'installable': True
-}
+import config

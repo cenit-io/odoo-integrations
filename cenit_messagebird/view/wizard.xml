@@ -2,13 +2,13 @@
 <openerp>
     <data>
 
-        <record id="wizard_cenit_shipstation_install" model="ir.ui.view">
-            <field name="name">Shipstation API Collection settings</field>
-            <field name="model">cenit.shipstation.settings</field>
+        <record id="wizard_cenit_bird_install" model="ir.ui.view">
+            <field name="name">MessageBird CENIT Integration settings</field>
+            <field name="model">cenit.bird.settings</field>
             <field name="inherit_id" ref="base.res_config_installer" />
             <field name="arch" type="xml">
                 <form position="attributes">
-                    <attribute name="string">Shipstation API Collection settings</attribute>
+                    <attribute name="string">MessageBird CENIT Integration settings</attribute>
                 </form>
                 <footer position="replace">
                     <footer>
@@ -18,29 +18,27 @@
                 </footer>
                 <separator position="replace">
                     <p class="oe_grey">
-                        Configure Shipstation API Collection data
+                        Configure MessageBird CENIT Integration data
                     </p>
                     <group>
-                            <field name='key' placeholder='Your Shipstation Key' />
-                            <field name='secret' placeholder='Your Shipstation Secret' />
-                            <field name='store_id' placeholder='Your Shipstation Store' />
+                            <field name='access_key' placeholder='Your MessageBird Key' />
                     </group>
                 </separator>
             </field>
         </record>
 
-        <record id="action_wizard_cenit_shipstation_install" model="ir.actions.act_window">
-            <field name="name">Configure Shipstation API Collection data</field>
+        <record id="action_wizard_cenit_bird_install" model="ir.actions.act_window">
+            <field name="name">Configure MesageBird CENIT Integration data</field>
             <field name="type">ir.actions.act_window</field>
-            <field name="res_model">cenit.shipstation.settings</field>
-            <field name="view_id" ref="wizard_cenit_shipstation_install" />
+            <field name="res_model">cenit.bird.settings</field>
+            <field name="view_id" ref="wizard_cenit_bird_install" />
             <field name="view_type">form</field>
             <field name="view_mode">form</field>
             <field name="target">new</field>
         </record>
 
-        <record id="todo_wizard_cenit_shipstation_install" model="ir.actions.todo">
-            <field name="action_id" ref="action_wizard_cenit_shipstation_install"/>
+        <record id="todo_wizard_cenit_bird_install" model="ir.actions.todo">
+            <field name="action_id" ref="action_wizard_cenit_bird_install"/>
             <field name="sequence">1</field>
             <field name="type">automatic</field>
         </record>

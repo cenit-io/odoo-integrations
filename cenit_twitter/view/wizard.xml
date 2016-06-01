@@ -21,10 +21,11 @@
                         Configure Twitter API Integration data
                     </p>
                     <group>
-                            <field name='consumer_key' placeholder='Your Consumer Key' />
-                            <field name='consumer_secret' placeholder='Your Consumer Secret' />
-                            <field name='oauth_token' placeholder='Your Oauth Token' />
-                            <field name='oauth_token_secret' placeholder='Your Oauth Token Secret' />
+                        <i>Nothing to do here, proceed</i>
+                        <!--<field name='consumer_key' placeholder='Your Consumer Key' />-->
+                        <!--<field name='consumer_secret' placeholder='Your Consumer Secret' />-->
+                        <!--<field name='oauth_token' placeholder='Your Oauth Token' />-->
+                        <!--<field name='oauth_token_secret' placeholder='Your Oauth Token Secret' />-->
                     </group>
                 </separator>
             </field>

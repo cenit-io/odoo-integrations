@@ -27,12 +27,12 @@ from openerp import models, fields
 _logger = logging.getLogger(__name__)
 
 COLLECTION_NAME = "twitter"
-COLLECTION_VERSION = "1.0.0"
+COLLECTION_VERSION = "0.0.1"
 COLLECTION_PARAMS = {
-    "On connection 'Twitter API Connection' template parameter 'consumer_key'":'consumer_key',
-    "On connection 'Twitter API Connection' template parameter 'consumer_secret'":'consumer_secret',
-    "On connection 'Twitter API Connection' template parameter 'oauth_token'":'oauth_token',
-    "On connection 'Twitter API Connection' template parameter 'oauth_token_secret'":'oauth_token_secret',
+    # "On connection 'Twitter API Connection' template parameter 'consumer_key'":'consumer_key',
+    # "On connection 'Twitter API Connection' template parameter 'consumer_secret'":'consumer_secret',
+    # "On connection 'Twitter API Connection' template parameter 'oauth_token'":'oauth_token',
+    # "On connection 'Twitter API Connection' template parameter 'oauth_token_secret'":'oauth_token_secret',
 }
 
 
@@ -142,26 +142,24 @@ class CenitIntegrationSettings(models.TransientModel):
         data = installer.get_collection_data(
             cr, uid,
             COLLECTION_NAME,
-            version = COLLECTION_VERSION,
-            context = context
+            version=COLLECTION_VERSION,
+            context=context
         )
 
         params = {}
         for p in data.get('params'):
             k = p.get('parameter')
             id_ = p.get('id')
-            value = getattr(obj,
-                COLLECTION_PARAMS.get(k)
-            )
-            params.update ({
+            value = getattr(obj, COLLECTION_PARAMS.get(k))
+            params.update({
                 id_: value
             })
 
         installer.install_collection(
             cr, uid,
             data.get('id'),
-            params = params,
-            context = context
+            params=params,
+            context=context
         )
 
         return rc

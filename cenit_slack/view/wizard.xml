@@ -21,7 +21,8 @@
                         Configure Slack API Collection data
                     </p>
                     <group>
-                            <field name='token' placeholder='Your Slack Token' />
+                        <i>Nothing to do here, proceed</i>
+                        <!--<field name='token' placeholder='Your Slack Token' />-->
                     </group>
                 </separator>
             </field>

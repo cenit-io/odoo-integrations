@@ -16,10 +16,10 @@
                     </header>
                     <div>
                         <group string="Twitter API Integration settings">
-                            <field name='consumer_key' placeholder='Your Consumer Key' />
-                            <field name='consumer_secret' placeholder='Your Consumer Secret' />
-                            <field name='oauth_token' placeholder='Your Oauth Token' />
-                            <field name='oauth_token_secret' placeholder='Your Oauth Token Secret' />
+                            <!--<field name='consumer_key' placeholder='Your Consumer Key' />-->
+                            <!--<field name='consumer_secret' placeholder='Your Consumer Secret' />-->
+                            <!--<field name='oauth_token' placeholder='Your Oauth Token' />-->
+                            <!--<field name='oauth_token_secret' placeholder='Your Oauth Token Secret' />-->
                         </group>
                     </div>
                 </form>

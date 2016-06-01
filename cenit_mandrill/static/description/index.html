@@ -73,3 +73,97 @@
         </div>
     </div>
 </section>
+
+<section class="oe_container oe_dark">
+    <h2 class="oe_slogan oe_mt32">Featuring...</h2>
+    <div class="oe_row oe_spaced">
+        <h3 class="oe_leftalign">Data definitions</h3>
+        <div class="oe_span6">
+            <p>Various <i>Schemas</i> that will allow you to map your Odoo
+            models as Mandrill's.</p>
+        </div>
+        <div class="oe_span6">
+            <p></p>
+            <ul>
+                <li>Message</li>
+                <li>Attachment</li>
+                <li>User</li>
+            </ul>
+        </div>
+    </div>
+    <div class="oe_row oe_spaced">
+        <h3 class="oe_leftalign">Set ups</h3>
+        <div class="oe_span6">
+            <p>Several <i>Webhooks</i> where you can send or get data.</p>
+        </div>
+        <div class="oe_span6">
+            <p></p>
+            <ul>
+                <li>Message Send Template</li>
+                <li>Message Send</li>
+                <li>User Info</li>
+            </ul>
+        </div>
+        <div class="oe_span6">
+            <p>A handful of <i>Events</i> and <i>Translators</i> to decide
+                when and how perform transformations.</p>
+        </div>
+        <div class="oe_span6">
+            <p>Events:</p>
+            <ul>
+                <li>Message create_at</li>
+                <li>Sender update_at</li>
+            </ul>
+            <p>Translators:</p>
+            <ul>
+                <li>Export Message</li>
+            </ul>
+        </div>
+        <div class="oe_span6">
+            <p>Out of the Box <i>Flows</i> so you can focus on what's really
+                important.</p>
+        </div>
+        <div class="oe_span6">
+            <p></p>
+            <ul>
+                <li>Mandrill API -> Message Send</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container oe_dark">
+    <h2 class="oe_slogan oe_mt32">First steps</h2>
+    <div class="oe_row oe_spaced">
+        <div class="oe_span6">
+            <h3>There's really only one thing you need to do: Map your models</h3>
+            <ul>
+                <li>Go to the <i>Cenit Integrations</i> menu.</li>
+                <li>Create a new <i>Data type</i>
+                    <ul>
+                        <li>Name it as you will.</li>
+                        <li>Select the model you wish to send over to Mandrill
+                            (say 'Mass Mailing').</li>
+                        <li>Select the 'Mandrill' library.</li>
+                        <li>and the specific schema you want to use (say
+                            'message.json').</li>
+                        <li>On the <i>Mappings</i> tab set how you want your
+                            mass mailing to translate to Mandrill.</li>
+                        <li>Save your work.</li>
+                    </ul>
+                </li>
+            </ul>
+            <p>That's it! Everytime you create or modify a Mass Mailing in Odoo, a message will
+            be create on your Mandrill account.</p>
+        </div>
+        <div class="oe_span6">
+            <div class="oe_screenshot oe_demo">
+                <img src="mapping.png">
+            </div>
+            <p class="oe_mt32">For more on mapping check the Documentation tab
+                of the <a
+                        href="https://www.odoo.com/apps/modules/8.0/cenit_base/">
+                    Cenit Integrations Client</a>.</p>
+        </div>
+    </div>
+</section>

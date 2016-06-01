@@ -26,45 +26,50 @@ from openerp import models, fields
 
 _logger = logging.getLogger(__name__)
 
-COLLECTION_NAME = "slack"
+COLLECTION_NAME = "asana"
 COLLECTION_VERSION = "1.0.0"
 COLLECTION_PARAMS = {
-    # "On connection 'Slack API Connection' template parameter 'token'":'token',
+    "On connection 'Asana API Connection' template parameter 'asana_token'":'asana_token',
 }
 
 
 class CenitIntegrationSettings(models.TransientModel):
-    _name = "cenit.slack.settings"
+    _name = "cenit.asana.settings"
     _inherit = 'res.config.settings'
 
     ############################################################################
     # Pull Parameters
     ############################################################################
-    token = fields.Char('Slack Token')
+    asana_token = fields.Char('Asana Token')
+
+
 
     ############################################################################
     # Default Getters
     ############################################################################
-    def get_default_token(self, cr, uid, ids, context=None):
-        token = self.pool.get('ir.config_parameter').get_param(
+    def get_default_asana_token(self, cr, uid, ids, context=None):
+        asana_token = self.pool.get('ir.config_parameter').get_param(
             cr, uid,
-            'odoo_cenit.slack.token', default=None,
+            'odoo_cenit.asana.asana_token', default=None,
             context=context
         )
-        return {'token': token or ''}
+        return {'asana_token': asana_token or ''}
     
+
+
     ############################################################################
     # Default Setters
     ############################################################################
-    def set_token(self, cr, uid, ids, context=None):
+    def set_asana_token(self, cr, uid, ids, context=None):
         config_parameters = self.pool.get('ir.config_parameter')
         for record in self.browse(cr, uid, ids, context=context):
             config_parameters.set_param (
                 cr, uid,
-                'odoo_cenit.slack.token', record.token or '',
+                'odoo_cenit.asana.asana_token', record.asana_token or '',
                 context=context
             )
     
+
     ############################################################################
     # Actions
     ############################################################################
@@ -90,15 +95,12 @@ class CenitIntegrationSettings(models.TransientModel):
         )
 
         params = {}
+
         for p in data.get('params'):
             k = p.get('parameter')
             id_ = p.get('id')
-            value = getattr(obj,
-                COLLECTION_PARAMS.get(k)
-            )
-            params.update ({
-                id_: value
-            })
+            value = getattr(obj, COLLECTION_PARAMS.values().__getitem__(0))
+            params.update({id_: value})
 
         installer.install_collection(
             cr, uid,

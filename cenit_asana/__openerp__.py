@@ -20,19 +20,19 @@
 ##############################################################################
 
 {
-    'name': 'Mailchimp Integration',
-    'version': '1.0.3',
+    'name': 'Asana Integration',
+    'version': '0.1.0',
     # 'price': 15.00,
     # 'currency': 'EUR',
     'author': 'Cenit, OpenJAF',
     'website': 'https://www.cenitsaas.com',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'Mailchimp API Collection',
+    'summary': 'Asana API Integration',
     'description': """
-        Odoo - Mailchimp integration via Cenit
+        Odoo - Asana integration via Cenit
     """,
-    'depends': ['cenit_base', 'cenit_mandrill'],
+    'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',
         'view/config.xml',

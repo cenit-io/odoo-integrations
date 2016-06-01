@@ -1,7 +1,7 @@
 <section class="oe_container">
     <div class="oe_row oe_spaced">
         <div class="oe_span12">
-            <h2 class="oe_slogan">Desk Integration</h2>
+            <h2 class="oe_slogan">MessageBird Integration</h2>
             <h3 class="oe_slogan">Powered by cenitsaas.com</h3>
         </div>
         <div class="oe_span12">
@@ -16,7 +16,7 @@
         <div class="oe_span12 ow_websiteonly">
             <p class="oe_mt32">This addon needs the <a
                     href="https://www.odoo.com/apps/modules/8.0/cenit_base/">Cenit
-                Itegrations Client</a> (don't worry: it is free)</p>
+                Integrations Client</a> (don't worry: it is free)</p>
         </div>
     </div>
 </section>
@@ -24,39 +24,35 @@
 <section class="oe_container oe_dark">
     <div class="oe_row oe_spaced">
         <h2 class="oe_slogan">Setting up...</h2>
-
         <div class="oe_span6">
             <div class="oe_picture oe_screenshot oe_demo">
-                <a href="https://desk.com/register">
-                    <img src="desk.png">
+                <a href="https://messagebird.com/register">
+                    <img src="messagebird.png">
                 </a>
             </div>
             <div>
                 <p>First things first: <a
-                        href="https://desk.com/register">SignUp
-                    with Desk</a></p>
+                        href="https://messagebird.com">SignUp
+                    with MessageBird</a></p>
             </div>
         </div>
-        <div class="oe_span6">
+         <div class="oe_span6">
             <div class="oe_picture oe_screenshot oe_demo">
-                <a href="https://login.desk.com">
-                    <img src="account-info.png">
-                </a>
+                <img src="mbird_apikey.png">
             </div>
             <div>
-                <p>All we need is your username, password and account url.</p>
-
-                <p>If unsure head on to <a href="https://login.desk.com">https://login.desk.com</a>
-                and take note of them</p>
+                <p>From your Dashboard go to API, select <i>API Access Rest</i>
+                    tab. If you don't have any api key, generate it.</p>
             </div>
         </div>
+
     </div>
     <div class="oe_row oe_spaced">
         <div class="oe_span12 oe_mt32">
             <h3>That's pretty much it</h3>
         </div>
         <div class="oe_span4">
-            <p>After installing the addon a form will let you set the data</p>
+            <p>After installing the addon a form will let you set the data.</p>
         </div>
         <div class="oe_span8">
             <div class="oe_picture oe_screenshot oe_demo">
@@ -72,15 +68,13 @@
         <h3 class="oe_leftalign">Data definitions</h3>
         <div class="oe_span6">
             <p>Various <i>Schemas</i> that will allow you to map your Odoo
-            models as Desk's.</p>
+            models as MessageBird's.</p>
         </div>
         <div class="oe_span6">
             <p></p>
             <ul>
-                <li>Ticket</li>
-                <li>SMS</li>
-                <li>Member</li>
                 <li>Message</li>
+                <li>Item</li>
             </ul>
         </div>
     </div>
@@ -92,8 +86,8 @@
         <div class="oe_span6">
             <p></p>
             <ul>
-                <li>Create Ticket</li>
-                <p></p>
+                <li>Message Send</li>
+                <li>Message by ID</li>
             </ul>
         </div>
         <div class="oe_span6">
@@ -103,11 +97,12 @@
         <div class="oe_span6">
             <p>Events:</p>
             <ul>
-                <li>Ticket on created_at</li>
+                <li>Message create_at</li>
             </ul>
             <p>Translators:</p>
             <ul>
-                <li>Make Request</li>
+                <li>Export Message</li>
+                <li>Update Model</li>
             </ul>
         </div>
         <div class="oe_span6">
@@ -117,7 +112,7 @@
         <div class="oe_span6">
             <p></p>
             <ul>
-                <li>Send Ticket with Desk</li>
+                <li>Send Message</li>
             </ul>
         </div>
     </div>
@@ -133,19 +128,19 @@
                 <li>Create a new <i>Data type</i>
                     <ul>
                         <li>Name it as you will.</li>
-                        <li>Select the model you wish to send over to Desk
-                            (say 'Helpdesk').</li>
-                        <li>Select the 'Communication' library</li>
+                        <li>Select the model you wish to send over to MessageBird
+                            (say 'Email composition wizard').</li>
+                        <li>Select the 'Messagebird' library</li>
                         <li>and the specific schema you want to use (say
-                            'ticket.json').</li>
+                            'message.json').</li>
                         <li>On the <i>Mappings</i> tab set how you want your
-                            helpdesks to translate to desk</li>
+                            odoo's emails to translate to MessageBird</li>
                         <li>Save your work.</li>
                     </ul>
                 </li>
             </ul>
-            <p>That's it! Everytime you create or modify a HelpDesk in Odoo, a ticket will
-            be create on your Desk account.</p>
+            <p>That's it! Everytime you create or modify an email in Odoo, a message will
+            be create on your MessageBird account.</p>
         </div>
         <div class="oe_span6">
             <div class="oe_screenshot oe_demo">

@@ -18,6 +18,7 @@
                         <group string="Shipstation API Collection settings">
                             <field name='key' placeholder='Your Shipstation Key' />
                             <field name='secret' placeholder='Your Shipstation Secret' />
+                            <field name='store_id' placeholder='Your Shipstation Store' />
                         </group>
                     </div>
                 </form>

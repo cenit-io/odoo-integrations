@@ -26,45 +26,49 @@ from openerp import models, fields
 
 _logger = logging.getLogger(__name__)
 
-COLLECTION_NAME = "slack"
+COLLECTION_NAME = "messagebird"
 COLLECTION_VERSION = "1.0.0"
 COLLECTION_PARAMS = {
-    # "On connection 'Slack API Connection' template parameter 'token'":'token',
+    "On connection 'MessageBird API Connection' template parameter 'access_key'":'access_key',
 }
 
 
 class CenitIntegrationSettings(models.TransientModel):
-    _name = "cenit.slack.settings"
+    _name = "cenit.bird.settings"
     _inherit = 'res.config.settings'
 
     ############################################################################
     # Pull Parameters
     ############################################################################
-    token = fields.Char('Slack Token')
+    access_key = fields.Char('MessageBird Key')
+
 
     ############################################################################
     # Default Getters
     ############################################################################
-    def get_default_token(self, cr, uid, ids, context=None):
-        token = self.pool.get('ir.config_parameter').get_param(
+    def get_default_access_key(self, cr, uid, ids, context=None):
+        access_key = self.pool.get('ir.config_parameter').get_param(
             cr, uid,
-            'odoo_cenit.slack.token', default=None,
+            'odoo_cenit.bird.access_key', default=None,
             context=context
         )
-        return {'token': token or ''}
+        return {'access_key': access_key or ''}
     
+
+
     ############################################################################
     # Default Setters
     ############################################################################
-    def set_token(self, cr, uid, ids, context=None):
+    def set_asana_access_key(self, cr, uid, ids, context=None):
         config_parameters = self.pool.get('ir.config_parameter')
         for record in self.browse(cr, uid, ids, context=context):
             config_parameters.set_param (
                 cr, uid,
-                'odoo_cenit.slack.token', record.token or '',
+                'odoo_cenit.bird.access_key', record.access_key or '',
                 context=context
             )
     
+
     ############################################################################
     # Actions
     ############################################################################
@@ -90,15 +94,12 @@ class CenitIntegrationSettings(models.TransientModel):
         )
 
         params = {}
+
         for p in data.get('params'):
             k = p.get('parameter')
             id_ = p.get('id')
-            value = getattr(obj,
-                COLLECTION_PARAMS.get(k)
-            )
-            params.update ({
-                id_: value
-            })
+            value = getattr(obj, COLLECTION_PARAMS.values().__getitem__(0))
+            params.update({id_: value})
 
         installer.install_collection(
             cr, uid,
