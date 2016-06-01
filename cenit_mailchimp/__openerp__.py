@@ -21,7 +21,7 @@
 
 {
     'name': 'Mailchimp Integration',
-    'version': '1.0.2',
+    'version': '1.0.3',
     # 'price': 15.00,
     # 'currency': 'EUR',
     'author': 'Cenit, OpenJAF',
@@ -32,7 +32,7 @@
     'description': """
         Odoo - Mailchimp integration via Cenit
     """,
-    'depends': ['cenit_base'],
+    'depends': ['cenit_base', 'cenit_mandrill'],
     'data': [
         'security/ir.model.access.csv',
         'view/config.xml',
