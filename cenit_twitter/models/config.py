@@ -27,12 +27,12 @@ from openerp import models, fields
 _logger = logging.getLogger(__name__)
 
 COLLECTION_NAME = "twitter"
-COLLECTION_VERSION = "1.0.0"
+COLLECTION_VERSION = "0.0.1"
 COLLECTION_PARAMS = {
-    "On connection 'Twitter API Connection' template parameter 'consumer_key'":'consumer_key',
-    "On connection 'Twitter API Connection' template parameter 'consumer_secret'":'consumer_secret',
-    "On connection 'Twitter API Connection' template parameter 'oauth_token'":'oauth_token',
-    "On connection 'Twitter API Connection' template parameter 'oauth_token_secret'":'oauth_token_secret',
+    # "On connection 'Twitter API Connection' template parameter 'consumer_key'":'consumer_key',
+    # "On connection 'Twitter API Connection' template parameter 'consumer_secret'":'consumer_secret',
+    # "On connection 'Twitter API Connection' template parameter 'oauth_token'":'oauth_token',
+    # "On connection 'Twitter API Connection' template parameter 'oauth_token_secret'":'oauth_token_secret',
 }
 
 
