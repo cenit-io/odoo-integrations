@@ -101,11 +101,6 @@ class CenitIntegrationSettings(models.TransientModel):
             value = getattr(obj, COLLECTION_PARAMS.values().__getitem__(0))
             params.update({id_: value})
 
-        installer.install_collection(
-            cr, uid,
-            data.get('id'),
-            params = params,
-            context = context
-        )
+        installer.pull_shared_collection(cr, uid, data.get('id'), params=params, context=context)
 
         return rc

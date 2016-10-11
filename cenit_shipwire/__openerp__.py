@@ -24,11 +24,11 @@
     'version': '1.0.2',
     # 'price': 15.00,
     # 'currency': 'EUR',
-    'author': 'Cenit, OpenJAF',
-    'website': 'https://www.cenitsaas.com',
+    'author': 'Cenit',
+    'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'Shipwire Collection package for install integration in CenitHub',
+    'summary': 'Shipwire Collection package for install integration in Cenit IO',
     'description': """
         Odoo - Shipwire integration via Cenit
     """,

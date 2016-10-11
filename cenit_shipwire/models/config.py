@@ -119,11 +119,6 @@ class CenitIntegrationSettings(models.TransientModel):
                 id_: value
             })
 
-        installer.install_collection(
-            cr, uid,
-            data.get('id'),
-            params = params,
-            context = context
-        )
+        installer.pull_shared_collection(cr, uid, data.get('id'), params=params, context=context)
 
         return rc

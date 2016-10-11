@@ -142,8 +142,8 @@ class CenitIntegrationSettings(models.TransientModel):
         data = installer.get_collection_data(
             cr, uid,
             COLLECTION_NAME,
-            version=COLLECTION_VERSION,
-            context=context
+            version = COLLECTION_VERSION,
+            context = context
         )
 
         params = {}
