@@ -22,8 +22,8 @@
 {
     'name': 'Twitter Integration',
     'version': '1.0.4',
-    'author': 'Cenit, OpenJAF',
-    'website': 'https://www.cenitsaas.com',
+    'author': 'Cenit',
+    'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': 'Twitter API Integration',
