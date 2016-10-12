@@ -22,13 +22,13 @@
 {
     'name': 'Twitter Integration',
     'version': '1.0.4',
-    'author': 'Cenit',
+    'author': 'Cenit IO',
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': 'Twitter API Integration',
     'description': """
-        Odoo - Twitter integration via Cenit
+        Odoo - Twitter integration via Cenit IO
     """,
     'depends': ['cenit_base'],
     'data': [

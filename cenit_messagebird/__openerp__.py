@@ -22,15 +22,13 @@
 {
     'name': 'MessageBird Integration',
     'version': '0.1.0',
-    # 'price': 15.00,
-    # 'currency': 'EUR',
-    'author': 'Cenit',
+    'author': 'Cenit IO',
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': 'MessageBird API Integration',
     'description': """
-        Odoo - MessageBird integration via Cenit
+        Odoo - MessageBird integration via Cenit IO
     """,
     'depends': ['cenit_base'],
     'data': [
