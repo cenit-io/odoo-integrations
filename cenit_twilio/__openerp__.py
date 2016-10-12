@@ -22,15 +22,13 @@
 {
     'name': 'Twilio Integration',
     'version': '1.0.2',
-    # 'price': 15.00,
-    # 'currency': 'EUR',
-    'author': 'Cenit',
+    'author': 'Cenit IO',
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': 'Twilio API Integration',
     'description': """
-        Odoo - Twilio integration via Cenit
+        Odoo - Twilio integration via Cenit IO
     """,
     'depends': ['cenit_base'],
     'data': [

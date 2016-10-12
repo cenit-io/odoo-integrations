@@ -24,13 +24,13 @@
     'version': '1.0.2',
     # 'price': 15.00,
     # 'currency': 'EUR',
-    'author': 'Cenit',
+    'author': 'Cenit IO',
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'Desk CENIT Integration',
+    'summary': 'Desk Cenit IO Integration',
     'description': """
-        Odoo - Desk integration via Cenit
+        Odoo - Desk integration via Cenit IO
     """,
     'depends': ['cenit_base'],
     'data': [

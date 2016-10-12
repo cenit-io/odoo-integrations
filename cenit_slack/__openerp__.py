@@ -22,15 +22,13 @@
 {
     'name': 'Slack Integration',
     'version': '1.0.2',
-    # 'price': 15.00,
-    # 'currency': 'EUR',
-    'author': 'Cenit',
+    'author': 'Cenit IO',
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': 'Slack API Collection',
     'description': """
-        Odoo - Slack integration via Cenit
+        Odoo - Slack integration via Cenit IO
     """,
     'depends': ['cenit_base'],
     'data': [

@@ -22,15 +22,13 @@
 {
     'name': 'Shipwire Integration',
     'version': '1.0.2',
-    # 'price': 15.00,
-    # 'currency': 'EUR',
-    'author': 'Cenit',
+    'author': 'Cenit IO',
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': 'Shipwire Collection package for install integration in Cenit IO',
     'description': """
-        Odoo - Shipwire integration via Cenit
+        Odoo - Shipwire integration via Cenit IO
     """,
     'depends': ['cenit_base'],
     'data': [

@@ -1,10 +1,10 @@
 **Odoo Integrations** provides specific third party integrations for Odoo
-systems via the [Cenit.io](https://cenit.io) platform.
+systems via the [Cenit IO](https://cenit.io) platform.
 
 Check the docs for each specific integration:
 
 * [Shipstation API Integration]
-(https://github.com/openjaf/odoo-integrations/wiki/Shipstation-API-Integration)
+(https://github.com/cenit-io/odoo-integrations/wiki/Shipstation-API-Integration)
 
 You may also want to check out the
-[Cenit Integrations Client](https://github.com/openjaf/odoo-cenit) for Odoo.
+[Cenit IO Integrations Client](https://github.com/cenit-io/odoo-cenit) for Odoo.
