@@ -29,12 +29,8 @@ _logger = logging.getLogger(__name__)
 COLLECTION_NAME = "twitter"
 COLLECTION_VERSION = "0.0.1"
 COLLECTION_PARAMS = {
-    # "On connection 'Twitter API Connection' template parameter 'consumer_key'":'consumer_key',
-    # "On connection 'Twitter API Connection' template parameter 'consumer_secret'":'consumer_secret',
-    # "On connection 'Twitter API Connection' template parameter 'oauth_token'":'oauth_token',
-    # "On connection 'Twitter API Connection' template parameter 'oauth_token_secret'":'oauth_token_secret',
+    # WITHOUT COLLECTION_PARAMS.
 }
-
 
 class CenitIntegrationSettings(models.TransientModel):
     _name = "cenit.twitter.settings"
@@ -43,85 +39,18 @@ class CenitIntegrationSettings(models.TransientModel):
     ############################################################################
     # Pull Parameters
     ############################################################################
-    consumer_key = fields.Char('Consumer Key')
-    consumer_secret = fields.Char('Consumer Secret')
-    oauth_token = fields.Char('Oauth Token')
-    oauth_token_secret = fields.Char('Oauth Token Secret')
+    # WITHOUT PULL PARAMETERS.
 
     ############################################################################
     # Default Getters
     ############################################################################
-    def get_default_consumer_key(self, cr, uid, ids, context=None):
-        consumer_key = self.pool.get('ir.config_parameter').get_param(
-            cr, uid,
-            'odoo_cenit.twitter.consumer_key', default=None,
-            context=context
-        )
-        return {'consumer_key': consumer_key or ''}
-    
-    def get_default_consumer_secret(self, cr, uid, ids, context=None):
-        consumer_secret = self.pool.get('ir.config_parameter').get_param(
-            cr, uid,
-            'odoo_cenit.twitter.consumer_secret', default=None,
-            context=context
-        )
-        return {'consumer_secret': consumer_secret or ''}
-    
-    def get_default_oauth_token(self, cr, uid, ids, context=None):
-        oauth_token = self.pool.get('ir.config_parameter').get_param(
-            cr, uid,
-            'odoo_cenit.twitter.oauth_token', default=None,
-            context=context
-        )
-        return {'oauth_token': oauth_token or ''}
-    
-    def get_default_oauth_token_secret(self, cr, uid, ids, context=None):
-        oauth_token_secret = self.pool.get('ir.config_parameter').get_param(
-            cr, uid,
-            'odoo_cenit.twitter.oauth_token_secret', default=None,
-            context=context
-        )
-        return {'oauth_token_secret': oauth_token_secret or ''}
-    
+    # WITHOUT GETTERS.
+
     ############################################################################
     # Default Setters
     ############################################################################
-    def set_consumer_key(self, cr, uid, ids, context=None):
-        config_parameters = self.pool.get('ir.config_parameter')
-        for record in self.browse(cr, uid, ids, context=context):
-            config_parameters.set_param (
-                cr, uid,
-                'odoo_cenit.twitter.consumer_key', record.consumer_key or '',
-                context=context
-            )
-    
-    def set_consumer_secret(self, cr, uid, ids, context=None):
-        config_parameters = self.pool.get('ir.config_parameter')
-        for record in self.browse(cr, uid, ids, context=context):
-            config_parameters.set_param (
-                cr, uid,
-                'odoo_cenit.twitter.consumer_secret', record.consumer_secret or '',
-                context=context
-            )
-    
-    def set_oauth_token(self, cr, uid, ids, context=None):
-        config_parameters = self.pool.get('ir.config_parameter')
-        for record in self.browse(cr, uid, ids, context=context):
-            config_parameters.set_param (
-                cr, uid,
-                'odoo_cenit.twitter.oauth_token', record.oauth_token or '',
-                context=context
-            )
-    
-    def set_oauth_token_secret(self, cr, uid, ids, context=None):
-        config_parameters = self.pool.get('ir.config_parameter')
-        for record in self.browse(cr, uid, ids, context=context):
-            config_parameters.set_param (
-                cr, uid,
-                'odoo_cenit.twitter.oauth_token_secret', record.oauth_token_secret or '',
-                context=context
-            )
-    
+    # WITHOUT SETTERS.
+
     ############################################################################
     # Actions
     ############################################################################
@@ -150,16 +79,18 @@ class CenitIntegrationSettings(models.TransientModel):
         for p in data.get('params'):
             k = p.get('parameter')
             id_ = p.get('id')
-            value = getattr(obj, COLLECTION_PARAMS.get(k))
-            params.update({
+            value = getattr(obj,
+                COLLECTION_PARAMS.get(k)
+            )
+            params.update ({
                 id_: value
             })
 
         installer.install_collection(
             cr, uid,
             data.get('id'),
-            params=params,
-            context=context
+            params = params,
+            context = context
         )
 
         return rc

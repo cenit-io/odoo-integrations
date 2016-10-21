@@ -20,21 +20,18 @@
 ##############################################################################
 
 {
-    'name': 'Twitter Integration',
-    'version': '1.0.4',
-    'author': 'Cenit IO',
-    'website': 'https://cenit.io',
-    # ~ 'license': 'LGPL-3',
-    'category': 'Extra Tools',
-    'summary': 'Twitter API Integration',
+    'name': 'A basic Twitter integration',
+    'version': '0.0.1',
+    'author': 'OpenJAF',
+    'website': 'http://www.openjaf.com',
+    #~ 'license': 'LGPL-3',
+    'category': 'Integration',
     'description': """
-        Odoo - Twitter integration via Cenit IO
+        Odoo - A basic Twitter integration via Cenit
     """,
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',
-        'view/config.xml',
-        'view/wizard.xml',
     ],
     'installable': True
 }
