@@ -5,7 +5,7 @@
         <record id="wizard_cenit_mailchimp_install" model="ir.ui.view">
             <field name="name">Mailchimp API Collection settings</field>
             <field name="model">cenit.mailchimp.settings</field>
-            <field name="inherit_id" ref="base.res_config_installer" />
+            <field name="inherit_id" ref="base.res_config_installer"/>
             <field name="arch" type="xml">
                 <form position="attributes">
                     <attribute name="string">Mailchimp API Collection settings</attribute>
@@ -16,14 +16,14 @@
                                 class="oe_highlight" context="{'install': True}"/>
                     </footer>
                 </footer>
-                <separator position="replace">
+                <separator string="title" position="replace">
                     <p class="oe_grey">
                         Configure Mailchimp API Collection data
                     </p>
                     <group>
-                            <field name='user' placeholder='Your Username' />
-                            <field name='password' placeholder='Your API Key' />
-                            <field name='node' placeholder='Your Service Node' />
+                        <field name='user' placeholder='Your Username'/>
+                        <field name='password' placeholder='Your API Key'/>
+                        <field name='node' placeholder='Your Service Node'/>
                     </group>
                 </separator>
             </field>
@@ -33,7 +33,7 @@
             <field name="name">Configure Mailchimp API Collection data</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">cenit.mailchimp.settings</field>
-            <field name="view_id" ref="wizard_cenit_mailchimp_install" />
+            <field name="view_id" ref="wizard_cenit_mailchimp_install"/>
             <field name="view_type">form</field>
             <field name="view_mode">form</field>
             <field name="target">new</field>

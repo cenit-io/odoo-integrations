@@ -29,11 +29,10 @@ _logger = logging.getLogger(__name__)
 COLLECTION_NAME = "mailchimp"
 COLLECTION_VERSION = "1.0.0"
 COLLECTION_PARAMS = {
-    "On connection 'Mailchimp API Connection' template parameter 'user'":'user',
-    "On connection 'Mailchimp API Connection' template parameter 'password'":'password',
-    "On connection 'Mailchimp API Connection' template parameter 'node'":'node',
+    "On connection &#x27;Mailchimp API Connection&#x27; template parameter &#x27;user&#x27;":'user',
+    "On connection &#x27;Mailchimp API Connection&#x27; template parameter &#x27;password&#x27;":'password',
+    "On connection &#x27;Mailchimp API Connection&#x27; template parameter &#x27;node&#x27;":'node',
 }
-
 
 class CenitIntegrationSettings(models.TransientModel):
     _name = "cenit.mailchimp.settings"
@@ -51,28 +50,26 @@ class CenitIntegrationSettings(models.TransientModel):
     ############################################################################
     def get_default_user(self, cr, uid, ids, context=None):
         user = self.pool.get('ir.config_parameter').get_param(
-            cr, uid,
-            'odoo_cenit.mailchimp.user', default=None,
-            context=context
+            cr, uid, 'odoo_cenit.Mailchimp API Connection.user', default=None, context=context
         )
-        return {'user': user or ''}
     
+        return {'user': user or ''}
+
     def get_default_password(self, cr, uid, ids, context=None):
         password = self.pool.get('ir.config_parameter').get_param(
-            cr, uid,
-            'odoo_cenit.mailchimp.password', default=None,
-            context=context
+            cr, uid, 'odoo_cenit.Mailchimp API Connection.password', default=None, context=context
         )
-        return {'password': password or ''}
     
+        return {'password': password or ''}
+
     def get_default_node(self, cr, uid, ids, context=None):
         node = self.pool.get('ir.config_parameter').get_param(
-            cr, uid,
-            'odoo_cenit.mailchimp.node', default=None,
-            context=context
+            cr, uid, 'odoo_cenit.Mailchimp API Connection.node', default=None, context=context
         )
-        return {'node': node or ''}
     
+        return {'node': node or ''}
+
+
     ############################################################################
     # Default Setters
     ############################################################################
@@ -80,29 +77,27 @@ class CenitIntegrationSettings(models.TransientModel):
         config_parameters = self.pool.get('ir.config_parameter')
         for record in self.browse(cr, uid, ids, context=context):
             config_parameters.set_param (
-                cr, uid,
-                'odoo_cenit.mailchimp.user', record.user or '',
+                cr, uid, 'odoo_cenit.Mailchimp API Connection.user', record.user or '',
                 context=context
             )
-    
+
     def set_password(self, cr, uid, ids, context=None):
         config_parameters = self.pool.get('ir.config_parameter')
         for record in self.browse(cr, uid, ids, context=context):
             config_parameters.set_param (
-                cr, uid,
-                'odoo_cenit.mailchimp.password', record.password or '',
+                cr, uid, 'odoo_cenit.Mailchimp API Connection.password', record.password or '',
                 context=context
             )
-    
+
     def set_node(self, cr, uid, ids, context=None):
         config_parameters = self.pool.get('ir.config_parameter')
         for record in self.browse(cr, uid, ids, context=context):
             config_parameters.set_param (
-                cr, uid,
-                'odoo_cenit.mailchimp.node', record.node or '',
+                cr, uid, 'odoo_cenit.Mailchimp API Connection.node', record.node or '',
                 context=context
             )
-    
+
+
     ############################################################################
     # Actions
     ############################################################################
@@ -138,6 +133,11 @@ class CenitIntegrationSettings(models.TransientModel):
                 id_: value
             })
 
-        installer.pull_shared_collection(cr, uid, data.get('id'), params=params, context=context)
+        installer.install_collection(
+            cr, uid,
+            data.get('id'),
+            params = params,
+            context = context
+        )
 
         return rc

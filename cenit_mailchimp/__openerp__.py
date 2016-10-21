@@ -20,21 +20,20 @@
 ##############################################################################
 
 {
-    'name': 'Mailchimp Integration',
-    'version': '1.0.3',
-    'author': 'Cenit IO',
-    'website': 'https://cenit.io',
-    # ~ 'license': 'LGPL-3',
-    'category': 'Extra Tools',
-    'summary': 'Mailchimp API Collection',
+    'name': 'Mailchimp API Collection',
+    'version': '1.0.0',
+    'author': 'OpenJAF',
+    'website': 'http://www.openjaf.com',
+    #~ 'license': 'LGPL-3',
+    'category': 'Integration',
     'description': """
-        Odoo - Mailchimp integration via Cenit IO
+        Odoo - Mailchimp API Collection via Cenit
     """,
-    'depends': ['cenit_base', 'cenit_mandrill'],
+    'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',
         'view/config.xml',
-        'view/wizard.xml',
+        'view/wizard.xml'
     ],
     'installable': True
 }
