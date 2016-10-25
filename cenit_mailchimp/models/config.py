@@ -52,21 +52,21 @@ class CenitIntegrationSettings(models.TransientModel):
         user = self.pool.get('ir.config_parameter').get_param(
             cr, uid, 'odoo_cenit.Mailchimp API Connection.user', default=None, context=context
         )
-    
+
         return {'user': user or ''}
 
     def get_default_password(self, cr, uid, ids, context=None):
         password = self.pool.get('ir.config_parameter').get_param(
             cr, uid, 'odoo_cenit.Mailchimp API Connection.password', default=None, context=context
         )
-    
+
         return {'password': password or ''}
 
     def get_default_node(self, cr, uid, ids, context=None):
         node = self.pool.get('ir.config_parameter').get_param(
             cr, uid, 'odoo_cenit.Mailchimp API Connection.node', default=None, context=context
         )
-    
+
         return {'node': node or ''}
 
 
@@ -126,12 +126,8 @@ class CenitIntegrationSettings(models.TransientModel):
         for p in data.get('params'):
             k = p.get('parameter')
             id_ = p.get('id')
-            value = getattr(obj,
-                COLLECTION_PARAMS.get(k)
-            )
-            params.update ({
-                id_: value
-            })
+            value = getattr(obj,COLLECTION_PARAMS.get(k))
+            params.update ({id_: value})
 
         installer.install_collection(
             cr, uid,

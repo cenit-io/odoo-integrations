@@ -22,12 +22,12 @@
 {
     'name': 'Mailchimp API Collection',
     'version': '1.0.0',
-    'author': 'OpenJAF',
-    'website': 'http://www.openjaf.com',
+    'author': 'Cenit IO',
+    'website': 'https://cenit.io',
     #~ 'license': 'LGPL-3',
     'category': 'Integration',
     'description': """
-        Odoo - Mailchimp API Collection via Cenit
+        Odoo - Mailchimp API Collection via Cenit IO
     """,
     'depends': ['cenit_base'],
     'data': [
