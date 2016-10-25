@@ -22,12 +22,12 @@
 {
     'name': 'A basic Twitter integration',
     'version': '0.0.1',
-    'author': 'OpenJAF',
-    'website': 'http://www.openjaf.com',
+    'author': 'Cenit IO',
+    'website': 'https://cenit.io',
     #~ 'license': 'LGPL-3',
     'category': 'Integration',
     'description': """
-        Odoo - A basic Twitter integration via Cenit
+        Odoo - A basic Twitter integration via Cenit IO
     """,
     'depends': ['cenit_base'],
     'data': [
