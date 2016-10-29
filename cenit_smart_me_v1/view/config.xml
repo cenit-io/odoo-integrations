@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="view_cenit_smart_me_v1_settings" model="ir.ui.view">
+            <field name="name">With the smart-me REST API you get Access to all your devices in the smart-me Cloud and you can add your own devices. So it&#x27;s a easy way to add the smart-me Cloud support to your Hardware or Software Product. settings</field>
+            <field name="model">cenit.smart_me_v1.settings</field>
+            <field name="arch" type="xml">
+                <form string="Configure With the smart-me REST API you get Access to all your devices in the smart-me Cloud and you can add your own devices. So it&#x27;s a easy way to add the smart-me Cloud support to your Hardware or Software Product." class="oe_form_configuration">
+                    <header>
+                        <button string="Apply" type="object"
+                                name="execute" class="oe_highlight"/>
+                        or
+                        <button string="Cancel" type="object"
+                                name="cancel" class="oe_link"/>
+                    </header>
+                    <div>
+                        <group string="With the smart-me REST API you get Access to all your devices in the smart-me Cloud and you can add your own devices. So it&#x27;s a easy way to add the smart-me Cloud support to your Hardware or Software Product. settings">
+                        </group>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_cenit_smart_me_v1_settings" model="ir.actions.act_window">
+            <field name="name">With the smart-me REST API you get Access to all your devices in the smart-me Cloud and you can add your own devices. So it&#x27;s a easy way to add the smart-me Cloud support to your Hardware or Software Product. settings</field>
+            <field name="res_model">cenit.smart_me_v1.settings</field>
+            <field name="view_mode">form</field>
+            <field name="target">inline</field>
+            <field name="view_id" ref="view_cenit_smart_me_v1_settings"/>
+        </record>
+
+        <menuitem id="menu_cenit_smart_me_v1_settings"
+            parent="cenit_base.menu_cenit_integrations_settings"
+            sequence="1" action="action_cenit_smart_me_v1_settings"/>
+
+        <menuitem id="menu_cenit_smart_me_v1_settings_alt"
+            parent="cenit_base.menu_cenit_integrations_settings_alt"
+            sequence="1" action="action_cenit_smart_me_v1_settings"/>
+
+    </data>
+</openerp>

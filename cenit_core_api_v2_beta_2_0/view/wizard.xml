@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="wizard_cenit_core_api_v2_beta_2_0_install" model="ir.ui.view">
+            <field name="name">&lt;p style&#x3D;&quot;text-align: justify;&quot;&gt;This is a documentation for CORE API v2.0. The CORE API is the programming 
+    interface to &lt;a href&#x3D;&quot;http://core-project.kmi.open.ac.uk/&quot;&gt;CORE&lt;/a&gt;. You can use the API to access the 
+    resources harvested and enriched by CORE. The API described here is currently in beta. If you 
+    encounter any problems with the API, please report them to us.&lt;/p&gt;
+
+&lt;h2&gt;Overview&lt;/h2&gt;
+&lt;p style&#x3D;&quot;text-align: justify;&quot;&gt;The API is organised by resource type. The resources are &lt;b&gt;articles&lt;/b&gt;, 
+    &lt;b&gt;journals&lt;/b&gt; and &lt;b&gt;repositories&lt;/b&gt; and are represented using JSON data format. Furthermore, 
+    each resource has a list of methods. The API also provides two global methods for accessing all resources at once.&lt;/p&gt;
+
+&lt;h2&gt;Response format&lt;/h2&gt;
+&lt;p style&#x3D;&quot;text-align: justify;&quot;&gt;Response for each query contains two fields: &lt;b&gt;status&lt;/b&gt; and &lt;b&gt;data&lt;/b&gt;.
+    In case of an error status, the data field is empty. The data field contains a single object
+    in case the request is for a specific identifier (e.g. CORE ID, CORE repository ID, etc.), or  
+    contains a list of objects, for example for search queries. In case of batch requests, the response
+    is an array of objects, each of which contains its own &lt;b&gt;status&lt;/b&gt; and &lt;b&gt;data&lt;/b&gt; fields.
+    For search queries the response contains an additional field &lt;b&gt;totalHits&lt;/b&gt;, which is the 
+    total number of items which match the search criteria.&lt;/p&gt;
+
+&lt;h2&gt;Search query syntax&lt;/h2&gt;
+
+&lt;p style&#x3D;&quot;text-align: justify&quot;&gt;All of the API search methods allow using complex search queries.
+    The query can be a simple string or it can be built using terms and operators described in Elasticsearch
+    &lt;a href&#x3D;&quot;http://www.elastic.co/guide/en/elasticsearch/reference/1.4/query-dsl-query-string-query.html#query-string-syntax&quot;&gt;documentation&lt;/a&gt;.
+    The usable field names are &lt;strong&gt;title&lt;/strong&gt;, &lt;strong&gt;description&lt;/strong&gt;, &lt;strong&gt;fullText&lt;/strong&gt;, 
+    &lt;strong&gt;authorsString&lt;/strong&gt;, &lt;strong&gt;publisher&lt;/strong&gt;, &lt;strong&gt;repositoryIds&lt;/strong&gt;, &lt;strong&gt;doi&lt;/strong&gt;,
+    &lt;strong&gt;identifiers&lt;/strong&gt; (which is a list of article identifiers including OAI, URL, etc.), &lt;strong&gt;language.name&lt;/strong&gt; 
+    and &lt;strong&gt;year&lt;/strong&gt;. Some example queries:
+&lt;/p&gt;
+
+&lt;ul style&#x3D;&quot;margin-left: 30px;&quot;&gt;
+    &lt;li&gt;&lt;p&gt;title:psychology and language.name:English&lt;/p&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;p&gt;repositoryIds:86 AND year:2014&lt;/p&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;p&gt;identifiers:&quot;oai:aura.abdn.ac.uk:2164/3837&quot; OR identifiers:&quot;oai:aura.abdn.ac.uk:2164/3843&quot;&lt;/p&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;p&gt;doi:&quot;10.1186/1471-2458-6-309&quot;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;Sort order&lt;/h2&gt;
+
+&lt;p style&#x3D;&quot;text-align: justify;&quot;&gt;For search queries, the results are ordered by relevance score. For batch 
+    requests, the results are retrieved in the order of the requests.&lt;/p&gt;
+
+&lt;h2&gt;Parameters&lt;/h2&gt;
+&lt;p style&#x3D;&quot;text-align: justify;&quot;&gt;The API methods allow different parameters to be passed. Additionally, there is an API key parameter which is common to all API methods. For all API methods 
+    the API key can be provided either as a query parameter or in the request header. If the API key 
+    is not provided, the API will return HTTP 401 error. You can register for an API key &lt;a href&#x3D;&quot;/intro/api&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2&gt;API methods&lt;/h2&gt;
+ settings</field>
+            <field name="model">cenit.core_api_v2_beta_2_0.settings</field>
+            <field name="inherit_id" ref="base.res_config_installer"/>
+            <field name="arch" type="xml">
+                <form position="attributes">
+                    <attribute name="string">&lt;p style&#x3D;&quot;text-align: justify;&quot;&gt;This is a documentation for CORE API v2.0. The CORE API is the programming 
+    interface to &lt;a href&#x3D;&quot;http://core-project.kmi.open.ac.uk/&quot;&gt;CORE&lt;/a&gt;. You can use the API to access the 
+    resources harvested and enriched by CORE. The API described here is currently in beta. If you 
+    encounter any problems with the API, please report them to us.&lt;/p&gt;
+
+&lt;h2&gt;Overview&lt;/h2&gt;
+&lt;p style&#x3D;&quot;text-align: justify;&quot;&gt;The API is organised by resource type. The resources are &lt;b&gt;articles&lt;/b&gt;, 
+    &lt;b&gt;journals&lt;/b&gt; and &lt;b&gt;repositories&lt;/b&gt; and are represented using JSON data format. Furthermore, 
+    each resource has a list of methods. The API also provides two global methods for accessing all resources at once.&lt;/p&gt;
+
+&lt;h2&gt;Response format&lt;/h2&gt;
+&lt;p style&#x3D;&quot;text-align: justify;&quot;&gt;Response for each query contains two fields: &lt;b&gt;status&lt;/b&gt; and &lt;b&gt;data&lt;/b&gt;.
+    In case of an error status, the data field is empty. The data field contains a single object
+    in case the request is for a specific identifier (e.g. CORE ID, CORE repository ID, etc.), or  
+    contains a list of objects, for example for search queries. In case of batch requests, the response
+    is an array of objects, each of which contains its own &lt;b&gt;status&lt;/b&gt; and &lt;b&gt;data&lt;/b&gt; fields.
+    For search queries the response contains an additional field &lt;b&gt;totalHits&lt;/b&gt;, which is the 
+    total number of items which match the search criteria.&lt;/p&gt;
+
+&lt;h2&gt;Search query syntax&lt;/h2&gt;
+
+&lt;p style&#x3D;&quot;text-align: justify&quot;&gt;All of the API search methods allow using complex search queries.
+    The query can be a simple string or it can be built using terms and operators described in Elasticsearch
+    &lt;a href&#x3D;&quot;http://www.elastic.co/guide/en/elasticsearch/reference/1.4/query-dsl-query-string-query.html#query-string-syntax&quot;&gt;documentation&lt;/a&gt;.
+    The usable field names are &lt;strong&gt;title&lt;/strong&gt;, &lt;strong&gt;description&lt;/strong&gt;, &lt;strong&gt;fullText&lt;/strong&gt;, 
+    &lt;strong&gt;authorsString&lt;/strong&gt;, &lt;strong&gt;publisher&lt;/strong&gt;, &lt;strong&gt;repositoryIds&lt;/strong&gt;, &lt;strong&gt;doi&lt;/strong&gt;,
+    &lt;strong&gt;identifiers&lt;/strong&gt; (which is a list of article identifiers including OAI, URL, etc.), &lt;strong&gt;language.name&lt;/strong&gt; 
+    and &lt;strong&gt;year&lt;/strong&gt;. Some example queries:
+&lt;/p&gt;
+
+&lt;ul style&#x3D;&quot;margin-left: 30px;&quot;&gt;
+    &lt;li&gt;&lt;p&gt;title:psychology and language.name:English&lt;/p&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;p&gt;repositoryIds:86 AND year:2014&lt;/p&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;p&gt;identifiers:&quot;oai:aura.abdn.ac.uk:2164/3837&quot; OR identifiers:&quot;oai:aura.abdn.ac.uk:2164/3843&quot;&lt;/p&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;p&gt;doi:&quot;10.1186/1471-2458-6-309&quot;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;Sort order&lt;/h2&gt;
+
+&lt;p style&#x3D;&quot;text-align: justify;&quot;&gt;For search queries, the results are ordered by relevance score. For batch 
+    requests, the results are retrieved in the order of the requests.&lt;/p&gt;
+
+&lt;h2&gt;Parameters&lt;/h2&gt;
+&lt;p style&#x3D;&quot;text-align: justify;&quot;&gt;The API methods allow different parameters to be passed. Additionally, there is an API key parameter which is common to all API methods. For all API methods 
+    the API key can be provided either as a query parameter or in the request header. If the API key 
+    is not provided, the API will return HTTP 401 error. You can register for an API key &lt;a href&#x3D;&quot;/intro/api&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2&gt;API methods&lt;/h2&gt;
+ settings</attribute>
+                </form>
+                <footer position="replace">
+                    <footer>
+                        <button string="Apply" type="object" name="execute"
+                                class="oe_highlight" context="{'install': True}"/>
+                    </footer>
+                </footer>
+                <separator string="title" position="replace">
+                    <p class="oe_grey">
+                        Configure &lt;p style&#x3D;&quot;text-align: justify;&quot;&gt;This is a documentation for CORE API v2.0. The CORE API is the programming 
+    interface to &lt;a href&#x3D;&quot;http://core-project.kmi.open.ac.uk/&quot;&gt;CORE&lt;/a&gt;. You can use the API to access the 
+    resources harvested and enriched by CORE. The API described here is currently in beta. If you 
+    encounter any problems with the API, please report them to us.&lt;/p&gt;
+
+&lt;h2&gt;Overview&lt;/h2&gt;
+&lt;p style&#x3D;&quot;text-align: justify;&quot;&gt;The API is organised by resource type. The resources are &lt;b&gt;articles&lt;/b&gt;, 
+    &lt;b&gt;journals&lt;/b&gt; and &lt;b&gt;repositories&lt;/b&gt; and are represented using JSON data format. Furthermore, 
+    each resource has a list of methods. The API also provides two global methods for accessing all resources at once.&lt;/p&gt;
+
+&lt;h2&gt;Response format&lt;/h2&gt;
+&lt;p style&#x3D;&quot;text-align: justify;&quot;&gt;Response for each query contains two fields: &lt;b&gt;status&lt;/b&gt; and &lt;b&gt;data&lt;/b&gt;.
+    In case of an error status, the data field is empty. The data field contains a single object
+    in case the request is for a specific identifier (e.g. CORE ID, CORE repository ID, etc.), or  
+    contains a list of objects, for example for search queries. In case of batch requests, the response
+    is an array of objects, each of which contains its own &lt;b&gt;status&lt;/b&gt; and &lt;b&gt;data&lt;/b&gt; fields.
+    For search queries the response contains an additional field &lt;b&gt;totalHits&lt;/b&gt;, which is the 
+    total number of items which match the search criteria.&lt;/p&gt;
+
+&lt;h2&gt;Search query syntax&lt;/h2&gt;
+
+&lt;p style&#x3D;&quot;text-align: justify&quot;&gt;All of the API search methods allow using complex search queries.
+    The query can be a simple string or it can be built using terms and operators described in Elasticsearch
+    &lt;a href&#x3D;&quot;http://www.elastic.co/guide/en/elasticsearch/reference/1.4/query-dsl-query-string-query.html#query-string-syntax&quot;&gt;documentation&lt;/a&gt;.
+    The usable field names are &lt;strong&gt;title&lt;/strong&gt;, &lt;strong&gt;description&lt;/strong&gt;, &lt;strong&gt;fullText&lt;/strong&gt;, 
+    &lt;strong&gt;authorsString&lt;/strong&gt;, &lt;strong&gt;publisher&lt;/strong&gt;, &lt;strong&gt;repositoryIds&lt;/strong&gt;, &lt;strong&gt;doi&lt;/strong&gt;,
+    &lt;strong&gt;identifiers&lt;/strong&gt; (which is a list of article identifiers including OAI, URL, etc.), &lt;strong&gt;language.name&lt;/strong&gt; 
+    and &lt;strong&gt;year&lt;/strong&gt;. Some example queries:
+&lt;/p&gt;
+
+&lt;ul style&#x3D;&quot;margin-left: 30px;&quot;&gt;
+    &lt;li&gt;&lt;p&gt;title:psychology and language.name:English&lt;/p&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;p&gt;repositoryIds:86 AND year:2014&lt;/p&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;p&gt;identifiers:&quot;oai:aura.abdn.ac.uk:2164/3837&quot; OR identifiers:&quot;oai:aura.abdn.ac.uk:2164/3843&quot;&lt;/p&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;p&gt;doi:&quot;10.1186/1471-2458-6-309&quot;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;Sort order&lt;/h2&gt;
+
+&lt;p style&#x3D;&quot;text-align: justify;&quot;&gt;For search queries, the results are ordered by relevance score. For batch 
+    requests, the results are retrieved in the order of the requests.&lt;/p&gt;
+
+&lt;h2&gt;Parameters&lt;/h2&gt;
+&lt;p style&#x3D;&quot;text-align: justify;&quot;&gt;The API methods allow different parameters to be passed. Additionally, there is an API key parameter which is common to all API methods. For all API methods 
+    the API key can be provided either as a query parameter or in the request header. If the API key 
+    is not provided, the API will return HTTP 401 error. You can register for an API key &lt;a href&#x3D;&quot;/intro/api&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2&gt;API methods&lt;/h2&gt;
+ data
+                    </p>
+                    <group>
+                        <field name='api_key' placeholder='Your API Key'/>
+                    </group>
+                </separator>
+            </field>
+        </record>
+
+        <record id="action_wizard_cenit_core_api_v2_beta_2_0_install" model="ir.actions.act_window">
+            <field name="name">Configure &lt;p style&#x3D;&quot;text-align: justify;&quot;&gt;This is a documentation for CORE API v2.0. The CORE API is the programming 
+    interface to &lt;a href&#x3D;&quot;http://core-project.kmi.open.ac.uk/&quot;&gt;CORE&lt;/a&gt;. You can use the API to access the 
+    resources harvested and enriched by CORE. The API described here is currently in beta. If you 
+    encounter any problems with the API, please report them to us.&lt;/p&gt;
+
+&lt;h2&gt;Overview&lt;/h2&gt;
+&lt;p style&#x3D;&quot;text-align: justify;&quot;&gt;The API is organised by resource type. The resources are &lt;b&gt;articles&lt;/b&gt;, 
+    &lt;b&gt;journals&lt;/b&gt; and &lt;b&gt;repositories&lt;/b&gt; and are represented using JSON data format. Furthermore, 
+    each resource has a list of methods. The API also provides two global methods for accessing all resources at once.&lt;/p&gt;
+
+&lt;h2&gt;Response format&lt;/h2&gt;
+&lt;p style&#x3D;&quot;text-align: justify;&quot;&gt;Response for each query contains two fields: &lt;b&gt;status&lt;/b&gt; and &lt;b&gt;data&lt;/b&gt;.
+    In case of an error status, the data field is empty. The data field contains a single object
+    in case the request is for a specific identifier (e.g. CORE ID, CORE repository ID, etc.), or  
+    contains a list of objects, for example for search queries. In case of batch requests, the response
+    is an array of objects, each of which contains its own &lt;b&gt;status&lt;/b&gt; and &lt;b&gt;data&lt;/b&gt; fields.
+    For search queries the response contains an additional field &lt;b&gt;totalHits&lt;/b&gt;, which is the 
+    total number of items which match the search criteria.&lt;/p&gt;
+
+&lt;h2&gt;Search query syntax&lt;/h2&gt;
+
+&lt;p style&#x3D;&quot;text-align: justify&quot;&gt;All of the API search methods allow using complex search queries.
+    The query can be a simple string or it can be built using terms and operators described in Elasticsearch
+    &lt;a href&#x3D;&quot;http://www.elastic.co/guide/en/elasticsearch/reference/1.4/query-dsl-query-string-query.html#query-string-syntax&quot;&gt;documentation&lt;/a&gt;.
+    The usable field names are &lt;strong&gt;title&lt;/strong&gt;, &lt;strong&gt;description&lt;/strong&gt;, &lt;strong&gt;fullText&lt;/strong&gt;, 
+    &lt;strong&gt;authorsString&lt;/strong&gt;, &lt;strong&gt;publisher&lt;/strong&gt;, &lt;strong&gt;repositoryIds&lt;/strong&gt;, &lt;strong&gt;doi&lt;/strong&gt;,
+    &lt;strong&gt;identifiers&lt;/strong&gt; (which is a list of article identifiers including OAI, URL, etc.), &lt;strong&gt;language.name&lt;/strong&gt; 
+    and &lt;strong&gt;year&lt;/strong&gt;. Some example queries:
+&lt;/p&gt;
+
+&lt;ul style&#x3D;&quot;margin-left: 30px;&quot;&gt;
+    &lt;li&gt;&lt;p&gt;title:psychology and language.name:English&lt;/p&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;p&gt;repositoryIds:86 AND year:2014&lt;/p&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;p&gt;identifiers:&quot;oai:aura.abdn.ac.uk:2164/3837&quot; OR identifiers:&quot;oai:aura.abdn.ac.uk:2164/3843&quot;&lt;/p&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;p&gt;doi:&quot;10.1186/1471-2458-6-309&quot;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;Sort order&lt;/h2&gt;
+
+&lt;p style&#x3D;&quot;text-align: justify;&quot;&gt;For search queries, the results are ordered by relevance score. For batch 
+    requests, the results are retrieved in the order of the requests.&lt;/p&gt;
+
+&lt;h2&gt;Parameters&lt;/h2&gt;
+&lt;p style&#x3D;&quot;text-align: justify;&quot;&gt;The API methods allow different parameters to be passed. Additionally, there is an API key parameter which is common to all API methods. For all API methods 
+    the API key can be provided either as a query parameter or in the request header. If the API key 
+    is not provided, the API will return HTTP 401 error. You can register for an API key &lt;a href&#x3D;&quot;/intro/api&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2&gt;API methods&lt;/h2&gt;
+ data</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">cenit.core_api_v2_beta_2_0.settings</field>
+            <field name="view_id" ref="wizard_cenit_core_api_v2_beta_2_0_install"/>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <record id="todo_wizard_cenit_core_api_v2_beta_2_0_install" model="ir.actions.todo">
+            <field name="action_id" ref="action_wizard_cenit_core_api_v2_beta_2_0_install"/>
+            <field name="sequence">1</field>
+            <field name="type">automatic</field>
+        </record>
+
+    </data>
+</openerp>
