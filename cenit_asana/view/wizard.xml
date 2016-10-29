@@ -16,7 +16,7 @@
                                 class="oe_highlight" context="{'install': True}"/>
                     </footer>
                 </footer>
-                <separator string="title" position="replace">
+                <separator position="replace">
                     <p class="oe_grey">
                         Configure Asana CENIT Integration data
                     </p>

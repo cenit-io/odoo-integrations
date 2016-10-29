@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="view_cenit_wikimedia_1_0_0beta_settings" model="ir.ui.view">
+            <field name="name">This API aims to provide coherent and low-latency access to Wikimedia content and services. It is currently in beta testing, so things aren&#x27;t completely locked down yet. Each entry point has explicit stability markers to inform you about development status and change policy, according to [our API version policy](https://www.mediawiki.org/wiki/API_versioning).
+### High-volume access
+  - Don&#x27;t perform more than 200 requests/s to this API.
+  - Set a unique &#x60;User-Agent&#x60; header that allows us to contact you
+    quickly. Email addresses or URLs of contact pages work well.
+ settings</field>
+            <field name="model">cenit.wikimedia_1_0_0beta.settings</field>
+            <field name="arch" type="xml">
+                <form string="Configure This API aims to provide coherent and low-latency access to Wikimedia content and services. It is currently in beta testing, so things aren&#x27;t completely locked down yet. Each entry point has explicit stability markers to inform you about development status and change policy, according to [our API version policy](https://www.mediawiki.org/wiki/API_versioning).
+### High-volume access
+  - Don&#x27;t perform more than 200 requests/s to this API.
+  - Set a unique &#x60;User-Agent&#x60; header that allows us to contact you
+    quickly. Email addresses or URLs of contact pages work well.
+" class="oe_form_configuration">
+                    <header>
+                        <button string="Apply" type="object"
+                                name="execute" class="oe_highlight"/>
+                        or
+                        <button string="Cancel" type="object"
+                                name="cancel" class="oe_link"/>
+                    </header>
+                    <div>
+                        <group string="This API aims to provide coherent and low-latency access to Wikimedia content and services. It is currently in beta testing, so things aren&#x27;t completely locked down yet. Each entry point has explicit stability markers to inform you about development status and change policy, according to [our API version policy](https://www.mediawiki.org/wiki/API_versioning).
+### High-volume access
+  - Don&#x27;t perform more than 200 requests/s to this API.
+  - Set a unique &#x60;User-Agent&#x60; header that allows us to contact you
+    quickly. Email addresses or URLs of contact pages work well.
+ settings">
+                            <field name='api_key' placeholder='Your API Key' />
+                        </group>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_cenit_wikimedia_1_0_0beta_settings" model="ir.actions.act_window">
+            <field name="name">This API aims to provide coherent and low-latency access to Wikimedia content and services. It is currently in beta testing, so things aren&#x27;t completely locked down yet. Each entry point has explicit stability markers to inform you about development status and change policy, according to [our API version policy](https://www.mediawiki.org/wiki/API_versioning).
+### High-volume access
+  - Don&#x27;t perform more than 200 requests/s to this API.
+  - Set a unique &#x60;User-Agent&#x60; header that allows us to contact you
+    quickly. Email addresses or URLs of contact pages work well.
+ settings</field>
+            <field name="res_model">cenit.wikimedia_1_0_0beta.settings</field>
+            <field name="view_mode">form</field>
+            <field name="target">inline</field>
+            <field name="view_id" ref="view_cenit_wikimedia_1_0_0beta_settings"/>
+        </record>
+
+        <menuitem id="menu_cenit_wikimedia_1_0_0beta_settings"
+            parent="cenit_base.menu_cenit_integrations_settings"
+            sequence="1" action="action_cenit_wikimedia_1_0_0beta_settings"/>
+
+        <menuitem id="menu_cenit_wikimedia_1_0_0beta_settings_alt"
+            parent="cenit_base.menu_cenit_integrations_settings_alt"
+            sequence="1" action="action_cenit_wikimedia_1_0_0beta_settings"/>
+
+    </data>
+</openerp>
