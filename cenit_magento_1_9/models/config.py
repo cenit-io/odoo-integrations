@@ -27,7 +27,7 @@ from openerp import models, fields
 _logger = logging.getLogger(__name__)
 
 COLLECTION_NAME = "magento_1_9"
-COLLECTION_VERSION = "0.1.1"
+COLLECTION_VERSION = "1.0.0"
 COLLECTION_PARAMS = {
     # WITHOUT COLLECTION_PARAMS.
 }
