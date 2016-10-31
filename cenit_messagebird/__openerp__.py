@@ -20,21 +20,21 @@
 ##############################################################################
 
 {
-    'name': 'MessageBird Integration',
-    'version': '0.1.0',
+    'name': 'Messagebird Integration',
+    'version': '1.0.0',
     'author': 'Cenit IO',
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'MessageBird API Integration',
+    'summary': 'Messagebird shared collection of integration services',
     'description': """
-        Odoo - MessageBird integration via Cenit IO
+        Odoo - Messagebird integration via Cenit IO
     """,
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',
         'view/config.xml',
-        'view/wizard.xml',
+        'view/wizard.xml'
     ],
     'installable': True
 }

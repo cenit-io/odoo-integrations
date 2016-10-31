@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+        <function model="cenit.google_cloud_debugger_api_v2.settings" name="install"/>
+    </data>
+</openerp>

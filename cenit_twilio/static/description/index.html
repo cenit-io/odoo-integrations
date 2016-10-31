@@ -7,15 +7,17 @@
         <div class="oe_span12">
             <div class="oe_demo oe_picture oe_screenshot">
                 <a href="https://cenit.io">
-                    <img src="cenitsaas.png">
+                    <img src="cenit_io.png">
                 </a>
                 <div class="oe_demo_footer oe_centeralign">Cenit IO</div>
             </div>
         </div>
         <div class="oe_span12 ow_websiteonly">
-            <p class="oe_mt32">This addon needs the <a
-                    href="https://www.odoo.com/apps/modules/8.0/cenit_base/">Cenit
-                Itegrations Client</a> (don't worry: try it for free)</p>
+            <p class="oe_mt32">
+                This addon needs the
+                <a href="https://www.odoo.com/apps/modules/8.0/cenit_base/">Cenit Itegrations Client</a>
+                (don't worry: try it for free)
+            </p>
         </div>
     </div>
 </section>
@@ -24,49 +26,25 @@
     <div class="oe_row oe_spaced">
         <h2 class="oe_slogan">Setting up...</h2>
 
-        <div class="oe_span4">
+        <div class="oe_span6">
+            <!--
             <div class="oe_picture oe_screenshot oe_demo">
-                <a href="https://twilio.com/try-twilio">
-                    <img src="twilio.png">
-                </a>
+                <img src="twilio.png">
             </div>
             <div>
-                <p>First things first: <a href="https://twilio.com/try-twilio">SignUp with
-                    Twilio</a></p>
+                <p>First things first: <a href="https://twilio.com">Sign up with Twilio</a></p>
             </div>
+            -->
         </div>
-        <div class="oe_span4">
+        <div class="oe_span6">
+            <!--
             <div class="oe_picture oe_screenshot oe_demo">
-                <a href="https://www.twilio.com/user/account/settings">
-                    <img src="twilio-account.png">
-                </a>
+                <img src="account-info.png">
             </div>
             <div>
-                <p>Go to your <a href="https://www.twilio.com/user/account/settings">Account Settings</a></p>
+                <p>...</p>
             </div>
-        </div>
-        <div class="oe_span4">
-            <div class="oe_picture oe_screenshot oe_demo">
-                <a href="https://twilio.com">
-                    <img src="account-info.png">
-                </a>
-            </div>
-            <div>
-                <p>Take note of your Account SID and Authorization Token</p>
-            </div>
-        </div>
-    </div>
-    <div class="oe_row oe_spaced">
-        <div class="oe_span12 oe_mt32">
-            <h3>That's pretty much it</h3>
-        </div>
-        <div class="oe_span4">
-            <p>After installing the addon a form will let you set the data</p>
-        </div>
-        <div class="oe_span8">
-            <div class="oe_picture oe_screenshot oe_demo">
-                <img src="post-install.png">
-            </div>
+            -->
         </div>
     </div>
 </section>
@@ -76,14 +54,13 @@
     <div class="oe_row oe_spaced">
         <h3 class="oe_leftalign">Data definitions</h3>
         <div class="oe_span6">
-            <p>Various <i>Schemas</i> that will allow you to map your Odoo
-            models as Twilio's.</p>
+            <p>Various <i>Schemas</i> that will allow you to map your Odoo models as Twilio's.</p>
         </div>
         <div class="oe_span6">
-            <p></p>
             <ul>
-                <li>Message</li>
-                <p></p>
+                <li>....</li>
+                <li>....</li>
+                <li>....</li>
             </ul>
         </div>
     </div>
@@ -93,41 +70,37 @@
             <p>Several <i>Webhooks</i> where you can send or get data.</p>
         </div>
         <div class="oe_span6">
-            <p></p>
             <ul>
-                <li>Get List SMS</li>
-                <li>Get SMS by SID</li>
-                <li>Send SMS</li>
+                <li>...</li>
+                <li>...</li>
+                <li>...</li>
             </ul>
         </div>
         <div class="oe_span6">
-            <p>A handful of <i>Events</i> and <i>Translators</i> to decide
-                when and how perform transformations.</p>
+            <p>A handful of <i>Events</i> and <i>Translators</i> to decide when and how perform transformations.</p>
         </div>
         <div class="oe_span6">
             <p>Events:</p>
             <ul>
-                <li>Message on created_at</li>
-                <li>Get Message</li>
+                <li>...</li>
+                <li>...</li>
             </ul>
             <p>Translators:</p>
             <ul>
-                <li>Export Message</li>
-                <li>Import Message</li>
-                <li>Get Message by ID</li>
-                <li>Import Response</li>
+                <li>...</li>
+                <li>...</li>
+                <li>...</li>
             </ul>
         </div>
         <div class="oe_span6">
-            <p>Out of the Box <i>Flows</i> so you can focus on what's really
-                important.</p>
+            <p>Out of the Box <i>Flows</i> so you can focus on what's really important.</p>
         </div>
         <div class="oe_span6">
             <p></p>
             <ul>
-                <li>Send Message</li>
-                <li>Get Message by ID</li>
-                <li>Gets Message List</li>
+                <li>...</li>
+                <li>...</li>
+                <li>...</li>
             </ul>
         </div>
     </div>
@@ -139,32 +112,21 @@
         <div class="oe_span6">
             <h3>There's really only one thing you need to do: Map your models</h3>
             <ul>
-                <li>Go to the <i>Cenit IO Integrations</i> menu.</li>
-                <li>Create a new <i>Data type</i>
-                    <ul>
-                        <li>Name it as you will.</li>
-                        <li>Select the model you wish to send over to Twilio
-                            (say 'Message').</li>
-                        <li>Select the 'Twilio ' library</li>
-                        <li>and the specific schema you want to use (say
-                            'message.json ').</li>
-                        <li>On the <i>Mappings</i> tab set how you want your
-                            messages to translate to Twilio</li>
-                        <li>Save your work.</li>
-                    </ul>
-                </li>
+                <li>Steps 1 ....</li>
+                <li>Steps 2 ....</li>
+                <li>............</li>
+                <li>Steps n ....</li>
             </ul>
-            <p>That's it! Everytime you create a message in Odoo, a message will
-            be create on your Twilio account.</p>
+            <p>That's it! Every Time you do something in Odoo, this is done in the twitter account.</p>
         </div>
         <div class="oe_span6">
             <div class="oe_screenshot oe_demo">
-                <img src="mapping.png">
+                <!--<img src="mapping.png">-->
             </div>
-            <p class="oe_mt32">For more on mapping check the Documentation tab
-                of the <a
-                        href="https://www.odoo.com/apps/modules/8.0/cenit_base/">
-                    Cenit IO Integrations Client</a>.</p>
+            <p class="oe_mt32">
+                For more on mapping check the Documentation tab of the
+                <a href="https://www.odoo.com/apps/modules/8.0/cenit_base/">Cenit IO Integrations Client</a>.
+            </p>
         </div>
     </div>
 </section>
