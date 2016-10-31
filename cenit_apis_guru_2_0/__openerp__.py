@@ -38,6 +38,7 @@ Client sample: [[Demo]](https://apis.guru/simple-ui) [[Repo]](https://github.com
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',
+        'data/data.xml'
     ],
     'installable': True
 }

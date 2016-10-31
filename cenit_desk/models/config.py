@@ -34,7 +34,6 @@ COLLECTION_PARAMS = {
     "On connection 'Desk Connection' template parameter 'desk_password'":'desk_password',
 }
 
-
 class CenitIntegrationSettings(models.TransientModel):
     _name = "cenit.desk.settings"
     _inherit = 'res.config.settings'
@@ -51,28 +50,23 @@ class CenitIntegrationSettings(models.TransientModel):
     ############################################################################
     def get_default_desk_url(self, cr, uid, ids, context=None):
         desk_url = self.pool.get('ir.config_parameter').get_param(
-            cr, uid,
-            'odoo_cenit.desk.desk_url', default=None,
-            context=context
+            cr, uid, 'odoo_cenit.desk.desk_url', default=None, context=context
         )
         return {'desk_url': desk_url or ''}
-    
+
     def get_default_desk_username(self, cr, uid, ids, context=None):
         desk_username = self.pool.get('ir.config_parameter').get_param(
-            cr, uid,
-            'odoo_cenit.desk.desk_username', default=None,
-            context=context
+            cr, uid, 'odoo_cenit.desk.desk_username', default=None, context=context
         )
         return {'desk_username': desk_username or ''}
-    
+
     def get_default_desk_password(self, cr, uid, ids, context=None):
         desk_password = self.pool.get('ir.config_parameter').get_param(
-            cr, uid,
-            'odoo_cenit.desk.desk_password', default=None,
-            context=context
+            cr, uid, 'odoo_cenit.desk.desk_password', default=None, context=context
         )
         return {'desk_password': desk_password or ''}
-    
+
+
     ############################################################################
     # Default Setters
     ############################################################################
@@ -80,29 +74,27 @@ class CenitIntegrationSettings(models.TransientModel):
         config_parameters = self.pool.get('ir.config_parameter')
         for record in self.browse(cr, uid, ids, context=context):
             config_parameters.set_param (
-                cr, uid,
-                'odoo_cenit.desk.desk_url', record.desk_url or '',
+                cr, uid, 'odoo_cenit.desk.desk_url', record.desk_url or '',
                 context=context
             )
-    
+
     def set_desk_username(self, cr, uid, ids, context=None):
         config_parameters = self.pool.get('ir.config_parameter')
         for record in self.browse(cr, uid, ids, context=context):
             config_parameters.set_param (
-                cr, uid,
-                'odoo_cenit.desk.desk_username', record.desk_username or '',
+                cr, uid, 'odoo_cenit.desk.desk_username', record.desk_username or '',
                 context=context
             )
-    
+
     def set_desk_password(self, cr, uid, ids, context=None):
         config_parameters = self.pool.get('ir.config_parameter')
         for record in self.browse(cr, uid, ids, context=context):
             config_parameters.set_param (
-                cr, uid,
-                'odoo_cenit.desk.desk_password', record.desk_password or '',
+                cr, uid, 'odoo_cenit.desk.desk_password', record.desk_password or '',
                 context=context
             )
-    
+
+
     ############################################################################
     # Actions
     ############################################################################
@@ -131,12 +123,9 @@ class CenitIntegrationSettings(models.TransientModel):
         for p in data.get('params'):
             k = p.get('parameter')
             id_ = p.get('id')
-            value = getattr(obj,
-                COLLECTION_PARAMS.get(k)
-            )
-            params.update ({
-                id_: value
-            })
+            value = getattr(obj,COLLECTION_PARAMS.get(k))
+            params.update ({id_: value})
 
-        installer.pull_shared_collection(cr, uid, data.get('id'), params= params, context=context)
+        installer.pull_shared_collection(cr, uid, data.get('id'), params=params, context=context)
+
         return rc

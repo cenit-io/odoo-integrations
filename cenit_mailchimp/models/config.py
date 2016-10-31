@@ -34,7 +34,6 @@ COLLECTION_PARAMS = {
     "On connection 'Mailchimp API Connection' template parameter 'node'":'node',
 }
 
-
 class CenitIntegrationSettings(models.TransientModel):
     _name = "cenit.mailchimp.settings"
     _inherit = 'res.config.settings'
@@ -51,28 +50,23 @@ class CenitIntegrationSettings(models.TransientModel):
     ############################################################################
     def get_default_user(self, cr, uid, ids, context=None):
         user = self.pool.get('ir.config_parameter').get_param(
-            cr, uid,
-            'odoo_cenit.mailchimp.user', default=None,
-            context=context
+            cr, uid, 'odoo_cenit.mailchimp.user', default=None, context=context
         )
         return {'user': user or ''}
-    
+
     def get_default_password(self, cr, uid, ids, context=None):
         password = self.pool.get('ir.config_parameter').get_param(
-            cr, uid,
-            'odoo_cenit.mailchimp.password', default=None,
-            context=context
+            cr, uid, 'odoo_cenit.mailchimp.password', default=None, context=context
         )
         return {'password': password or ''}
-    
+
     def get_default_node(self, cr, uid, ids, context=None):
         node = self.pool.get('ir.config_parameter').get_param(
-            cr, uid,
-            'odoo_cenit.mailchimp.node', default=None,
-            context=context
+            cr, uid, 'odoo_cenit.mailchimp.node', default=None, context=context
         )
         return {'node': node or ''}
-    
+
+
     ############################################################################
     # Default Setters
     ############################################################################
@@ -80,29 +74,27 @@ class CenitIntegrationSettings(models.TransientModel):
         config_parameters = self.pool.get('ir.config_parameter')
         for record in self.browse(cr, uid, ids, context=context):
             config_parameters.set_param (
-                cr, uid,
-                'odoo_cenit.mailchimp.user', record.user or '',
+                cr, uid, 'odoo_cenit.mailchimp.user', record.user or '',
                 context=context
             )
-    
+
     def set_password(self, cr, uid, ids, context=None):
         config_parameters = self.pool.get('ir.config_parameter')
         for record in self.browse(cr, uid, ids, context=context):
             config_parameters.set_param (
-                cr, uid,
-                'odoo_cenit.mailchimp.password', record.password or '',
+                cr, uid, 'odoo_cenit.mailchimp.password', record.password or '',
                 context=context
             )
-    
+
     def set_node(self, cr, uid, ids, context=None):
         config_parameters = self.pool.get('ir.config_parameter')
         for record in self.browse(cr, uid, ids, context=context):
             config_parameters.set_param (
-                cr, uid,
-                'odoo_cenit.mailchimp.node', record.node or '',
+                cr, uid, 'odoo_cenit.mailchimp.node', record.node or '',
                 context=context
             )
-    
+
+
     ############################################################################
     # Actions
     ############################################################################
@@ -131,12 +123,8 @@ class CenitIntegrationSettings(models.TransientModel):
         for p in data.get('params'):
             k = p.get('parameter')
             id_ = p.get('id')
-            value = getattr(obj,
-                COLLECTION_PARAMS.get(k)
-            )
-            params.update ({
-                id_: value
-            })
+            value = getattr(obj,COLLECTION_PARAMS.get(k))
+            params.update ({id_: value})
 
         installer.pull_shared_collection(cr, uid, data.get('id'), params=params, context=context)
 

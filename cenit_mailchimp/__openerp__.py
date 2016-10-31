@@ -21,7 +21,7 @@
 
 {
     'name': 'Mailchimp Integration',
-    'version': '1.0.3',
+    'version': '1.0.0',
     'author': 'Cenit IO',
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
@@ -30,11 +30,11 @@
     'description': """
         Odoo - Mailchimp integration via Cenit IO
     """,
-    'depends': ['cenit_base', 'cenit_mandrill'],
+    'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',
         'view/config.xml',
-        'view/wizard.xml',
+        'view/wizard.xml'
     ],
     'installable': True
 }
