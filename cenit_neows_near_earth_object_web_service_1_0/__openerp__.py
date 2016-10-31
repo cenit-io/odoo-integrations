@@ -43,6 +43,7 @@ Follow us on <a href="https://twitter.com/AsteroidTracker" target="_blank">Twitt
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',
+        'data/data.xml'
     ],
     'installable': True
 }

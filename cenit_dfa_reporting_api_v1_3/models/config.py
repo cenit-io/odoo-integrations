@@ -54,19 +54,7 @@ class CenitIntegrationSettings(models.TransientModel):
     ############################################################################
     # Actions
     ############################################################################
-    def execute(self, cr, uid, ids, context=None):
-        rc = super(CenitIntegrationSettings, self).execute(
-            cr, uid, ids, context=context
-        )
-
-        if not context.get('install', False):
-            return rc
-
-        objs = self.browse(cr, uid, ids)
-        if not objs:
-            return rc
-        obj = objs[0]
-
+    def install(self, cr, uid, context=None):
         installer = self.pool.get('cenit.collection.installer')
         data = installer.get_collection_data(
             cr, uid,
@@ -75,13 +63,4 @@ class CenitIntegrationSettings(models.TransientModel):
             context = context
         )
 
-        params = {}
-        for p in data.get('params'):
-            k = p.get('parameter')
-            id_ = p.get('id')
-            value = getattr(obj,COLLECTION_PARAMS.get(k))
-            params.update ({id_: value})
-
-        installer.pull_shared_collection(cr, uid, data.get('id'), params=params, context=context)
-
-        return rc
+        installer.install_collection(cr, uid, {'name': COLLECTION_NAME})
