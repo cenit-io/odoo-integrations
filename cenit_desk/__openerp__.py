@@ -21,14 +21,12 @@
 
 {
     'name': 'Desk Integration',
-    'version': '1.0.2',
-    # 'price': 15.00,
-    # 'currency': 'EUR',
+    'version': '1.0.0',
     'author': 'Cenit IO',
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'Desk Cenit IO Integration',
+    'summary': 'Desk CENIT Integration',
     'description': """
         Odoo - Desk integration via Cenit IO
     """,
@@ -36,7 +34,7 @@
     'data': [
         'security/ir.model.access.csv',
         'view/config.xml',
-        'view/wizard.xml',
+        'view/wizard.xml'
     ],
     'installable': True
 }

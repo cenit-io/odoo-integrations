@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+        <function model="cenit.google_spectrum_database_api_v1explorer.settings" name="install"/>
+    </data>
+</openerp>

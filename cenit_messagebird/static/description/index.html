@@ -1,22 +1,23 @@
 <section class="oe_container">
     <div class="oe_row oe_spaced">
         <div class="oe_span12">
-            <h2 class="oe_slogan">MessageBird Integration</h2>
+            <h2 class="oe_slogan">Messagebird Integration</h2>
             <h3 class="oe_slogan">Powered by <a href="https://cenit.io/">Cenit IO</a></h3>
         </div>
         <div class="oe_span12">
             <div class="oe_demo oe_picture oe_screenshot">
                 <a href="https://cenit.io">
-                    <img src="cenitsaas.png">
+                    <img src="cenit_io.png">
                 </a>
-
                 <div class="oe_demo_footer oe_centeralign">Cenit IO</div>
             </div>
         </div>
         <div class="oe_span12 ow_websiteonly">
-            <p class="oe_mt32">This addon needs the <a
-                    href="https://www.odoo.com/apps/modules/8.0/cenit_base/">Cenit IO
-                Integrations Client</a> (don't worry: try it for free)</p>
+            <p class="oe_mt32">
+                This addon needs the
+                <a href="https://www.odoo.com/apps/modules/8.0/cenit_base/">Cenit Itegrations Client</a>
+                (don't worry: try it for free)
+            </p>
         </div>
     </div>
 </section>
@@ -24,40 +25,26 @@
 <section class="oe_container oe_dark">
     <div class="oe_row oe_spaced">
         <h2 class="oe_slogan">Setting up...</h2>
-        <div class="oe_span6">
-            <div class="oe_picture oe_screenshot oe_demo">
-                <a href="https://messagebird.com/register">
-                    <img src="messagebird.png">
-                </a>
-            </div>
-            <div>
-                <p>First things first: <a
-                        href="https://messagebird.com">SignUp
-                    with MessageBird</a></p>
-            </div>
-        </div>
-         <div class="oe_span6">
-            <div class="oe_picture oe_screenshot oe_demo">
-                <img src="mbird_apikey.png">
-            </div>
-            <div>
-                <p>From your Dashboard go to API, select <i>API Access Rest</i>
-                    tab. If you don't have any api key, generate it.</p>
-            </div>
-        </div>
 
-    </div>
-    <div class="oe_row oe_spaced">
-        <div class="oe_span12 oe_mt32">
-            <h3>That's pretty much it</h3>
-        </div>
-        <div class="oe_span4">
-            <p>After installing the addon a form will let you set the data.</p>
-        </div>
-        <div class="oe_span8">
+        <div class="oe_span6">
+            <!--
             <div class="oe_picture oe_screenshot oe_demo">
-                <img src="post-install.png">
+                <img src="messagebird.png">
             </div>
+            <div>
+                <p>First things first: <a href="https://messagebird.com">Sign up with Messagebird</a></p>
+            </div>
+            -->
+        </div>
+        <div class="oe_span6">
+            <!--
+            <div class="oe_picture oe_screenshot oe_demo">
+                <img src="account-info.png">
+            </div>
+            <div>
+                <p>...</p>
+            </div>
+            -->
         </div>
     </div>
 </section>
@@ -67,14 +54,13 @@
     <div class="oe_row oe_spaced">
         <h3 class="oe_leftalign">Data definitions</h3>
         <div class="oe_span6">
-            <p>Various <i>Schemas</i> that will allow you to map your Odoo
-            models as MessageBird's.</p>
+            <p>Various <i>Schemas</i> that will allow you to map your Odoo models as Messagebird's.</p>
         </div>
         <div class="oe_span6">
-            <p></p>
             <ul>
-                <li>Message</li>
-                <li>Item</li>
+                <li>....</li>
+                <li>....</li>
+                <li>....</li>
             </ul>
         </div>
     </div>
@@ -84,35 +70,37 @@
             <p>Several <i>Webhooks</i> where you can send or get data.</p>
         </div>
         <div class="oe_span6">
-            <p></p>
             <ul>
-                <li>Message Send</li>
-                <li>Message by ID</li>
+                <li>...</li>
+                <li>...</li>
+                <li>...</li>
             </ul>
         </div>
         <div class="oe_span6">
-            <p>A handful of <i>Events</i> and <i>Translators</i> to decide
-                when and how perform transformations.</p>
+            <p>A handful of <i>Events</i> and <i>Translators</i> to decide when and how perform transformations.</p>
         </div>
         <div class="oe_span6">
             <p>Events:</p>
             <ul>
-                <li>Message create_at</li>
+                <li>...</li>
+                <li>...</li>
             </ul>
             <p>Translators:</p>
             <ul>
-                <li>Export Message</li>
-                <li>Update Model</li>
+                <li>...</li>
+                <li>...</li>
+                <li>...</li>
             </ul>
         </div>
         <div class="oe_span6">
-            <p>Out of the Box <i>Flows</i> so you can focus on what's really
-                important.</p>
+            <p>Out of the Box <i>Flows</i> so you can focus on what's really important.</p>
         </div>
         <div class="oe_span6">
             <p></p>
             <ul>
-                <li>Send Message</li>
+                <li>...</li>
+                <li>...</li>
+                <li>...</li>
             </ul>
         </div>
     </div>
@@ -124,32 +112,21 @@
         <div class="oe_span6">
             <h3>There's really only one thing you need to do: Map your models</h3>
             <ul>
-                <li>Go to the <i>Cenit IO Integrations</i> menu.</li>
-                <li>Create a new <i>Data type</i>
-                    <ul>
-                        <li>Name it as you will.</li>
-                        <li>Select the model you wish to send over to MessageBird
-                            (say 'Email composition wizard').</li>
-                        <li>Select the 'Messagebird' library</li>
-                        <li>and the specific schema you want to use (say
-                            'message.json').</li>
-                        <li>On the <i>Mappings</i> tab set how you want your
-                            odoo's emails to translate to MessageBird</li>
-                        <li>Save your work.</li>
-                    </ul>
-                </li>
+                <li>Steps 1 ....</li>
+                <li>Steps 2 ....</li>
+                <li>............</li>
+                <li>Steps n ....</li>
             </ul>
-            <p>That's it! Everytime you create or modify an email in Odoo, a message will
-            be create on your MessageBird account.</p>
+            <p>That's it! Every Time you do something in Odoo, this is done in the twitter account.</p>
         </div>
         <div class="oe_span6">
             <div class="oe_screenshot oe_demo">
-                <img src="mapping.png">
+                <!--<img src="mapping.png">-->
             </div>
-            <p class="oe_mt32">For more on mapping check the Documentation tab
-                of the <a
-                        href="https://www.odoo.com/apps/modules/8.0/cenit_base/">
-                    Cenit IO Integrations Client</a>.</p>
+            <p class="oe_mt32">
+                For more on mapping check the Documentation tab of the
+                <a href="https://www.odoo.com/apps/modules/8.0/cenit_base/">Cenit IO Integrations Client</a>.
+            </p>
         </div>
     </div>
 </section>

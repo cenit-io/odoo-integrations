@@ -36,6 +36,7 @@ ExaVault supports both POST (recommended when requesting large data sets) and GE
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',
+        'data/data.xml'
     ],
     'installable': True
 }

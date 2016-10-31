@@ -2,13 +2,13 @@
 <openerp>
     <data>
 
-        <record id="wizard_cenit_bird_install" model="ir.ui.view">
-            <field name="name">MessageBird CENIT Integration settings</field>
-            <field name="model">cenit.bird.settings</field>
-            <field name="inherit_id" ref="base.res_config_installer" />
+        <record id="wizard_cenit_messagebird_install" model="ir.ui.view">
+            <field name="name">Messagebird shared collection of integration services settings</field>
+            <field name="model">cenit.messagebird.settings</field>
+            <field name="inherit_id" ref="base.res_config_installer"/>
             <field name="arch" type="xml">
                 <form position="attributes">
-                    <attribute name="string">MessageBird CENIT Integration settings</attribute>
+                    <attribute name="string">Messagebird shared collection of integration services settings</attribute>
                 </form>
                 <footer position="replace">
                     <footer>
@@ -16,29 +16,29 @@
                                 class="oe_highlight" context="{'install': True}"/>
                     </footer>
                 </footer>
-                <separator position="replace">
+                <separator string="title" position="replace">
                     <p class="oe_grey">
-                        Configure MessageBird CENIT Integration data
+                        Configure Messagebird shared collection of integration services data
                     </p>
                     <group>
-                            <field name='access_key' placeholder='Your MessageBird Key' />
+                        <field name='access_key' placeholder='Your Access Key'/>
                     </group>
                 </separator>
             </field>
         </record>
 
-        <record id="action_wizard_cenit_bird_install" model="ir.actions.act_window">
-            <field name="name">Configure MesageBird CENIT Integration data</field>
+        <record id="action_wizard_cenit_messagebird_install" model="ir.actions.act_window">
+            <field name="name">Configure Messagebird shared collection of integration services data</field>
             <field name="type">ir.actions.act_window</field>
-            <field name="res_model">cenit.bird.settings</field>
-            <field name="view_id" ref="wizard_cenit_bird_install" />
+            <field name="res_model">cenit.messagebird.settings</field>
+            <field name="view_id" ref="wizard_cenit_messagebird_install"/>
             <field name="view_type">form</field>
             <field name="view_mode">form</field>
             <field name="target">new</field>
         </record>
 
-        <record id="todo_wizard_cenit_bird_install" model="ir.actions.todo">
-            <field name="action_id" ref="action_wizard_cenit_bird_install"/>
+        <record id="todo_wizard_cenit_messagebird_install" model="ir.actions.todo">
+            <field name="action_id" ref="action_wizard_cenit_messagebird_install"/>
             <field name="sequence">1</field>
             <field name="type">automatic</field>
         </record>

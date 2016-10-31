@@ -1,22 +1,23 @@
 <section class="oe_container">
     <div class="oe_row oe_spaced">
         <div class="oe_span12">
-            <h2 class="oe_slogan">MailChimp Integration</h2>
+            <h2 class="oe_slogan">Mailchimp Integration</h2>
             <h3 class="oe_slogan">Powered by <a href="https://cenit.io/">Cenit IO</a></h3>
         </div>
         <div class="oe_span12">
             <div class="oe_demo oe_picture oe_screenshot">
                 <a href="https://cenit.io">
-                    <img src="cenitsaas.png">
+                    <img src="cenit_io.png">
                 </a>
-
                 <div class="oe_demo_footer oe_centeralign">Cenit IO</div>
             </div>
         </div>
         <div class="oe_span12 ow_websiteonly">
-            <p class="oe_mt32">This addon needs the <a
-                    href="https://www.odoo.com/apps/modules/8.0/cenit_base/">Cenit IO
-                Itegrations Client</a> (don't worry: try it for free)</p>
+            <p class="oe_mt32">
+                This addon needs the
+                <a href="https://www.odoo.com/apps/modules/8.0/cenit_base/">Cenit Itegrations Client</a>
+                (don't worry: try it for free)
+            </p>
         </div>
     </div>
 </section>
@@ -25,48 +26,25 @@
     <div class="oe_row oe_spaced">
         <h2 class="oe_slogan">Setting up...</h2>
 
-        <div class="oe_span4">
+        <div class="oe_span6">
+            <!--
             <div class="oe_picture oe_screenshot oe_demo">
-                <a href="https://mailchimp.com/signup">
-                    <img src="mailchimp.png">
-                </a>
+                <img src="mailchimp.png">
             </div>
             <div>
-                <p>First things first: <a href="https://mailchimp.com/signup">SignUp
-                    with MailChimp</a></p>
+                <p>First things first: <a href="https://mailchimp.com">Sign up with Mailchimp</a></p>
             </div>
+            -->
         </div>
-        <div class="oe_span4">
-            <div class="oe_picture oe_screenshot oe_demo">
-                <img src="mailchimp-account.png">
-            </div>
-            <div>
-                <p>From your Dashboard go to Accounts, and on the <i>Extras</i>
-                    tab select <i>API Keys</i>.</p>
-            </div>
-        </div>
-        <div class="oe_span4">
+        <div class="oe_span6">
+            <!--
             <div class="oe_picture oe_screenshot oe_demo">
                 <img src="account-info.png">
             </div>
             <div>
-                <p>If you don't have an API Key you'll have to add one:
-                    write it down</p>
-                <p>Also take note of your Service Node</p>
+                <p>...</p>
             </div>
-        </div>
-    </div>
-    <div class="oe_row oe_spaced">
-        <div class="oe_span12 oe_mt32">
-            <h3>That's pretty much it</h3>
-        </div>
-        <div class="oe_span4">
-            <p>After installing the addon a form will let you set the data</p>
-        </div>
-        <div class="oe_span8">
-            <div class="oe_picture oe_screenshot oe_demo">
-                <img src="post-install.png">
-            </div>
+            -->
         </div>
     </div>
 </section>
@@ -76,16 +54,13 @@
     <div class="oe_row oe_spaced">
         <h3 class="oe_leftalign">Data definitions</h3>
         <div class="oe_span6">
-            <p>Various <i>Schemas</i> that will allow you to map your Odoo
-            models as Mailchimp's.</p>
+            <p>Various <i>Schemas</i> that will allow you to map your Odoo models as Mailchimp's.</p>
         </div>
         <div class="oe_span6">
-            <p></p>
             <ul>
-                <li>Member</li>
-                <li>Template</li>
-                <li>List</li>
-                <li>Campaign</li>
+                <li>....</li>
+                <li>....</li>
+                <li>....</li>
             </ul>
         </div>
     </div>
@@ -95,35 +70,37 @@
             <p>Several <i>Webhooks</i> where you can send or get data.</p>
         </div>
         <div class="oe_span6">
-            <p></p>
             <ul>
-                <li>List Members Create</li>
-                <li>Campaigns Cancel-Send</li>
-                <p></p>
+                <li>...</li>
+                <li>...</li>
+                <li>...</li>
             </ul>
         </div>
         <div class="oe_span6">
-            <p>A handful of <i>Events</i> and <i>Translators</i> to decide
-                when and how perform transformations.</p>
+            <p>A handful of <i>Events</i> and <i>Translators</i> to decide when and how perform transformations.</p>
         </div>
         <div class="oe_span6">
             <p>Events:</p>
             <ul>
-                <li>Member create_at</li>
+                <li>...</li>
+                <li>...</li>
             </ul>
             <p>Translators:</p>
             <ul>
-                <li> Export List Subresource</li>
+                <li>...</li>
+                <li>...</li>
+                <li>...</li>
             </ul>
         </div>
         <div class="oe_span6">
-            <p>Out of the Box <i>Flows</i> so you can focus on what's really
-                important.</p>
+            <p>Out of the Box <i>Flows</i> so you can focus on what's really important.</p>
         </div>
         <div class="oe_span6">
             <p></p>
             <ul>
-                <li>Member Create</li>
+                <li>...</li>
+                <li>...</li>
+                <li>...</li>
             </ul>
         </div>
     </div>
@@ -135,33 +112,21 @@
         <div class="oe_span6">
             <h3>There's really only one thing you need to do: Map your models</h3>
             <ul>
-                <li>Go to the <i>Cenit IO Integrations</i> menu.</li>
-                <li>Create a new <i>Data type</i>
-                    <ul>
-                        <li>Name it as you will.</li>
-                        <li>Select the model you wish to send over to MailChimp
-                            (say 'Mass Mailing Contact').</li>
-                        <li>Select the 'Mailchimp ' library</li>
-                        <li>and the specific schema you want to use (say
-                            'member.json ').</li>
-                        <li>On the <i>Mappings</i> tab set how you want your
-                            mass mailing contacts to translate to Mailchimp</li>
-                        <li>Save your work.</li>
-                    </ul>
-                </li>
+                <li>Steps 1 ....</li>
+                <li>Steps 2 ....</li>
+                <li>............</li>
+                <li>Steps n ....</li>
             </ul>
-            <p>That's it! Everytime you create or modify a Mass mailing contact in Odoo, a member will
-            be create on your Mailchimp account.</p>
+            <p>That's it! Every Time you do something in Odoo, this is done in the twitter account.</p>
         </div>
         <div class="oe_span6">
             <div class="oe_screenshot oe_demo">
-                <img src="mapping.png">
+                <!--<img src="mapping.png">-->
             </div>
-            <p class="oe_mt32">For more on mapping check the Documentation tab
-                of the <a
-                        href="https://www.odoo.com/apps/modules/8.0/cenit_base/">
-                    Cenit IO Integrations Client</a>.</p>
+            <p class="oe_mt32">
+                For more on mapping check the Documentation tab of the
+                <a href="https://www.odoo.com/apps/modules/8.0/cenit_base/">Cenit IO Integrations Client</a>.
+            </p>
         </div>
     </div>
 </section>
-
