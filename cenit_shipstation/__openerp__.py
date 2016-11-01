@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'Shipstation API Integration',
+    'summary': "Shipstation API Integration",
     'description': """
         Odoo - Shipstation integration via Cenit IO
     """,

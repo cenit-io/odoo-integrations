@@ -26,8 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'Wordnik is the world's biggest online English dictionary, by number of words
-',
+    'summary': "Wordnik is the world's biggest online English dictionary, by number of words\n",
     'description': """
         Odoo - Wordnik_4_0 integration via Cenit IO
     """,

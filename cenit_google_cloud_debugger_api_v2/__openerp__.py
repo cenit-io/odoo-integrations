@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'Lets you examine the stack and variables of your running application without stopping or slowing it down.',
+    'summary': "Lets you examine the stack and variables of your running application without stopping or slowing it down.",
     'description': """
         Odoo - Google_cloud_debugger_api_v2 integration via Cenit IO
     """,

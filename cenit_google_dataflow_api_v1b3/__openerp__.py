@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'Google Dataflow API.',
+    'summary': "Google Dataflow API.",
     'description': """
         Odoo - Google_dataflow_api_v1b3 integration via Cenit IO
     """,

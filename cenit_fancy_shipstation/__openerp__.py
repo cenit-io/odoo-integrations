@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'Map Fancy to Shipstation',
+    'summary': "Map Fancy to Shipstation",
     'description': """
         Odoo - Fancy_shipstation integration via Cenit IO
     """,

@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'Licensing API to view and manage license for your domain.',
+    'summary': "Licensing API to view and manage license for your domain.",
     'description': """
         Odoo - Enterprise_license_manager_api_v1 integration via Cenit IO
     """,

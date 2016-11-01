@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'FunShouts allows you to leave a simple voice mail message (a 'shout') by calling the hotline.',
+    'summary': "FunShouts allows you to leave a simple voice mail message (a 'shout') by calling the hotline.",
     'description': """
         Odoo - Funshoutsapi_v1 integration via Cenit IO
     """,

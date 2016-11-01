@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'reverb',
+    'summary': "reverb",
     'description': """
         Odoo - Reverb_2_0 integration via Cenit IO
     """,

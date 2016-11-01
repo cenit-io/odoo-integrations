@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'The Google Container Engine API is used for building and managing container based applications, powered by the open source Kubernetes technology.',
+    'summary': "The Google Container Engine API is used for building and managing container based applications, powered by the open source Kubernetes technology.",
     'description': """
         Odoo - Google_container_engine_api_v1 integration via Cenit IO
     """,

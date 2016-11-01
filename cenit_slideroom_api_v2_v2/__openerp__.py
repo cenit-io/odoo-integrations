@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'SlideRoom provides a RESTful API for exporting data out of your organization's SlideRoom account.',
+    'summary': "SlideRoom provides a RESTful API for exporting data out of your organization's SlideRoom account.",
     'description': """
         Odoo - Slideroom_api_v2_v2 integration via Cenit IO
     """,

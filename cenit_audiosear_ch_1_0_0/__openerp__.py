@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'The Audiosear.ch API requires OAuth, which you can manage at <a href='/oauth/applications'>OAuth Applications</a>.<br/>API SDK clients available in <a href='https://github.com/popuparchive/audiosearch-client-python' target='_blank'>Python</a>, <a href='https://github.com/popuparchive/audiosearch-client-ruby' target='_blank'>Ruby</a>, <a href='https://github.com/popuparchive/audiosearch-client-php' target='_blank'>PHP</a>, <a href='https://github.com/popuparchive/audiosearch-client-node' target='_blank'>Node</a>, and <a href='https://github.com/popuparchive/AudiosearchClientSwift' target='_blank'>Swift</a>.<br/>Read the <a href='https://github.com/popuparchive/audiosearch-cookbook/wiki'>API Cookbook</a> for easy copy-and-paste recipes.',
+    'summary': "The Audiosear.ch API requires OAuth, which you can manage at <a href='/oauth/applications'>OAuth Applications</a>.<br/>API SDK clients available in <a href='https://github.com/popuparchive/audiosearch-client-python' target='_blank'>Python</a>, <a href='https://github.com/popuparchive/audiosearch-client-ruby' target='_blank'>Ruby</a>, <a href='https://github.com/popuparchive/audiosearch-client-php' target='_blank'>PHP</a>, <a href='https://github.com/popuparchive/audiosearch-client-node' target='_blank'>Node</a>, and <a href='https://github.com/popuparchive/AudiosearchClientSwift' target='_blank'>Swift</a>.<br/>Read the <a href='https://github.com/popuparchive/audiosearch-cookbook/wiki'>API Cookbook</a> for easy copy-and-paste recipes.",
     'description': """
         Odoo - Audiosear_ch_1_0_0 integration via Cenit IO
     """,

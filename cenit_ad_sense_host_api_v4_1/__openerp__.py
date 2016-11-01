@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'Gives AdSense Hosts access to report generation, ad code generation, and publisher management capabilities.',
+    'summary': "Gives AdSense Hosts access to report generation, ad code generation, and publisher management capabilities.",
     'description': """
         Odoo - Ad_sense_host_api_v4_1 integration via Cenit IO
     """,

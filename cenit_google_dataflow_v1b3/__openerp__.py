@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'Develops and executes data processing patterns like ETL, batch computation, and continuous computation.',
+    'summary': "Develops and executes data processing patterns like ETL, batch computation, and continuous computation.",
     'description': """
         Odoo - Google_dataflow_v1b3 integration via Cenit IO
     """,

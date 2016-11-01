@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'API endpoins for sending Jirafe events',
+    'summary': "API endpoins for sending Jirafe events",
     'description': """
         Odoo - Jirafe_events_2_0_0 integration via Cenit IO
     """,

@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'Retrieve your YouTube Analytics reports.',
+    'summary': "Retrieve your YouTube Analytics reports.",
     'description': """
         Odoo - You_tube_analytics_api_v1 integration via Cenit IO
     """,

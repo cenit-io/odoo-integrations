@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'A data platform for customers to create, manage, share and query data.',
+    'summary': "A data platform for customers to create, manage, share and query data.",
     'description': """
         Odoo - Bigquery_v2 integration via Cenit IO
     """,

@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'Ecommerce to Shipstation and Shipstation to Ecommerce Mapping Collection',
+    'summary': "Ecommerce to Shipstation and Shipstation to Ecommerce Mapping Collection",
     'description': """
         Odoo - Ecommerce_to_shipstation integration via Cenit IO
     """,

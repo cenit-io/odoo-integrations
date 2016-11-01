@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'The Backupify API allows you to integrate the leading SaaS backup solution into your software, making it easy to give your customers the data protection they need. ',
+    'summary': "The Backupify API allows you to integrate the leading SaaS backup solution into your software, making it easy to give your customers the data protection they need. ",
     'description': """
         Odoo - Backupify_1_0_0 integration via Cenit IO
     """,

@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'A messaging app for teams',
+    'summary': "A messaging app for teams",
     'description': """
         Odoo - Slack_1_0_0 integration via Cenit IO
     """,

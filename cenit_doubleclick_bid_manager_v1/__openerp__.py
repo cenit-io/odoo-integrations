@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'API for viewing and managing your reports in DoubleClick Bid Manager.',
+    'summary': "API for viewing and managing your reports in DoubleClick Bid Manager.",
     'description': """
         Odoo - Doubleclick_bid_manager_v1 integration via Cenit IO
     """,

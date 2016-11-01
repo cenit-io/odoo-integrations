@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'Use I Am Real's patented technology to perform social, video, and SMS validation on your users.',
+    'summary': "Use I Am Real's patented technology to perform social, video, and SMS validation on your users.",
     'description': """
         Odoo - I_am_real_1_0_0 integration via Cenit IO
     """,

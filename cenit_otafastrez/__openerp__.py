@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'OTA Fastrez',
+    'summary': "OTA Fastrez",
     'description': """
         Odoo - Otafastrez integration via Cenit IO
     """,

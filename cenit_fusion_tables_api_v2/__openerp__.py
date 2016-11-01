@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'API for working with Fusion Tables data.',
+    'summary': "API for working with Fusion Tables data.",
     'description': """
         Odoo - Fusion_tables_api_v2 integration via Cenit IO
     """,

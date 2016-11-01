@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'Lets you store and retrieve potentially-large, immutable data objects.',
+    'summary': "Lets you store and retrieve potentially-large, immutable data objects.",
     'description': """
         Odoo - Cloud_storage_json_api_v1 integration via Cenit IO
     """,

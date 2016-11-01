@@ -26,9 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'This document describes the REST API of Trello as published by Trello.com.
- - <a href='https://trello.com/docs/index.html' target='_blank'>Official Documentation</a>
- - <a href='https://trello.com/docs/api' target='_blank'>The HTML pages that were scraped in order to generate this specification.</a>',
+    'summary': "This document describes the REST API of Trello as published by Trello.com.\r\n - <a href='https://trello.com/docs/index.html' target='_blank'>Official Documentation</a>\r\n - <a href='https://trello.com/docs/api' target='_blank'>The HTML pages that were scraped in order to generate this specification.</a>",
     'description': """
         Odoo - Trello_1_0 integration via Cenit IO
     """,

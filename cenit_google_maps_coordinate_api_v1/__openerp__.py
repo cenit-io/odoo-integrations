@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'Lets you view and manage jobs in a Coordinate team.',
+    'summary': "Lets you view and manage jobs in a Coordinate team.",
     'description': """
         Odoo - Google_maps_coordinate_api_v1 integration via Cenit IO
     """,

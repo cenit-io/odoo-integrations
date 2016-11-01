@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'VersionEye is a cross-platform search engine for free/libre/open source software libraries.',
+    'summary': "VersionEye is a cross-platform search engine for free/libre/open source software libraries.",
     'description': """
         Odoo - Versioneye_v2 integration via Cenit IO
     """,

@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'The API to interact with Drive.',
+    'summary': "The API to interact with Drive.",
     'description': """
         Odoo - Drive_api_v2 integration via Cenit IO
     """,

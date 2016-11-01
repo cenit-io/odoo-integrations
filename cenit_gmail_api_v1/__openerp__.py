@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'The Gmail REST API.',
+    'summary': "The Gmail REST API.",
     'description': """
         Odoo - Gmail_api_v1 integration via Cenit IO
     """,

@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'ScrapeWebsiteEmail is a service that exposes an api to fetch e-mails from a website.',
+    'summary': "ScrapeWebsiteEmail is a service that exposes an api to fetch e-mails from a website.",
     'description': """
         Odoo - Scrape_website_email_api_0_1 integration via Cenit IO
     """,

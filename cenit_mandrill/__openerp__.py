@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'Mandrill API Integration',
+    'summary': "Mandrill API Integration",
     'description': """
         Odoo - Mandrill integration via Cenit IO
     """,

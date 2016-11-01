@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'This API allows programmers to build National Snow and Ice Data Center data and metadata services into their applications.',
+    'summary': "This API allows programmers to build National Snow and Ice Data Center data and metadata services into their applications.",
     'description': """
         Odoo - Nsidc_web_service_documentation_index_1_0_0 integration via Cenit IO
     """,

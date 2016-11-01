@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'Provides public users access to federal regulatory content.',
+    'summary': "Provides public users access to federal regulatory content.",
     'description': """
         Odoo - Regulations_gov_3_0 integration via Cenit IO
     """,
