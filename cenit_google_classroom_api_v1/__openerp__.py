@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'Google Classroom API',
+    'summary': "Google Classroom API",
     'description': """
         Odoo - Google_classroom_api_v1 integration via Cenit IO
     """,

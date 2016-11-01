@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'Declares, configures, and deploys complex solutions on Google Cloud Platform.',
+    'summary': "Declares, configures, and deploys complex solutions on Google Cloud Platform.",
     'description': """
         Odoo - Google_cloud_deployment_manager_v2 integration via Cenit IO
     """,

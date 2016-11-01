@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'BBC Nitro is the BBC's application programming interface (API) for BBC Programmes Metadata.',
+    'summary': "BBC Nitro is the BBC's application programming interface (API) for BBC Programmes Metadata.",
     'description': """
         Odoo - Bbc_nitro_1_0_0 integration via Cenit IO
     """,

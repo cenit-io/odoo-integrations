@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'The Publishing API for Google Play Game Services.',
+    'summary': "The Publishing API for Google Play Game Services.",
     'description': """
         Odoo - Google_play_game_services_publishing_api_v1configuration integration via Cenit IO
     """,

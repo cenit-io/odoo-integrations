@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'BlackBerry IoT Platform',
+    'summary': "BlackBerry IoT Platform",
     'description': """
         Odoo - Blackberry_iot_platform_1_0_0 integration via Cenit IO
     """,

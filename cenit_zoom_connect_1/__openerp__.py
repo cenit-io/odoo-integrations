@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'The world's greatest SMS API',
+    'summary': "The world's greatest SMS API",
     'description': """
         Odoo - Zoom_connect_1 integration via Cenit IO
     """,

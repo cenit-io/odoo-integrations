@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'This is the Solar VPS Public API. You can find more at http://www.solarvps.com',
+    'summary': "This is the Solar VPS Public API. You can find more at http://www.solarvps.com",
     'description': """
         Odoo - Solar_vps_1_0_0 integration via Cenit IO
     """,

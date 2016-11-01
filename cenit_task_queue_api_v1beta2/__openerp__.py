@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'Lets you access a Google App Engine Pull Task Queue over REST.',
+    'summary': "Lets you access a Google App Engine Pull Task Queue over REST.",
     'description': """
         Odoo - Task_queue_api_v1beta2 integration via Cenit IO
     """,

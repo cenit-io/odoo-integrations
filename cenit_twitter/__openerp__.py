@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'A basic Twitter integration',
+    'summary': "A basic Twitter integration",
     'description': """
         Odoo - Twitter integration via Cenit IO
     """,

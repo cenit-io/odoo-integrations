@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'Stores, processes, explores and shares genomic data.',
+    'summary': "Stores, processes, explores and shares genomic data.",
     'description': """
         Odoo - Genomics_v1 integration via Cenit IO
     """,

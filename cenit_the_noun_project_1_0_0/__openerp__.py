@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'Icons for Everything',
+    'summary': "Icons for Everything",
     'description': """
         Odoo - The_noun_project_1_0_0 integration via Cenit IO
     """,

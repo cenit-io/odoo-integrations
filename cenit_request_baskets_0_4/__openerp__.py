@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'RESTful API of Request Baskets service',
+    'summary': "RESTful API of Request Baskets service",
     'description': """
         Odoo - Request_baskets_0_4 integration via Cenit IO
     """,

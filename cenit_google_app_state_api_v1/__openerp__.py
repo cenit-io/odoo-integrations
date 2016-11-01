@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'The Google App State API.',
+    'summary': "The Google App State API.",
     'description': """
         Odoo - Google_app_state_api_v1 integration via Cenit IO
     """,

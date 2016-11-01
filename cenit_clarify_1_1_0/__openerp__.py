@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'The API to Search and Understand Audio & Video Data.',
+    'summary': "The API to Search and Understand Audio & Video Data.",
     'description': """
         Odoo - Clarify_1_1_0 integration via Cenit IO
     """,

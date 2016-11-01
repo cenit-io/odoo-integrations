@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'The Uploady API allows you to connect to the Uploady free online storage platform.',
+    'summary': "The Uploady API allows you to connect to the Uploady free online storage platform.",
     'description': """
         Odoo - Uploady_v1beta integration via Cenit IO
     """,

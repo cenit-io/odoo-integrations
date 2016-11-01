@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'Let us do the job and read your documents for you. We will bring you executive summaries and tonality scoring.',
+    'summary': "Let us do the job and read your documents for you. We will bring you executive summaries and tonality scoring.",
     'description': """
         Odoo - Gavagai_1_0_0 integration via Cenit IO
     """,

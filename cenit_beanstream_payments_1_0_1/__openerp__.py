@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'https://www.beanstream.com/api/v1',
+    'summary': "https://www.beanstream.com/api/v1",
     'description': """
         Odoo - Beanstream_payments_1_0_1 integration via Cenit IO
     """,

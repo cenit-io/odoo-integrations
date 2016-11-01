@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'Validate and generate passwords using open source tools',
+    'summary': "Validate and generate passwords using open source tools",
     'description': """
         Odoo - Passwordutility_web_v1 integration via Cenit IO
     """,

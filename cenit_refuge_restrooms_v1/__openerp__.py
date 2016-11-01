@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'REFUGE is a web application that seeks to provide safe restroom access for transgender, intersex, and gender nonconforming individuals.',
+    'summary': "REFUGE is a web application that seeks to provide safe restroom access for transgender, intersex, and gender nonconforming individuals.",
     'description': """
         Odoo - Refuge_restrooms_v1 integration via Cenit IO
     """,

@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'This is an API designed for merchants who are using SpectroCoin services and wishes to integrate them locally.',
+    'summary': "This is an API designed for merchants who are using SpectroCoin services and wishes to integrate them locally.",
     'description': """
         Odoo - Spectrocoin_merchant_1_0_0 integration via Cenit IO
     """,

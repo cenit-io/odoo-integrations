@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'Tender shared collection via CENIT Integration',
+    'summary': "Tender shared collection via CENIT Integration",
     'description': """
         Odoo - Tender integration via Cenit IO
     """,

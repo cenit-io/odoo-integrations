@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'A developer friendly API to help your business achieve VAT compliance',
+    'summary': "A developer friendly API to help your business achieve VAT compliance",
     'description': """
         Odoo - Vat_api_1 integration via Cenit IO
     """,

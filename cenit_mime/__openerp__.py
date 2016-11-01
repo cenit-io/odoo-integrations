@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'Multipurpose Internet Mail Extensions',
+    'summary': "Multipurpose Internet Mail Extensions",
     'description': """
         Odoo - Mime integration via Cenit IO
     """,

@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'The Google+ API enables developers to build on top of the Google+ platform.',
+    'summary': "The Google+ API enables developers to build on top of the Google+ platform.",
     'description': """
         Odoo - Googleplus_domains_api_v1 integration via Cenit IO
     """,

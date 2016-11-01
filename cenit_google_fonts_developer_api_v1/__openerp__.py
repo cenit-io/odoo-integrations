@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'The Google Fonts Developer API.',
+    'summary': "The Google Fonts Developer API.",
     'description': """
         Odoo - Google_fonts_developer_api_v1 integration via Cenit IO
     """,

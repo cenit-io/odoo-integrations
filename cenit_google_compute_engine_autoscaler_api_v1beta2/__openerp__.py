@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'The Google Compute Engine Autoscaler API provides autoscaling for groups of Cloud VMs.',
+    'summary': "The Google Compute Engine Autoscaler API provides autoscaling for groups of Cloud VMs.",
     'description': """
         Odoo - Google_compute_engine_autoscaler_api_v1beta2 integration via Cenit IO
     """,

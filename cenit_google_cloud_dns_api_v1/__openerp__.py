@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'The Google Cloud DNS API provides services for configuring and serving authoritative DNS records.',
+    'summary': "The Google Cloud DNS API provides services for configuring and serving authoritative DNS records.",
     'description': """
         Odoo - Google_cloud_dns_api_v1 integration via Cenit IO
     """,

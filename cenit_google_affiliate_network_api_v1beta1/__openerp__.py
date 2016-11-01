@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'Lets you have programmatic access to your Google Affiliate Network data.',
+    'summary': "Lets you have programmatic access to your Google Affiliate Network data.",
     'description': """
         Odoo - Google_affiliate_network_api_v1beta1 integration via Cenit IO
     """,

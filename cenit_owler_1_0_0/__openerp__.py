@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'Search for information on companies using a website or company name and get access to Company Data, News, Blog Posts, Competitor Lists and much more.',
+    'summary': "Search for information on companies using a website or company name and get access to Company Data, News, Blog Posts, Competitor Lists and much more.",
     'description': """
         Odoo - Owler_1_0_0 integration via Cenit IO
     """,

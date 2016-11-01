@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'watchful.li',
+    'summary': "watchful.li",
     'description': """
         Odoo - Watchful_li_1_0_0 integration via Cenit IO
     """,

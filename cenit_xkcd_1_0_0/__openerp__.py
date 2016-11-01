@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'Webcomic of romance, sarcasm, math, and language.',
+    'summary': "Webcomic of romance, sarcasm, math, and language.",
     'description': """
         Odoo - Xkcd_1_0_0 integration via Cenit IO
     """,

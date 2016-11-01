@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'Data Types for Communication',
+    'summary': "Data Types for Communication",
     'description': """
         Odoo - Communication integration via Cenit IO
     """,

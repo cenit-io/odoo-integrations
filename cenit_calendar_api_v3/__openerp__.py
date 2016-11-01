@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'Lets you manipulate events and other calendar data.',
+    'summary': "Lets you manipulate events and other calendar data.",
     'description': """
         Odoo - Calendar_api_v3 integration via Cenit IO
     """,

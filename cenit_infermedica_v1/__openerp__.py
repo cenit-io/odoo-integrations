@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'Empower your healthcare services with intelligent diagnostic insights of Infermedica API.',
+    'summary': "Empower your healthcare services with intelligent diagnostic insights of Infermedica API.",
     'description': """
         Odoo - Infermedica_v1 integration via Cenit IO
     """,

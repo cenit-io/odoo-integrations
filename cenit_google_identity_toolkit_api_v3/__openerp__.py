@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'Help the third party sites to implement federated login.',
+    'summary': "Help the third party sites to implement federated login.",
     'description': """
         Odoo - Google_identity_toolkit_api_v3 integration via Cenit IO
     """,

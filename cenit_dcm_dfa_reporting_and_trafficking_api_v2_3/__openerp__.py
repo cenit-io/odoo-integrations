@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'Manage your DoubleClick Campaign Manager ad campaigns and reports.',
+    'summary': "Manage your DoubleClick Campaign Manager ad campaigns and reports.",
     'description': """
         Odoo - Dcm_dfa_reporting_and_trafficking_api_v2_3 integration via Cenit IO
     """,
