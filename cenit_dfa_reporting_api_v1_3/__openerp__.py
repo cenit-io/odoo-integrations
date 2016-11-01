@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'Lets you create, run and download reports.',
+    'summary': "Lets you create, run and download reports.",
     'description': """
         Odoo - Dfa_reporting_api_v1_3 integration via Cenit IO
     """,

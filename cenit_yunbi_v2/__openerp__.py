@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'Professional Cloud Trading Platform for Digital Assets',
+    'summary': "Professional Cloud Trading Platform for Digital Assets",
     'description': """
         Odoo - Yunbi_v2 integration via Cenit IO
     """,

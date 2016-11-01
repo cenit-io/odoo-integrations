@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'hetras hotel API v0',
+    'summary': "hetras hotel API v0",
     'description': """
         Odoo - Hetras_hotel_api_v0_v0 integration via Cenit IO
     """,

@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'The recommended REST API endpoints to be used when integrating with PatientView',
+    'summary': "The recommended REST API endpoints to be used when integrating with PatientView",
     'description': """
         Odoo - Patientview_1_0 integration via Cenit IO
     """,

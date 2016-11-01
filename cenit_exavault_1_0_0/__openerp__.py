@@ -26,10 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'ExaVault's API allows you to incorporate ExaVault's suite of file transfer and user management tools into your own application.
-
-ExaVault supports both POST (recommended when requesting large data sets) and GET operations, and requires an API key in order to use.
-',
+    'summary': "ExaVault's API allows you to incorporate ExaVault's suite of file transfer and user management tools into your own application.\r\n\r\nExaVault supports both POST (recommended when requesting large data sets) and GET operations, and requires an API key in order to use.\r\n",
     'description': """
         Odoo - Exavault_1_0_0 integration via Cenit IO
     """,

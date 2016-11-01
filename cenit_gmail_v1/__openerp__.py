@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'Access Gmail mailboxes including sending user email.',
+    'summary': "Access Gmail mailboxes including sending user email.",
     'description': """
         Odoo - Gmail_v1 integration via Cenit IO
     """,

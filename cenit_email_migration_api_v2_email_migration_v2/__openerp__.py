@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'Email Migration API lets you migrate emails of users to Google backends.',
+    'summary': "Email Migration API lets you migrate emails of users to Google backends.",
     'description': """
         Odoo - Email_migration_api_v2_email_migration_v2 integration via Cenit IO
     """,

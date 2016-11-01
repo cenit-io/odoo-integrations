@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'Provides access to Genomics data.',
+    'summary': "Provides access to Genomics data.",
     'description': """
         Odoo - Genomics_api_v1beta2 integration via Cenit IO
     """,

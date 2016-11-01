@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'Seldon is an Open Predictive Platform that currently allows item recommendations and general predictive models to be deployed based on structured historical data.',
+    'summary': "Seldon is an Open Predictive Platform that currently allows item recommendations and general predictive models to be deployed based on structured historical data.",
     'description': """
         Odoo - Seldon_1_0_0 integration via Cenit IO
     """,

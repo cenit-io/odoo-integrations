@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'The Daisycon API allows you to retrieve statistics and link materials, update transactions, subscribe to affiliate program, and a whole lot more!',
+    'summary': "The Daisycon API allows you to retrieve statistics and link materials, update transactions, subscribe to affiliate program, and a whole lot more!",
     'description': """
         Odoo - Daisycon_1_0_0 integration via Cenit IO
     """,

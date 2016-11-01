@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'Lets you create, inspect, and manage goo.gl short URLs',
+    'summary': "Lets you create, inspect, and manage goo.gl short URLs",
     'description': """
         Odoo - Url_shortener_api_v1 integration via Cenit IO
     """,

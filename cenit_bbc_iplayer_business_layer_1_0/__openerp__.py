@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'BBC iPlayer Business logic Layer',
+    'summary': "BBC iPlayer Business logic Layer",
     'description': """
         Odoo - Bbc_iplayer_business_layer_1_0 integration via Cenit IO
     """,

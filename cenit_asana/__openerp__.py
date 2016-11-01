@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'Asana shared collection',
+    'summary': "Asana shared collection",
     'description': """
         Odoo - Asana integration via Cenit IO
     """,

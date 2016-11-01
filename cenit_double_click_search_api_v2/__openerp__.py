@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'Report and modify your advertising data in DoubleClick Search (for example, campaigns, ad groups, keywords, and conversions).',
+    'summary': "Report and modify your advertising data in DoubleClick Search (for example, campaigns, ad groups, keywords, and conversions).",
     'description': """
         Odoo - Double_click_search_api_v2 integration via Cenit IO
     """,

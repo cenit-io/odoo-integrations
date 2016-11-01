@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'A Gmail API Wrapper',
+    'summary': "A Gmail API Wrapper",
     'description': """
         Odoo - Gmail integration via Cenit IO
     """,

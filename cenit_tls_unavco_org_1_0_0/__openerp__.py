@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'tls.unavco.org',
+    'summary': "tls.unavco.org",
     'description': """
         Odoo - Tls_unavco_org_1_0_0 integration via Cenit IO
     """,

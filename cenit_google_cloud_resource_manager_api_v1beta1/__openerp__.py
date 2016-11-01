@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'The Google Cloud Resource Manager API provides methods for creating, reading, and updating of project metadata.',
+    'summary': "The Google Cloud Resource Manager API provides methods for creating, reading, and updating of project metadata.",
     'description': """
         Odoo - Google_cloud_resource_manager_api_v1beta1 integration via Cenit IO
     """,

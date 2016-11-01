@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'Text Processing API for Creative Writing',
+    'summary': "Text Processing API for Creative Writing",
     'description': """
         Odoo - Glugbot_1 integration via Cenit IO
     """,

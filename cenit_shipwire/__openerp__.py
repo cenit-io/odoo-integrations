@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'Shipwire API Collection',
+    'summary': "Shipwire API Collection",
     'description': """
         Odoo - Shipwire integration via Cenit IO
     """,

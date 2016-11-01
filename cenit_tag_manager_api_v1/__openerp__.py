@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'API for accessing Tag Manager accounts and containers.',
+    'summary': "API for accessing Tag Manager accounts and containers.",
     'description': """
         Odoo - Tag_manager_api_v1 integration via Cenit IO
     """,

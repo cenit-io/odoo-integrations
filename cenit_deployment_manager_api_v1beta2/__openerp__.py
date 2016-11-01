@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'The Deployment Manager API allows users to declaratively configure, deploy and run complex solutions on the Google Cloud Platform.',
+    'summary': "The Deployment Manager API allows users to declaratively configure, deploy and run complex solutions on the Google Cloud Platform.",
     'description': """
         Odoo - Deployment_manager_api_v1beta2 integration via Cenit IO
     """,

@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'Create a session to start to use it',
+    'summary': "Create a session to start to use it",
     'description': """
         Odoo - Likefolio_api_endpoints_v0 integration via Cenit IO
     """,

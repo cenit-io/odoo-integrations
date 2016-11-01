@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'The Replica Pool API allows users to declaratively provision and manage groups of Google Compute Engine instances based on a common template.',
+    'summary': "The Replica Pool API allows users to declaratively provision and manage groups of Google Compute Engine instances based on a common template.",
     'description': """
         Odoo - Replica_pool_api_v1beta1 integration via Cenit IO
     """,

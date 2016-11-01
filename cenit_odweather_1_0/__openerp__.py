@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'This is the api to access the ODWeather API information',
+    'summary': "This is the api to access the ODWeather API information",
     'description': """
         Odoo - Odweather_1_0 integration via Cenit IO
     """,

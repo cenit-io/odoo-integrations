@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'Learnifier',
+    'summary': "Learnifier",
     'description': """
         Odoo - Learnifier_1_1_0 integration via Cenit IO
     """,

@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'Admin Data Transfer API lets you transfer user data from one user to another.',
+    'summary': "Admin Data Transfer API lets you transfer user data from one user to another.",
     'description': """
         Odoo - Admin_data_transfer_api_datatransfer_v1 integration via Cenit IO
     """,

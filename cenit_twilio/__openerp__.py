@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'Twilio API Integration',
+    'summary': "Twilio API Integration",
     'description': """
         Odoo - Twilio integration via Cenit IO
     """,

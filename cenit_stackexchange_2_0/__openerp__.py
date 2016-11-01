@@ -26,8 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'Stack Exchange is a network of 130+ Q&A communities including Stack Overflow.
-',
+    'summary': "Stack Exchange is a network of 130+ Q&A communities including Stack Overflow.\n",
     'description': """
         Odoo - Stackexchange_2_0 integration via Cenit IO
     """,

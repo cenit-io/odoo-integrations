@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'Lets you analyze the performance of a web page and get tailored suggestions to make that page faster.',
+    'summary': "Lets you analyze the performance of a web page and get tailored suggestions to make that page faster.",
     'description': """
         Odoo - Page_speed_insights_api_v2 integration via Cenit IO
     """,

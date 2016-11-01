@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'Retrieves Google Developers Console billing accounts and associates them with projects.',
+    'summary': "Retrieves Google Developers Console billing accounts and associates them with projects.",
     'description': """
         Odoo - Google_cloud_billing_v1 integration via Cenit IO
     """,

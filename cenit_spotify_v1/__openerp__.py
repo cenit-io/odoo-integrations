@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'Spotify',
+    'summary': "Spotify",
     'description': """
         Odoo - Spotify_v1 integration via Cenit IO
     """,

@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'Query our database of State and Federal Laws and Incentives for Alternative Fuels',
+    'summary': "Query our database of State and Federal Laws and Incentives for Alternative Fuels",
     'description': """
         Odoo - Transportation_laws_and_incentives_0_1_0 integration via Cenit IO
     """,
