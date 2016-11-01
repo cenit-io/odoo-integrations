@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'API for access to the data within Blogger.',
+    'summary': "API for access to the data within Blogger.",
     'description': """
         Odoo - Blogger_api_v3 integration via Cenit IO
     """,

@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'Semantria applies Text and Sentiment Analysis to tweets, facebook posts, surveys, reviews or enterprise content.',
+    'summary': "Semantria applies Text and Sentiment Analysis to tweets, facebook posts, surveys, reviews or enterprise content.",
     'description': """
         Odoo - Semantria_4_0 integration via Cenit IO
     """,

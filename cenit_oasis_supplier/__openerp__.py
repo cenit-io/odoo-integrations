@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'Oasis Supplier',
+    'summary': "Oasis Supplier",
     'description': """
         Odoo - Oasis_supplier integration via Cenit IO
     """,

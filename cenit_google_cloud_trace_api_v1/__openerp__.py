@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'The Google Cloud Trace API provides services for reading and writing runtime trace data for Cloud applications.',
+    'summary': "The Google Cloud Trace API provides services for reading and writing runtime trace data for Cloud applications.",
     'description': """
         Odoo - Google_cloud_trace_api_v1 integration via Cenit IO
     """,

@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'Gives AdSense publishers access to their inventory and the ability to generate reports',
+    'summary': "Gives AdSense publishers access to their inventory and the ability to generate reports",
     'description': """
         Odoo - Ad_sense_management_api_v1_4 integration via Cenit IO
     """,

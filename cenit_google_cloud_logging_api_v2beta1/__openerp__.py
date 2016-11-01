@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'The Google Cloud Logging API lets you write log entries and manage your logs, log sinks and logs-based metrics.',
+    'summary': "The Google Cloud Logging API lets you write log entries and manage your logs, log sinks and logs-based metrics.",
     'description': """
         Odoo - Google_cloud_logging_api_v2beta1 integration via Cenit IO
     """,

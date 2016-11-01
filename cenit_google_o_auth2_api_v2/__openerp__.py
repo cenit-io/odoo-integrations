@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'Lets you access OAuth2 protocol related APIs.',
+    'summary': "Lets you access OAuth2 protocol related APIs.",
     'description': """
         Odoo - Google_o_auth2_api_v2 integration via Cenit IO
     """,

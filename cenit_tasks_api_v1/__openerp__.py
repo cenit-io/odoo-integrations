@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'Lets you manage your tasks and task lists.',
+    'summary': "Lets you manage your tasks and task lists.",
     'description': """
         Odoo - Tasks_api_v1 integration via Cenit IO
     """,

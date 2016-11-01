@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'Learn more about home mortgage data, download the data yourself, or build new tools using our API.',
+    'summary': "Learn more about home mortgage data, download the data yourself, or build new tools using our API.",
     'description': """
         Odoo - The_consumer_financial_protection_bureau_1_0 integration via Cenit IO
     """,

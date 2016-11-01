@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'Lets you create and manage your customers and their subscriptions.',
+    'summary': "Lets you create and manage your customers and their subscriptions.",
     'description': """
         Odoo - Enterprise_apps_reseller_api_v1sandbox integration via Cenit IO
     """,

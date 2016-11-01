@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'Messagebird shared collection of integration services',
+    'summary': "Messagebird shared collection of integration services",
     'description': """
         Odoo - Messagebird integration via Cenit IO
     """,

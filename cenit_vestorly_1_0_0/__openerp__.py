@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'Vestorly Developers API',
+    'summary': "Vestorly Developers API",
     'description': """
         Odoo - Vestorly_1_0_0 integration via Cenit IO
     """,

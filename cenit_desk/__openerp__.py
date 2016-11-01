@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'Desk CENIT Integration',
+    'summary': "Desk CENIT Integration",
     'description': """
         Odoo - Desk integration via Cenit IO
     """,

@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'Google Fit API',
+    'summary': "Google Fit API",
     'description': """
         Odoo - Fitness_v1 integration via Cenit IO
     """,

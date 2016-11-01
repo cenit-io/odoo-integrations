@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'API for interacting with Glass users via the timeline.',
+    'summary': "API for interacting with Glass users via the timeline.",
     'description': """
         Odoo - Google_mirror_api_v1 integration via Cenit IO
     """,

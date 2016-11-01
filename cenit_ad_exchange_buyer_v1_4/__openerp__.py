@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'Accesses your bidding-account information, submits creatives for validation, finds available direct deals, and retrieves performance reports.',
+    'summary': "Accesses your bidding-account information, submits creatives for validation, finds available direct deals, and retrieves performance reports.",
     'description': """
         Odoo - Ad_exchange_buyer_v1_4 integration via Cenit IO
     """,

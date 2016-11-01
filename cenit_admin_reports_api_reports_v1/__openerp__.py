@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'Allows the administrators of Google Apps customers to fetch reports about the usage, collaboration, security and risk for their users.',
+    'summary': "Allows the administrators of Google Apps customers to fetch reports about the usage, collaboration, security and risk for their users.",
     'description': """
         Odoo - Admin_reports_api_reports_v1 integration via Cenit IO
     """,

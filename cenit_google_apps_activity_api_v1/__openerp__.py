@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'Provides a historical view of activity.',
+    'summary': "Provides a historical view of activity.",
     'description': """
         Odoo - Google_apps_activity_api_v1 integration via Cenit IO
     """,

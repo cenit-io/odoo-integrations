@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'Lets you manage permission levels and related settings of a group.',
+    'summary': "Lets you manage permission levels and related settings of a group.",
     'description': """
         Odoo - Groups_settings_api_v1 integration via Cenit IO
     """,

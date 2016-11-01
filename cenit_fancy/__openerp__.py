@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'Fancy Integration',
+    'summary': "Fancy Integration",
     'description': """
         Odoo - Fancy integration via Cenit IO
     """,

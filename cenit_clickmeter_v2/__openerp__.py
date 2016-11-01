@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'Api dashboard for ClickMeter API',
+    'summary': "Api dashboard for ClickMeter API",
     'description': """
         Odoo - Clickmeter_v2 integration via Cenit IO
     """,

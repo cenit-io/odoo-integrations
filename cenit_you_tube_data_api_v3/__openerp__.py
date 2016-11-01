@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'Programmatic access to YouTube features.',
+    'summary': "Programmatic access to YouTube features.",
     'description': """
         Odoo - You_tube_data_api_v3 integration via Cenit IO
     """,

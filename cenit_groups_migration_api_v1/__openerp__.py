@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'Groups Migration Api.',
+    'summary': "Groups Migration Api.",
     'description': """
         Odoo - Groups_migration_api_v1 integration via Cenit IO
     """,

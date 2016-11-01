@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'API for accessing Google Cloud Datastore.',
+    'summary': "API for accessing Google Cloud Datastore.",
     'description': """
         Odoo - Google_cloud_datastore_api_v1beta2 integration via Cenit IO
     """,

@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'View and manage your Google Analytics data',
+    'summary': "View and manage your Google Analytics data",
     'description': """
         Odoo - Google_analytics_api_v3 integration via Cenit IO
     """,

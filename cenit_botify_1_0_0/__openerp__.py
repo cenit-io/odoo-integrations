@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'Botify Saas API',
+    'summary': "Botify Saas API",
     'description': """
         Odoo - Botify_1_0_0 integration via Cenit IO
     """,

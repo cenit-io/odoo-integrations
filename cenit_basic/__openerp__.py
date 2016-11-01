@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'Basic translator of JSON, XML and EDI.',
+    'summary': "Basic translator of JSON, XML and EDI.",
     'description': """
         Odoo - Basic integration via Cenit IO
     """,

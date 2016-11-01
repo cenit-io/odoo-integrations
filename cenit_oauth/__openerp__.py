@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'Oauth helper',
+    'summary': "Oauth helper",
     'description': """
         Odoo - Oauth integration via Cenit IO
     """,

@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'Lets you view Google Webmaster Tools data for your verified sites.',
+    'summary': "Lets you view Google Webmaster Tools data for your verified sites.",
     'description': """
         Odoo - Webmaster_tools_api_v3 integration via Cenit IO
     """,
