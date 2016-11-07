@@ -21,12 +21,12 @@
 
 {
     'name': 'Shipstation Integration',
-    'version': '1.1.2',
+    'version': '1.0.0',
     'author': 'Cenit IO',
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'Shipstation API Collection',
+    'summary': "Shipstation API Integration",
     'description': """
         Odoo - Shipstation integration via Cenit IO
     """,
@@ -34,7 +34,7 @@
     'data': [
         'security/ir.model.access.csv',
         'view/config.xml',
-        'view/wizard.xml',
+        'view/wizard.xml'
     ],
     'installable': True
 }

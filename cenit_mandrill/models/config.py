@@ -32,7 +32,6 @@ COLLECTION_PARAMS = {
     "On connection 'Mandrill API Connection' template parameter 'key'":'key',
 }
 
-
 class CenitIntegrationSettings(models.TransientModel):
     _name = "cenit.mandrill.settings"
     _inherit = 'res.config.settings'
@@ -47,12 +46,11 @@ class CenitIntegrationSettings(models.TransientModel):
     ############################################################################
     def get_default_key(self, cr, uid, ids, context=None):
         key = self.pool.get('ir.config_parameter').get_param(
-            cr, uid,
-            'odoo_cenit.mandrill.key', default=None,
-            context=context
+            cr, uid, 'odoo_cenit.mandrill.key', default=None, context=context
         )
         return {'key': key or ''}
-    
+
+
     ############################################################################
     # Default Setters
     ############################################################################
@@ -60,11 +58,11 @@ class CenitIntegrationSettings(models.TransientModel):
         config_parameters = self.pool.get('ir.config_parameter')
         for record in self.browse(cr, uid, ids, context=context):
             config_parameters.set_param (
-                cr, uid,
-                'odoo_cenit.mandrill.key', record.key or '',
+                cr, uid, 'odoo_cenit.mandrill.key', record.key or '',
                 context=context
             )
-    
+
+
     ############################################################################
     # Actions
     ############################################################################
@@ -93,12 +91,8 @@ class CenitIntegrationSettings(models.TransientModel):
         for p in data.get('params'):
             k = p.get('parameter')
             id_ = p.get('id')
-            value = getattr(obj,
-                COLLECTION_PARAMS.get(k)
-            )
-            params.update ({
-                id_: value
-            })
+            value = getattr(obj,COLLECTION_PARAMS.get(k))
+            params.update ({id_: value})
 
         installer.pull_shared_collection(cr, uid, data.get('id'), params=params, context=context)
 

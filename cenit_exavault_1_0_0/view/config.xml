@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="view_cenit_exavault_1_0_0_settings" model="ir.ui.view">
+            <field name="name">ExaVault&#x27;s API allows you to incorporate ExaVault&#x27;s suite of file transfer and user management tools into your own application.
+
+ExaVault supports both POST (recommended when requesting large data sets) and GET operations, and requires an API key in order to use.
+ settings</field>
+            <field name="model">cenit.exavault_1_0_0.settings</field>
+            <field name="arch" type="xml">
+                <form string="Configure ExaVault&#x27;s API allows you to incorporate ExaVault&#x27;s suite of file transfer and user management tools into your own application.
+
+ExaVault supports both POST (recommended when requesting large data sets) and GET operations, and requires an API key in order to use.
+" class="oe_form_configuration">
+                    <header>
+                        <button string="Apply" type="object"
+                                name="execute" class="oe_highlight"/>
+                        or
+                        <button string="Cancel" type="object"
+                                name="cancel" class="oe_link"/>
+                    </header>
+                    <div>
+                        <group string="ExaVault&#x27;s API allows you to incorporate ExaVault&#x27;s suite of file transfer and user management tools into your own application.
+
+ExaVault supports both POST (recommended when requesting large data sets) and GET operations, and requires an API key in order to use.
+ settings">
+                        </group>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_cenit_exavault_1_0_0_settings" model="ir.actions.act_window">
+            <field name="name">ExaVault&#x27;s API allows you to incorporate ExaVault&#x27;s suite of file transfer and user management tools into your own application.
+
+ExaVault supports both POST (recommended when requesting large data sets) and GET operations, and requires an API key in order to use.
+ settings</field>
+            <field name="res_model">cenit.exavault_1_0_0.settings</field>
+            <field name="view_mode">form</field>
+            <field name="target">inline</field>
+            <field name="view_id" ref="view_cenit_exavault_1_0_0_settings"/>
+        </record>
+
+        <menuitem id="menu_cenit_exavault_1_0_0_settings"
+            parent="cenit_base.menu_cenit_integrations_settings"
+            sequence="1" action="action_cenit_exavault_1_0_0_settings"/>
+
+        <menuitem id="menu_cenit_exavault_1_0_0_settings_alt"
+            parent="cenit_base.menu_cenit_integrations_settings_alt"
+            sequence="1" action="action_cenit_exavault_1_0_0_settings"/>
+
+    </data>
+</openerp>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="view_cenit_funshoutsapi_v1_settings" model="ir.ui.view">
+            <field name="name">FunShouts allows you to leave a simple voice mail message (a &#x27;shout&#x27;) by calling the hotline. settings</field>
+            <field name="model">cenit.funshoutsapi_v1.settings</field>
+            <field name="arch" type="xml">
+                <form string="Configure FunShouts allows you to leave a simple voice mail message (a &#x27;shout&#x27;) by calling the hotline." class="oe_form_configuration">
+                    <header>
+                        <button string="Apply" type="object"
+                                name="execute" class="oe_highlight"/>
+                        or
+                        <button string="Cancel" type="object"
+                                name="cancel" class="oe_link"/>
+                    </header>
+                    <div>
+                        <group string="FunShouts allows you to leave a simple voice mail message (a &#x27;shout&#x27;) by calling the hotline. settings">
+                            <field name='api_key' placeholder='Your API Key' />
+                        </group>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_cenit_funshoutsapi_v1_settings" model="ir.actions.act_window">
+            <field name="name">FunShouts allows you to leave a simple voice mail message (a &#x27;shout&#x27;) by calling the hotline. settings</field>
+            <field name="res_model">cenit.funshoutsapi_v1.settings</field>
+            <field name="view_mode">form</field>
+            <field name="target">inline</field>
+            <field name="view_id" ref="view_cenit_funshoutsapi_v1_settings"/>
+        </record>
+
+        <menuitem id="menu_cenit_funshoutsapi_v1_settings"
+            parent="cenit_base.menu_cenit_integrations_settings"
+            sequence="1" action="action_cenit_funshoutsapi_v1_settings"/>
+
+        <menuitem id="menu_cenit_funshoutsapi_v1_settings_alt"
+            parent="cenit_base.menu_cenit_integrations_settings_alt"
+            sequence="1" action="action_cenit_funshoutsapi_v1_settings"/>
+
+    </data>
+</openerp>

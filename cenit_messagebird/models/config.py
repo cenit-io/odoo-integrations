@@ -29,45 +29,39 @@ _logger = logging.getLogger(__name__)
 COLLECTION_NAME = "messagebird"
 COLLECTION_VERSION = "1.0.0"
 COLLECTION_PARAMS = {
-    "On connection 'MessageBird API Connection' template parameter 'access_key'":'access_key',
+    "On connection 'Messagebird Connection' template parameter 'access_key'":'access_key',
 }
 
-
 class CenitIntegrationSettings(models.TransientModel):
-    _name = "cenit.bird.settings"
+    _name = "cenit.messagebird.settings"
     _inherit = 'res.config.settings'
 
     ############################################################################
     # Pull Parameters
     ############################################################################
-    access_key = fields.Char('MessageBird Key')
-
+    access_key = fields.Char('Access Key')
 
     ############################################################################
     # Default Getters
     ############################################################################
     def get_default_access_key(self, cr, uid, ids, context=None):
         access_key = self.pool.get('ir.config_parameter').get_param(
-            cr, uid,
-            'odoo_cenit.bird.access_key', default=None,
-            context=context
+            cr, uid, 'odoo_cenit.messagebird.access_key', default=None, context=context
         )
         return {'access_key': access_key or ''}
-    
 
 
     ############################################################################
     # Default Setters
     ############################################################################
-    def set_asana_access_key(self, cr, uid, ids, context=None):
+    def set_access_key(self, cr, uid, ids, context=None):
         config_parameters = self.pool.get('ir.config_parameter')
         for record in self.browse(cr, uid, ids, context=context):
             config_parameters.set_param (
-                cr, uid,
-                'odoo_cenit.bird.access_key', record.access_key or '',
+                cr, uid, 'odoo_cenit.messagebird.access_key', record.access_key or '',
                 context=context
             )
-    
+
 
     ############################################################################
     # Actions
@@ -94,12 +88,11 @@ class CenitIntegrationSettings(models.TransientModel):
         )
 
         params = {}
-
         for p in data.get('params'):
             k = p.get('parameter')
             id_ = p.get('id')
-            value = getattr(obj, COLLECTION_PARAMS.values().__getitem__(0))
-            params.update({id_: value})
+            value = getattr(obj,COLLECTION_PARAMS.get(k))
+            params.update ({id_: value})
 
         installer.pull_shared_collection(cr, uid, data.get('id'), params=params, context=context)
 

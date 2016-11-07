@@ -21,12 +21,12 @@
 
 {
     'name': 'Asana Integration',
-    'version': '0.1.0',
+    'version': '1.0.0',
     'author': 'Cenit IO',
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'Asana API Integration',
+    'summary': "Asana shared collection",
     'description': """
         Odoo - Asana integration via Cenit IO
     """,
@@ -34,7 +34,7 @@
     'data': [
         'security/ir.model.access.csv',
         'view/config.xml',
-        'view/wizard.xml',
+        'view/wizard.xml'
     ],
     'installable': True
 }

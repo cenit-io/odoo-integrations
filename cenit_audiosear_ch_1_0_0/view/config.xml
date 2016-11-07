@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="view_cenit_audiosear_ch_1_0_0_settings" model="ir.ui.view">
+            <field name="name">The Audiosear.ch API requires OAuth, which you can manage at &lt;a href&#x3D;&#x27;/oauth/applications&#x27;&gt;OAuth Applications&lt;/a&gt;.&lt;br/&gt;API SDK clients available in &lt;a href&#x3D;&#x27;https://github.com/popuparchive/audiosearch-client-python&#x27; target&#x3D;&#x27;_blank&#x27;&gt;Python&lt;/a&gt;, &lt;a href&#x3D;&#x27;https://github.com/popuparchive/audiosearch-client-ruby&#x27; target&#x3D;&#x27;_blank&#x27;&gt;Ruby&lt;/a&gt;, &lt;a href&#x3D;&#x27;https://github.com/popuparchive/audiosearch-client-php&#x27; target&#x3D;&#x27;_blank&#x27;&gt;PHP&lt;/a&gt;, &lt;a href&#x3D;&#x27;https://github.com/popuparchive/audiosearch-client-node&#x27; target&#x3D;&#x27;_blank&#x27;&gt;Node&lt;/a&gt;, and &lt;a href&#x3D;&#x27;https://github.com/popuparchive/AudiosearchClientSwift&#x27; target&#x3D;&#x27;_blank&#x27;&gt;Swift&lt;/a&gt;.&lt;br/&gt;Read the &lt;a href&#x3D;&#x27;https://github.com/popuparchive/audiosearch-cookbook/wiki&#x27;&gt;API Cookbook&lt;/a&gt; for easy copy-and-paste recipes. settings</field>
+            <field name="model">cenit.audiosear_ch_1_0_0.settings</field>
+            <field name="arch" type="xml">
+                <form string="Configure The Audiosear.ch API requires OAuth, which you can manage at &lt;a href&#x3D;&#x27;/oauth/applications&#x27;&gt;OAuth Applications&lt;/a&gt;.&lt;br/&gt;API SDK clients available in &lt;a href&#x3D;&#x27;https://github.com/popuparchive/audiosearch-client-python&#x27; target&#x3D;&#x27;_blank&#x27;&gt;Python&lt;/a&gt;, &lt;a href&#x3D;&#x27;https://github.com/popuparchive/audiosearch-client-ruby&#x27; target&#x3D;&#x27;_blank&#x27;&gt;Ruby&lt;/a&gt;, &lt;a href&#x3D;&#x27;https://github.com/popuparchive/audiosearch-client-php&#x27; target&#x3D;&#x27;_blank&#x27;&gt;PHP&lt;/a&gt;, &lt;a href&#x3D;&#x27;https://github.com/popuparchive/audiosearch-client-node&#x27; target&#x3D;&#x27;_blank&#x27;&gt;Node&lt;/a&gt;, and &lt;a href&#x3D;&#x27;https://github.com/popuparchive/AudiosearchClientSwift&#x27; target&#x3D;&#x27;_blank&#x27;&gt;Swift&lt;/a&gt;.&lt;br/&gt;Read the &lt;a href&#x3D;&#x27;https://github.com/popuparchive/audiosearch-cookbook/wiki&#x27;&gt;API Cookbook&lt;/a&gt; for easy copy-and-paste recipes." class="oe_form_configuration">
+                    <header>
+                        <button string="Apply" type="object"
+                                name="execute" class="oe_highlight"/>
+                        or
+                        <button string="Cancel" type="object"
+                                name="cancel" class="oe_link"/>
+                    </header>
+                    <div>
+                        <group string="The Audiosear.ch API requires OAuth, which you can manage at &lt;a href&#x3D;&#x27;/oauth/applications&#x27;&gt;OAuth Applications&lt;/a&gt;.&lt;br/&gt;API SDK clients available in &lt;a href&#x3D;&#x27;https://github.com/popuparchive/audiosearch-client-python&#x27; target&#x3D;&#x27;_blank&#x27;&gt;Python&lt;/a&gt;, &lt;a href&#x3D;&#x27;https://github.com/popuparchive/audiosearch-client-ruby&#x27; target&#x3D;&#x27;_blank&#x27;&gt;Ruby&lt;/a&gt;, &lt;a href&#x3D;&#x27;https://github.com/popuparchive/audiosearch-client-php&#x27; target&#x3D;&#x27;_blank&#x27;&gt;PHP&lt;/a&gt;, &lt;a href&#x3D;&#x27;https://github.com/popuparchive/audiosearch-client-node&#x27; target&#x3D;&#x27;_blank&#x27;&gt;Node&lt;/a&gt;, and &lt;a href&#x3D;&#x27;https://github.com/popuparchive/AudiosearchClientSwift&#x27; target&#x3D;&#x27;_blank&#x27;&gt;Swift&lt;/a&gt;.&lt;br/&gt;Read the &lt;a href&#x3D;&#x27;https://github.com/popuparchive/audiosearch-cookbook/wiki&#x27;&gt;API Cookbook&lt;/a&gt; for easy copy-and-paste recipes. settings">
+                        </group>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_cenit_audiosear_ch_1_0_0_settings" model="ir.actions.act_window">
+            <field name="name">The Audiosear.ch API requires OAuth, which you can manage at &lt;a href&#x3D;&#x27;/oauth/applications&#x27;&gt;OAuth Applications&lt;/a&gt;.&lt;br/&gt;API SDK clients available in &lt;a href&#x3D;&#x27;https://github.com/popuparchive/audiosearch-client-python&#x27; target&#x3D;&#x27;_blank&#x27;&gt;Python&lt;/a&gt;, &lt;a href&#x3D;&#x27;https://github.com/popuparchive/audiosearch-client-ruby&#x27; target&#x3D;&#x27;_blank&#x27;&gt;Ruby&lt;/a&gt;, &lt;a href&#x3D;&#x27;https://github.com/popuparchive/audiosearch-client-php&#x27; target&#x3D;&#x27;_blank&#x27;&gt;PHP&lt;/a&gt;, &lt;a href&#x3D;&#x27;https://github.com/popuparchive/audiosearch-client-node&#x27; target&#x3D;&#x27;_blank&#x27;&gt;Node&lt;/a&gt;, and &lt;a href&#x3D;&#x27;https://github.com/popuparchive/AudiosearchClientSwift&#x27; target&#x3D;&#x27;_blank&#x27;&gt;Swift&lt;/a&gt;.&lt;br/&gt;Read the &lt;a href&#x3D;&#x27;https://github.com/popuparchive/audiosearch-cookbook/wiki&#x27;&gt;API Cookbook&lt;/a&gt; for easy copy-and-paste recipes. settings</field>
+            <field name="res_model">cenit.audiosear_ch_1_0_0.settings</field>
+            <field name="view_mode">form</field>
+            <field name="target">inline</field>
+            <field name="view_id" ref="view_cenit_audiosear_ch_1_0_0_settings"/>
+        </record>
+
+        <menuitem id="menu_cenit_audiosear_ch_1_0_0_settings"
+            parent="cenit_base.menu_cenit_integrations_settings"
+            sequence="1" action="action_cenit_audiosear_ch_1_0_0_settings"/>
+
+        <menuitem id="menu_cenit_audiosear_ch_1_0_0_settings_alt"
+            parent="cenit_base.menu_cenit_integrations_settings_alt"
+            sequence="1" action="action_cenit_audiosear_ch_1_0_0_settings"/>
+
+    </data>
+</openerp>

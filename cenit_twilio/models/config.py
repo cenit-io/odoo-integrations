@@ -33,7 +33,6 @@ COLLECTION_PARAMS = {
     "On connection 'Twilio API Conection' template parameter 'auth_token'":'auth_token',
 }
 
-
 class CenitIntegrationSettings(models.TransientModel):
     _name = "cenit.twilio.settings"
     _inherit = 'res.config.settings'
@@ -49,20 +48,17 @@ class CenitIntegrationSettings(models.TransientModel):
     ############################################################################
     def get_default_account_sid(self, cr, uid, ids, context=None):
         account_sid = self.pool.get('ir.config_parameter').get_param(
-            cr, uid,
-            'odoo_cenit.twilio.account_sid', default=None,
-            context=context
+            cr, uid, 'odoo_cenit.twilio.account_sid', default=None, context=context
         )
         return {'account_sid': account_sid or ''}
-    
+
     def get_default_auth_token(self, cr, uid, ids, context=None):
         auth_token = self.pool.get('ir.config_parameter').get_param(
-            cr, uid,
-            'odoo_cenit.twilio.auth_token', default=None,
-            context=context
+            cr, uid, 'odoo_cenit.twilio.auth_token', default=None, context=context
         )
         return {'auth_token': auth_token or ''}
-    
+
+
     ############################################################################
     # Default Setters
     ############################################################################
@@ -70,20 +66,19 @@ class CenitIntegrationSettings(models.TransientModel):
         config_parameters = self.pool.get('ir.config_parameter')
         for record in self.browse(cr, uid, ids, context=context):
             config_parameters.set_param (
-                cr, uid,
-                'odoo_cenit.twilio.account_sid', record.account_sid or '',
+                cr, uid, 'odoo_cenit.twilio.account_sid', record.account_sid or '',
                 context=context
             )
-    
+
     def set_auth_token(self, cr, uid, ids, context=None):
         config_parameters = self.pool.get('ir.config_parameter')
         for record in self.browse(cr, uid, ids, context=context):
             config_parameters.set_param (
-                cr, uid,
-                'odoo_cenit.twilio.auth_token', record.auth_token or '',
+                cr, uid, 'odoo_cenit.twilio.auth_token', record.auth_token or '',
                 context=context
             )
-    
+
+
     ############################################################################
     # Actions
     ############################################################################
@@ -112,12 +107,8 @@ class CenitIntegrationSettings(models.TransientModel):
         for p in data.get('params'):
             k = p.get('parameter')
             id_ = p.get('id')
-            value = getattr(obj,
-                COLLECTION_PARAMS.get(k)
-            )
-            params.update ({
-                id_: value
-            })
+            value = getattr(obj,COLLECTION_PARAMS.get(k))
+            params.update ({id_: value})
 
         installer.pull_shared_collection(cr, uid, data.get('id'), params=params, context=context)
 

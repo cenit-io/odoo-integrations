@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="view_cenit_instagram_1_0_0_settings" model="ir.ui.view">
+            <field name="name">Description of Instagram RESTful API.
+
+Current limitations:
+  * Instagram service does not support [cross origin headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS)
+  for security reasons, therefore it is not possible to use Swagger UI and make API calls directly from browser.
+  * Modification API requests (&#x60;POST&#x60;, &#x60;DELETE&#x60;) require additional security [scopes](https://instagram.com/developer/authorization/)
+  that are available for Apps [created on or after Nov 17, 2015](http://instagram.com/developer/review/) and
+  started in [Sandbox Mode](http://instagram.com/developer/sandbox/).
+  * Consider the [Instagram limitations](https://instagram.com/developer/limits/) for API calls that depends on App Mode.
+
+**Warning:** For Apps [created on or after Nov 17, 2015](http://instagram.com/developer/changelog/) API responses
+containing media objects no longer return the &#x60;data&#x60; field in &#x60;comments&#x60; and &#x60;likes&#x60; nodes.
+
+Last update: 2015-11-28
+ settings</field>
+            <field name="model">cenit.instagram_1_0_0.settings</field>
+            <field name="arch" type="xml">
+                <form string="Configure Description of Instagram RESTful API.
+
+Current limitations:
+  * Instagram service does not support [cross origin headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS)
+  for security reasons, therefore it is not possible to use Swagger UI and make API calls directly from browser.
+  * Modification API requests (&#x60;POST&#x60;, &#x60;DELETE&#x60;) require additional security [scopes](https://instagram.com/developer/authorization/)
+  that are available for Apps [created on or after Nov 17, 2015](http://instagram.com/developer/review/) and
+  started in [Sandbox Mode](http://instagram.com/developer/sandbox/).
+  * Consider the [Instagram limitations](https://instagram.com/developer/limits/) for API calls that depends on App Mode.
+
+**Warning:** For Apps [created on or after Nov 17, 2015](http://instagram.com/developer/changelog/) API responses
+containing media objects no longer return the &#x60;data&#x60; field in &#x60;comments&#x60; and &#x60;likes&#x60; nodes.
+
+Last update: 2015-11-28
+" class="oe_form_configuration">
+                    <header>
+                        <button string="Apply" type="object"
+                                name="execute" class="oe_highlight"/>
+                        or
+                        <button string="Cancel" type="object"
+                                name="cancel" class="oe_link"/>
+                    </header>
+                    <div>
+                        <group string="Description of Instagram RESTful API.
+
+Current limitations:
+  * Instagram service does not support [cross origin headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS)
+  for security reasons, therefore it is not possible to use Swagger UI and make API calls directly from browser.
+  * Modification API requests (&#x60;POST&#x60;, &#x60;DELETE&#x60;) require additional security [scopes](https://instagram.com/developer/authorization/)
+  that are available for Apps [created on or after Nov 17, 2015](http://instagram.com/developer/review/) and
+  started in [Sandbox Mode](http://instagram.com/developer/sandbox/).
+  * Consider the [Instagram limitations](https://instagram.com/developer/limits/) for API calls that depends on App Mode.
+
+**Warning:** For Apps [created on or after Nov 17, 2015](http://instagram.com/developer/changelog/) API responses
+containing media objects no longer return the &#x60;data&#x60; field in &#x60;comments&#x60; and &#x60;likes&#x60; nodes.
+
+Last update: 2015-11-28
+ settings">
+                            <field name='api_key' placeholder='Your API Key' />
+                        </group>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_cenit_instagram_1_0_0_settings" model="ir.actions.act_window">
+            <field name="name">Description of Instagram RESTful API.
+
+Current limitations:
+  * Instagram service does not support [cross origin headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS)
+  for security reasons, therefore it is not possible to use Swagger UI and make API calls directly from browser.
+  * Modification API requests (&#x60;POST&#x60;, &#x60;DELETE&#x60;) require additional security [scopes](https://instagram.com/developer/authorization/)
+  that are available for Apps [created on or after Nov 17, 2015](http://instagram.com/developer/review/) and
+  started in [Sandbox Mode](http://instagram.com/developer/sandbox/).
+  * Consider the [Instagram limitations](https://instagram.com/developer/limits/) for API calls that depends on App Mode.
+
+**Warning:** For Apps [created on or after Nov 17, 2015](http://instagram.com/developer/changelog/) API responses
+containing media objects no longer return the &#x60;data&#x60; field in &#x60;comments&#x60; and &#x60;likes&#x60; nodes.
+
+Last update: 2015-11-28
+ settings</field>
+            <field name="res_model">cenit.instagram_1_0_0.settings</field>
+            <field name="view_mode">form</field>
+            <field name="target">inline</field>
+            <field name="view_id" ref="view_cenit_instagram_1_0_0_settings"/>
+        </record>
+
+        <menuitem id="menu_cenit_instagram_1_0_0_settings"
+            parent="cenit_base.menu_cenit_integrations_settings"
+            sequence="1" action="action_cenit_instagram_1_0_0_settings"/>
+
+        <menuitem id="menu_cenit_instagram_1_0_0_settings_alt"
+            parent="cenit_base.menu_cenit_integrations_settings_alt"
+            sequence="1" action="action_cenit_instagram_1_0_0_settings"/>
+
+    </data>
+</openerp>
