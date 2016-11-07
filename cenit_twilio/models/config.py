@@ -108,17 +108,17 @@ class CenitIntegrationSettings(models.TransientModel):
             context = context
         )
 
-        params = {}
-        for p in data.get('params'):
-            k = p.get('parameter')
-            id_ = p.get('id')
-            value = getattr(obj,
-                COLLECTION_PARAMS.get(k)
-            )
-            params.update ({
-                id_: value
-            })
+        # params = {}
+        # for p in data.get('params'):
+        #     k = p.get('parameter')
+        #     id_ = p.get('id')
+        #     value = getattr(obj,
+        #         COLLECTION_PARAMS.get(k)
+        #     )
+        #     params.update ({
+        #         id_: value
+        #     })
 
-        installer.pull_shared_collection(cr, uid, data.get('id'), params=params, context=context)
+        installer.install_common_data(cr, uid, data.get('data'))
 
         return rc
