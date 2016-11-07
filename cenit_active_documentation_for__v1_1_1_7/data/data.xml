@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+        <function model="cenit.active_documentation_for__v1_1_1_7.settings" name="install"/>
+    </data>
+</openerp>

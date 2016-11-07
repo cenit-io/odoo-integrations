@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="wizard_cenit_data2crm_api_1_install" model="ir.ui.view">
+            <field name="name">&lt;p&gt;Make use of our in-depth documentation to get more information about the various functions of the service. Those willing to explore the mechanics of Data2CRM.API can test it in live regime using the short code samples.&lt;/p&gt;&lt;p&gt;Select CRM: &lt;span id&#x3D;&quot;docs-select-crm&quot; style&#x3D;&quot;font-weight: bold&quot;&gt;Loading... please wait&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Here are the API access keys:&lt;br&gt;&lt;b&gt;X-API2CRM-USERKEY&lt;/b&gt;: &lt;span id&#x3D;&quot;docs-user-key&quot;&gt;e2a6379ab878ae7e58119d4ec842bf9c926e05b5&lt;/span&gt;&lt;br&gt;&lt;b&gt;X-API2CRM-CRMKEY&lt;/b&gt;: &lt;span id&#x3D;&quot;docs-crm-key&quot;&gt;7ae5b17008fb414d84981191cf3b66a476ef8bef&lt;/span&gt;&lt;/p&gt;&lt;p id&#x3D;&quot;docs-crm-access&quot;&gt;The CRM access details are:&lt;br&gt;&lt;b&gt;URL&lt;/b&gt;: &lt;a id&#x3D;&quot;docs-crm-url&quot; href&#x3D;&quot;https://login.salesforce.com/&quot; target&#x3D;&quot;_blank&quot;&gt;https://login.salesforce.com/&lt;/a&gt;&lt;br&gt;&lt;b&gt;E-mail / Username&lt;/b&gt;: &lt;span id&#x3D;&quot;docs-crm-username&quot;&gt;developers.data2crm.api+1@magneticone.com&lt;/span&gt;&lt;br&gt;&lt;b&gt;Password&lt;/b&gt;: &lt;span id&#x3D;&quot;docs-crm-password&quot;&gt;data2crmapi123&lt;/span&gt;&lt;/p&gt; settings</field>
+            <field name="model">cenit.data2crm_api_1.settings</field>
+            <field name="inherit_id" ref="base.res_config_installer"/>
+            <field name="arch" type="xml">
+                <form position="attributes">
+                    <attribute name="string">&lt;p&gt;Make use of our in-depth documentation to get more information about the various functions of the service. Those willing to explore the mechanics of Data2CRM.API can test it in live regime using the short code samples.&lt;/p&gt;&lt;p&gt;Select CRM: &lt;span id&#x3D;&quot;docs-select-crm&quot; style&#x3D;&quot;font-weight: bold&quot;&gt;Loading... please wait&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Here are the API access keys:&lt;br&gt;&lt;b&gt;X-API2CRM-USERKEY&lt;/b&gt;: &lt;span id&#x3D;&quot;docs-user-key&quot;&gt;e2a6379ab878ae7e58119d4ec842bf9c926e05b5&lt;/span&gt;&lt;br&gt;&lt;b&gt;X-API2CRM-CRMKEY&lt;/b&gt;: &lt;span id&#x3D;&quot;docs-crm-key&quot;&gt;7ae5b17008fb414d84981191cf3b66a476ef8bef&lt;/span&gt;&lt;/p&gt;&lt;p id&#x3D;&quot;docs-crm-access&quot;&gt;The CRM access details are:&lt;br&gt;&lt;b&gt;URL&lt;/b&gt;: &lt;a id&#x3D;&quot;docs-crm-url&quot; href&#x3D;&quot;https://login.salesforce.com/&quot; target&#x3D;&quot;_blank&quot;&gt;https://login.salesforce.com/&lt;/a&gt;&lt;br&gt;&lt;b&gt;E-mail / Username&lt;/b&gt;: &lt;span id&#x3D;&quot;docs-crm-username&quot;&gt;developers.data2crm.api+1@magneticone.com&lt;/span&gt;&lt;br&gt;&lt;b&gt;Password&lt;/b&gt;: &lt;span id&#x3D;&quot;docs-crm-password&quot;&gt;data2crmapi123&lt;/span&gt;&lt;/p&gt; settings</attribute>
+                </form>
+                <footer position="replace">
+                    <footer>
+                        <button string="Apply" type="object" name="execute"
+                                class="oe_highlight" context="{'install': True}"/>
+                    </footer>
+                </footer>
+                <separator string="title" position="replace">
+                    <p class="oe_grey">
+                        Configure &lt;p&gt;Make use of our in-depth documentation to get more information about the various functions of the service. Those willing to explore the mechanics of Data2CRM.API can test it in live regime using the short code samples.&lt;/p&gt;&lt;p&gt;Select CRM: &lt;span id&#x3D;&quot;docs-select-crm&quot; style&#x3D;&quot;font-weight: bold&quot;&gt;Loading... please wait&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Here are the API access keys:&lt;br&gt;&lt;b&gt;X-API2CRM-USERKEY&lt;/b&gt;: &lt;span id&#x3D;&quot;docs-user-key&quot;&gt;e2a6379ab878ae7e58119d4ec842bf9c926e05b5&lt;/span&gt;&lt;br&gt;&lt;b&gt;X-API2CRM-CRMKEY&lt;/b&gt;: &lt;span id&#x3D;&quot;docs-crm-key&quot;&gt;7ae5b17008fb414d84981191cf3b66a476ef8bef&lt;/span&gt;&lt;/p&gt;&lt;p id&#x3D;&quot;docs-crm-access&quot;&gt;The CRM access details are:&lt;br&gt;&lt;b&gt;URL&lt;/b&gt;: &lt;a id&#x3D;&quot;docs-crm-url&quot; href&#x3D;&quot;https://login.salesforce.com/&quot; target&#x3D;&quot;_blank&quot;&gt;https://login.salesforce.com/&lt;/a&gt;&lt;br&gt;&lt;b&gt;E-mail / Username&lt;/b&gt;: &lt;span id&#x3D;&quot;docs-crm-username&quot;&gt;developers.data2crm.api+1@magneticone.com&lt;/span&gt;&lt;br&gt;&lt;b&gt;Password&lt;/b&gt;: &lt;span id&#x3D;&quot;docs-crm-password&quot;&gt;data2crmapi123&lt;/span&gt;&lt;/p&gt; data
+                    </p>
+                    <group>
+                    </group>
+                </separator>
+            </field>
+        </record>
+
+        <record id="action_wizard_cenit_data2crm_api_1_install" model="ir.actions.act_window">
+            <field name="name">Configure &lt;p&gt;Make use of our in-depth documentation to get more information about the various functions of the service. Those willing to explore the mechanics of Data2CRM.API can test it in live regime using the short code samples.&lt;/p&gt;&lt;p&gt;Select CRM: &lt;span id&#x3D;&quot;docs-select-crm&quot; style&#x3D;&quot;font-weight: bold&quot;&gt;Loading... please wait&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Here are the API access keys:&lt;br&gt;&lt;b&gt;X-API2CRM-USERKEY&lt;/b&gt;: &lt;span id&#x3D;&quot;docs-user-key&quot;&gt;e2a6379ab878ae7e58119d4ec842bf9c926e05b5&lt;/span&gt;&lt;br&gt;&lt;b&gt;X-API2CRM-CRMKEY&lt;/b&gt;: &lt;span id&#x3D;&quot;docs-crm-key&quot;&gt;7ae5b17008fb414d84981191cf3b66a476ef8bef&lt;/span&gt;&lt;/p&gt;&lt;p id&#x3D;&quot;docs-crm-access&quot;&gt;The CRM access details are:&lt;br&gt;&lt;b&gt;URL&lt;/b&gt;: &lt;a id&#x3D;&quot;docs-crm-url&quot; href&#x3D;&quot;https://login.salesforce.com/&quot; target&#x3D;&quot;_blank&quot;&gt;https://login.salesforce.com/&lt;/a&gt;&lt;br&gt;&lt;b&gt;E-mail / Username&lt;/b&gt;: &lt;span id&#x3D;&quot;docs-crm-username&quot;&gt;developers.data2crm.api+1@magneticone.com&lt;/span&gt;&lt;br&gt;&lt;b&gt;Password&lt;/b&gt;: &lt;span id&#x3D;&quot;docs-crm-password&quot;&gt;data2crmapi123&lt;/span&gt;&lt;/p&gt; data</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">cenit.data2crm_api_1.settings</field>
+            <field name="view_id" ref="wizard_cenit_data2crm_api_1_install"/>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <record id="todo_wizard_cenit_data2crm_api_1_install" model="ir.actions.todo">
+            <field name="action_id" ref="action_wizard_cenit_data2crm_api_1_install"/>
+            <field name="sequence">1</field>
+            <field name="type">automatic</field>
+        </record>
+
+    </data>
+</openerp>

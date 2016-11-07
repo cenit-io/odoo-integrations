@@ -21,12 +21,12 @@
 
 {
     'name': 'Shipwire Integration',
-    'version': '1.0.2',
+    'version': '2.0.0',
     'author': 'Cenit IO',
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': 'Shipwire Collection package for install integration in Cenit IO',
+    'summary': "Shipwire API Collection",
     'description': """
         Odoo - Shipwire integration via Cenit IO
     """,
@@ -34,7 +34,7 @@
     'data': [
         'security/ir.model.access.csv',
         'view/config.xml',
-        'view/wizard.xml',
+        'view/wizard.xml'
     ],
     'installable': True
 }

@@ -21,7 +21,7 @@
 
 import logging
 
-from openerp import models, fields, exceptions
+from openerp import models, fields
 
 
 _logger = logging.getLogger(__name__)
@@ -29,11 +29,10 @@ _logger = logging.getLogger(__name__)
 COLLECTION_NAME = "shipstation"
 COLLECTION_VERSION = "1.0.0"
 COLLECTION_PARAMS = {
-    "On connection 'Connection' template parameter 'key'": 'key',
-    "On connection 'Connection' template parameter 'secret'": 'secret',
-    "On connection 'Connection' template parameter 'store_id'": 'store_id',
+    "On connection 'Connection' template parameter 'key'":'key',
+    "On connection 'Connection' template parameter 'secret'":'secret',
+    "On connection 'Connection' template parameter 'store_id'":'store_id',
 }
-
 
 class CenitIntegrationSettings(models.TransientModel):
     _name = "cenit.shipstation.settings"
@@ -42,8 +41,8 @@ class CenitIntegrationSettings(models.TransientModel):
     ############################################################################
     # Pull Parameters
     ############################################################################
-    key = fields.Char('Shipstation Key')
-    secret = fields.Char('Shipstation Secret')
+    key = fields.Char('Shipstation API Key')
+    secret = fields.Char('Shipstation API Secret')
     store_id = fields.Char('Shipstation Store')
 
     ############################################################################
@@ -51,28 +50,23 @@ class CenitIntegrationSettings(models.TransientModel):
     ############################################################################
     def get_default_key(self, cr, uid, ids, context=None):
         key = self.pool.get('ir.config_parameter').get_param(
-            cr, uid,
-            'odoo_cenit.shipstation.key', default=None,
-            context=context
+            cr, uid, 'odoo_cenit.shipstation.key', default=None, context=context
         )
         return {'key': key or ''}
-    
+
     def get_default_secret(self, cr, uid, ids, context=None):
         secret = self.pool.get('ir.config_parameter').get_param(
-            cr, uid,
-            'odoo_cenit.shipstation.secret', default=None,
-            context=context
+            cr, uid, 'odoo_cenit.shipstation.secret', default=None, context=context
         )
         return {'secret': secret or ''}
 
     def get_default_store_id(self, cr, uid, ids, context=None):
         store_id = self.pool.get('ir.config_parameter').get_param(
-            cr, uid,
-            'odoo_cenit.shipstation.store_id', default=None,
-            context=context
+            cr, uid, 'odoo_cenit.shipstation.store_id', default=None, context=context
         )
         return {'store_id': store_id or ''}
-    
+
+
     ############################################################################
     # Default Setters
     ############################################################################
@@ -80,8 +74,7 @@ class CenitIntegrationSettings(models.TransientModel):
         config_parameters = self.pool.get('ir.config_parameter')
         for record in self.browse(cr, uid, ids, context=context):
             config_parameters.set_param (
-                cr, uid,
-                'odoo_cenit.shipstation.key', record.key or '',
+                cr, uid, 'odoo_cenit.shipstation.key', record.key or '',
                 context=context
             )
 
@@ -89,20 +82,19 @@ class CenitIntegrationSettings(models.TransientModel):
         config_parameters = self.pool.get('ir.config_parameter')
         for record in self.browse(cr, uid, ids, context=context):
             config_parameters.set_param (
-                cr, uid,
-                'odoo_cenit.shipstation.secret', record.secret or '',
+                cr, uid, 'odoo_cenit.shipstation.secret', record.secret or '',
                 context=context
             )
 
     def set_store_id(self, cr, uid, ids, context=None):
         config_parameters = self.pool.get('ir.config_parameter')
         for record in self.browse(cr, uid, ids, context=context):
-            config_parameters.set_param(
-                cr, uid,
-                'odoo_cenit.shipstation.store_id', record.store_id or '',
+            config_parameters.set_param (
+                cr, uid, 'odoo_cenit.shipstation.store_id', record.store_id or '',
                 context=context
             )
-    
+
+
     ############################################################################
     # Actions
     ############################################################################
@@ -123,18 +115,17 @@ class CenitIntegrationSettings(models.TransientModel):
         data = installer.get_collection_data(
             cr, uid,
             COLLECTION_NAME,
-            version=COLLECTION_VERSION,
-            context=context
+            version = COLLECTION_VERSION,
+            context = context
         )
 
         params = {}
         for p in data.get('params'):
-            k = p.get('key')
+            k = p.get('parameter')
             id_ = p.get('id')
-            value = getattr(obj, COLLECTION_PARAMS.get(k, k))
-            params.update({id_: value})
+            value = getattr(obj,COLLECTION_PARAMS.get(k))
+            params.update ({id_: value})
 
         installer.pull_shared_collection(cr, uid, data.get('id'), params=params, context=context)
 
         return rc
-

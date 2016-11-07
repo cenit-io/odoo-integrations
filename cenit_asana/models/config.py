@@ -29,9 +29,8 @@ _logger = logging.getLogger(__name__)
 COLLECTION_NAME = "asana"
 COLLECTION_VERSION = "1.0.0"
 COLLECTION_PARAMS = {
-    "On connection 'Asana API Connection' template parameter 'asana_token'":'asana_token',
+    "On connection 'Asana API Connection' template parameter 'personal_token'":'personal_token',
 }
-
 
 class CenitIntegrationSettings(models.TransientModel):
     _name = "cenit.asana.settings"
@@ -40,35 +39,29 @@ class CenitIntegrationSettings(models.TransientModel):
     ############################################################################
     # Pull Parameters
     ############################################################################
-    asana_token = fields.Char('Asana Token')
-
-
+    personal_token = fields.Char('personal token')
 
     ############################################################################
     # Default Getters
     ############################################################################
-    def get_default_asana_token(self, cr, uid, ids, context=None):
-        asana_token = self.pool.get('ir.config_parameter').get_param(
-            cr, uid,
-            'odoo_cenit.asana.asana_token', default=None,
-            context=context
+    def get_default_personal_token(self, cr, uid, ids, context=None):
+        personal_token = self.pool.get('ir.config_parameter').get_param(
+            cr, uid, 'odoo_cenit.asana.personal_token', default=None, context=context
         )
-        return {'asana_token': asana_token or ''}
-    
+        return {'personal_token': personal_token or ''}
 
 
     ############################################################################
     # Default Setters
     ############################################################################
-    def set_asana_token(self, cr, uid, ids, context=None):
+    def set_personal_token(self, cr, uid, ids, context=None):
         config_parameters = self.pool.get('ir.config_parameter')
         for record in self.browse(cr, uid, ids, context=context):
             config_parameters.set_param (
-                cr, uid,
-                'odoo_cenit.asana.asana_token', record.asana_token or '',
+                cr, uid, 'odoo_cenit.asana.personal_token', record.personal_token or '',
                 context=context
             )
-    
+
 
     ############################################################################
     # Actions
@@ -95,12 +88,11 @@ class CenitIntegrationSettings(models.TransientModel):
         )
 
         params = {}
-
         for p in data.get('params'):
             k = p.get('parameter')
             id_ = p.get('id')
-            value = getattr(obj, COLLECTION_PARAMS.values().__getitem__(0))
-            params.update({id_: value})
+            value = getattr(obj,COLLECTION_PARAMS.get(k))
+            params.update ({id_: value})
 
         installer.pull_shared_collection(cr, uid, data.get('id'), params=params, context=context)
 

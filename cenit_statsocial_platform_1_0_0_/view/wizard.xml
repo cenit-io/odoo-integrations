@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="wizard_cenit_statsocial_platform_1_0_0__install" model="ir.ui.view">
+            <field name="name">API Reference: &lt;br&gt;&lt;br&gt; The StatSocial API is organized around REST. Our API is designed to have predictable, resource-oriented URLs and to use HTTP response codes to indicate API errors. We use built-in HTTP features, like HTTP authentication and HTTP verbs, which can be understood by off-the-shelf HTTP clients, and we support cross-origin resource sharing to allow you to interact securely with our API from a client-side web application (remember that you should never expose your secret API key in any public website&#x27;s client-side code). JSON will be returned in all responses from the API, including errors (though if you&#x27;re using API bindings, we will convert the response to the appropriate language-specific object).&lt;br&gt;&lt;br&gt;Contact help@statsocial.com to obtain a test API key settings</field>
+            <field name="model">cenit.statsocial_platform_1_0_0_.settings</field>
+            <field name="inherit_id" ref="base.res_config_installer"/>
+            <field name="arch" type="xml">
+                <form position="attributes">
+                    <attribute name="string">API Reference: &lt;br&gt;&lt;br&gt; The StatSocial API is organized around REST. Our API is designed to have predictable, resource-oriented URLs and to use HTTP response codes to indicate API errors. We use built-in HTTP features, like HTTP authentication and HTTP verbs, which can be understood by off-the-shelf HTTP clients, and we support cross-origin resource sharing to allow you to interact securely with our API from a client-side web application (remember that you should never expose your secret API key in any public website&#x27;s client-side code). JSON will be returned in all responses from the API, including errors (though if you&#x27;re using API bindings, we will convert the response to the appropriate language-specific object).&lt;br&gt;&lt;br&gt;Contact help@statsocial.com to obtain a test API key settings</attribute>
+                </form>
+                <footer position="replace">
+                    <footer>
+                        <button string="Apply" type="object" name="execute"
+                                class="oe_highlight" context="{'install': True}"/>
+                    </footer>
+                </footer>
+                <separator string="title" position="replace">
+                    <p class="oe_grey">
+                        Configure API Reference: &lt;br&gt;&lt;br&gt; The StatSocial API is organized around REST. Our API is designed to have predictable, resource-oriented URLs and to use HTTP response codes to indicate API errors. We use built-in HTTP features, like HTTP authentication and HTTP verbs, which can be understood by off-the-shelf HTTP clients, and we support cross-origin resource sharing to allow you to interact securely with our API from a client-side web application (remember that you should never expose your secret API key in any public website&#x27;s client-side code). JSON will be returned in all responses from the API, including errors (though if you&#x27;re using API bindings, we will convert the response to the appropriate language-specific object).&lt;br&gt;&lt;br&gt;Contact help@statsocial.com to obtain a test API key data
+                    </p>
+                    <group>
+                        <field name='api_key' placeholder='Your API Key'/>
+                    </group>
+                </separator>
+            </field>
+        </record>
+
+        <record id="action_wizard_cenit_statsocial_platform_1_0_0__install" model="ir.actions.act_window">
+            <field name="name">Configure API Reference: &lt;br&gt;&lt;br&gt; The StatSocial API is organized around REST. Our API is designed to have predictable, resource-oriented URLs and to use HTTP response codes to indicate API errors. We use built-in HTTP features, like HTTP authentication and HTTP verbs, which can be understood by off-the-shelf HTTP clients, and we support cross-origin resource sharing to allow you to interact securely with our API from a client-side web application (remember that you should never expose your secret API key in any public website&#x27;s client-side code). JSON will be returned in all responses from the API, including errors (though if you&#x27;re using API bindings, we will convert the response to the appropriate language-specific object).&lt;br&gt;&lt;br&gt;Contact help@statsocial.com to obtain a test API key data</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">cenit.statsocial_platform_1_0_0_.settings</field>
+            <field name="view_id" ref="wizard_cenit_statsocial_platform_1_0_0__install"/>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <record id="todo_wizard_cenit_statsocial_platform_1_0_0__install" model="ir.actions.todo">
+            <field name="action_id" ref="action_wizard_cenit_statsocial_platform_1_0_0__install"/>
+            <field name="sequence">1</field>
+            <field name="type">automatic</field>
+        </record>
+
+    </data>
+</openerp>

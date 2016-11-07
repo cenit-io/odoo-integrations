@@ -27,12 +27,11 @@ from openerp import models, fields
 _logger = logging.getLogger(__name__)
 
 COLLECTION_NAME = "shipwire"
-COLLECTION_VERSION = "1.0.0"
+COLLECTION_VERSION = "2.0.0"
 COLLECTION_PARAMS = {
-    "On connection 'ShipWire Connection' template parameter 'shipwire_username'":'shipwire_username',
-    "On connection 'ShipWire Connection' template parameter 'shipwire_password'":'shipwire_password',
+    "On connection 'Shipwire API Connection' template parameter 'user'":'user',
+    "On connection 'Shipwire API Connection' template parameter 'pass'":'pass',
 }
-
 
 class CenitIntegrationSettings(models.TransientModel):
     _name = "cenit.shipwire.settings"
@@ -41,49 +40,45 @@ class CenitIntegrationSettings(models.TransientModel):
     ############################################################################
     # Pull Parameters
     ############################################################################
-    shipwire_username = fields.Char('Username')
-    shipwire_password = fields.Char('Password')
+    user = fields.Char('Shipwire user')
+    pass = fields.Char('Shipwire pass')
 
     ############################################################################
     # Default Getters
     ############################################################################
-    def get_default_shipwire_username(self, cr, uid, ids, context=None):
-        shipwire_username = self.pool.get('ir.config_parameter').get_param(
-            cr, uid,
-            'odoo_cenit.shipwire.shipwire_username', default=None,
-            context=context
+    def get_default_user(self, cr, uid, ids, context=None):
+        user = self.pool.get('ir.config_parameter').get_param(
+            cr, uid, 'odoo_cenit.shipwire.user', default=None, context=context
         )
-        return {'shipwire_username': shipwire_username or ''}
-    
-    def get_default_shipwire_password(self, cr, uid, ids, context=None):
-        shipwire_password = self.pool.get('ir.config_parameter').get_param(
-            cr, uid,
-            'odoo_cenit.shipwire.shipwire_password', default=None,
-            context=context
+        return {'user': user or ''}
+
+    def get_default_pass(self, cr, uid, ids, context=None):
+        pass = self.pool.get('ir.config_parameter').get_param(
+            cr, uid, 'odoo_cenit.shipwire.pass', default=None, context=context
         )
-        return {'shipwire_password': shipwire_password or ''}
-    
+        return {'pass': pass or ''}
+
+
     ############################################################################
     # Default Setters
     ############################################################################
-    def set_shipwire_username(self, cr, uid, ids, context=None):
+    def set_user(self, cr, uid, ids, context=None):
         config_parameters = self.pool.get('ir.config_parameter')
         for record in self.browse(cr, uid, ids, context=context):
             config_parameters.set_param (
-                cr, uid,
-                'odoo_cenit.shipwire.shipwire_username', record.shipwire_username or '',
+                cr, uid, 'odoo_cenit.shipwire.user', record.user or '',
                 context=context
             )
-    
-    def set_shipwire_password(self, cr, uid, ids, context=None):
+
+    def set_pass(self, cr, uid, ids, context=None):
         config_parameters = self.pool.get('ir.config_parameter')
         for record in self.browse(cr, uid, ids, context=context):
             config_parameters.set_param (
-                cr, uid,
-                'odoo_cenit.shipwire.shipwire_password', record.shipwire_password or '',
+                cr, uid, 'odoo_cenit.shipwire.pass', record.pass or '',
                 context=context
             )
-    
+
+
     ############################################################################
     # Actions
     ############################################################################
@@ -112,12 +107,8 @@ class CenitIntegrationSettings(models.TransientModel):
         for p in data.get('params'):
             k = p.get('parameter')
             id_ = p.get('id')
-            value = getattr(obj,
-                COLLECTION_PARAMS.get(k)
-            )
-            params.update ({
-                id_: value
-            })
+            value = getattr(obj,COLLECTION_PARAMS.get(k))
+            params.update ({id_: value})
 
         installer.pull_shared_collection(cr, uid, data.get('id'), params=params, context=context)
 

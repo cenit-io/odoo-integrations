@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="wizard_cenit_tasks_api_v1_install" model="ir.ui.view">
+            <field name="name">Lets you manage your tasks and task lists. settings</field>
+            <field name="model">cenit.tasks_api_v1.settings</field>
+            <field name="inherit_id" ref="base.res_config_installer"/>
+            <field name="arch" type="xml">
+                <form position="attributes">
+                    <attribute name="string">Lets you manage your tasks and task lists. settings</attribute>
+                </form>
+                <footer position="replace">
+                    <footer>
+                        <button string="Apply" type="object" name="execute"
+                                class="oe_highlight" context="{'install': True}"/>
+                    </footer>
+                </footer>
+                <separator string="title" position="replace">
+                    <p class="oe_grey">
+                        Configure Lets you manage your tasks and task lists. data
+                    </p>
+                    <group>
+                    </group>
+                </separator>
+            </field>
+        </record>
+
+        <record id="action_wizard_cenit_tasks_api_v1_install" model="ir.actions.act_window">
+            <field name="name">Configure Lets you manage your tasks and task lists. data</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">cenit.tasks_api_v1.settings</field>
+            <field name="view_id" ref="wizard_cenit_tasks_api_v1_install"/>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <record id="todo_wizard_cenit_tasks_api_v1_install" model="ir.actions.todo">
+            <field name="action_id" ref="action_wizard_cenit_tasks_api_v1_install"/>
+            <field name="sequence">1</field>
+            <field name="type">automatic</field>
+        </record>
+
+    </data>
+</openerp>
