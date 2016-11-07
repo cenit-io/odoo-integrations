@@ -20,7 +20,7 @@
 ##############################################################################
 
 {
-    'name': 'Magento_1_9 Custom Integration',
+    'name': 'Magento_1_9 Integration',
     'version': '0.1.1',
     'author': 'Cenit IO',
     'website': 'https://cenit.io',
@@ -28,7 +28,7 @@
     'category': 'Extra Tools',
     'summary': 'Magento integration.',
     'description': """
-        Odoo - Magento_1_9 Cutom integration via Cenit IO
+        Odoo - Magento_1_9 integration via Cenit IO
     """,
     'depends': ['cenit_base'],
     'data': [

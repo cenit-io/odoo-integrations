@@ -108,7 +108,9 @@ class MagentoController(WebhookController):
                             line['product_uom'] = product['uom_id']['id']
                             line['price_unit'] = product['list_price']
                             line['customer_lead'] = product['sale_delay']
-                            line['tax_id'] = [x.id for x in product['taxes_id']]
+
+                            line['tax_id'] = [[x.id] for x in product['taxes_id']]
+                            line['tax_id'] = [(6, False, line['tax_id'][0])]
 
                             line['property_account_income_id'] = product['property_account_income_id']['id']
                             line['property_account_expense_id'] = product['property_account_expense_id']['id']
@@ -119,6 +121,8 @@ class MagentoController(WebhookController):
                                 request.registry['sale.order.line'].create(cr, SUPERUSER_ID, line)
                             else:
                                 request.registry['sale.order.line'].write(cr, SUPERUSER_ID, line_id, line)
+
+
             except Exception as e:
                 _logger.error(e)
                 errors = e
