@@ -30,7 +30,7 @@ COLLECTION_NAME = "shipwire"
 COLLECTION_VERSION = "2.0.0"
 COLLECTION_PARAMS = {
     "On connection 'Shipwire API Connection' template parameter 'user'":'user',
-    "On connection 'Shipwire API Connection' template parameter 'pass'":'pass',
+    "On connection 'Shipwire API Connection' template parameter 'passwd'":'passwd',
 }
 
 class CenitIntegrationSettings(models.TransientModel):
@@ -41,7 +41,7 @@ class CenitIntegrationSettings(models.TransientModel):
     # Pull Parameters
     ############################################################################
     user = fields.Char('Shipwire user')
-    pass = fields.Char('Shipwire pass')
+    passwd = fields.Char('Shipwire passwd')
 
     ############################################################################
     # Default Getters
@@ -52,11 +52,11 @@ class CenitIntegrationSettings(models.TransientModel):
         )
         return {'user': user or ''}
 
-    def get_default_pass(self, cr, uid, ids, context=None):
-        pass = self.pool.get('ir.config_parameter').get_param(
-            cr, uid, 'odoo_cenit.shipwire.pass', default=None, context=context
+    def get_default_passwd(self, cr, uid, ids, context=None):
+        passwd = self.pool.get('ir.config_parameter').get_param(
+            cr, uid, 'odoo_cenit.shipwire.passwd', default=None, context=context
         )
-        return {'pass': pass or ''}
+        return {'passwd': passwd or ''}
 
 
     ############################################################################
@@ -70,11 +70,11 @@ class CenitIntegrationSettings(models.TransientModel):
                 context=context
             )
 
-    def set_pass(self, cr, uid, ids, context=None):
+    def set_passwd(self, cr, uid, ids, context=None):
         config_parameters = self.pool.get('ir.config_parameter')
         for record in self.browse(cr, uid, ids, context=context):
             config_parameters.set_param (
-                cr, uid, 'odoo_cenit.shipwire.pass', record.pass or '',
+                cr, uid, 'odoo_cenit.shipwire.passwd', record.passwd or '',
                 context=context
             )
 
