@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+        <function model="cenit.dns_management_client_api_2016_04_01.settings" name="install"/>
+    </data>
+</openerp>

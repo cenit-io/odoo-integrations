@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="wizard_cenit_wikimedia_api_1_0_0_beta_install" model="ir.ui.view">
+            <field name="name">This API aims to provide coherent and low-latency access to Wikimedia content and services. It is currently in beta testing, so things aren&#x27;t completely locked down yet. Each entry point has explicit stability markers to inform you about development status and change policy, according to [our API version policy](https://www.mediawiki.org/wiki/API_versioning).
+### High-volume access
+  - Don&#x27;t perform more than 200 requests/s to this API.
+  - Set a unique &#x60;User-Agent&#x60; header that allows us to contact you
+    quickly. Email addresses or URLs of contact pages work well.
+ settings</field>
+            <field name="model">cenit.wikimedia_api_1_0_0_beta.settings</field>
+            <field name="inherit_id" ref="base.res_config_installer"/>
+            <field name="arch" type="xml">
+                <form position="attributes">
+                    <attribute name="string">This API aims to provide coherent and low-latency access to Wikimedia content and services. It is currently in beta testing, so things aren&#x27;t completely locked down yet. Each entry point has explicit stability markers to inform you about development status and change policy, according to [our API version policy](https://www.mediawiki.org/wiki/API_versioning).
+### High-volume access
+  - Don&#x27;t perform more than 200 requests/s to this API.
+  - Set a unique &#x60;User-Agent&#x60; header that allows us to contact you
+    quickly. Email addresses or URLs of contact pages work well.
+ settings</attribute>
+                </form>
+                <footer position="replace">
+                    <footer>
+                        <button string="Apply" type="object" name="execute"
+                                class="oe_highlight" context="{'install': True}"/>
+                    </footer>
+                </footer>
+                <separator string="title" position="replace">
+                    <p class="oe_grey">
+                        Configure This API aims to provide coherent and low-latency access to Wikimedia content and services. It is currently in beta testing, so things aren&#x27;t completely locked down yet. Each entry point has explicit stability markers to inform you about development status and change policy, according to [our API version policy](https://www.mediawiki.org/wiki/API_versioning).
+### High-volume access
+  - Don&#x27;t perform more than 200 requests/s to this API.
+  - Set a unique &#x60;User-Agent&#x60; header that allows us to contact you
+    quickly. Email addresses or URLs of contact pages work well.
+ data
+                    </p>
+                    <group>
+                        <field name='' placeholder='Your API Key'/>
+                    </group>
+                </separator>
+            </field>
+        </record>
+
+        <record id="action_wizard_cenit_wikimedia_api_1_0_0_beta_install" model="ir.actions.act_window">
+            <field name="name">Configure This API aims to provide coherent and low-latency access to Wikimedia content and services. It is currently in beta testing, so things aren&#x27;t completely locked down yet. Each entry point has explicit stability markers to inform you about development status and change policy, according to [our API version policy](https://www.mediawiki.org/wiki/API_versioning).
+### High-volume access
+  - Don&#x27;t perform more than 200 requests/s to this API.
+  - Set a unique &#x60;User-Agent&#x60; header that allows us to contact you
+    quickly. Email addresses or URLs of contact pages work well.
+ data</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">cenit.wikimedia_api_1_0_0_beta.settings</field>
+            <field name="view_id" ref="wizard_cenit_wikimedia_api_1_0_0_beta_install"/>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <record id="todo_wizard_cenit_wikimedia_api_1_0_0_beta_install" model="ir.actions.todo">
+            <field name="action_id" ref="action_wizard_cenit_wikimedia_api_1_0_0_beta_install"/>
+            <field name="sequence">1</field>
+            <field name="type">automatic</field>
+        </record>
+
+    </data>
+</openerp>

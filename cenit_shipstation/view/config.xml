@@ -16,9 +16,9 @@
                     </header>
                     <div>
                         <group string="Shipstation API Integration settings">
-                            <field name='key' placeholder='Your Shipstation API Key' />
-                            <field name='secret' placeholder='Your Shipstation API Secret' />
-                            <field name='store_id' placeholder='Your Shipstation Store' />
+                            <field name='' placeholder='Your Shipstation API Key' />
+                            <field name='' placeholder='Your Shipstation API Secret' />
+                            <field name='' placeholder='Your Shipstation Store' />
                         </group>
                     </div>
                 </form>

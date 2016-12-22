@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': "Lets you search for books and manage your Google Books library.",
+    'summary': "Searches for books and manages your Google Books library.",
     'description': """
         Odoo - Books_api_v1 integration via Cenit IO
     """,

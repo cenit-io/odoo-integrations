@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+        <function model="cenit.europeana_api_2_0_14.settings" name="install"/>
+    </data>
+</openerp>

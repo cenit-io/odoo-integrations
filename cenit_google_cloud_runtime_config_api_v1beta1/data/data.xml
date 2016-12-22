@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+        <function model="cenit.google_cloud_runtime_config_api_v1beta1.settings" name="install"/>
+    </data>
+</openerp>

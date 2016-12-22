@@ -21,7 +21,7 @@
                         Configure Messagebird shared collection of integration services data
                     </p>
                     <group>
-                        <field name='access_key' placeholder='Your Access Key'/>
+                        <field name='' placeholder='Your Access Key'/>
                     </group>
                 </separator>
             </field>

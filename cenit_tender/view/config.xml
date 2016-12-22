@@ -16,12 +16,12 @@
                     </header>
                     <div>
                         <group string="Tender shared collection via CENIT Integration settings">
-                            <field name='tender_api_key' placeholder='Your API Key' />
-                            <field name='tender_author_name' placeholder='Your Author Name' />
-                            <field name='tender_author_email' placeholder='Your Author Email' />
-                            <field name='tender_domain' placeholder='Your Domain' />
-                            <field name='tender_category_id' placeholder='Your Category' />
-                            <field name='tender_public' placeholder='Your Public' />
+                            <field name='' placeholder='Your API Key' />
+                            <field name='' placeholder='Your Author Name' />
+                            <field name='' placeholder='Your Author Email' />
+                            <field name='' placeholder='Your Domain' />
+                            <field name='' placeholder='Your Category' />
+                            <field name='' placeholder='Your Public' />
                         </group>
                     </div>
                 </form>

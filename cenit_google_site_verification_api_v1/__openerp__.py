@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': "Lets you programatically verify ownership of websites or domains with Google.",
+    'summary': "Verifies ownership of websites or domains with Google.",
     'description': """
         Odoo - Google_site_verification_api_v1 integration via Cenit IO
     """,

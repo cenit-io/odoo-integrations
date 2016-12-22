@@ -21,9 +21,9 @@
                         Configure Desk CENIT Integration data
                     </p>
                     <group>
-                        <field name='desk_url' placeholder='Your Desk URL'/>
-                        <field name='desk_username' placeholder='Your Desk Username'/>
-                        <field name='desk_password' placeholder='Your Desk Password'/>
+                        <field name='' placeholder='Your Desk URL'/>
+                        <field name='' placeholder='Your Desk Username'/>
+                        <field name='' placeholder='Your Desk Password'/>
                     </group>
                 </separator>
             </field>

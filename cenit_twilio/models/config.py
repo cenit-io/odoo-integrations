@@ -29,8 +29,8 @@ _logger = logging.getLogger(__name__)
 COLLECTION_NAME = "twilio"
 COLLECTION_VERSION = "1.0.0"
 COLLECTION_PARAMS = {
-    "On connection 'Twilio API Conection' template parameter 'account_sid'":'account_sid',
-    "On connection 'Twilio API Conection' template parameter 'auth_token'":'auth_token',
+    "":'',
+    "":'',
 }
 
 class CenitIntegrationSettings(models.TransientModel):
@@ -40,41 +40,41 @@ class CenitIntegrationSettings(models.TransientModel):
     ############################################################################
     # Pull Parameters
     ############################################################################
-    account_sid = fields.Char('Account SID')
-    auth_token = fields.Char('Auth Token')
+     = fields.Char('Account SID')
+     = fields.Char('Auth Token')
 
     ############################################################################
     # Default Getters
     ############################################################################
-    def get_default_account_sid(self, cr, uid, ids, context=None):
-        account_sid = self.pool.get('ir.config_parameter').get_param(
-            cr, uid, 'odoo_cenit.twilio.account_sid', default=None, context=context
+    def get_default_(self, cr, uid, ids, context=None):
+         = self.pool.get('ir.config_parameter').get_param(
+            cr, uid, 'odoo_cenit.twilio.', default=None, context=context
         )
-        return {'account_sid': account_sid or ''}
+        return {'':  or ''}
 
-    def get_default_auth_token(self, cr, uid, ids, context=None):
-        auth_token = self.pool.get('ir.config_parameter').get_param(
-            cr, uid, 'odoo_cenit.twilio.auth_token', default=None, context=context
+    def get_default_(self, cr, uid, ids, context=None):
+         = self.pool.get('ir.config_parameter').get_param(
+            cr, uid, 'odoo_cenit.twilio.', default=None, context=context
         )
-        return {'auth_token': auth_token or ''}
+        return {'':  or ''}
 
 
     ############################################################################
     # Default Setters
     ############################################################################
-    def set_account_sid(self, cr, uid, ids, context=None):
+    def set_(self, cr, uid, ids, context=None):
         config_parameters = self.pool.get('ir.config_parameter')
         for record in self.browse(cr, uid, ids, context=context):
             config_parameters.set_param (
-                cr, uid, 'odoo_cenit.twilio.account_sid', record.account_sid or '',
+                cr, uid, 'odoo_cenit.twilio.', record. or '',
                 context=context
             )
 
-    def set_auth_token(self, cr, uid, ids, context=None):
+    def set_(self, cr, uid, ids, context=None):
         config_parameters = self.pool.get('ir.config_parameter')
         for record in self.browse(cr, uid, ids, context=context):
             config_parameters.set_param (
-                cr, uid, 'odoo_cenit.twilio.auth_token', record.auth_token or '',
+                cr, uid, 'odoo_cenit.twilio.', record. or '',
                 context=context
             )
 
