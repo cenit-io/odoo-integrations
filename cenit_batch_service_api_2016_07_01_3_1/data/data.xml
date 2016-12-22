@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+        <function model="cenit.batch_service_api_2016_07_01_3_1.settings" name="install"/>
+    </data>
+</openerp>

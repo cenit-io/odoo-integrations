@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': "The Google Compute Engine Instance Group Manager API provides groups of homogenous Compute Engine Instances.",
+    'summary': "[Deprecated. Please use Instance Group Manager in Compute API] Provides groups of homogenous Compute Engine instances.",
     'description': """
         Odoo - Google_compute_engine_instance_group_manager_api_v1beta2 integration via Cenit IO
     """,

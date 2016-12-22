@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': "The Google Compute Engine Instance Group Updater API provides services for updating groups of Compute Engine Instances.",
+    'summary': "Updates groups of Compute Engine instances.",
     'description': """
         Odoo - Google_compute_engine_instance_group_updater_api_v1beta1 integration via Cenit IO
     """,

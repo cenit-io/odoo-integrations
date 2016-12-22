@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': "API for Cloud SQL database instance management.",
+    'summary': "Creates and configures Cloud SQL instances, which provide fully-managed MySQL databases.",
     'description': """
         Odoo - Cloud_sql_administration_api_v1beta4 integration via Cenit IO
     """,

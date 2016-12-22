@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': "Manage product items, inventory, and Merchant Center accounts for Google Shopping.",
+    'summary': "Manages product items, inventory, and Merchant Center accounts for Google Shopping.",
     'description': """
         Odoo - Content_api_for_shopping_v2sandbox integration via Cenit IO
     """,
