@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': "API for the Google Compute Engine service.",
+    'summary': "Creates and runs virtual machines on Google Cloud Platform.",
     'description': """
         Odoo - Compute_engine_api_v1 integration via Cenit IO
     """,

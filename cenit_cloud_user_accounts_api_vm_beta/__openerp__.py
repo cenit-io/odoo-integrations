@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': "API for the Google Cloud User Accounts service.",
+    'summary': "Creates and manages users and groups for accessing Google Compute Engine virtual machines.",
     'description': """
         Odoo - Cloud_user_accounts_api_vm_beta integration via Cenit IO
     """,

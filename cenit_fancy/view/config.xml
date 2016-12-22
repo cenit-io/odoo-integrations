@@ -16,8 +16,8 @@
                     </header>
                     <div>
                         <group string="Fancy Integration settings">
-                            <field name='seller_id' placeholder='Your Seller Number' />
-                            <field name='token' placeholder='Your API Token' />
+                            <field name='' placeholder='Your Seller Number' />
+                            <field name='' placeholder='Your API Token' />
                         </group>
                     </div>
                 </form>

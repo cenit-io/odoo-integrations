@@ -21,8 +21,8 @@
                         Configure Oasis Supplier data
                     </p>
                     <group>
-                        <field name='username' placeholder='Your Username'/>
-                        <field name='password' placeholder='Your Password'/>
+                        <field name='' placeholder='Your Username'/>
+                        <field name='' placeholder='Your Password'/>
                     </group>
                 </separator>
             </field>

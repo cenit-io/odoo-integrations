@@ -29,7 +29,7 @@ _logger = logging.getLogger(__name__)
 COLLECTION_NAME = "messagebird"
 COLLECTION_VERSION = "1.0.0"
 COLLECTION_PARAMS = {
-    "On connection 'Messagebird Connection' template parameter 'access_key'":'access_key',
+    "":'',
 }
 
 class CenitIntegrationSettings(models.TransientModel):
@@ -39,26 +39,26 @@ class CenitIntegrationSettings(models.TransientModel):
     ############################################################################
     # Pull Parameters
     ############################################################################
-    access_key = fields.Char('Access Key')
+     = fields.Char('Access Key')
 
     ############################################################################
     # Default Getters
     ############################################################################
-    def get_default_access_key(self, cr, uid, ids, context=None):
-        access_key = self.pool.get('ir.config_parameter').get_param(
-            cr, uid, 'odoo_cenit.messagebird.access_key', default=None, context=context
+    def get_default_(self, cr, uid, ids, context=None):
+         = self.pool.get('ir.config_parameter').get_param(
+            cr, uid, 'odoo_cenit.messagebird.', default=None, context=context
         )
-        return {'access_key': access_key or ''}
+        return {'':  or ''}
 
 
     ############################################################################
     # Default Setters
     ############################################################################
-    def set_access_key(self, cr, uid, ids, context=None):
+    def set_(self, cr, uid, ids, context=None):
         config_parameters = self.pool.get('ir.config_parameter')
         for record in self.browse(cr, uid, ids, context=context):
             config_parameters.set_param (
-                cr, uid, 'odoo_cenit.messagebird.access_key', record.access_key or '',
+                cr, uid, 'odoo_cenit.messagebird.', record. or '',
                 context=context
             )
 

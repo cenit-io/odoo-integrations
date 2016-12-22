@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': "API for accessing Google Cloud and API monitoring data.",
+    'summary': "Accesses Google Cloud Monitoring data.",
     'description': """
         Odoo - Cloud_monitoring_api_v2beta2 integration via Cenit IO
     """,

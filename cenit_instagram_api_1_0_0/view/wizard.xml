@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="wizard_cenit_instagram_api_1_0_0_install" model="ir.ui.view">
+            <field name="name">Description of Instagram RESTful API.
+
+Current limitations:
+  * Instagram service does not support [cross origin headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS)
+  for security reasons, therefore it is not possible to use Swagger UI and make API calls directly from browser.
+  * Modification API requests (&#x60;POST&#x60;, &#x60;DELETE&#x60;) require additional security [scopes](https://instagram.com/developer/authorization/)
+  that are available for Apps [created on or after Nov 17, 2015](http://instagram.com/developer/review/) and
+  started in [Sandbox Mode](http://instagram.com/developer/sandbox/).
+  * Consider the [Instagram limitations](https://instagram.com/developer/limits/) for API calls that depends on App Mode.
+
+**Warning:** For Apps [created on or after Nov 17, 2015](http://instagram.com/developer/changelog/) API responses
+containing media objects no longer return the &#x60;data&#x60; field in &#x60;comments&#x60; and &#x60;likes&#x60; nodes.
+
+Last update: 2015-11-28
+ settings</field>
+            <field name="model">cenit.instagram_api_1_0_0.settings</field>
+            <field name="inherit_id" ref="base.res_config_installer"/>
+            <field name="arch" type="xml">
+                <form position="attributes">
+                    <attribute name="string">Description of Instagram RESTful API.
+
+Current limitations:
+  * Instagram service does not support [cross origin headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS)
+  for security reasons, therefore it is not possible to use Swagger UI and make API calls directly from browser.
+  * Modification API requests (&#x60;POST&#x60;, &#x60;DELETE&#x60;) require additional security [scopes](https://instagram.com/developer/authorization/)
+  that are available for Apps [created on or after Nov 17, 2015](http://instagram.com/developer/review/) and
+  started in [Sandbox Mode](http://instagram.com/developer/sandbox/).
+  * Consider the [Instagram limitations](https://instagram.com/developer/limits/) for API calls that depends on App Mode.
+
+**Warning:** For Apps [created on or after Nov 17, 2015](http://instagram.com/developer/changelog/) API responses
+containing media objects no longer return the &#x60;data&#x60; field in &#x60;comments&#x60; and &#x60;likes&#x60; nodes.
+
+Last update: 2015-11-28
+ settings</attribute>
+                </form>
+                <footer position="replace">
+                    <footer>
+                        <button string="Apply" type="object" name="execute"
+                                class="oe_highlight" context="{'install': True}"/>
+                    </footer>
+                </footer>
+                <separator string="title" position="replace">
+                    <p class="oe_grey">
+                        Configure Description of Instagram RESTful API.
+
+Current limitations:
+  * Instagram service does not support [cross origin headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS)
+  for security reasons, therefore it is not possible to use Swagger UI and make API calls directly from browser.
+  * Modification API requests (&#x60;POST&#x60;, &#x60;DELETE&#x60;) require additional security [scopes](https://instagram.com/developer/authorization/)
+  that are available for Apps [created on or after Nov 17, 2015](http://instagram.com/developer/review/) and
+  started in [Sandbox Mode](http://instagram.com/developer/sandbox/).
+  * Consider the [Instagram limitations](https://instagram.com/developer/limits/) for API calls that depends on App Mode.
+
+**Warning:** For Apps [created on or after Nov 17, 2015](http://instagram.com/developer/changelog/) API responses
+containing media objects no longer return the &#x60;data&#x60; field in &#x60;comments&#x60; and &#x60;likes&#x60; nodes.
+
+Last update: 2015-11-28
+ data
+                    </p>
+                    <group>
+                        <field name='' placeholder='Your API Key'/>
+                    </group>
+                </separator>
+            </field>
+        </record>
+
+        <record id="action_wizard_cenit_instagram_api_1_0_0_install" model="ir.actions.act_window">
+            <field name="name">Configure Description of Instagram RESTful API.
+
+Current limitations:
+  * Instagram service does not support [cross origin headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS)
+  for security reasons, therefore it is not possible to use Swagger UI and make API calls directly from browser.
+  * Modification API requests (&#x60;POST&#x60;, &#x60;DELETE&#x60;) require additional security [scopes](https://instagram.com/developer/authorization/)
+  that are available for Apps [created on or after Nov 17, 2015](http://instagram.com/developer/review/) and
+  started in [Sandbox Mode](http://instagram.com/developer/sandbox/).
+  * Consider the [Instagram limitations](https://instagram.com/developer/limits/) for API calls that depends on App Mode.
+
+**Warning:** For Apps [created on or after Nov 17, 2015](http://instagram.com/developer/changelog/) API responses
+containing media objects no longer return the &#x60;data&#x60; field in &#x60;comments&#x60; and &#x60;likes&#x60; nodes.
+
+Last update: 2015-11-28
+ data</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">cenit.instagram_api_1_0_0.settings</field>
+            <field name="view_id" ref="wizard_cenit_instagram_api_1_0_0_install"/>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <record id="todo_wizard_cenit_instagram_api_1_0_0_install" model="ir.actions.todo">
+            <field name="action_id" ref="action_wizard_cenit_instagram_api_1_0_0_install"/>
+            <field name="sequence">1</field>
+            <field name="type">automatic</field>
+        </record>
+
+    </data>
+</openerp>

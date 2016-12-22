@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': "Data Types for Ecommerce ",
+    'summary': "Data types for Ecommerce support",
     'description': """
         Odoo - Ecommerce integration via Cenit IO
     """,
