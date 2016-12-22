@@ -16,9 +16,9 @@
                     </header>
                     <div>
                         <group string="Mailchimp API Collection settings">
-                            <field name='user' placeholder='Your Username' />
-                            <field name='password' placeholder='Your API Key' />
-                            <field name='node' placeholder='Your Service Node' />
+                            <field name='' placeholder='Your Username' />
+                            <field name='' placeholder='Your API Key' />
+                            <field name='' placeholder='Your Service Node' />
                         </group>
                     </div>
                 </form>

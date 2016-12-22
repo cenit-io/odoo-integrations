@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': "Lets you find the least expensive flights between an origin and a destination.",
+    'summary': "Finds the least expensive flights between an origin and a destination.",
     'description': """
         Odoo - Qpx_express_api_v1 integration via Cenit IO
     """,

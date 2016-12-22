@@ -26,7 +26,7 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': "An API for accessing civic information.",
+    'summary': "Provides polling places, early vote locations, contest data, election officials, and government representatives for U.S. residential addresses.",
     'description': """
         Odoo - Google_civic_information_api_v2 integration via Cenit IO
     """,

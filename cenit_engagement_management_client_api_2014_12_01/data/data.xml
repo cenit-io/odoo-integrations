@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+        <function model="cenit.engagement_management_client_api_2014_12_01.settings" name="install"/>
+    </data>
+</openerp>

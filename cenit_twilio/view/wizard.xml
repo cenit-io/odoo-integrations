@@ -21,8 +21,8 @@
                         Configure Twilio API Integration data
                     </p>
                     <group>
-                        <field name='account_sid' placeholder='Your Account SID'/>
-                        <field name='auth_token' placeholder='Your Auth Token'/>
+                        <field name='' placeholder='Your Account SID'/>
+                        <field name='' placeholder='Your Auth Token'/>
                     </group>
                 </separator>
             </field>
