@@ -6,7 +6,7 @@
 <meta content='iPaaS - Cenit IO has been designed to orchestrate data flows that may involve several APIs. It makes possible the automation of all operational processes in a company, connecting between on-premises infrastructure and cloud services.' name='description'>
 <title>Cenit IO | Open Platform for Data and Business Integration (iPaaS)</title>
 <meta name="csrf-param" content="authenticity_token" />
-<meta name="csrf-token" content="CFGNbEcuHbQWdNEyl4+8y05BxJIZNKzQI4GEAFOkej0hauOrTjJHGuzJR/KbsEWjl9FJQq+wb6JYbovYfp+kRQ==" />
+<meta name="csrf-token" content="YFqBsiWen6Jiy9NIX7bN6e17CMItfCBWz+2ZXr352DK323vpQuVQuRjAWxvqFlben9Ztn5CvoS0DOknaYCAdiw==" />
 <link rel="stylesheet" media="all" href="/assets/rails_admin/rails_admin-4be064ef48586f199e6349412377c59892c9d7aa6a9373f4eb5778a8e9872c26.css" />
 <script src="/assets/rails_admin/rails_admin-eb4200a612cde6f46374080d023a73f4dce0333a12a8ea2890c69814b56342e4.js"></script>
 <script>
@@ -120,7 +120,7 @@
 <div class='form-top'>
 Sign in with
 </div>
-<form role="form" class="form-inline" id="new_user" action="/users/sign_in" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="iengZTxL3o8QOoUH3cN6dI4k20KEanKjFlgKIL1SUQag0o6iNVeEIeqHE8fR/IMcV7RWkjLusdFttwX4kGmPfg==" /><input name="user[remember_me]" type="hidden" value="0" /><input style="display:none" value="1" type="checkbox" checked="checked" name="user[remember_me]" id="user_remember_me" />
+<form role="form" class="form-inline" id="new_user" action="/users/sign_in" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="XfW5sMxKyvfA0r3/5A4Yk8J43J2bhmiLp+Ml6MXq7GSKdEPrqzEF7LrZNaxRroOksNW5wCZV6fBrNPVsGDMp3Q==" /><input name="user[remember_me]" type="hidden" value="0" /><input style="display:none" value="1" type="checkbox" checked="checked" name="user[remember_me]" id="user_remember_me" />
 <button name="with" type="submit" class="btn btn-lg soc-btn soc-github" value="github"><i class='fa fa-fw fa-github'></i>
 </button><button name="with" type="submit" class="btn btn-lg soc-btn soc-google" value="google"><i class='fa fa-fw fa-google'></i>
 </button><button name="with" type="submit" class="btn btn-lg soc-btn soc-facebook" value="facebook"><i class='fa fa-fw fa-facebook'></i>
@@ -129,7 +129,7 @@ Sign in with
 or
 </div>
 <div class='local-forms'>
-<form id="do-user-form" class="local active" action="/users/sign_in" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="8EyJ3beLwcei+c77bHPIJ+eXM7lb50GKBK6fH0wHMPbZd+cavpebaVhEWDtgTDFPPge+ae1jgvh/QZDHYTzujg==" /><div class='field text-justify'>
+<form id="do-user-form" class="local active" action="/users/sign_in" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="fQs4klQ/u4SSydwQTl+I74lkHkoBN7sgixrN5YtsX7+qisLJM0R0n+jCVEP7/xPY+8l7F7zkOltHzR1hVrWaBg==" /><div class='field text-justify'>
 <input autofocus="autofocus" class="form-control" placeholder="Email" type="email" value="" name="user[email]" id="user_email" />
 </div>
 <div class='field text-justify'>
@@ -147,7 +147,7 @@ Forgot your password?
 </a>
 </div>
 </form>
-<form id="no-user-form" class="local" action="/users" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="2puBt1zo1DP5E4J/d6DitthB2/yMgK/75FKT5M+i9OfzoO9wVfSOnQOuFL97nxveAdFWLDoEbImfvZw84pkqnw==" /><div class='field text-justify'>
+<form id="no-user-form" class="local" action="/users" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="gzdcbMCJiGjaATHw6Fx3IycdIgxKMvlfZIXiQW99Xy1UtqY3p/JHc6AKuaNd/OwUVbBHUffheCSoUjLFsqSalA==" /><div class='field text-justify'>
 <input autofocus="autofocus" class="form-control" placeholder="Email" type="email" value="" name="user[email]" id="user_email" />
 </div>
 <div class='field text-justify'>
@@ -171,7 +171,7 @@ By signing up you agree with the
 </a></small>
 </div>
 </form>
-<form id="no-pass-form" class="local" action="/users/password" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="KIe35F8E7uQFD4Rk3Nk2sOJZgqv3aA0Ba2VuxuVhS08BvNkjVhi0Sv+yEqTQ5s/YO8kPe0HsznMQimEeyFqVNw==" /><div class='form-top'>
+<form id="no-pass-form" class="local" action="/users/password" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="OMABpipopl9qy45vHz9hCc3B6u5F21134fEucjQD8jjvQfv9TRNpRBDABjyqn/o+v2yPs/gI3AwtJv726do3gQ==" /><div class='form-top'>
 Send me reset password instructions
 </div>
 <div class='field text-justify'>
@@ -234,7 +234,7 @@ Already have a user?
               </a>
             </div>
              <div id='shared-collapse' class='nav nav-pills nav-stacked panel-collapse collapse'>
-                <li><a href="/cross_shared_collection?filter_token=fxyQy1zeSXAH7JkWZLoH"><span class='nav-amount'>9</span><span class='nav-caption'>Analytics</span></a></li><li><a href="/cross_shared_collection?filter_token=s8Q1t5TBmbmMa_BW4Lf1"><span class='nav-amount'>11</span><span class='nav-caption'>Backend</span></a></li><li><a href="/cross_shared_collection?filter_token=XXH7ax3SJNea6DzsmStq"><span class='nav-amount'>21</span><span class='nav-caption'>Cloud</span></a></li><li><a href="/cross_shared_collection?filter_token=9xqQ4hMsmgUxB5sXHH6-"><span class='nav-amount'>3</span><span class='nav-caption'>Collaboration</span></a></li><li><a href="/cross_shared_collection?filter_token=xyWfDhtYJL6VyBBznVtk"><span class='nav-amount'>1</span><span class='nav-caption'>Customer Relation</span></a></li><li><a href="/cross_shared_collection?filter_token=9HCNaDidxGKsooSw5cJU"><span class='nav-amount'>35</span><span class='nav-caption'>Developer Tools</span></a></li><li><a href="/cross_shared_collection?filter_token=yMAmyQmpSvzMpxD1by21"><span class='nav-amount'>14</span><span class='nav-caption'>eCommerce</span></a></li><li><a href="/cross_shared_collection?filter_token=dXZxAMEc276mWSkaxYLW"><span class='nav-amount'>7</span><span class='nav-caption'>Email</span></a></li><li><a href="/cross_shared_collection?filter_token=dhoTrxyMzsgVRTLRsCRN"><span class='nav-amount'>3</span><span class='nav-caption'>Enterprise</span></a></li><li><a href="/cross_shared_collection?filter_token=vBBgUHqU4V9dhsZhFwyw"><span class='nav-amount'>6</span><span class='nav-caption'>Financial</span></a></li><li><a href="/cross_shared_collection?filter_token=j9fDxbxxLax1C55xP4PE"><span class='nav-amount'>4</span><span class='nav-caption'>Hosting</span></a></li><li><a href="/cross_shared_collection?filter_token=pcMJt2mBWQuRLH9PjY-n"><span class='nav-amount'>1</span><span class='nav-caption'>IoT</span></a></li><li><a href="/cross_shared_collection?filter_token=zRGnigkKuXZzf4kaZKWi"><span class='nav-amount'>2</span><span class='nav-caption'>Location</span></a></li><li><a href="/cross_shared_collection?filter_token=w2pHFrtP2Rug3DJHsWap"><span class='nav-amount'>5</span><span class='nav-caption'>Machine Learning</span></a></li><li><a href="/cross_shared_collection?filter_token=LNwKustaksdwygEe1Fai"><span class='nav-amount'>5</span><span class='nav-caption'>Marketing</span></a></li><li><a href="/cross_shared_collection?filter_token=1uM6mypESMJF91fjFhta"><span class='nav-amount'>10</span><span class='nav-caption'>Media</span></a></li><li><a href="/cross_shared_collection?filter_token=huxSv-sypMS-ZzuraX3V"><span class='nav-amount'>5</span><span class='nav-caption'>Messaging</span></a></li><li><a href="/cross_shared_collection?filter_token=YXTwkd9PyhXQc61ktQLL"><span class='nav-amount'>15</span><span class='nav-caption'>Open Data</span></a></li><li><a href="/cross_shared_collection?filter_token=umeM6nqBySa_x5oe9LM6"><span class='nav-amount'>1</span><span class='nav-caption'>Payment</span></a></li><li><a href="/cross_shared_collection?filter_token=sTyfn6wSSTrj2FjvzGv3"><span class='nav-amount'>3</span><span class='nav-caption'>Project Management</span></a></li><li><a href="/cross_shared_collection?filter_token=jMWuYHfUuvr7yX2GjcyB"><span class='nav-amount'>5</span><span class='nav-caption'>Search</span></a></li><li><a href="/cross_shared_collection?filter_token=f7uKkNQA4JuVuyR6D2b-"><span class='nav-amount'>3</span><span class='nav-caption'>Social</span></a></li><li><a href="/cross_shared_collection?filter_token=CsCAsFkbvWCe7DQBqF5h"><span class='nav-amount'>2</span><span class='nav-caption'>Support</span></a></li><li><a href="/cross_shared_collection?filter_token=8iyy7gB1XeQUtyNsbbju"><span class='nav-amount'>4</span><span class='nav-caption'>Telecom</span></a></li><li><a href="/cross_shared_collection?filter_token=91ExwCQKiAWKRvV4uFei"><span class='nav-amount'>3</span><span class='nav-caption'>Text</span></a></li><li><a href="/cross_shared_collection?filter_token=hKsWgQpxRzpvyzEq613b"><span class='nav-amount'>1</span><span class='nav-caption'>Tools</span></a></li>
+                <li><a href="/cross_shared_collection?filter_token=fxyQy1zeSXAH7JkWZLoH"><span class='nav-amount'>11</span><span class='nav-caption'>Analytics</span></a></li><li><a href="/cross_shared_collection?filter_token=s8Q1t5TBmbmMa_BW4Lf1"><span class='nav-amount'>20</span><span class='nav-caption'>Backend</span></a></li><li><a href="/cross_shared_collection?filter_token=XXH7ax3SJNea6DzsmStq"><span class='nav-amount'>21</span><span class='nav-caption'>Cloud</span></a></li><li><a href="/cross_shared_collection?filter_token=9xqQ4hMsmgUxB5sXHH6-"><span class='nav-amount'>3</span><span class='nav-caption'>Collaboration</span></a></li><li><a href="/cross_shared_collection?filter_token=xyWfDhtYJL6VyBBznVtk"><span class='nav-amount'>1</span><span class='nav-caption'>Customer Relation</span></a></li><li><a href="/cross_shared_collection?filter_token=9HCNaDidxGKsooSw5cJU"><span class='nav-amount'>50</span><span class='nav-caption'>Developer Tools</span></a></li><li><a href="/cross_shared_collection?filter_token=yMAmyQmpSvzMpxD1by21"><span class='nav-amount'>14</span><span class='nav-caption'>eCommerce</span></a></li><li><a href="/cross_shared_collection?filter_token=dXZxAMEc276mWSkaxYLW"><span class='nav-amount'>8</span><span class='nav-caption'>Email</span></a></li><li><a href="/cross_shared_collection?filter_token=dhoTrxyMzsgVRTLRsCRN"><span class='nav-amount'>3</span><span class='nav-caption'>Enterprise</span></a></li><li><a href="/cross_shared_collection?filter_token=vBBgUHqU4V9dhsZhFwyw"><span class='nav-amount'>7</span><span class='nav-caption'>Financial</span></a></li><li><a href="/cross_shared_collection?filter_token=j9fDxbxxLax1C55xP4PE"><span class='nav-amount'>4</span><span class='nav-caption'>Hosting</span></a></li><li><a href="/cross_shared_collection?filter_token=pcMJt2mBWQuRLH9PjY-n"><span class='nav-amount'>1</span><span class='nav-caption'>IoT</span></a></li><li><a href="/cross_shared_collection?filter_token=zRGnigkKuXZzf4kaZKWi"><span class='nav-amount'>2</span><span class='nav-caption'>Location</span></a></li><li><a href="/cross_shared_collection?filter_token=w2pHFrtP2Rug3DJHsWap"><span class='nav-amount'>7</span><span class='nav-caption'>Machine Learning</span></a></li><li><a href="/cross_shared_collection?filter_token=LNwKustaksdwygEe1Fai"><span class='nav-amount'>6</span><span class='nav-caption'>Marketing</span></a></li><li><a href="/cross_shared_collection?filter_token=1uM6mypESMJF91fjFhta"><span class='nav-amount'>15</span><span class='nav-caption'>Media</span></a></li><li><a href="/cross_shared_collection?filter_token=huxSv-sypMS-ZzuraX3V"><span class='nav-amount'>5</span><span class='nav-caption'>Messaging</span></a></li><li><a href="/cross_shared_collection?filter_token=m2cVBa9KvzHwSXxSD66-"><span class='nav-amount'>1</span><span class='nav-caption'>Monitoring</span></a></li><li><a href="/cross_shared_collection?filter_token=YXTwkd9PyhXQc61ktQLL"><span class='nav-amount'>15</span><span class='nav-caption'>Open Data</span></a></li><li><a href="/cross_shared_collection?filter_token=umeM6nqBySa_x5oe9LM6"><span class='nav-amount'>1</span><span class='nav-caption'>Payment</span></a></li><li><a href="/cross_shared_collection?filter_token=sTyfn6wSSTrj2FjvzGv3"><span class='nav-amount'>2</span><span class='nav-caption'>Project Management</span></a></li><li><a href="/cross_shared_collection?filter_token=jMWuYHfUuvr7yX2GjcyB"><span class='nav-amount'>5</span><span class='nav-caption'>Search</span></a></li><li><a href="/cross_shared_collection?filter_token=f7uKkNQA4JuVuyR6D2b-"><span class='nav-amount'>4</span><span class='nav-caption'>Social</span></a></li><li><a href="/cross_shared_collection?filter_token=CsCAsFkbvWCe7DQBqF5h"><span class='nav-amount'>2</span><span class='nav-caption'>Support</span></a></li><li><a href="/cross_shared_collection?filter_token=8iyy7gB1XeQUtyNsbbju"><span class='nav-amount'>6</span><span class='nav-caption'>Telecom</span></a></li><li><a href="/cross_shared_collection?filter_token=91ExwCQKiAWKRvV4uFei"><span class='nav-amount'>5</span><span class='nav-caption'>Text</span></a></li><li><a href="/cross_shared_collection?filter_token=ioKSyQEoojJe4bVcibtN"><span class='nav-amount'>1</span><span class='nav-caption'>Time Management</span></a></li><li><a href="/cross_shared_collection?filter_token=hKsWgQpxRzpvyzEq613b"><span class='nav-amount'>1</span><span class='nav-caption'>Tools</span></a></li>
           <li><a href="/cross_shared_collection"><span class='nav-amount'>274</span><span class='nav-caption'>Show All</span></a></li>
             </div>
             </div></div></div><div id='main-definitions' class='panel panel-default'><div class='panel-heading'>
@@ -358,12 +358,12 @@ Already have a user?
                 <span class='nav-caret'><i class='fa fa-caret-down'></i></span><span class='nav-icon'><i class='fa fa-heartbeat'></i></span><span class='nav-caption'>Monitors</span>
               </a>
             </div>
-            <div id='main-collapse8' class='nav nav-pills nav-stacked panel-collapse collapse'><li data-model="notification"><a class="pjax" href="/notification"><span class='nav-caption'>Notifications</span></a></li><li data-model="task"><a class="pjax" href="/task"><span class='nav-caption'>Tasks</span></a></li><li data-model="storage"><a class="pjax" href="/storage"><span class='nav-caption'>Storages</span></a></li></div></div><div id='main-administration' class='panel panel-default'><div class='panel-heading'>
+            <div id='main-collapse8' class='nav nav-pills nav-stacked panel-collapse collapse'><li data-model="notification"><a class="pjax" href="/notification"><span class='nav-amount'>18</span><span class='nav-caption'>Notifications</span></a></li><li data-model="task"><a class="pjax" href="/task"><span class='nav-caption'>Tasks</span></a></li><li data-model="storage"><a class="pjax" href="/storage"><span class='nav-caption'>Storages</span></a></li></div></div><div id='main-administration' class='panel panel-default'><div class='panel-heading'>
               <a data-toggle='collapse' data-parent='#main-accordion' href='#main-collapse9' class='panel-title collapse in collapsed'>
                 <span class='nav-caret'><i class='fa fa-caret-down'></i></span><span class='nav-icon'><i class='fa fa-user-secret'></i></span><span class='nav-caption'>Administration</span>
               </a>
             </div>
-            <div id='main-collapse9' class='nav nav-pills nav-stacked panel-collapse collapse'><li data-model="account"><a class="pjax" href="/account"><span class='nav-amount'>487</span><span class='nav-caption'>Tenants</span></a></li></div></div>
+            <div id='main-collapse9' class='nav nav-pills nav-stacked panel-collapse collapse'><li data-model="account"><a class="pjax" href="/account"><span class='nav-amount'>493</span><span class='nav-caption'>Tenants</span></a></li></div></div>
 </ul>
 <div class='social-links'>
 <div id='os-love'>
@@ -412,25 +412,25 @@ Thank you for joining us!
 </h4>
 <ul class='list-inline list-unstyled'>
 <li>
-<img alt="erich.paulini" title="erich.paulini" class="img-circle" height="50" width="50" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyAQMAAAAk8RryAAAABlBMVEXTh6Lw8PDJrAozAAAAN0lEQVR4nGP6DwYHmBggAJP+yPGRA5s4kfRHAQaGnxzk64fR/P9/ABEZ+il2/08B6rgfCAi7HwDIxxkfikLO2gAAAABJRU5ErkJggg==" />
+<img alt="waleeddarmali" title="waleeddarmali" class="img-circle" height="50" width="50" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyAQMAAAAk8RryAAAABlBMVEVTWdfw8PC9OI99AAAAMklEQVR4nGP6DwYHmBggAAv9kQO7OHE0SDcQA/n8PygxZ8DonxwfBahgDv//H0BEUB0A/80RHyIkRGkAAAAASUVORK5CYII=" />
 </li>
 <li>
-<img alt="alle.aldine" title="alle.aldine" class="img-circle" height="50" width="50" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyAQMAAAAk8RryAAAABlBMVEW6glLw8PCo0c12AAAAQUlEQVR4nGP6DwYHmBggAAv9kQO7OJH0R4GfHGA++wfyzPkpAKb5P7D/oMQdZNIfGQV+MnJQ4n4Izf//BxARVAcAHmEVHxy40aEAAAAASUVORK5CYII=" />
+<img alt="info" title="info" class="img-circle" height="50" width="50" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyAQMAAAAk8RryAAAABlBMVEVxQsXw8PAafBLHAAAAOklEQVR4nGP6DwYHmBggAAv9kQO7OHE0SDcQk62f4afATwEwn/0DJe7gB+pm/0GBOyil+X/w/yCsDgC+qxEfj2/9qAAAAABJRU5ErkJggg==" />
 </li>
 <li>
-<img alt="ricardovera" title="ricardovera" class="img-circle" height="50" width="50" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyAQMAAAAk8RryAAAABlBMVEW6glLw8PCo0c12AAAALElEQVR4nGP6DwYHmBggAAv9kQO7OKk0/w9y9H3kAMGBs59a/uf/AYIE1QEAftwRH0NNNnAAAAAASUVORK5CYII=" />
+<img alt="almeidapaulopt" title="almeidapaulopt" class="img-circle" height="50" width="50" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyAQMAAAAk8RryAAAABlBMVEXJulTw8PCRXR6CAAAAUElEQVR4nGP6DwYHmBggAJP+yMjIgU2cSPqjAAPDTw4gn/0D+wdyzPkp8FMAzAdpJ8cdIO0MTPz/P7D//0GG+xkFfjJykO9/GM0PCmbC9gMASf0bH4j5ay4AAAAASUVORK5CYII=" />
 </li>
 <li>
-<img alt="adil.dyouri" title="adil.dyouri" class="img-circle" height="50" width="50" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyAQMAAAAk8RryAAAABlBMVEVxQsXw8PAafBLHAAAAQklEQVR4nGP6DwYHmBggAAv9kQO7OHE0SDcQk62f4afATwEwn/0DJe5gYP/B/4Es/RD/8/9gYABiCvwPMgG3Oqj5ADEhFx+Z0dS7AAAAAElFTkSuQmCC" />
+<img alt="sachin" title="sachin" class="img-circle" height="50" width="50" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyAQMAAAAk8RryAAAABlBMVEXAVlLw8PB+HTpIAAAAR0lEQVR4nGP6DwYHmBggAJP+yMjIgU2cSPqjAAPDTw4gn/0D+wdyzPkp8FMAzAdpJ8cdIO3UsJ88/8Np9v//8dnP/4OBAYgBvA8ZH+ZqoNEAAAAASUVORK5CYII=" />
 </li>
 </ul>
 <span class='text-muted'>
-More than 460 users
+More than 470 users
 </span>
 </div>
 <div class='col-md-2' style='padding-left: 30px;'>
 <h4 class='text-muted' style='margin-top: 10px;'>
-487 tenants
+493 tenants
 </h4>
 <ul class='list-inline list-unstyled' style='margin-left: -11px;'>
 <li>
@@ -873,7 +873,7 @@ notifications
                 <span class="nav-icon"><i class='fa fa-heartbeat'></i></span>
                 <span class="nav-caption">Monitors</span>
               </h3></td></tr>
-            <tr data-model="notification"><td><a class="pjax" href="/notification">Notifications</a></td><td style="overflow:visible"><div class='progress progress-' style='margin-bottom:0'><div class='animate-width-to progress-bar progress-bar-' data-animate-length='2%' data-animate-width-to='2%' style='width:2%'>0</div></div><div id="links" class="options-menu">
+            <tr data-model="notification"><td><a class="pjax" href="/notification">Notifications</a></td><td style="overflow:visible"><div class='progress progress-info' style='margin-bottom:0'><div class='animate-width-to progress-bar progress-bar-info' data-animate-length='33%' data-animate-width-to='33%' style='width:2%'>18</div></div><div id="links" class="options-menu">
                      <span aria-haspopup="true" class="btn dropdown-toggle" data-toggle="dropdown" type="button">
                       <i class="fa fa-ellipsis-v"></i>
                      </span><ul class='dropdown-menu'>
@@ -936,7 +936,7 @@ notifications
                 <span class="nav-icon"><i class='fa fa-user-secret'></i></span>
                 <span class="nav-caption">Administration</span>
               </h3></td></tr>
-            <tr data-model="account"><td><a class="pjax" href="/account">Tenants</a></td><td style="overflow:visible"><div class='progress progress-warning' style='margin-bottom:0'><div class='animate-width-to progress-bar progress-bar-warning' data-animate-length='70%' data-animate-width-to='70%' style='width:2%'>487</div></div><div id="links" class="options-menu">
+            <tr data-model="account"><td><a class="pjax" href="/account">Tenants</a></td><td style="overflow:visible"><div class='progress progress-warning' style='margin-bottom:0'><div class='animate-width-to progress-bar progress-bar-warning' data-animate-length='71%' data-animate-width-to='71%' style='width:2%'>493</div></div><div id="links" class="options-menu">
                      <span aria-haspopup="true" class="btn dropdown-toggle" data-toggle="dropdown" type="button">
                       <i class="fa fa-ellipsis-v"></i>
                      </span><ul class='dropdown-menu'>
@@ -957,7 +957,7 @@ notifications
 <div class='modal face' id='contact_us'>
 <div class='modal-dialog'>
 <div class='modal-content'>
-<form class="formtastic contact-form" role="form" id="contact-form" action="/contact_us/contacts" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="Q6XLxB21JdIGbHA5OkFOaP7tCmBQWamJ9Kfxz4EriJ9qnqUDFKl/fPzR5vk2frcAJ32HsObdavuPSP4XrBBW5w==" /><div class='modal-header'>
+<form class="formtastic contact-form" role="form" id="contact-form" action="/contact_us/contacts" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="uOcwic/EYa+TCR5iiRsrVT3Jx2oQPJhapDn6lLxiHOBvZsrSqL+utOkCljE8u7BiT2SiN63vGSFo7ioQYbvZWQ==" /><div class='modal-header'>
 <a class="close" data-dismiss="modal" href="#">&times;
 </a><h3 class='modal-header-title'>
 <i class='fa fa-fw fa-envelope-o' title='Contact us'></i>
