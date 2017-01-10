@@ -21,7 +21,7 @@
                         Configure This is the place to come for all the technical details you need to power your applications with Channel 4&#x27;s deep programmes data. data
                     </p>
                     <group>
-                        <field name='' placeholder='Your API Key'/>
+                        <field name='api_key' placeholder='Your API Key'/>
                     </group>
                 </separator>
             </field>

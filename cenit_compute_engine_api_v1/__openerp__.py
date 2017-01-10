@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "Creates and runs virtual machines on Google Cloud Platform.",
-    'description': """
-        Odoo - Compute_engine_api_v1 integration via Cenit IO
-    """,
+    'description': "Creates and runs virtual machines on Google Cloud Platform.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

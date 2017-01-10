@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "Creates and manages your customers and their subscriptions.",
-    'description': """
-        Odoo - Enterprise_apps_reseller_api_v1 integration via Cenit IO
-    """,
+    'description': "Creates and manages your customers and their subscriptions.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

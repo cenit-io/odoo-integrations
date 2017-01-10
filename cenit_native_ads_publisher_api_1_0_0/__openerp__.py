@@ -26,10 +26,8 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': "This is a Native Ads Publisher API it provides same functionality as Native Ads Publisher Account GUI.\r\n",
-    'description': """
-        Odoo - Native_ads_publisher_api_1_0_0 integration via Cenit IO
-    """,
+    'summary': "This is a Native Ads Publisher API it provides same functionality as Native Ads Publisher Account GUI....",
+    'description': "This is a Native Ads Publisher API it provides same functionality as Native Ads Publisher Account GUI.\r\n",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "Manages files in Drive including uploading, downloading, searching, detecting changes, and updating sharing permissions.",
-    'description': """
-        Odoo - Drive_api_v3 integration via Cenit IO
-    """,
+    'description': "Manages files in Drive including uploading, downloading, searching, detecting changes, and updating sharing permissions.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

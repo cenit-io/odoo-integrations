@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "Provides an API for pathway over-representation and expression analysis as well as species comparison tool",
-    'description': """
-        Odoo - Pathway_analysis_service_api_1_0 integration via Cenit IO
-    """,
+    'description': "Provides an API for pathway over-representation and expression analysis as well as species comparison tool",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

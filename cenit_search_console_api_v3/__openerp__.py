@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "View Google Search Console data for your verified sites.",
-    'description': """
-        Odoo - Search_console_api_v3 integration via Cenit IO
-    """,
+    'description': "View Google Search Console data for your verified sites.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

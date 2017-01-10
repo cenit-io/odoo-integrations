@@ -26,10 +26,8 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': "Integrates Google Vision features, including image labeling, face, logo, and landmark detection, optical character recognition (OCR), and detection of explicit content, into applications.",
-    'description': """
-        Odoo - Google_cloud_vision_api_v1 integration via Cenit IO
-    """,
+    'summary': "...",
+    'description': "Integrates Google Vision features, including image labeling, face, logo, and landmark detection, optical character recognition (OCR), and detection of explicit content, into applications.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

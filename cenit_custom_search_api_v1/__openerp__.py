@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "Lets you search over a website or collection of websites",
-    'description': """
-        Odoo - Custom_search_api_v1 integration via Cenit IO
-    """,
+    'description': "Lets you search over a website or collection of websites",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

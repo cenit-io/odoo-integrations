@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "AuthorizationManagementClient",
-    'description': """
-        Odoo - Authorization_management_client_api_2015_07_01 integration via Cenit IO
-    """,
+    'description': "AuthorizationManagementClient",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

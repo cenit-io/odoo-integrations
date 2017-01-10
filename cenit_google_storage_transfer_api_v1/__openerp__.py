@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "Transfers data from external data sources to a Google Cloud Storage bucket or between Google Cloud Storage buckets.",
-    'description': """
-        Odoo - Google_storage_transfer_api_v1 integration via Cenit IO
-    """,
+    'description': "Transfers data from external data sources to a Google Cloud Storage bucket or between Google Cloud Storage buckets.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

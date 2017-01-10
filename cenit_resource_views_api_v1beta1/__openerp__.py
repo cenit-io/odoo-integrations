@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "The Resource View API allows users to create and manage logical sets of Google Compute Engine instances.",
-    'description': """
-        Odoo - Resource_views_api_v1beta1 integration via Cenit IO
-    """,
+    'description': "The Resource View API allows users to create and manage logical sets of Google Compute Engine instances.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

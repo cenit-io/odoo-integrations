@@ -26,10 +26,8 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': "This Swagger API console provides an overview of and interface to the Europeana REST API. You can build and test anything from the simplest search to a complex query using facetList such as dates, geotags and permissions. For more help and information, head to our comprehensive <a href=\"http://labs.europeana.api/api/\">online documentation</a>.",
-    'description': """
-        Odoo - Europeana_api_2_0_14 integration via Cenit IO
-    """,
+    'summary': "...",
+    'description': "This Swagger API console provides an overview of and interface to the Europeana REST API. You can build and test anything from the simplest search to a complex query using facetList such as dates, geotags and permissions. For more help and information, head to our comprehensive <a href=\"http://labs.europeana.api/api/\">online documentation</a>.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

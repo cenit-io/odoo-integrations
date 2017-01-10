@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "Gets the delivery status of titles for Google Play Movies Partners.",
-    'description': """
-        Odoo - Google_play_movies_partner_api_v1 integration via Cenit IO
-    """,
+    'description': "Gets the delivery status of titles for Google Play Movies Partners.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

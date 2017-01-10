@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "AIaaS provides API access to our bot hosting platform and SDKs, allowing developers to easily integrate conversational interfaces into applications.",
-    'description': """
-        Odoo - Pandorabots_aiaas_api_1_0_0 integration via Cenit IO
-    """,
+    'description': "AIaaS provides API access to our bot hosting platform and SDKs, allowing developers to easily integrate conversational interfaces into applications.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

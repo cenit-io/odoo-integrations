@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "A simple and elegant way to explore cancer data",
-    'description': """
-        Odoo - Firebrowse_beta_api_1_1_33_2016_06_13_21_20_41_eb41119bbe78d5f930199104 integration via Cenit IO
-    """,
+    'description': "A simple and elegant way to explore cancer data",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

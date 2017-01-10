@@ -26,10 +26,8 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': "The Windows Azure Network management API provides a RESTful set of web services that interact with Windows Azure Networks service to manage your network resrources. The API has entities that capture the relationship between an end user and the Windows Azure Networks service.",
-    'description': """
-        Odoo - Network_resource_provider_client_api_2015_05_01_preview integration via Cenit IO
-    """,
+    'summary': "...",
+    'description': "The Windows Azure Network management API provides a RESTful set of web services that interact with Windows Azure Networks service to manage your network resrources. The API has entities that capture the relationship between an end user and the Windows Azure Networks service.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

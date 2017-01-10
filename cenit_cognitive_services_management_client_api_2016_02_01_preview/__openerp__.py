@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "Cognitive Services Management Client",
-    'description': """
-        Odoo - Cognitive_services_management_client_api_2016_02_01_preview integration via Cenit IO
-    """,
+    'description': "Cognitive Services Management Client",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

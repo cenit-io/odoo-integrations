@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "Builds and manages clusters that run container-based applications, powered by open source Kubernetes technology.",
-    'description': """
-        Odoo - Google_container_engine_api_v1 integration via Cenit IO
-    """,
+    'description': "Builds and manages clusters that run container-based applications, powered by open source Kubernetes technology.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

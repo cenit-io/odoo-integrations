@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "Transfers user data from one user to another.",
-    'description': """
-        Odoo - Admin_data_transfer_api_datatransfer_v1 integration via Cenit IO
-    """,
+    'description': "Transfers user data from one user to another.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

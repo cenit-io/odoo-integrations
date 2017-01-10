@@ -29,9 +29,9 @@ _logger = logging.getLogger(__name__)
 COLLECTION_NAME = "desk"
 COLLECTION_VERSION = "1.0.0"
 COLLECTION_PARAMS = {
-    "":'',
-    "":'',
-    "":'',
+  "On connection 'Desk Connection' template parameter 'Desk URL'":'desk_url',
+  "On connection 'Desk Connection' template parameter 'Desk Username'":'desk_username',
+  "On connection 'Desk Connection' template parameter 'Desk Password'":'desk_password',
 }
 
 class CenitIntegrationSettings(models.TransientModel):
@@ -41,56 +41,56 @@ class CenitIntegrationSettings(models.TransientModel):
     ############################################################################
     # Pull Parameters
     ############################################################################
-     = fields.Char('Desk URL')
-     = fields.Char('Desk Username')
-     = fields.Char('Desk Password')
+    desk_url = fields.Char('Desk URL')
+    desk_username = fields.Char('Desk Username')
+    desk_password = fields.Char('Desk Password')
 
     ############################################################################
     # Default Getters
     ############################################################################
-    def get_default_(self, cr, uid, ids, context=None):
-         = self.pool.get('ir.config_parameter').get_param(
-            cr, uid, 'odoo_cenit.desk.', default=None, context=context
+    def get_default_desk_url(self, cr, uid, ids, context=None):
+        desk_url = self.pool.get('ir.config_parameter').get_param(
+            cr, uid, 'odoo_cenit.desk.desk_url', default=None, context=context
         )
-        return {'':  or ''}
+        return {'desk_url': desk_url or ''}
 
-    def get_default_(self, cr, uid, ids, context=None):
-         = self.pool.get('ir.config_parameter').get_param(
-            cr, uid, 'odoo_cenit.desk.', default=None, context=context
+    def get_default_desk_username(self, cr, uid, ids, context=None):
+        desk_username = self.pool.get('ir.config_parameter').get_param(
+            cr, uid, 'odoo_cenit.desk.desk_username', default=None, context=context
         )
-        return {'':  or ''}
+        return {'desk_username': desk_username or ''}
 
-    def get_default_(self, cr, uid, ids, context=None):
-         = self.pool.get('ir.config_parameter').get_param(
-            cr, uid, 'odoo_cenit.desk.', default=None, context=context
+    def get_default_desk_password(self, cr, uid, ids, context=None):
+        desk_password = self.pool.get('ir.config_parameter').get_param(
+            cr, uid, 'odoo_cenit.desk.desk_password', default=None, context=context
         )
-        return {'':  or ''}
+        return {'desk_password': desk_password or ''}
 
 
     ############################################################################
     # Default Setters
     ############################################################################
-    def set_(self, cr, uid, ids, context=None):
+    def set_desk_url(self, cr, uid, ids, context=None):
         config_parameters = self.pool.get('ir.config_parameter')
         for record in self.browse(cr, uid, ids, context=context):
             config_parameters.set_param (
-                cr, uid, 'odoo_cenit.desk.', record. or '',
+                cr, uid, 'odoo_cenit.desk.desk_url', record.desk_url or '',
                 context=context
             )
 
-    def set_(self, cr, uid, ids, context=None):
+    def set_desk_username(self, cr, uid, ids, context=None):
         config_parameters = self.pool.get('ir.config_parameter')
         for record in self.browse(cr, uid, ids, context=context):
             config_parameters.set_param (
-                cr, uid, 'odoo_cenit.desk.', record. or '',
+                cr, uid, 'odoo_cenit.desk.desk_username', record.desk_username or '',
                 context=context
             )
 
-    def set_(self, cr, uid, ids, context=None):
+    def set_desk_password(self, cr, uid, ids, context=None):
         config_parameters = self.pool.get('ir.config_parameter')
         for record in self.browse(cr, uid, ids, context=context):
             config_parameters.set_param (
-                cr, uid, 'odoo_cenit.desk.', record. or '',
+                cr, uid, 'odoo_cenit.desk.desk_password', record.desk_password or '',
                 context=context
             )
 

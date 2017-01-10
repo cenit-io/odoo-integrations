@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "Azure Service Bus client",
-    'description': """
-        Odoo - Service_bus_management_client_api_2015_08_01 integration via Cenit IO
-    """,
+    'description': "Azure Service Bus client",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

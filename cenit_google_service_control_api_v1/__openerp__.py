@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "The Service Control API",
-    'description': """
-        Odoo - Google_service_control_api_v1 integration via Cenit IO
-    """,
+    'description': "The Service Control API",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

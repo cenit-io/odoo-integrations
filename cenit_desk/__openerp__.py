@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "Desk CENIT Integration",
-    'description': """
-        Odoo - Desk integration via Cenit IO
-    """,
+    'description': "Desk CENIT Integration",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

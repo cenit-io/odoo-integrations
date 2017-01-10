@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "Basic translator of JSON, XML and EDI.",
-    'description': """
-        Odoo - Basic integration via Cenit IO
-    """,
+    'description': "Basic translator of JSON, XML and EDI.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

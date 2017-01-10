@@ -70,7 +70,7 @@ All API requests *should* be made over HTTPS to &#x60;https://api.import.io/&#x6
 ## API Authentication
 
 You authenticate to the import.io API by providing your API key as URL query string parameter &#x60;_apikey&#x60;. You can manage your API key from [your account](https://import.io/data/account/). settings">
-                            <field name='' placeholder='Your API Key' />
+                            <field name='api_key' placeholder='Your API Key' />
                         </group>
                     </div>
                 </form>

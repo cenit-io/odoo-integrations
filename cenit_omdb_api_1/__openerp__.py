@@ -26,10 +26,8 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': "The Open Movie Database. The OMDb API is a free web service to obtain movie information, all content and images on the site are contributed and maintained by our users.",
-    'description': """
-        Odoo - Omdb_api_1 integration via Cenit IO
-    """,
+    'summary': "...",
+    'description': "The Open Movie Database. The OMDb API is a free web service to obtain movie information, all content and images on the site are contributed and maintained by our users.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

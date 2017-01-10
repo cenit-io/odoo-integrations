@@ -26,10 +26,8 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': "<p>This API drives the <a href=\"https://discovery.gsa.gov\">Discovery Market Research Tool</a>.\nIt contains information on the vendors that are part of the OASIS and OASIS Small Business contracting vehicles, such as their contracting history, their elligibility for contract awards, and their small business designations.\nTo learn more about the tool, please visit <a href=\"https://discovery.gsa.gov\">Discovery</a> or see the README on our <a href=\"https://github.com/18F/mirage\">GitHub repository</a>.</p>\n<p><strong>Please note that the base path for this API is <code>https://api.data.gov/gsa/discovery/</code></strong></p>\n<p>It requires an API key, obtainable at <a href=\"http://api.data.gov/\">api.data.gov</a>.\nIt must be passed in the <code>api_key</code> parameter with each request.</p>",
-    'description': """
-        Odoo - Discovery_market_research_api_0_1 integration via Cenit IO
-    """,
+    'summary': "<p>This API drives the <a href=\"https://discovery.gsa.gov\">Discovery Market Research Tool</a>....",
+    'description': "<p>This API drives the <a href=\"https://discovery.gsa.gov\">Discovery Market Research Tool</a>.\nIt contains information on the vendors that are part of the OASIS and OASIS Small Business contracting vehicles, such as their contracting history, their elligibility for contract awards, and their small business designations.\nTo learn more about the tool, please visit <a href=\"https://discovery.gsa.gov\">Discovery</a> or see the README on our <a href=\"https://github.com/18F/mirage\">GitHub repository</a>.</p>\n<p><strong>Please note that the base path for this API is <code>https://api.data.gov/gsa/discovery/</code></strong></p>\n<p>It requires an API key, obtainable at <a href=\"http://api.data.gov/\">api.data.gov</a>.\nIt must be passed in the <code>api_key</code> parameter with each request.</p>",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "Map Fancy to Shipstation",
-    'description': """
-        Odoo - Fancy_shipstation integration via Cenit IO
-    """,
+    'description': "Map Fancy to Shipstation",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

@@ -16,7 +16,7 @@
                     </header>
                     <div>
                         <group string="Build applications using the world&#x27;s most powerful imagery settings">
-                            <field name='' placeholder='Your API Key' />
+                            <field name='api_key' placeholder='Your API Key' />
                         </group>
                     </div>
                 </form>

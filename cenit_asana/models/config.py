@@ -29,7 +29,7 @@ _logger = logging.getLogger(__name__)
 COLLECTION_NAME = "asana"
 COLLECTION_VERSION = "1.0.0"
 COLLECTION_PARAMS = {
-    "":'',
+  "On connection 'Asana API Connection' template parameter 'personal token'":'personal_token',
 }
 
 class CenitIntegrationSettings(models.TransientModel):
@@ -39,26 +39,26 @@ class CenitIntegrationSettings(models.TransientModel):
     ############################################################################
     # Pull Parameters
     ############################################################################
-     = fields.Char('personal token')
+    personal_token = fields.Char('personal token')
 
     ############################################################################
     # Default Getters
     ############################################################################
-    def get_default_(self, cr, uid, ids, context=None):
-         = self.pool.get('ir.config_parameter').get_param(
-            cr, uid, 'odoo_cenit.asana.', default=None, context=context
+    def get_default_personal_token(self, cr, uid, ids, context=None):
+        personal_token = self.pool.get('ir.config_parameter').get_param(
+            cr, uid, 'odoo_cenit.asana.personal_token', default=None, context=context
         )
-        return {'':  or ''}
+        return {'personal_token': personal_token or ''}
 
 
     ############################################################################
     # Default Setters
     ############################################################################
-    def set_(self, cr, uid, ids, context=None):
+    def set_personal_token(self, cr, uid, ids, context=None):
         config_parameters = self.pool.get('ir.config_parameter')
         for record in self.browse(cr, uid, ids, context=context):
             config_parameters.set_param (
-                cr, uid, 'odoo_cenit.asana.', record. or '',
+                cr, uid, 'odoo_cenit.asana.personal_token', record.personal_token or '',
                 context=context
             )
 

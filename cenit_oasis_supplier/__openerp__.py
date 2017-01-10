@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "Oasis Supplier",
-    'description': """
-        Odoo - Oasis_supplier integration via Cenit IO
-    """,
+    'description': "Oasis Supplier",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

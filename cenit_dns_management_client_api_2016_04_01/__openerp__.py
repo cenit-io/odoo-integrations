@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "DnsManagementClient",
-    'description': """
-        Odoo - Dns_management_client_api_2016_04_01 integration via Cenit IO
-    """,
+    'description': "DnsManagementClient",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

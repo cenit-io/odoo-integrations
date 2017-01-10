@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "Media Services resource management APIs.",
-    'description': """
-        Odoo - Media_services_management_client_api_2015_10_01 integration via Cenit IO
-    """,
+    'description': "Media Services resource management APIs.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

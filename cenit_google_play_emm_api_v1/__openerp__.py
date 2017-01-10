@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "Manages the deployment of apps to Android for Work users.",
-    'description': """
-        Odoo - Google_play_emm_api_v1 integration via Cenit IO
-    """,
+    'description': "Manages the deployment of apps to Android for Work users.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

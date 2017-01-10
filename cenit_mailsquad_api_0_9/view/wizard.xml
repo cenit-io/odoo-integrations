@@ -21,7 +21,7 @@
                         Configure MailSquad offers an affordable and super easy way to create, send and track delightful emails. data
                     </p>
                     <group>
-                        <field name='' placeholder='Your API Key'/>
+                        <field name='api_key' placeholder='Your API Key'/>
                     </group>
                 </separator>
             </field>

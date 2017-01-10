@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "Lets Android application developers access their Google Play accounts.",
-    'description': """
-        Odoo - Google_play_developer_api_v2 integration via Cenit IO
-    """,
+    'description': "Lets Android application developers access their Google Play accounts.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

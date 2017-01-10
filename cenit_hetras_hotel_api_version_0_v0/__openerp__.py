@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "hetras Hotel API Version 0",
-    'description': """
-        Odoo - Hetras_hotel_api_version_0_v0 integration via Cenit IO
-    """,
+    'description': "hetras Hotel API Version 0",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

@@ -26,10 +26,8 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': "Creates and manages rules that determine when a Firebase Rules-enabled service should permit a request.\n",
-    'description': """
-        Odoo - Firebase_rules_api_v1 integration via Cenit IO
-    """,
+    'summary': "Creates and manages rules that determine when a Firebase Rules-enabled service should permit a request.",
+    'description': "Creates and manages rules that determine when a Firebase Rules-enabled service should permit a request.\n",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

@@ -26,10 +26,8 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': "Mandrill is a reliable, scalable, and secure delivery API for transactional emails from websites and applications. It's ideal for sending data-driven transactional emails, including targeted e-commerce and personalized one-to-one messages.\r\n",
-    'description': """
-        Odoo - Mandrill_api_1_0 integration via Cenit IO
-    """,
+    'summary': "...",
+    'description': "Mandrill is a reliable, scalable, and secure delivery API for transactional emails from websites and applications. It's ideal for sending data-driven transactional emails, including targeted e-commerce and personalized one-to-one messages.\r\n",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

@@ -26,10 +26,8 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': "Accesses the schemaless NoSQL database to provide fully managed, robust, scalable storage for your application.\n",
-    'description': """
-        Odoo - Google_cloud_datastore_api_v1beta3 integration via Cenit IO
-    """,
+    'summary': "Accesses the schemaless NoSQL database to provide fully managed, robust, scalable storage for your application.",
+    'description': "Accesses the schemaless NoSQL database to provide fully managed, robust, scalable storage for your application.\n",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

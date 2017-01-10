@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "Client that can be used to manage Azure Search services and API keys.",
-    'description': """
-        Odoo - Search_management_client_api_2015_02_28 integration via Cenit IO
-    """,
+    'description': "Client that can be used to manage Azure Search services and API keys.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

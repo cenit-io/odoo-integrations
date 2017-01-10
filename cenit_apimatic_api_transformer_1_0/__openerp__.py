@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "Transform API Descriptions from/to various formats",
-    'description': """
-        Odoo - Apimatic_api_transformer_1_0 integration via Cenit IO
-    """,
+    'description': "Transform API Descriptions from/to various formats",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

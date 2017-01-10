@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "Lets advertisers search certified companies and create contact leads with them, and also audits the usage of clients.",
-    'description': """
-        Odoo - Google_partners_api_v2 integration via Cenit IO
-    """,
+    'description': "Lets advertisers search certified companies and create contact leads with them, and also audits the usage of clients.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

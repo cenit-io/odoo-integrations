@@ -16,7 +16,7 @@
                     </header>
                     <div>
                         <group string="Get the latest IRS data and most up to date charity information for your website or application settings">
-                            <field name='' placeholder='Your API Key' />
+                            <field name='api_key' placeholder='Your API Key' />
                         </group>
                     </div>
                 </form>

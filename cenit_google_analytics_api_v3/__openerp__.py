@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "Views and manages your Google Analytics data.",
-    'description': """
-        Odoo - Google_analytics_api_v3 integration via Cenit IO
-    """,
+    'description': "Views and manages your Google Analytics data.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',
