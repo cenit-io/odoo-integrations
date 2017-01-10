@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "Data types for Ecommerce support",
-    'description': """
-        Odoo - Ecommerce integration via Cenit IO
-    """,
+    'description': "Data types for Ecommerce support",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

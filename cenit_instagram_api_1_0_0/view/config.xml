@@ -58,7 +58,7 @@ containing media objects no longer return the &#x60;data&#x60; field in &#x60;co
 
 Last update: 2015-11-28
  settings">
-                            <field name='' placeholder='Your API Key' />
+                            <field name='api_key' placeholder='Your API Key' />
                         </group>
                     </div>
                 </form>

@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "The Graph RBAC Management Client",
-    'description': """
-        Odoo - Graph_rbac_management_client_api_1_6 integration via Cenit IO
-    """,
+    'description': "The Graph RBAC Management Client",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

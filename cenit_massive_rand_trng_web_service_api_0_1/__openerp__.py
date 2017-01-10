@@ -26,10 +26,8 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': "This is the experimental API documentation for <a href='http://www.massiverand.com/'>MassiveRand</a> TRNG Web Service. Serving true random numbers since December 2014!<p>Explore our <a href='../tutorials'>Tutorials</a>.</p>",
-    'description': """
-        Odoo - Massive_rand_trng_web_service_api_0_1 integration via Cenit IO
-    """,
+    'summary': "...",
+    'description': "This is the experimental API documentation for <a href='http://www.massiverand.com/'>MassiveRand</a> TRNG Web Service. Serving true random numbers since December 2014!<p>Explore our <a href='../tutorials'>Tutorials</a>.</p>",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

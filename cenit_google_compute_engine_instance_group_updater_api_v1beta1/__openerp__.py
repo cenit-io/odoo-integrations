@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "Updates groups of Compute Engine instances.",
-    'description': """
-        Odoo - Google_compute_engine_instance_group_updater_api_v1beta1 integration via Cenit IO
-    """,
+    'description': "Updates groups of Compute Engine instances.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

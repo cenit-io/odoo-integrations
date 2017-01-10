@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "Odoo Integration",
-    'description': """
-        Odoo - Odoo integration via Cenit IO
-    """,
+    'description': "Odoo Integration",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

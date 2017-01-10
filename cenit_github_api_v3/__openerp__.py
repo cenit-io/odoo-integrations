@@ -26,10 +26,8 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': "Powerful collaboration, code review, and code management for open source and private projects.\r\n",
-    'description': """
-        Odoo - Github_api_v3 integration via Cenit IO
-    """,
+    'summary': "Powerful collaboration, code review, and code management for open source and private projects....",
+    'description': "Powerful collaboration, code review, and code management for open source and private projects.\r\n",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

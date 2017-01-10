@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "Facebook is a social utility that connects people with friends and others who work, study and live around them.",
-    'description': """
-        Odoo - Facebook_api_v2_0 integration via Cenit IO
-    """,
+    'description': "Facebook is a social utility that connects people with friends and others who work, study and live around them.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

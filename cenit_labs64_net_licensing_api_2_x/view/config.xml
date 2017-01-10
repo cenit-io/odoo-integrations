@@ -16,7 +16,7 @@
                     </header>
                     <div>
                         <group string="The Labs64 &lt;a href&#x3D;&#x27;https://www.labs64.de/confluence/x/pwCo&#x27; target&#x3D;&#x27;_blank&#x27;&gt;NetLicensing API&lt;/a&gt; is a RESTful API and gives you access to NetLicensing’s core features.&lt;br/&gt;&lt;br/&gt;&lt;strong&gt;Authentication&lt;/strong&gt;&lt;br/&gt;You authenticate to the NetLicensing API by providing your account credentials or simply use our demo account - &lt;code&gt;demo:demo&lt;/code&gt;&lt;br/&gt;&lt;br/&gt;Find out more about Labs64 NetLicensing at &lt;a href&#x3D;&#x27;http://netlicensing.io&#x27; target&#x3D;&#x27;_blank&#x27;&gt;netlicensing.io&lt;/a&gt; settings">
-                            <field name='' placeholder='Your API Key' />
+                            <field name='api_key' placeholder='Your API Key' />
                         </group>
                     </div>
                 </form>

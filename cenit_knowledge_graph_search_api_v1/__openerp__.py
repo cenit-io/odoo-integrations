@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "Knowledge Graph Search API allows developers to search the Google Knowledge Graph for entities.",
-    'description': """
-        Odoo - Knowledge_graph_search_api_v1 integration via Cenit IO
-    """,
+    'description': "Knowledge Graph Search API allows developers to search the Google Knowledge Graph for entities.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "API for spectrum-management functions.",
-    'description': """
-        Odoo - Google_spectrum_database_api_v1explorer integration via Cenit IO
-    """,
+    'description': "API for spectrum-management functions.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

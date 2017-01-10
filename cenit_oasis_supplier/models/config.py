@@ -29,8 +29,8 @@ _logger = logging.getLogger(__name__)
 COLLECTION_NAME = "oasis_supplier"
 COLLECTION_VERSION = "0.1.0"
 COLLECTION_PARAMS = {
-    "":'',
-    "":'',
+  "On connection 'Sandbox' template parameter 'Username'":'username',
+  "On connection 'Sandbox' template parameter 'Password'":'password',
 }
 
 class CenitIntegrationSettings(models.TransientModel):
@@ -40,41 +40,41 @@ class CenitIntegrationSettings(models.TransientModel):
     ############################################################################
     # Pull Parameters
     ############################################################################
-     = fields.Char('Username')
-     = fields.Char('Password')
+    username = fields.Char('Username')
+    password = fields.Char('Password')
 
     ############################################################################
     # Default Getters
     ############################################################################
-    def get_default_(self, cr, uid, ids, context=None):
-         = self.pool.get('ir.config_parameter').get_param(
-            cr, uid, 'odoo_cenit.oasis_supplier.', default=None, context=context
+    def get_default_username(self, cr, uid, ids, context=None):
+        username = self.pool.get('ir.config_parameter').get_param(
+            cr, uid, 'odoo_cenit.oasis_supplier.username', default=None, context=context
         )
-        return {'':  or ''}
+        return {'username': username or ''}
 
-    def get_default_(self, cr, uid, ids, context=None):
-         = self.pool.get('ir.config_parameter').get_param(
-            cr, uid, 'odoo_cenit.oasis_supplier.', default=None, context=context
+    def get_default_password(self, cr, uid, ids, context=None):
+        password = self.pool.get('ir.config_parameter').get_param(
+            cr, uid, 'odoo_cenit.oasis_supplier.password', default=None, context=context
         )
-        return {'':  or ''}
+        return {'password': password or ''}
 
 
     ############################################################################
     # Default Setters
     ############################################################################
-    def set_(self, cr, uid, ids, context=None):
+    def set_username(self, cr, uid, ids, context=None):
         config_parameters = self.pool.get('ir.config_parameter')
         for record in self.browse(cr, uid, ids, context=context):
             config_parameters.set_param (
-                cr, uid, 'odoo_cenit.oasis_supplier.', record. or '',
+                cr, uid, 'odoo_cenit.oasis_supplier.username', record.username or '',
                 context=context
             )
 
-    def set_(self, cr, uid, ids, context=None):
+    def set_password(self, cr, uid, ids, context=None):
         config_parameters = self.pool.get('ir.config_parameter')
         for record in self.browse(cr, uid, ids, context=context):
             config_parameters.set_param (
-                cr, uid, 'odoo_cenit.oasis_supplier.', record. or '',
+                cr, uid, 'odoo_cenit.oasis_supplier.password', record.password or '',
                 context=context
             )
 

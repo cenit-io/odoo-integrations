@@ -21,7 +21,7 @@
                         Configure City Context provides a straightforward API to access UK Open Data: crime statistics, schools, demographics and more. data
                     </p>
                     <group>
-                        <field name='' placeholder='Your API Key'/>
+                        <field name='api_key' placeholder='Your API Key'/>
                     </group>
                 </separator>
             </field>

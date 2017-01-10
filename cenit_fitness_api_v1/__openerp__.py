@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "Stores and accesses user data in the fitness store from apps on any platform.",
-    'description': """
-        Odoo - Fitness_api_v1 integration via Cenit IO
-    """,
+    'description': "Stores and accesses user data in the fitness store from apps on any platform.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

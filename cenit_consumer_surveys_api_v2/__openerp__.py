@@ -26,10 +26,8 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': "Creates and conducts surveys, lists the surveys that an authenticated user owns, and retrieves survey results and information about specified surveys.",
-    'description': """
-        Odoo - Consumer_surveys_api_v2 integration via Cenit IO
-    """,
+    'summary': "...",
+    'description': "Creates and conducts surveys, lists the surveys that an authenticated user owns, and retrieves survey results and information about specified surveys.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "MailSquad offers an affordable and super easy way to create, send and track delightful emails.",
-    'description': """
-        Odoo - Mailsquad_api_0_9 integration via Cenit IO
-    """,
+    'description': "MailSquad offers an affordable and super easy way to create, send and track delightful emails.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

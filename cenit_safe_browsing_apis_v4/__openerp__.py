@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "Enables client applications to check web resources (most commonly URLs) against Google-generated lists of unsafe web resources.",
-    'description': """
-        Odoo - Safe_browsing_apis_v4 integration via Cenit IO
-    """,
+    'description': "Enables client applications to check web resources (most commonly URLs) against Google-generated lists of unsafe web resources.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

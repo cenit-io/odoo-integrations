@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "This is the api to access the ODWeather API information",
-    'description': """
-        Odoo - Odweather_api_1_0 integration via Cenit IO
-    """,
+    'description': "This is the api to access the ODWeather API information",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

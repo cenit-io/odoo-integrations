@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "The API to Search and Understand Audio & Video Data.",
-    'description': """
-        Odoo - Clarify_api_1_1_0 integration via Cenit IO
-    """,
+    'description': "The API to Search and Understand Audio & Video Data.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "The Management API for Google Play Game Services.",
-    'description': """
-        Odoo - Google_play_game_services_management_api_v1management integration via Cenit IO
-    """,
+    'description': "The Management API for Google Play Game Services.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

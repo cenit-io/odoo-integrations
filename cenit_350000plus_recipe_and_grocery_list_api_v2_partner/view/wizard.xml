@@ -93,7 +93,7 @@ See our [photos documentation](http://api2.bigoven.com/web/documentation/recipe-
 For more information on usage of this API, including features, pricing, rate limits, terms and conditions, please visit the [BigOven API website](http://api2.bigoven.com). data
                     </p>
                     <group>
-                        <field name='' placeholder='Your API Key'/>
+                        <field name='api_key' placeholder='Your API Key'/>
                     </group>
                 </separator>
             </field>

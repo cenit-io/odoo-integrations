@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "The Compute Management Client.",
-    'description': """
-        Odoo - Compute_management_client_api_2016_03_30 integration via Cenit IO
-    """,
+    'description': "The Compute Management Client.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

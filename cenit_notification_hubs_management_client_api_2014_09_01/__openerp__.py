@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "Azure NotificationHub client",
-    'description': """
-        Odoo - Notification_hubs_management_client_api_2014_09_01 integration via Cenit IO
-    """,
+    'description': "Azure NotificationHub client",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "Mailchimp API Collection",
-    'description': """
-        Odoo - Mailchimp integration via Cenit IO
-    """,
+    'description': "Mailchimp API Collection",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

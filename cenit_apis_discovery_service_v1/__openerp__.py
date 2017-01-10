@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "Provides information about other Google APIs, such as what APIs are available, the resource, and method details for each API.",
-    'description': """
-        Odoo - Apis_discovery_service_v1 integration via Cenit IO
-    """,
+    'description': "Provides information about other Google APIs, such as what APIs are available, the resource, and method details for each API.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

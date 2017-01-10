@@ -16,7 +16,7 @@
                     </header>
                     <div>
                         <group string="SendGrid v3 settings">
-                            <field name='' placeholder='Your API Key' />
+                            <field name='api_key' placeholder='Your API Key' />
                         </group>
                     </div>
                 </form>

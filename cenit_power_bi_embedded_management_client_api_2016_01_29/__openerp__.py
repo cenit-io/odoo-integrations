@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "Client to manage your Power BI embedded workspace collections and retrieve workspaces.",
-    'description': """
-        Odoo - Power_bi_embedded_management_client_api_2016_01_29 integration via Cenit IO
-    """,
+    'description': "Client to manage your Power BI embedded workspace collections and retrieve workspaces.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

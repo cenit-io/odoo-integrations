@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "Provides public users access to federal regulatory content.",
-    'description': """
-        Odoo - Regulations_gov_api_3_0 integration via Cenit IO
-    """,
+    'description': "Provides public users access to federal regulatory content.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

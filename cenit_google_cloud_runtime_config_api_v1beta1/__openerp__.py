@@ -26,10 +26,8 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': "Provides capabilities for dynamic configuration and coordination for applications running on Google Cloud Platform.\r\n",
-    'description': """
-        Odoo - Google_cloud_runtime_config_api_v1beta1 integration via Cenit IO
-    """,
+    'summary': "Provides capabilities for dynamic configuration and coordination for applications running on Google Cloud Platform....",
+    'description': "Provides capabilities for dynamic configuration and coordination for applications running on Google Cloud Platform.\r\n",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

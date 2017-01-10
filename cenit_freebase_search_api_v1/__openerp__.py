@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "Find Freebase entities using textual queries and other constraints.",
-    'description': """
-        Odoo - Freebase_search_api_v1 integration via Cenit IO
-    """,
+    'description': "Find Freebase entities using textual queries and other constraints.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "Manages Hadoop-based clusters and jobs on Google Cloud Platform.",
-    'description': """
-        Odoo - Google_cloud_dataproc_api_v1 integration via Cenit IO
-    """,
+    'description': "Manages Hadoop-based clusters and jobs on Google Cloud Platform.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "The Google App State API.",
-    'description': """
-        Odoo - Google_app_state_api_v1 integration via Cenit IO
-    """,
+    'description': "The Google App State API.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

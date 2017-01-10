@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "The Unified Taxonomic Information Service (UTIS) is the taxonomic backbone for the EU-BON project",
-    'description': """
-        Odoo - Eu_bon_utis_api_1_0 integration via Cenit IO
-    """,
+    'description': "The Unified Taxonomic Information Service (UTIS) is the taxonomic backbone for the EU-BON project",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

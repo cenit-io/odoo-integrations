@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "Build applications using the world's most powerful imagery",
-    'description': """
-        Odoo - Getty_images_api_3_0 integration via Cenit IO
-    """,
+    'description': "Build applications using the world's most powerful imagery",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

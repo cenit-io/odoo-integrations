@@ -21,7 +21,7 @@
                         Configure Let us do the job and read your documents for you. We will bring you executive summaries and tonality scoring. data
                     </p>
                     <group>
-                        <field name='' placeholder='Your API Key'/>
+                        <field name='api_key' placeholder='Your API Key'/>
                     </group>
                 </separator>
             </field>

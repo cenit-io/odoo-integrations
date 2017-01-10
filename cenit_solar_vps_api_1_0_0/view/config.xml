@@ -16,7 +16,7 @@
                     </header>
                     <div>
                         <group string="This is the Solar VPS Public API. You can find more at http://www.solarvps.com settings">
-                            <field name='' placeholder='Your API Key' />
+                            <field name='api_key' placeholder='Your API Key' />
                         </group>
                     </div>
                 </form>

@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "Finds the least expensive flights between an origin and a destination.",
-    'description': """
-        Odoo - Qpx_express_api_v1 integration via Cenit IO
-    """,
+    'description': "Finds the least expensive flights between an origin and a destination.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

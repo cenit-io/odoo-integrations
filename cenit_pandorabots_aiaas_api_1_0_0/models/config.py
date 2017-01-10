@@ -29,7 +29,7 @@ _logger = logging.getLogger(__name__)
 COLLECTION_NAME = "pandorabots_aiaas_api_1_0_0"
 COLLECTION_VERSION = "0.1"
 COLLECTION_PARAMS = {
-    "":'',
+  "On connection 'Connection' template parameter 'API Key'":'api_key',
 }
 
 class CenitIntegrationSettings(models.TransientModel):
@@ -39,26 +39,26 @@ class CenitIntegrationSettings(models.TransientModel):
     ############################################################################
     # Pull Parameters
     ############################################################################
-     = fields.Char('API Key')
+    api_key = fields.Char('API Key')
 
     ############################################################################
     # Default Getters
     ############################################################################
-    def get_default_(self, cr, uid, ids, context=None):
-         = self.pool.get('ir.config_parameter').get_param(
-            cr, uid, 'odoo_cenit.pandorabots_aiaas_api_1_0_0.', default=None, context=context
+    def get_default_api_key(self, cr, uid, ids, context=None):
+        api_key = self.pool.get('ir.config_parameter').get_param(
+            cr, uid, 'odoo_cenit.pandorabots_aiaas_api_1_0_0.api_key', default=None, context=context
         )
-        return {'':  or ''}
+        return {'api_key': api_key or ''}
 
 
     ############################################################################
     # Default Setters
     ############################################################################
-    def set_(self, cr, uid, ids, context=None):
+    def set_api_key(self, cr, uid, ids, context=None):
         config_parameters = self.pool.get('ir.config_parameter')
         for record in self.browse(cr, uid, ids, context=context):
             config_parameters.set_param (
-                cr, uid, 'odoo_cenit.pandorabots_aiaas_api_1_0_0.', record. or '',
+                cr, uid, 'odoo_cenit.pandorabots_aiaas_api_1_0_0.api_key', record.api_key or '',
                 context=context
             )
 

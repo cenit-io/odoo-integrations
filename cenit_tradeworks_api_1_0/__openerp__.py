@@ -26,10 +26,8 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': "Authentication is required to access all methods of the API. Enter username and password.\n                Credentials are automatically set as you type.",
-    'description': """
-        Odoo - Tradeworks_api_1_0 integration via Cenit IO
-    """,
+    'summary': "Authentication is required to access all methods of the API. Enter username and password....",
+    'description': "Authentication is required to access all methods of the API. Enter username and password.\n                Credentials are automatically set as you type.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

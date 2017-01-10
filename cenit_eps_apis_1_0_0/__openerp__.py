@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "Access to the Pearson OpenClass API",
-    'description': """
-        Odoo - Eps_apis_1_0_0 integration via Cenit IO
-    """,
+    'description': "Access to the Pearson OpenClass API",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

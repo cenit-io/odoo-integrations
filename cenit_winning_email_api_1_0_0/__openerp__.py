@@ -26,10 +26,8 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': "The Winning Email API allows you to access our services from your applications. Contact us if you need help with anything, or require access to something we don't yet offer. The API overview is available <a href='/api/v1/docs' target='_blank'>here</a>.",
-    'description': """
-        Odoo - Winning_email_api_1_0_0 integration via Cenit IO
-    """,
+    'summary': "...",
+    'description': "The Winning Email API allows you to access our services from your applications. Contact us if you need help with anything, or require access to something we don't yet offer. The API overview is available <a href='/api/v1/docs' target='_blank'>here</a>.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

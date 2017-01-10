@@ -21,7 +21,7 @@
                         Configure Asana shared collection data
                     </p>
                     <group>
-                        <field name='' placeholder='Your personal token'/>
+                        <field name='personal_token' placeholder='Your personal token'/>
                     </group>
                 </separator>
             </field>

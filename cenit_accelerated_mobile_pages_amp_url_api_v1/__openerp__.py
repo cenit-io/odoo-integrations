@@ -26,10 +26,8 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': "This API contains a single method, batchGet. Call this method to retrieve the AMP URL (and equivalent AMP Cache URL) for given public URL(s).\r\n",
-    'description': """
-        Odoo - Accelerated_mobile_pages_amp_url_api_v1 integration via Cenit IO
-    """,
+    'summary': "This API contains a single method, batchGet. Call this method to retrieve the AMP URL (and equivalent AMP Cache URL) for given public URL(s)....",
+    'description': "This API contains a single method, batchGet. Call this method to retrieve the AMP URL (and equivalent AMP Cache URL) for given public URL(s).\r\n",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

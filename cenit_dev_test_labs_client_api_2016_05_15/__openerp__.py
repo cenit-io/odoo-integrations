@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "The DevTest Labs Client.",
-    'description': """
-        Odoo - Dev_test_labs_client_api_2016_05_15 integration via Cenit IO
-    """,
+    'description': "The DevTest Labs Client.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

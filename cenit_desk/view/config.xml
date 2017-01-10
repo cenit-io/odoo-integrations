@@ -16,9 +16,9 @@
                     </header>
                     <div>
                         <group string="Desk CENIT Integration settings">
-                            <field name='' placeholder='Your Desk URL' />
-                            <field name='' placeholder='Your Desk Username' />
-                            <field name='' placeholder='Your Desk Password' />
+                            <field name='desk_url' placeholder='Your Desk URL' />
+                            <field name='desk_username' placeholder='Your Desk Username' />
+                            <field name='desk_password' placeholder='Your Desk Password' />
                         </group>
                     </div>
                 </form>

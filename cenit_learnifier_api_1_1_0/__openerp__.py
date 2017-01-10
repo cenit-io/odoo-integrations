@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "Learnifier",
-    'description': """
-        Odoo - Learnifier_api_1_1_0 integration via Cenit IO
-    """,
+    'description': "Learnifier",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

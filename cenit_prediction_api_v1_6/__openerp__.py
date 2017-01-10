@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "Lets you access a cloud hosted machine learning service that makes it easy to build smart apps",
-    'description': """
-        Odoo - Prediction_api_v1_6 integration via Cenit IO
-    """,
+    'description': "Lets you access a cloud hosted machine learning service that makes it easy to build smart apps",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

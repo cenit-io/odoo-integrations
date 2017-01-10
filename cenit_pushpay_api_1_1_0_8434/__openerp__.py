@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "Pushpay® improves sales and business processes by making payments simple.",
-    'description': """
-        Odoo - Pushpay_api_1_1_0_8434 integration via Cenit IO
-    """,
+    'description': "Pushpay® improves sales and business processes by making payments simple.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

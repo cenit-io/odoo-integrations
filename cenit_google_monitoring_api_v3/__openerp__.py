@@ -26,10 +26,8 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': "Manages your Stackdriver monitoring data and configurations. Projects must be associated with a Stackdriver account, except for the following methods: [monitoredResourceDescriptors.list](v3/projects.monitoredResourceDescriptors/list), [monitoredResourceDescriptors.get](v3/projects.monitoredResourceDescriptors/get), [metricDescriptors.list](v3/projects.metricDescriptors/list), [metricDescriptors.get](v3/projects.metricDescriptors/get), and [timeSeries.list](v3/projects.timeSeries/list).",
-    'description': """
-        Odoo - Google_monitoring_api_v3 integration via Cenit IO
-    """,
+    'summary': "...",
+    'description': "Manages your Stackdriver monitoring data and configurations. Projects must be associated with a Stackdriver account, except for the following methods: [monitoredResourceDescriptors.list](v3/projects.monitoredResourceDescriptors/list), [monitoredResourceDescriptors.get](v3/projects.monitoredResourceDescriptors/get), [metricDescriptors.list](v3/projects.metricDescriptors/list), [metricDescriptors.get](v3/projects.metricDescriptors/get), and [timeSeries.list](v3/projects.timeSeries/list).",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

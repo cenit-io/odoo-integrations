@@ -21,7 +21,7 @@
                         Configure Query our database of State and Federal Laws and Incentives for Alternative Fuels data
                     </p>
                     <group>
-                        <field name='' placeholder='Your API Key'/>
+                        <field name='api_key' placeholder='Your API Key'/>
                     </group>
                 </separator>
             </field>
