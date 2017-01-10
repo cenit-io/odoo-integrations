@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "Creates and configures Cloud SQL instances, which provide fully-managed MySQL databases.",
-    'description': """
-        Odoo - Cloud_sql_administration_api_v1beta4 integration via Cenit IO
-    """,
+    'description': "Creates and configures Cloud SQL instances, which provide fully-managed MySQL databases.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

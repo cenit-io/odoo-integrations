@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "Accesses AdSense publishers' inventory and generates performance reports.",
-    'description': """
-        Odoo - Adsense_management_api_v1_4 integration via Cenit IO
-    """,
+    'description': "Accesses AdSense publishers' inventory and generates performance reports.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

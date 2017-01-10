@@ -26,10 +26,8 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': "This API aims to provide coherent and low-latency access to Wikimedia content and services. It is currently in beta testing, so things aren't completely locked down yet. Each entry point has explicit stability markers to inform you about development status and change policy, according to [our API version policy](https://www.mediawiki.org/wiki/API_versioning).\r\n### High-volume access\r\n  - Don't perform more than 200 requests/s to this API.\r\n  - Set a unique `User-Agent` header that allows us to contact you\r\n    quickly. Email addresses or URLs of contact pages work well.\r\n",
-    'description': """
-        Odoo - Wikimedia_api_1_0_0_beta integration via Cenit IO
-    """,
+    'summary': "...",
+    'description': "This API aims to provide coherent and low-latency access to Wikimedia content and services. It is currently in beta testing, so things aren't completely locked down yet. Each entry point has explicit stability markers to inform you about development status and change policy, according to [our API version policy](https://www.mediawiki.org/wiki/API_versioning).\r\n### High-volume access\r\n  - Don't perform more than 200 requests/s to this API.\r\n  - Set a unique `User-Agent` header that allows us to contact you\r\n    quickly. Email addresses or URLs of contact pages work well.\r\n",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "BatchManagement",
-    'description': """
-        Odoo - Batch_management_api_2015_12_01 integration via Cenit IO
-    """,
+    'description': "BatchManagement",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

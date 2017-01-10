@@ -26,10 +26,8 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': "Use these APIs to manage Azure CDN resources through the Azure Resource Manager. You must make sure that requests made to these resources are secure. For more information, see <a href=\"https://msdn.microsoft.com/en-us/library/azure/dn790557.aspx\">Authenticating Azure Resource Manager requests.</a>",
-    'description': """
-        Odoo - Cdn_management_client_api_2016_04_02 integration via Cenit IO
-    """,
+    'summary': "...",
+    'description': "Use these APIs to manage Azure CDN resources through the Azure Resource Manager. You must make sure that requests made to these resources are secure. For more information, see <a href=\"https://msdn.microsoft.com/en-us/library/azure/dn790557.aspx\">Authenticating Azure Resource Manager requests.</a>",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "SendGrid v3",
-    'description': """
-        Odoo - Sendgrid_v3_api_3_0 integration via Cenit IO
-    """,
+    'description': "SendGrid v3",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

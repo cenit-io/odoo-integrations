@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "LogicManagementClient",
-    'description': """
-        Odoo - Logic_management_client_api_2016_06_01 integration via Cenit IO
-    """,
+    'description': "LogicManagementClient",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "Manipulates events and other calendar data.",
-    'description': """
-        Odoo - Calendar_api_v3 integration via Cenit IO
-    """,
+    'description': "Manipulates events and other calendar data.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

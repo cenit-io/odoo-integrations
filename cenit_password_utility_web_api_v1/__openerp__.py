@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "Validate and generate passwords using open source tools",
-    'description': """
-        Odoo - Password_utility_web_api_v1 integration via Cenit IO
-    """,
+    'description': "Validate and generate passwords using open source tools",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

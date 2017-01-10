@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "Tender shared collection via CENIT Integration",
-    'description': """
-        Odoo - Tender integration via Cenit IO
-    """,
+    'description': "Tender shared collection via CENIT Integration",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

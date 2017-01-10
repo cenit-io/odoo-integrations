@@ -26,10 +26,8 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': "Send and retrieve trace data from Google Cloud Trace. Data is generated and available by default for all App Engine applications. Data from other applications can be written to Cloud Trace for display, reporting, and analysis.",
-    'description': """
-        Odoo - Google_cloud_trace_api_v1 integration via Cenit IO
-    """,
+    'summary': "...",
+    'description': "Send and retrieve trace data from Google Cloud Trace. Data is generated and available by default for all App Engine applications. Data from other applications can be written to Cloud Trace for display, reporting, and analysis.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

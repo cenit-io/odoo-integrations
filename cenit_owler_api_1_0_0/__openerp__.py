@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "Search for information on companies using a website or company name and get access to Company Data, News, Blog Posts, Competitor Lists and much more.",
-    'description': """
-        Odoo - Owler_api_1_0_0 integration via Cenit IO
-    """,
+    'description': "Search for information on companies using a website or company name and get access to Company Data, News, Blog Posts, Competitor Lists and much more.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

@@ -26,10 +26,8 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': "The Azure SQL Database management API provides a RESTful set of web services that interact with Azure SQL Database services to manage your databases. The API enables users to create, retrieve, update, and delete Databases, Servers and related resources.",
-    'description': """
-        Odoo - Sql_management_client_api_2015_05_01_preview integration via Cenit IO
-    """,
+    'summary': "...",
+    'description': "The Azure SQL Database management API provides a RESTful set of web services that interact with Azure SQL Database services to manage your databases. The API enables users to create, retrieve, update, and delete Databases, Servers and related resources.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

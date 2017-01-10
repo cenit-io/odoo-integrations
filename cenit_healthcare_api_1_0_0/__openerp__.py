@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "Healthcare",
-    'description': """
-        Odoo - Healthcare_api_1_0_0 integration via Cenit IO
-    """,
+    'description': "Healthcare",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

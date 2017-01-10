@@ -16,7 +16,7 @@
                     </header>
                     <div>
                         <group string="Query our database of State and Federal Laws and Incentives for Alternative Fuels settings">
-                            <field name='' placeholder='Your API Key' />
+                            <field name='api_key' placeholder='Your API Key' />
                         </group>
                     </div>
                 </form>

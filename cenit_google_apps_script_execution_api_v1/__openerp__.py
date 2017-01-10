@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "Executes Google Apps Script projects.",
-    'description': """
-        Odoo - Google_apps_script_execution_api_v1 integration via Cenit IO
-    """,
+    'description': "Executes Google Apps Script projects.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

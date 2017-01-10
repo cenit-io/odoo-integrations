@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "City Context provides a straightforward API to access UK Open Data: crime statistics, schools, demographics and more.",
-    'description': """
-        Odoo - City_context_api_1_0_0 integration via Cenit IO
-    """,
+    'description': "City Context provides a straightforward API to access UK Open Data: crime statistics, schools, demographics and more.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

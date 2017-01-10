@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "Microsoft Azure Mobile Engagement REST APIs.",
-    'description': """
-        Odoo - Engagement_management_client_api_2014_12_01 integration via Cenit IO
-    """,
+    'description': "Microsoft Azure Mobile Engagement REST APIs.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

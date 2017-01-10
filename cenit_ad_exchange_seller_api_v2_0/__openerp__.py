@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "Gives Ad Exchange seller users access to their inventory and the ability to generate reports",
-    'description': """
-        Odoo - Ad_exchange_seller_api_v2_0 integration via Cenit IO
-    """,
+    'description': "Gives Ad Exchange seller users access to their inventory and the ability to generate reports",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

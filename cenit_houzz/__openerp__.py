@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "Houzz Integration",
-    'description': """
-        Odoo - Houzz integration via Cenit IO
-    """,
+    'description': "Houzz Integration",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

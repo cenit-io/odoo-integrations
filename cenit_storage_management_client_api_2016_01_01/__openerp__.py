@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "The Storage Management Client.",
-    'description': """
-        Odoo - Storage_management_client_api_2016_01_01 integration via Cenit IO
-    """,
+    'description': "The Storage Management Client.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

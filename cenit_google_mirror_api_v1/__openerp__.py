@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "Interacts with Glass users via the timeline.",
-    'description': """
-        Odoo - Google_mirror_api_v1 integration via Cenit IO
-    """,
+    'description': "Interacts with Glass users via the timeline.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

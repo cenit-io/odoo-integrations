@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "Fancy Integration",
-    'description': """
-        Odoo - Fancy integration via Cenit IO
-    """,
+    'description': "Fancy Integration",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

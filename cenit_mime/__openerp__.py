@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "Multipurpose Internet Mail Extensions",
-    'description': """
-        Odoo - Mime integration via Cenit IO
-    """,
+    'description': "Multipurpose Internet Mail Extensions",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "reverb",
-    'description': """
-        Odoo - Reverb_api_2_0 integration via Cenit IO
-    """,
+    'description': "reverb",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "Builds on top of the Google+ platform.",
-    'description': """
-        Odoo - Googleplus_api_v1 integration via Cenit IO
-    """,
+    'description': "Builds on top of the Google+ platform.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "This is the place to come for all the technical details you need to power your applications with Channel 4's deep programmes data.",
-    'description': """
-        Odoo - Channel_4_api_1_0_0 integration via Cenit IO
-    """,
+    'description': "This is the place to come for all the technical details you need to power your applications with Channel 4's deep programmes data.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

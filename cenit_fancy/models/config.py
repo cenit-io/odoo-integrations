@@ -29,8 +29,8 @@ _logger = logging.getLogger(__name__)
 COLLECTION_NAME = "fancy"
 COLLECTION_VERSION = "0.1.0"
 COLLECTION_PARAMS = {
-    "":'',
-    "":'',
+  "On connection 'Connection' template parameter 'Seller Number'":'seller_id',
+  "On connection 'Connection' template parameter 'API Token'":'token',
 }
 
 class CenitIntegrationSettings(models.TransientModel):
@@ -40,41 +40,41 @@ class CenitIntegrationSettings(models.TransientModel):
     ############################################################################
     # Pull Parameters
     ############################################################################
-     = fields.Char('Seller Number')
-     = fields.Char('API Token')
+    seller_id = fields.Char('Seller Number')
+    token = fields.Char('API Token')
 
     ############################################################################
     # Default Getters
     ############################################################################
-    def get_default_(self, cr, uid, ids, context=None):
-         = self.pool.get('ir.config_parameter').get_param(
-            cr, uid, 'odoo_cenit.fancy.', default=None, context=context
+    def get_default_seller_id(self, cr, uid, ids, context=None):
+        seller_id = self.pool.get('ir.config_parameter').get_param(
+            cr, uid, 'odoo_cenit.fancy.seller_id', default=None, context=context
         )
-        return {'':  or ''}
+        return {'seller_id': seller_id or ''}
 
-    def get_default_(self, cr, uid, ids, context=None):
-         = self.pool.get('ir.config_parameter').get_param(
-            cr, uid, 'odoo_cenit.fancy.', default=None, context=context
+    def get_default_token(self, cr, uid, ids, context=None):
+        token = self.pool.get('ir.config_parameter').get_param(
+            cr, uid, 'odoo_cenit.fancy.token', default=None, context=context
         )
-        return {'':  or ''}
+        return {'token': token or ''}
 
 
     ############################################################################
     # Default Setters
     ############################################################################
-    def set_(self, cr, uid, ids, context=None):
+    def set_seller_id(self, cr, uid, ids, context=None):
         config_parameters = self.pool.get('ir.config_parameter')
         for record in self.browse(cr, uid, ids, context=context):
             config_parameters.set_param (
-                cr, uid, 'odoo_cenit.fancy.', record. or '',
+                cr, uid, 'odoo_cenit.fancy.seller_id', record.seller_id or '',
                 context=context
             )
 
-    def set_(self, cr, uid, ids, context=None):
+    def set_token(self, cr, uid, ids, context=None):
         config_parameters = self.pool.get('ir.config_parameter')
         for record in self.browse(cr, uid, ids, context=context):
             config_parameters.set_param (
-                cr, uid, 'odoo_cenit.fancy.', record. or '',
+                cr, uid, 'odoo_cenit.fancy.token', record.token or '',
                 context=context
             )
 

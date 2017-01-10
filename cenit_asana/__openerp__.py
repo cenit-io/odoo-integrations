@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "Asana shared collection",
-    'description': """
-        Odoo - Asana integration via Cenit IO
-    """,
+    'description': "Asana shared collection",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

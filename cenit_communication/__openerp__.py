@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "Data Types for Communication",
-    'description': """
-        Odoo - Communication integration via Cenit IO
-    """,
+    'description': "Data Types for Communication",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

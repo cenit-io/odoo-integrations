@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "Microsoft.Intune Resource provider Api features in the swagger-2.0 specification",
-    'description': """
-        Odoo - Intune_resource_management_client_api_2015_01_14_preview integration via Cenit IO
-    """,
+    'description': "Microsoft.Intune Resource provider Api features in the swagger-2.0 specification",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

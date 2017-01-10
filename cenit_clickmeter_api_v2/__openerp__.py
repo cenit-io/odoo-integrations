@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "Api dashboard for ClickMeter API",
-    'description': """
-        Odoo - Clickmeter_api_v2 integration via Cenit IO
-    """,
+    'description': "Api dashboard for ClickMeter API",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

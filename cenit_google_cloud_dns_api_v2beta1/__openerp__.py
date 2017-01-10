@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "Configures and serves authoritative DNS records.",
-    'description': """
-        Odoo - Google_cloud_dns_api_v2beta1 integration via Cenit IO
-    """,
+    'description': "Configures and serves authoritative DNS records.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

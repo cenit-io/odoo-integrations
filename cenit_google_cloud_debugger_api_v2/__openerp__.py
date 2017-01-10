@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "Examines the call stack and variables of a running application without stopping or slowing it down.",
-    'description': """
-        Odoo - Google_cloud_debugger_api_v2 integration via Cenit IO
-    """,
+    'description': "Examines the call stack and variables of a running application without stopping or slowing it down.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

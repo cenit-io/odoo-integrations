@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "Spotify",
-    'description': """
-        Odoo - Spotify_api_v1 integration via Cenit IO
-    """,
+    'description': "Spotify",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

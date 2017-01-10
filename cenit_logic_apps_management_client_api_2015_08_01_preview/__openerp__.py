@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "LogicAppsManagementClient",
-    'description': """
-        Odoo - Logic_apps_management_client_api_2015_08_01_preview integration via Cenit IO
-    """,
+    'description': "LogicAppsManagementClient",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

@@ -26,10 +26,8 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': "The Microsoft Azure Network management API provides a RESTful set of web services that interact with Microsoft Azure Networks service to manage your network resrources. The API has entities that capture the relationship between an end user and the Microsoft Azure Networks service.",
-    'description': """
-        Odoo - Network_management_client_api_2016_06_01 integration via Cenit IO
-    """,
+    'summary': "...",
+    'description': "The Microsoft Azure Network management API provides a RESTful set of web services that interact with Microsoft Azure Networks service to manage your network resrources. The API has entities that capture the relationship between an end user and the Microsoft Azure Networks service.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

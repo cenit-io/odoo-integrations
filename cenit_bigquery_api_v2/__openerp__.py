@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "A data platform for customers to create, manage, share and query data.",
-    'description': """
-        Odoo - Bigquery_api_v2 integration via Cenit IO
-    """,
+    'description': "A data platform for customers to create, manage, share and query data.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

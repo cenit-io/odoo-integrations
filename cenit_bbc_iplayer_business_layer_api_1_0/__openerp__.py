@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "The definitive iPlayer API.",
-    'description': """
-        Odoo - Bbc_iplayer_business_layer_api_1_0 integration via Cenit IO
-    """,
+    'description': "The definitive iPlayer API.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

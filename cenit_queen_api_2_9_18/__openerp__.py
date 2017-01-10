@@ -26,10 +26,8 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': "<p>This is the API for building Mondia-Media-Products, like Tops.</p><p>Every call need a valid client or user-token.</p><p><ol><li>Client-Token can be get at our Police-API</li><li>User-Token can be get through a login on a customer specific Life-Cycle-Service</li><li>UseCases regarding Login, Register, Subscribe (incl. Payment) will be done by the Life-Cycle-Service</li></ol></p>",
-    'description': """
-        Odoo - Queen_api_2_9_18 integration via Cenit IO
-    """,
+    'summary': "...",
+    'description': "<p>This is the API for building Mondia-Media-Products, like Tops.</p><p>Every call need a valid client or user-token.</p><p><ol><li>Client-Token can be get at our Police-API</li><li>User-Token can be get through a login on a customer specific Life-Cycle-Service</li><li>UseCases regarding Login, Register, Subscribe (incl. Payment) will be done by the Life-Cycle-Service</li></ol></p>",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

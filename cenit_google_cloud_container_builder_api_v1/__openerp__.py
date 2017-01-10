@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "Builds container images in the cloud.",
-    'description': """
-        Odoo - Google_cloud_container_builder_api_v1 integration via Cenit IO
-    """,
+    'description': "Builds container images in the cloud.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

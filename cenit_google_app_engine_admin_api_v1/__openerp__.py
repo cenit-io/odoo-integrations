@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "Provisions and manages App Engine applications.",
-    'description': """
-        Odoo - Google_app_engine_admin_api_v1 integration via Cenit IO
-    """,
+    'description': "Provisions and manages App Engine applications.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

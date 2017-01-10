@@ -26,10 +26,8 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': "<p>Enter your App ID and API Key above. If you do not have an App ID or API Key login to your ONTRAPORT account and navigate <a href=\"https://app.ontraport.com/#!/api_settings/listAll\">here</a>. Authentication parameters must be sent in the request header as <strong>Api-Appid</strong> and <strong>Api-Key</strong>. Each ONTRAPORT account is allowed up to 180 requests per minute.</p>",
-    'description': """
-        Odoo - Ontraport_api_1_2_1 integration via Cenit IO
-    """,
+    'summary': "...",
+    'description': "<p>Enter your App ID and API Key above. If you do not have an App ID or API Key login to your ONTRAPORT account and navigate <a href=\"https://app.ontraport.com/#!/api_settings/listAll\">here</a>. Authentication parameters must be sent in the request header as <strong>Api-Appid</strong> and <strong>Api-Key</strong>. Each ONTRAPORT account is allowed up to 180 requests per minute.</p>",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "Let us do the job and read your documents for you. We will bring you executive summaries and tonality scoring.",
-    'description': """
-        Odoo - Gavagai_api_1_0_0 integration via Cenit IO
-    """,
+    'description': "Let us do the job and read your documents for you. We will bring you executive summaries and tonality scoring.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

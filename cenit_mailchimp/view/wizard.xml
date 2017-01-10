@@ -21,9 +21,9 @@
                         Configure Mailchimp API Collection data
                     </p>
                     <group>
-                        <field name='' placeholder='Your Username'/>
-                        <field name='' placeholder='Your API Key'/>
-                        <field name='' placeholder='Your Service Node'/>
+                        <field name='user' placeholder='Your Username'/>
+                        <field name='password' placeholder='Your API Key'/>
+                        <field name='node' placeholder='Your Service Node'/>
                     </group>
                 </separator>
             </field>

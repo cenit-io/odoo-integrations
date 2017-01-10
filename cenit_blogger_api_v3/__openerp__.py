@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "API for access to the data within Blogger.",
-    'description': """
-        Odoo - Blogger_api_v3 integration via Cenit IO
-    """,
+    'description': "API for access to the data within Blogger.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

@@ -26,10 +26,8 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': "Stackdriver Error Reporting groups and counts similar errors from cloud services. The Stackdriver Error Reporting API provides a way to report new errors and read access to error groups and their associated errors.\r\n",
-    'description': """
-        Odoo - Stackdriver_error_reporting_api_v1beta1 integration via Cenit IO
-    """,
+    'summary': "...",
+    'description': "Stackdriver Error Reporting groups and counts similar errors from cloud services. The Stackdriver Error Reporting API provides a way to report new errors and read access to error groups and their associated errors.\r\n",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

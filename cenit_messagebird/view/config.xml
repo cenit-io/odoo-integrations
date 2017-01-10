@@ -16,7 +16,7 @@
                     </header>
                     <div>
                         <group string="Messagebird shared collection of integration services settings">
-                            <field name='' placeholder='Your Access Key' />
+                            <field name='access_key' placeholder='Your Access Key' />
                         </group>
                     </div>
                 </form>

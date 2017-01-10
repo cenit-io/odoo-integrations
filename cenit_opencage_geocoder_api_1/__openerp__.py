@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "Worldwide forward and reverse geocoding",
-    'description': """
-        Odoo - Opencage_geocoder_api_1 integration via Cenit IO
-    """,
+    'description': "Worldwide forward and reverse geocoding",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "API for using the IoT Hub Features.",
-    'description': """
-        Odoo - Iot_hub_client_api_2016_02_03 integration via Cenit IO
-    """,
+    'description': "API for using the IoT Hub Features.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

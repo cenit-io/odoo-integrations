@@ -21,7 +21,7 @@
                         Configure This is the Solar VPS Public API. You can find more at http://www.solarvps.com data
                     </p>
                     <group>
-                        <field name='' placeholder='Your API Key'/>
+                        <field name='api_key' placeholder='Your API Key'/>
                     </group>
                 </separator>
             </field>

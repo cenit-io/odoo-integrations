@@ -26,10 +26,8 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': "Accesses the metadata for all families served by Google Fonts, providing a list of families currently available (including available styles and a list of supported script subsets).",
-    'description': """
-        Odoo - Google_fonts_developer_api_v1 integration via Cenit IO
-    """,
+    'summary': "...",
+    'description': "Accesses the metadata for all families served by Google Fonts, providing a list of families currently available (including available styles and a list of supported script subsets).",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

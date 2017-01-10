@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "This is the API Documentation for the public plenigo server interfaces",
-    'description': """
-        Odoo - Plenigo_api_2_0_0 integration via Cenit IO
-    """,
+    'description': "This is the API Documentation for the public plenigo server interfaces",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

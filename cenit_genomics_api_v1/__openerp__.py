@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "Stores, processes, explores and shares genomic data.",
-    'description': """
-        Odoo - Genomics_api_v1 integration via Cenit IO
-    """,
+    'description': "Stores, processes, explores and shares genomic data.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',
