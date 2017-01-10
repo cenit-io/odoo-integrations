@@ -26,10 +26,8 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': "Datumbox offers a Machine Learning platform composed of 14 classifiers and Natural Language processing functions. Functions include sentiment analysis, topic classification, readability assessment, language detection, and much more.",
-    'description': """
-        Odoo - Datumbox_api_1_0 integration via Cenit IO
-    """,
+    'summary': "...",
+    'description': "Datumbox offers a Machine Learning platform composed of 14 classifiers and Natural Language processing functions. Functions include sentiment analysis, topic classification, readability assessment, language detection, and much more.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "A messaging app for teams",
-    'description': """
-        Odoo - Slack_api_1_0_0 integration via Cenit IO
-    """,
+    'description': "A messaging app for teams",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

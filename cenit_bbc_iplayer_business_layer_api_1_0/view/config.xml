@@ -16,7 +16,7 @@
                     </header>
                     <div>
                         <group string="The definitive iPlayer API. settings">
-                            <field name='' placeholder='Your API Key' />
+                            <field name='api_key' placeholder='Your API Key' />
                         </group>
                     </div>
                 </form>

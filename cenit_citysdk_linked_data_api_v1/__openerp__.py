@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "An API for the distribution and annotation of open data, for small cities and big metropolitan areas.",
-    'description': """
-        Odoo - Citysdk_linked_data_api_v1 integration via Cenit IO
-    """,
+    'description': "An API for the distribution and annotation of open data, for small cities and big metropolitan areas.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

@@ -16,7 +16,7 @@
                     </header>
                     <div>
                         <group string="MailSquad offers an affordable and super easy way to create, send and track delightful emails. settings">
-                            <field name='' placeholder='Your API Key' />
+                            <field name='api_key' placeholder='Your API Key' />
                         </group>
                     </div>
                 </form>

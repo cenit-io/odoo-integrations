@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "Generates performance reports, generates ad codes, and provides publisher management capabilities for AdSense Hosts.",
-    'description': """
-        Odoo - Adsense_host_api_v4_1 integration via Cenit IO
-    """,
+    'description': "Generates performance reports, generates ad codes, and provides publisher management capabilities for AdSense Hosts.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

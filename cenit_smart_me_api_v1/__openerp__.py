@@ -26,10 +26,8 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': "With the smart-me REST API you get Access to all your devices in the smart-me Cloud and you can add your own devices. So it's a easy way to add the smart-me Cloud support to your Hardware or Software Product.",
-    'description': """
-        Odoo - Smart_me_api_v1 integration via Cenit IO
-    """,
+    'summary': "...",
+    'description': "With the smart-me REST API you get Access to all your devices in the smart-me Cloud and you can add your own devices. So it's a easy way to add the smart-me Cloud support to your Hardware or Software Product.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

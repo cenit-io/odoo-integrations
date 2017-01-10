@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "Accesses Analytics report data.",
-    'description': """
-        Odoo - Google_analytics_reporting_api_v4 integration via Cenit IO
-    """,
+    'description': "Accesses Analytics report data.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

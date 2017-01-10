@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "Turn nothing into something – make a drawing, make a mark.",
-    'description': """
-        Odoo - Moon_by_ai_weiwei_and_olafur_eliasson_api_1_0 integration via Cenit IO
-    """,
+    'description': "Turn nothing into something – make a drawing, make a mark.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

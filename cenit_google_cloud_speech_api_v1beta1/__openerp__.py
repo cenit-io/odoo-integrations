@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "Google Cloud Speech API.",
-    'description': """
-        Odoo - Google_cloud_speech_api_v1beta1 integration via Cenit IO
-    """,
+    'description': "Google Cloud Speech API.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

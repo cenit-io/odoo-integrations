@@ -16,8 +16,8 @@
                     </header>
                     <div>
                         <group string="Oasis Supplier settings">
-                            <field name='' placeholder='Your Username' />
-                            <field name='' placeholder='Your Password' />
+                            <field name='username' placeholder='Your Username' />
+                            <field name='password' placeholder='Your Password' />
                         </group>
                     </div>
                 </form>

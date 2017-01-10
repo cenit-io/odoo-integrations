@@ -26,10 +26,8 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': "Google Cloud Natural Language API provides natural language understanding technologies to developers. Examples include sentiment analysis, entity recognition, and text annotations.",
-    'description': """
-        Odoo - Google_cloud_natural_language_api_v1beta1 integration via Cenit IO
-    """,
+    'summary': "...",
+    'description': "Google Cloud Natural Language API provides natural language understanding technologies to developers. Examples include sentiment analysis, entity recognition, and text annotations.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

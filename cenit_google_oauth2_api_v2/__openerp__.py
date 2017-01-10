@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "Obtains end-user authorization grants for use with other Google APIs.",
-    'description': """
-        Odoo - Google_oauth2_api_v2 integration via Cenit IO
-    """,
+    'description': "Obtains end-user authorization grants for use with other Google APIs.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

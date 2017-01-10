@@ -26,10 +26,8 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': "The Labs64 <a href='https://www.labs64.de/confluence/x/pwCo' target='_blank'>NetLicensing API</a> is a RESTful API and gives you access to NetLicensing’s core features.<br/><br/><strong>Authentication</strong><br/>You authenticate to the NetLicensing API by providing your account credentials or simply use our demo account - <code>demo:demo</code><br/><br/>Find out more about Labs64 NetLicensing at <a href='http://netlicensing.io' target='_blank'>netlicensing.io</a>",
-    'description': """
-        Odoo - Labs64_net_licensing_api_2_x integration via Cenit IO
-    """,
+    'summary': "...",
+    'description': "The Labs64 <a href='https://www.labs64.de/confluence/x/pwCo' target='_blank'>NetLicensing API</a> is a RESTful API and gives you access to NetLicensing’s core features.<br/><br/><strong>Authentication</strong><br/>You authenticate to the NetLicensing API by providing your account credentials or simply use our demo account - <code>demo:demo</code><br/><br/>Find out more about Labs64 NetLicensing at <a href='http://netlicensing.io' target='_blank'>netlicensing.io</a>",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

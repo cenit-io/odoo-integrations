@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "Reads and publishes results from Cloud Test Lab.",
-    'description': """
-        Odoo - Cloud_tool_results_api_v1beta3 integration via Cenit IO
-    """,
+    'description': "Reads and publishes results from Cloud Test Lab.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "REST API for Azure Redis Cache Service",
-    'description': """
-        Odoo - Redis_management_client_api_2016_04_01 integration via Cenit IO
-    """,
+    'description': "REST API for Azure Redis Cache Service",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

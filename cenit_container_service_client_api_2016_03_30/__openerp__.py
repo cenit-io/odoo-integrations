@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "The Container Service Client.",
-    'description': """
-        Odoo - Container_service_client_api_2016_03_30 integration via Cenit IO
-    """,
+    'description': "The Container Service Client.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "Get the latest IRS data and most up to date charity information for your website or application",
-    'description': """
-        Odoo - Orghunter_api_1_0_0 integration via Cenit IO
-    """,
+    'description': "Get the latest IRS data and most up to date charity information for your website or application",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

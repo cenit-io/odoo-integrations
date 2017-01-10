@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "The Azure management API provides a RESTful set of web services that interact with Azure Key Vault.",
-    'description': """
-        Odoo - Key_vault_management_client_api_2015_06_01 integration via Cenit IO
-    """,
+    'description': "The Azure management API provides a RESTful set of web services that interact with Azure Key Vault.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

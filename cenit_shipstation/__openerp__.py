@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "Shipstation API Integration",
-    'description': """
-        Odoo - Shipstation integration via Cenit IO
-    """,
+    'description': "Shipstation API Integration",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

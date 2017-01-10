@@ -26,10 +26,8 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': "Manages identity and access control for Google Cloud Platform resources, including the creation of service accounts, which you can use to authenticate to Google and make API calls.",
-    'description': """
-        Odoo - Google_identity_and_access_management_api_v1 integration via Cenit IO
-    """,
+    'summary': "...",
+    'description': "Manages identity and access control for Google Cloud Platform resources, including the creation of service accounts, which you can use to authenticate to Google and make API calls.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

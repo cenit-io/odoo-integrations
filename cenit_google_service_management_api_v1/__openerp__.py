@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "The service management API for Google Cloud Platform",
-    'description': """
-        Odoo - Google_service_management_api_v1 integration via Cenit IO
-    """,
+    'description': "The service management API for Google Cloud Platform",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

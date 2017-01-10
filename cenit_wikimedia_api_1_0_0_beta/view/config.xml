@@ -31,7 +31,7 @@
   - Set a unique &#x60;User-Agent&#x60; header that allows us to contact you
     quickly. Email addresses or URLs of contact pages work well.
  settings">
-                            <field name='' placeholder='Your API Key' />
+                            <field name='api_key' placeholder='Your API Key' />
                         </group>
                     </div>
                 </form>

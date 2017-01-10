@@ -16,7 +16,7 @@
                     </header>
                     <div>
                         <group string="This is the place to come for all the technical details you need to power your applications with Channel 4&#x27;s deep programmes data. settings">
-                            <field name='' placeholder='Your API Key' />
+                            <field name='api_key' placeholder='Your API Key' />
                         </group>
                     </div>
                 </form>

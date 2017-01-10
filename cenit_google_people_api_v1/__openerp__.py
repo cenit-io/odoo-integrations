@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "The Google People API service gives access to information about profiles and contacts.",
-    'description': """
-        Odoo - Google_people_api_v1 integration via Cenit IO
-    """,
+    'description': "The Google People API service gives access to information about profiles and contacts.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

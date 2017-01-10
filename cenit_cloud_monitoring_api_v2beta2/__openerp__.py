@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "Accesses Google Cloud Monitoring data.",
-    'description': """
-        Odoo - Cloud_monitoring_api_v2beta2 integration via Cenit IO
-    """,
+    'description': "Accesses Google Cloud Monitoring data.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

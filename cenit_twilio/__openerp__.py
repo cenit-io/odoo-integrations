@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "Twilio API Integration",
-    'description': """
-        Odoo - Twilio integration via Cenit IO
-    """,
+    'description': "Twilio API Integration",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

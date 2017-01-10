@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "Builds on top of OpenID Connect Protocol.",
-    'description': """
-        Odoo - Open_id integration via Cenit IO
-    """,
+    'description': "Builds on top of OpenID Connect Protocol.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

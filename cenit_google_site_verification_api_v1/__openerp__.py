@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "Verifies ownership of websites or domains with Google.",
-    'description': """
-        Odoo - Google_site_verification_api_v1 integration via Cenit IO
-    """,
+    'description': "Verifies ownership of websites or domains with Google.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

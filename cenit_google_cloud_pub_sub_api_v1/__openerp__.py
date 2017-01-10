@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "Provides reliable, many-to-many, asynchronous messaging between applications.",
-    'description': """
-        Odoo - Google_cloud_pub_sub_api_v1 integration via Cenit IO
-    """,
+    'description': "Provides reliable, many-to-many, asynchronous messaging between applications.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

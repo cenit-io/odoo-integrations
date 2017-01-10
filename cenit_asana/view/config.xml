@@ -16,7 +16,7 @@
                     </header>
                     <div>
                         <group string="Asana shared collection settings">
-                            <field name='' placeholder='Your personal token' />
+                            <field name='personal_token' placeholder='Your personal token' />
                         </group>
                     </div>
                 </form>

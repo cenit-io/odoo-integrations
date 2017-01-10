@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "A client for issuing REST requests to the Azure Batch service.",
-    'description': """
-        Odoo - Batch_service_api_2016_07_01_3_1 integration via Cenit IO
-    """,
+    'description': "A client for issuing REST requests to the Azure Batch service.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

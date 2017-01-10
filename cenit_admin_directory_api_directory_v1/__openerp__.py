@@ -26,10 +26,8 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': "The Admin SDK Directory API lets you view and manage enterprise resources such as users and groups, administrative notifications, security features, and more.",
-    'description': """
-        Odoo - Admin_directory_api_directory_v1 integration via Cenit IO
-    """,
+    'summary': "...",
+    'description': "The Admin SDK Directory API lets you view and manage enterprise resources such as users and groups, administrative notifications, security features, and more.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',

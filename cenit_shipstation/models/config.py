@@ -29,9 +29,9 @@ _logger = logging.getLogger(__name__)
 COLLECTION_NAME = "shipstation"
 COLLECTION_VERSION = "1.0.0"
 COLLECTION_PARAMS = {
-    "":'',
-    "":'',
-    "":'',
+  "On connection 'Connection' template parameter 'Shipstation API Key'":'key',
+  "On connection 'Connection' template parameter 'Shipstation API Secret'":'secret',
+  "On connection 'Connection' template parameter 'Shipstation Store'":'store_id',
 }
 
 class CenitIntegrationSettings(models.TransientModel):
@@ -41,56 +41,56 @@ class CenitIntegrationSettings(models.TransientModel):
     ############################################################################
     # Pull Parameters
     ############################################################################
-     = fields.Char('Shipstation API Key')
-     = fields.Char('Shipstation API Secret')
-     = fields.Char('Shipstation Store')
+    key = fields.Char('Shipstation API Key')
+    secret = fields.Char('Shipstation API Secret')
+    store_id = fields.Char('Shipstation Store')
 
     ############################################################################
     # Default Getters
     ############################################################################
-    def get_default_(self, cr, uid, ids, context=None):
-         = self.pool.get('ir.config_parameter').get_param(
-            cr, uid, 'odoo_cenit.shipstation.', default=None, context=context
+    def get_default_key(self, cr, uid, ids, context=None):
+        key = self.pool.get('ir.config_parameter').get_param(
+            cr, uid, 'odoo_cenit.shipstation.key', default=None, context=context
         )
-        return {'':  or ''}
+        return {'key': key or ''}
 
-    def get_default_(self, cr, uid, ids, context=None):
-         = self.pool.get('ir.config_parameter').get_param(
-            cr, uid, 'odoo_cenit.shipstation.', default=None, context=context
+    def get_default_secret(self, cr, uid, ids, context=None):
+        secret = self.pool.get('ir.config_parameter').get_param(
+            cr, uid, 'odoo_cenit.shipstation.secret', default=None, context=context
         )
-        return {'':  or ''}
+        return {'secret': secret or ''}
 
-    def get_default_(self, cr, uid, ids, context=None):
-         = self.pool.get('ir.config_parameter').get_param(
-            cr, uid, 'odoo_cenit.shipstation.', default=None, context=context
+    def get_default_store_id(self, cr, uid, ids, context=None):
+        store_id = self.pool.get('ir.config_parameter').get_param(
+            cr, uid, 'odoo_cenit.shipstation.store_id', default=None, context=context
         )
-        return {'':  or ''}
+        return {'store_id': store_id or ''}
 
 
     ############################################################################
     # Default Setters
     ############################################################################
-    def set_(self, cr, uid, ids, context=None):
+    def set_key(self, cr, uid, ids, context=None):
         config_parameters = self.pool.get('ir.config_parameter')
         for record in self.browse(cr, uid, ids, context=context):
             config_parameters.set_param (
-                cr, uid, 'odoo_cenit.shipstation.', record. or '',
+                cr, uid, 'odoo_cenit.shipstation.key', record.key or '',
                 context=context
             )
 
-    def set_(self, cr, uid, ids, context=None):
+    def set_secret(self, cr, uid, ids, context=None):
         config_parameters = self.pool.get('ir.config_parameter')
         for record in self.browse(cr, uid, ids, context=context):
             config_parameters.set_param (
-                cr, uid, 'odoo_cenit.shipstation.', record. or '',
+                cr, uid, 'odoo_cenit.shipstation.secret', record.secret or '',
                 context=context
             )
 
-    def set_(self, cr, uid, ids, context=None):
+    def set_store_id(self, cr, uid, ids, context=None):
         config_parameters = self.pool.get('ir.config_parameter')
         for record in self.browse(cr, uid, ids, context=context):
             config_parameters.set_param (
-                cr, uid, 'odoo_cenit.shipstation.', record. or '',
+                cr, uid, 'odoo_cenit.shipstation.store_id', record.store_id or '',
                 context=context
             )
 

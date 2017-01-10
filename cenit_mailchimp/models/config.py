@@ -29,9 +29,9 @@ _logger = logging.getLogger(__name__)
 COLLECTION_NAME = "mailchimp"
 COLLECTION_VERSION = "1.0.0"
 COLLECTION_PARAMS = {
-    "":'',
-    "":'',
-    "":'',
+  "On connection 'Mailchimp API Connection' template parameter 'Username'":'user',
+  "On connection 'Mailchimp API Connection' template parameter 'API Key'":'password',
+  "On connection 'Mailchimp API Connection' template parameter 'Service Node'":'node',
 }
 
 class CenitIntegrationSettings(models.TransientModel):
@@ -41,56 +41,56 @@ class CenitIntegrationSettings(models.TransientModel):
     ############################################################################
     # Pull Parameters
     ############################################################################
-     = fields.Char('Username')
-     = fields.Char('API Key')
-     = fields.Char('Service Node')
+    user = fields.Char('Username')
+    password = fields.Char('API Key')
+    node = fields.Char('Service Node')
 
     ############################################################################
     # Default Getters
     ############################################################################
-    def get_default_(self, cr, uid, ids, context=None):
-         = self.pool.get('ir.config_parameter').get_param(
-            cr, uid, 'odoo_cenit.mailchimp.', default=None, context=context
+    def get_default_user(self, cr, uid, ids, context=None):
+        user = self.pool.get('ir.config_parameter').get_param(
+            cr, uid, 'odoo_cenit.mailchimp.user', default=None, context=context
         )
-        return {'':  or ''}
+        return {'user': user or ''}
 
-    def get_default_(self, cr, uid, ids, context=None):
-         = self.pool.get('ir.config_parameter').get_param(
-            cr, uid, 'odoo_cenit.mailchimp.', default=None, context=context
+    def get_default_password(self, cr, uid, ids, context=None):
+        password = self.pool.get('ir.config_parameter').get_param(
+            cr, uid, 'odoo_cenit.mailchimp.password', default=None, context=context
         )
-        return {'':  or ''}
+        return {'password': password or ''}
 
-    def get_default_(self, cr, uid, ids, context=None):
-         = self.pool.get('ir.config_parameter').get_param(
-            cr, uid, 'odoo_cenit.mailchimp.', default=None, context=context
+    def get_default_node(self, cr, uid, ids, context=None):
+        node = self.pool.get('ir.config_parameter').get_param(
+            cr, uid, 'odoo_cenit.mailchimp.node', default=None, context=context
         )
-        return {'':  or ''}
+        return {'node': node or ''}
 
 
     ############################################################################
     # Default Setters
     ############################################################################
-    def set_(self, cr, uid, ids, context=None):
+    def set_user(self, cr, uid, ids, context=None):
         config_parameters = self.pool.get('ir.config_parameter')
         for record in self.browse(cr, uid, ids, context=context):
             config_parameters.set_param (
-                cr, uid, 'odoo_cenit.mailchimp.', record. or '',
+                cr, uid, 'odoo_cenit.mailchimp.user', record.user or '',
                 context=context
             )
 
-    def set_(self, cr, uid, ids, context=None):
+    def set_password(self, cr, uid, ids, context=None):
         config_parameters = self.pool.get('ir.config_parameter')
         for record in self.browse(cr, uid, ids, context=context):
             config_parameters.set_param (
-                cr, uid, 'odoo_cenit.mailchimp.', record. or '',
+                cr, uid, 'odoo_cenit.mailchimp.password', record.password or '',
                 context=context
             )
 
-    def set_(self, cr, uid, ids, context=None):
+    def set_node(self, cr, uid, ids, context=None):
         config_parameters = self.pool.get('ir.config_parameter')
         for record in self.browse(cr, uid, ids, context=context):
             config_parameters.set_param (
-                cr, uid, 'odoo_cenit.mailchimp.', record. or '',
+                cr, uid, 'odoo_cenit.mailchimp.node', record.node or '',
                 context=context
             )
 

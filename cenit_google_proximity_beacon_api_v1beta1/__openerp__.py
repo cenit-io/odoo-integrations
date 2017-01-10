@@ -27,9 +27,7 @@
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "Registers, manages, indexes, and searches beacons.",
-    'description': """
-        Odoo - Google_proximity_beacon_api_v1beta1 integration via Cenit IO
-    """,
+    'description': "Registers, manages, indexes, and searches beacons.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',
