@@ -120,12 +120,48 @@ class CenitIntegrationSettings(models.TransientModel):
         )
 
         params = {}
-        for p in data.get('params'):
-            k = p.get('parameter')
-            id_ = p.get('id')
-            value = getattr(obj,COLLECTION_PARAMS.get(k))
-            params.update ({id_: value})
+        # for p in data.get('params'):
+        #     k = p.get('parameter')
+        #     id_ = p.get('id')
+        #     value = getattr(obj,COLLECTION_PARAMS.get(k))
+        #     params.update ({id_: value})
 
-        installer.pull_shared_collection(cr, uid, data.get('id'), params=params, context=context)
-
+        #installer.pull_shared_collection(cr, uid, data.get('id'), params=params, context=context)
+        installer.install_common_data(cr, uid, data['data'])
+        self.update_connection(cr, uid, obj, context=context)
         return rc
+
+    def update_connection(self, cr, uid, templ_param, context):
+        conn_pool = self.pool.get("cenit.connection")
+        conn_id = conn_pool.search(cr, uid, [('name', '=', 'Shipstation Connection')])
+        conn = conn_pool.browse(cr, uid, conn_id[0], context) if conn_id else None
+        if conn:
+            conn_data = {
+                "_reference": "True",
+                "_primary": ["namespace", "name"],
+                "namespace": "Shipstation",
+                "name": "Shipstation Connection",
+                 "headers": [
+                 {
+                  "key": "Authorization",
+                  "value": "Basic {% base64 (key + ':'  + secret) %} "
+                 }
+                 ],
+                "template_parameters": [
+                {
+                  "key": "key",
+                  "value": templ_param['key']
+                },
+                {
+                  "key": "secret",
+                  "value": templ_param['secret']
+                },
+                {
+                  "key": "store_id",
+                  "value": templ_param['store_id']
+                }
+              ]
+
+            }
+            response = conn_pool.post(cr, uid, "/setup/connection", conn_data)
+
