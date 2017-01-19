@@ -48,21 +48,21 @@ class CenitIntegrationSettings(models.TransientModel):
     ############################################################################
     # Default Getters
     ############################################################################
-    def get_default_key(self, cr, uid, ids, context=None):
-        key = self.pool.get('ir.config_parameter').get_param(
-            cr, uid, 'odoo_cenit.shipstation.key', default=None, context=context
+    def get_default_key(self, context=None):
+        key = self.env['ir.config_parameter'].get_param(
+              'odoo_cenit.shipstation.key', default=None
         )
         return {'key': key or ''}
 
-    def get_default_secret(self, cr, uid, ids, context=None):
-        secret = self.pool.get('ir.config_parameter').get_param(
-            cr, uid, 'odoo_cenit.shipstation.secret', default=None, context=context
+    def get_default_secret(self, context=None):
+        secret = self.env['ir.config_parameter'].get_param(
+           'odoo_cenit.shipstation.secret', default=None
         )
         return {'secret': secret or ''}
 
-    def get_default_store_id(self, cr, uid, ids, context=None):
-        store_id = self.pool.get('ir.config_parameter').get_param(
-            cr, uid, 'odoo_cenit.shipstation.store_id', default=None, context=context
+    def get_default_store_id(self,context=None):
+        store_id = self.env['ir.config_parameter'].get_param(
+            'odoo_cenit.shipstation.store_id', default=None
         )
         return {'store_id': store_id or ''}
 
@@ -70,71 +70,65 @@ class CenitIntegrationSettings(models.TransientModel):
     ############################################################################
     # Default Setters
     ############################################################################
-    def set_key(self, cr, uid, ids, context=None):
-        config_parameters = self.pool.get('ir.config_parameter')
-        for record in self.browse(cr, uid, ids, context=context):
-            config_parameters.set_param (
-                cr, uid, 'odoo_cenit.shipstation.key', record.key or '',
-                context=context
+    def set_key(self):
+        config_parameters = self.env['ir.config_parameter']
+        for record in self.browse(self.ids):
+            config_parameters.set_param(
+                'odoo_cenit.shipstation.key', record.key or ''
             )
 
-    def set_secret(self, cr, uid, ids, context=None):
-        config_parameters = self.pool.get('ir.config_parameter')
-        for record in self.browse(cr, uid, ids, context=context):
+    def set_secret(self):
+        config_parameters = self.env['ir.config_parameter']
+        for record in self.browse(self.ids):
             config_parameters.set_param (
-                cr, uid, 'odoo_cenit.shipstation.secret', record.secret or '',
-                context=context
+                'odoo_cenit.shipstation.secret', record.secret or ''
             )
 
-    def set_store_id(self, cr, uid, ids, context=None):
-        config_parameters = self.pool.get('ir.config_parameter')
-        for record in self.browse(cr, uid, ids, context=context):
+    def set_store_id(self):
+        config_parameters = self.env['ir.config_parameter']
+        for record in self.browse(self.ids):
             config_parameters.set_param (
-                cr, uid, 'odoo_cenit.shipstation.store_id', record.store_id or '',
-                context=context
+                'odoo_cenit.shipstation.store_id', record.store_id or ''
             )
 
 
     ############################################################################
     # Actions
     ############################################################################
-    def execute(self, cr, uid, ids, context=None):
-        rc = super(CenitIntegrationSettings, self).execute(
-            cr, uid, ids, context=context
-        )
+    def execute(self, context=None):
+        rc = super(CenitIntegrationSettings, self).execute()
 
-        if not context.get('install', False):
-            return rc
+        #TODO
+        # if not self.env.context.get('install', False):
+        #     return rc
 
-        objs = self.browse(cr, uid, ids)
+        objs = self.browse(self.ids)
         if not objs:
             return rc
         obj = objs[0]
 
-        installer = self.pool.get('cenit.collection.installer')
+        installer = self.env['cenit.collection.installer']
         data = installer.get_collection_data(
-            cr, uid,
             COLLECTION_NAME,
-            version = COLLECTION_VERSION,
-            context = context
+            version=COLLECTION_VERSION,
         )
 
         params = {}
-        # for p in data.get('params'):
-        #     k = p.get('parameter')
+        # for p in data.get('pull_parameters'):
+        #     k = p.get('property_name')
         #     id_ = p.get('id')
         #     value = getattr(obj,COLLECTION_PARAMS.get(k))
         #     params.update ({id_: value})
 
         #installer.pull_shared_collection(cr, uid, data.get('id'), params=params, context=context)
-        installer.install_common_data(cr, uid, data['data'])
-        self.update_connection(cr, uid, obj, context=context)
+        installer.install_common_data(data['data'])
+        self.update_connection(obj)
         return rc
 
-    def update_connection(self, cr, uid, templ_param, context):
-        conn_pool = self.pool.get("cenit.connection")
-        conn_id = conn_pool.search(cr, uid, [('name', '=', 'Shipstation Connection')])
-        conn = conn_pool.browse(cr, uid, conn_id[0], context) if conn_id else None
+    def update_connection(self, templ_param):
+        conn_pool = self.env['cenit.connection']
+        conn_id = conn_pool.search([('name', '=', 'Shipstation Connection')])
+        conn = conn_pool.browse(conn_id[0]) if conn_id else None
         if conn:
             conn_data = {
                 "_reference": "True",
@@ -163,5 +157,5 @@ class CenitIntegrationSettings(models.TransientModel):
               ]
 
             }
-            response = conn_pool.post(cr, uid, "/setup/connection", conn_data)
+            response = conn_pool.post("/setup/connection", conn_data)
 
