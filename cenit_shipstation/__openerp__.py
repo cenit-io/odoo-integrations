@@ -31,7 +31,6 @@
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',
-        'view/config.xml',
         'view/wizard.xml'
     ],
     'installable': True
