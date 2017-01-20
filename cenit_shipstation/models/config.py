@@ -29,9 +29,9 @@ _logger = logging.getLogger(__name__)
 COLLECTION_NAME = "shipstation"
 COLLECTION_VERSION = "1.0.0"
 COLLECTION_PARAMS = {
-  "On connection 'Connection' template parameter 'Shipstation API Key'":'key',
-  "On connection 'Connection' template parameter 'Shipstation API Secret'":'secret',
-  "On connection 'Connection' template parameter 'Shipstation Store'":'store_id',
+      'Shipstation API Key': 'key',
+      'Shipstation API Secret': 'secret',
+      'Shipstation Store': 'store_id',
 }
 
 class CenitIntegrationSettings(models.TransientModel):
@@ -114,48 +114,15 @@ class CenitIntegrationSettings(models.TransientModel):
         )
 
         params = {}
-        # for p in data.get('pull_parameters'):
-        #     k = p.get('property_name')
-        #     id_ = p.get('id')
-        #     value = getattr(obj,COLLECTION_PARAMS.get(k))
-        #     params.update ({id_: value})
+        for p in data.get('pull_parameters'):
+            k = p['label']
+            id_ = p.get('id')
+            value = getattr(obj, COLLECTION_PARAMS.get(k))
+            params.update({id_: value})
 
-        #installer.pull_shared_collection(cr, uid, data.get('id'), params=params, context=context)
+        installer.pull_shared_collection(data.get('id'), params=params)
         installer.install_common_data(data['data'])
-        self.update_connection(obj)
+
         return rc
 
-    def update_connection(self, templ_param):
-        conn_pool = self.env['cenit.connection']
-        conn_id = conn_pool.search([('name', '=', 'Shipstation Connection')])
-        conn = conn_pool.browse(conn_id[0]) if conn_id else None
-        if conn:
-            conn_data = {
-                "_reference": "True",
-                "_primary": ["namespace", "name"],
-                "namespace": "Shipstation",
-                "name": "Shipstation Connection",
-                 "headers": [
-                 {
-                  "key": "Authorization",
-                  "value": "Basic {% base64 (key + ':'  + secret) %} "
-                 }
-                 ],
-                "template_parameters": [
-                {
-                  "key": "key",
-                  "value": templ_param['key']
-                },
-                {
-                  "key": "secret",
-                  "value": templ_param['secret']
-                },
-                {
-                  "key": "store_id",
-                  "value": templ_param['store_id']
-                }
-              ]
-
-            }
-            response = conn_pool.post("/setup/connection", conn_data)
 
