@@ -29,12 +29,12 @@ _logger = logging.getLogger(__name__)
 COLLECTION_NAME = "tender"
 COLLECTION_VERSION = "1.0.0"
 COLLECTION_PARAMS = {
-  "On connection 'Tender Connection' template parameter 'API Key'":'tender_api_key',
-  "On connection 'Tender Connection' template parameter 'Author Name'":'tender_author_name',
-  "On connection 'Tender Connection' template parameter 'Author Email'":'tender_author_email',
-  "On connection 'Tender Connection' template parameter 'Domain'":'tender_domain',
-  "On connection 'Tender Connection' template parameter 'Category'":'tender_category_id',
-  "On connection 'Tender Connection' template parameter 'Public'":'tender_public',
+    'API Key':'tender_api_key',
+    'Author Name':'tender_author_name',
+    'Author Email':'tender_author_email',
+    'Domain':'tender_domain',
+    'Category':'tender_category_id',
+    'Public':'tender_public',
 }
 
 class CenitIntegrationSettings(models.TransientModel):
@@ -54,39 +54,39 @@ class CenitIntegrationSettings(models.TransientModel):
     ############################################################################
     # Default Getters
     ############################################################################
-    def get_default_tender_api_key(self, cr, uid, ids, context=None):
-        tender_api_key = self.pool.get('ir.config_parameter').get_param(
-            cr, uid, 'odoo_cenit.tender.tender_api_key', default=None, context=context
+    def get_default_tender_api_key(self, context=None):
+        tender_api_key = self.env['ir.config_parameter'].get_param(
+            'odoo_cenit.tender.tender_api_key', default=None
         )
         return {'tender_api_key': tender_api_key or ''}
 
-    def get_default_tender_author_name(self, cr, uid, ids, context=None):
-        tender_author_name = self.pool.get('ir.config_parameter').get_param(
-            cr, uid, 'odoo_cenit.tender.tender_author_name', default=None, context=context
+    def get_default_tender_author_name(self, context=None):
+        tender_author_name = self.env['ir.config_parameter'].get_param(
+            'odoo_cenit.tender.tender_author_name', default=None
         )
         return {'tender_author_name': tender_author_name or ''}
 
-    def get_default_tender_author_email(self, cr, uid, ids, context=None):
-        tender_author_email = self.pool.get('ir.config_parameter').get_param(
-            cr, uid, 'odoo_cenit.tender.tender_author_email', default=None, context=context
+    def get_default_tender_author_email(self, context=None):
+        tender_author_email = self.env['ir.config_parameter'].get_param(
+            'odoo_cenit.tender.tender_author_email', default=None
         )
         return {'tender_author_email': tender_author_email or ''}
 
-    def get_default_tender_domain(self, cr, uid, ids, context=None):
-        tender_domain = self.pool.get('ir.config_parameter').get_param(
-            cr, uid, 'odoo_cenit.tender.tender_domain', default=None, context=context
+    def get_default_tender_domain(self, context=None):
+        tender_domain = self.env['ir.config_parameter'].get_param(
+            'odoo_cenit.tender.tender_domain', default=None
         )
         return {'tender_domain': tender_domain or ''}
 
-    def get_default_tender_category_id(self, cr, uid, ids, context=None):
-        tender_category_id = self.pool.get('ir.config_parameter').get_param(
-            cr, uid, 'odoo_cenit.tender.tender_category_id', default=None, context=context
+    def get_default_tender_category_id(self, context=None):
+        tender_category_id = self.env['ir.config_parameter'].get_param(
+            'odoo_cenit.tender.tender_category_id', default=None
         )
         return {'tender_category_id': tender_category_id or ''}
 
-    def get_default_tender_public(self, cr, uid, ids, context=None):
-        tender_public = self.pool.get('ir.config_parameter').get_param(
-            cr, uid, 'odoo_cenit.tender.tender_public', default=None, context=context
+    def get_default_tender_public(self, context=None):
+        tender_public = self.env['ir.config_parameter'].get_param(
+            'odoo_cenit.tender.tender_public', default=None
         )
         return {'tender_public': tender_public or ''}
 
@@ -94,86 +94,74 @@ class CenitIntegrationSettings(models.TransientModel):
     ############################################################################
     # Default Setters
     ############################################################################
-    def set_tender_api_key(self, cr, uid, ids, context=None):
-        config_parameters = self.pool.get('ir.config_parameter')
-        for record in self.browse(cr, uid, ids, context=context):
+    def set_tender_api_key(self):
+        config_parameters = self.env['ir.config_parameter']
+        for record in self.browse(self.ids):
             config_parameters.set_param (
-                cr, uid, 'odoo_cenit.tender.tender_api_key', record.tender_api_key or '',
-                context=context
+                'odoo_cenit.tender.tender_api_key', record.tender_api_key or ''
             )
 
-    def set_tender_author_name(self, cr, uid, ids, context=None):
-        config_parameters = self.pool.get('ir.config_parameter')
-        for record in self.browse(cr, uid, ids, context=context):
+    def set_tender_author_name(self):
+        config_parameters = self.env['ir.config_parameter']
+        for record in self.browse(self.ids):
             config_parameters.set_param (
-                cr, uid, 'odoo_cenit.tender.tender_author_name', record.tender_author_name or '',
-                context=context
+                'odoo_cenit.tender.tender_author_name', record.tender_author_name or ''
             )
 
-    def set_tender_author_email(self, cr, uid, ids, context=None):
-        config_parameters = self.pool.get('ir.config_parameter')
-        for record in self.browse(cr, uid, ids, context=context):
+    def set_tender_author_email(self):
+        config_parameters = self.env['ir.config_parameter']
+        for record in self.browse(self.ids):
             config_parameters.set_param (
-                cr, uid, 'odoo_cenit.tender.tender_author_email', record.tender_author_email or '',
-                context=context
+                'odoo_cenit.tender.tender_author_email', record.tender_author_email or ''
             )
 
-    def set_tender_domain(self, cr, uid, ids, context=None):
-        config_parameters = self.pool.get('ir.config_parameter')
-        for record in self.browse(cr, uid, ids, context=context):
+    def set_tender_domain(self):
+        config_parameters = self.env['ir.config_parameter']
+        for record in self.browse(self.ids):
             config_parameters.set_param (
-                cr, uid, 'odoo_cenit.tender.tender_domain', record.tender_domain or '',
-                context=context
+                'odoo_cenit.tender.tender_domain', record.tender_domain or ''
             )
 
-    def set_tender_category_id(self, cr, uid, ids, context=None):
-        config_parameters = self.pool.get('ir.config_parameter')
-        for record in self.browse(cr, uid, ids, context=context):
+    def set_tender_category_id(self):
+        config_parameters = self.env['ir.config_parameter']
+        for record in self.browse(self.ids):
             config_parameters.set_param (
-                cr, uid, 'odoo_cenit.tender.tender_category_id', record.tender_category_id or '',
-                context=context
+                'odoo_cenit.tender.tender_category_id', record.tender_category_id or ''
             )
 
-    def set_tender_public(self, cr, uid, ids, context=None):
-        config_parameters = self.pool.get('ir.config_parameter')
-        for record in self.browse(cr, uid, ids, context=context):
+    def set_tender_public(self):
+        config_parameters = self.env['ir.config_parameter']
+        for record in self.browse(self.ids):
             config_parameters.set_param (
-                cr, uid, 'odoo_cenit.tender.tender_public', record.tender_public or '',
-                context=context
+                'odoo_cenit.tender.tender_public', record.tender_public or ''
             )
 
 
     ############################################################################
     # Actions
     ############################################################################
-    def execute(self, cr, uid, ids, context=None):
-        rc = super(CenitIntegrationSettings, self).execute(
-            cr, uid, ids, context=context
-        )
+    def execute(self, context=None):
+        rc = super(CenitIntegrationSettings, self).execute()
 
-        if not context.get('install', False):
-            return rc
-
-        objs = self.browse(cr, uid, ids)
+        objs = self.browse(self.ids)
         if not objs:
             return rc
         obj = objs[0]
 
-        installer = self.pool.get('cenit.collection.installer')
+        installer = self.env['cenit.collection.installer']
         data = installer.get_collection_data(
-            cr, uid,
             COLLECTION_NAME,
-            version = COLLECTION_VERSION,
-            context = context
+            version = COLLECTION_VERSION
         )
 
         params = {}
-        for p in data.get('params'):
-            k = p.get('parameter')
+        for p in data.get('pull_parameters'):
+            k = p['label']
             id_ = p.get('id')
             value = getattr(obj,COLLECTION_PARAMS.get(k))
             params.update ({id_: value})
 
-        installer.pull_shared_collection(cr, uid, data.get('id'), params=params, context=context)
+        installer.pull_shared_collection(data.get('id'), params=params)
+        installer.install_common_data(data['data'])
 
         return rc

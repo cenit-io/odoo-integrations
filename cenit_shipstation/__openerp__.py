@@ -26,11 +26,12 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': "Shipstation API Integration",
-    'description': "Shipstation API Integration",
+    'summary': "Shipstation Integration",
+    'description': "Shipstation Integration",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',
+        'view/config.xml',
         'view/wizard.xml'
     ],
     'installable': True

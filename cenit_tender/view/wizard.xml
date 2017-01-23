@@ -7,16 +7,16 @@
             <field name="model">cenit.tender.settings</field>
             <field name="inherit_id" ref="base.res_config_installer"/>
             <field name="arch" type="xml">
-                <form position="attributes">
+                <xpath expr="//form" position="attributes">
                     <attribute name="string">Tender shared collection via CENIT Integration settings</attribute>
-                </form>
-                <footer position="replace">
+                </xpath>
+                <xpath expr="//footer" position="replace">
                     <footer>
                         <button string="Apply" type="object" name="execute"
                                 class="oe_highlight" context="{'install': True}"/>
                     </footer>
-                </footer>
-                <separator string="title" position="replace">
+                </xpath>
+                <xpath expr="//separator" string="title" position="replace">
                     <p class="oe_grey">
                         Configure Tender shared collection via CENIT Integration data
                     </p>
@@ -28,7 +28,7 @@
                         <field name='tender_category_id' placeholder='Your Category'/>
                         <field name='tender_public' placeholder='Your Public'/>
                     </group>
-                </separator>
+                </xpath>
             </field>
         </record>
 

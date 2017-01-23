@@ -31,7 +31,7 @@ For more information on usage of this API, including features, pricing, rate lim
             <field name="model">cenit.350000plus_recipe_and_grocery_list_api_v2_partner.settings</field>
             <field name="inherit_id" ref="base.res_config_installer"/>
             <field name="arch" type="xml">
-                <form position="attributes">
+                <xpath expr="//form" position="attributes">
                     <attribute name="string">#Documentation
 
 This is the documentation for the partner endpoint of the BigOven Recipe and Grocery List API.
@@ -57,14 +57,14 @@ For existing partners, we encourage you to [migrate](http://api2.bigoven.com), a
 See our [photos documentation](http://api2.bigoven.com/web/documentation/recipe-images). 
 
 For more information on usage of this API, including features, pricing, rate limits, terms and conditions, please visit the [BigOven API website](http://api2.bigoven.com). settings</attribute>
-                </form>
-                <footer position="replace">
+                </xpath>
+                <xpath expr="//footer" position="replace">
                     <footer>
                         <button string="Apply" type="object" name="execute"
                                 class="oe_highlight" context="{'install': True}"/>
                     </footer>
-                </footer>
-                <separator string="title" position="replace">
+                </xpath>
+                <xpath expr="//separator" string="title" position="replace">
                     <p class="oe_grey">
                         Configure #Documentation
 
@@ -95,7 +95,7 @@ For more information on usage of this API, including features, pricing, rate lim
                     <group>
                         <field name='api_key' placeholder='Your API Key'/>
                     </group>
-                </separator>
+                </xpath>
             </field>
         </record>
 

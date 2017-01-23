@@ -25,7 +25,7 @@ You authenticate to the import.io API by providing your API key as URL query str
             <field name="model">cenit.import_io_api_1_0.settings</field>
             <field name="inherit_id" ref="base.res_config_installer"/>
             <field name="arch" type="xml">
-                <form position="attributes">
+                <xpath expr="//form" position="attributes">
                     <attribute name="string">## Introduction
 
 The import.io API is a [REST](http://en.wikipedia.org/wiki/Representational_state_transfer)ful API. It is designed as much as possible to have resource-oriented URLs and to use HTTP status codes to indicate API status.
@@ -45,14 +45,14 @@ All API requests *should* be made over HTTPS to &#x60;https://api.import.io/&#x6
 ## API Authentication
 
 You authenticate to the import.io API by providing your API key as URL query string parameter &#x60;_apikey&#x60;. You can manage your API key from [your account](https://import.io/data/account/). settings</attribute>
-                </form>
-                <footer position="replace">
+                </xpath>
+                <xpath expr="//footer" position="replace">
                     <footer>
                         <button string="Apply" type="object" name="execute"
                                 class="oe_highlight" context="{'install': True}"/>
                     </footer>
-                </footer>
-                <separator string="title" position="replace">
+                </xpath>
+                <xpath expr="//separator" string="title" position="replace">
                     <p class="oe_grey">
                         Configure ## Introduction
 
@@ -77,7 +77,7 @@ You authenticate to the import.io API by providing your API key as URL query str
                     <group>
                         <field name='api_key' placeholder='Your API Key'/>
                     </group>
-                </separator>
+                </xpath>
             </field>
         </record>
 

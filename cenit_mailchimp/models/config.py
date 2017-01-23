@@ -29,9 +29,9 @@ _logger = logging.getLogger(__name__)
 COLLECTION_NAME = "mailchimp"
 COLLECTION_VERSION = "1.0.0"
 COLLECTION_PARAMS = {
-  "On connection 'Mailchimp API Connection' template parameter 'Username'":'user',
-  "On connection 'Mailchimp API Connection' template parameter 'API Key'":'password',
-  "On connection 'Mailchimp API Connection' template parameter 'Service Node'":'node',
+    'Username':'user',
+    'API Key':'password',
+    'Service Node':'node',
 }
 
 class CenitIntegrationSettings(models.TransientModel):
@@ -48,21 +48,21 @@ class CenitIntegrationSettings(models.TransientModel):
     ############################################################################
     # Default Getters
     ############################################################################
-    def get_default_user(self, cr, uid, ids, context=None):
-        user = self.pool.get('ir.config_parameter').get_param(
-            cr, uid, 'odoo_cenit.mailchimp.user', default=None, context=context
+    def get_default_user(self, context=None):
+        user = self.env['ir.config_parameter'].get_param(
+            'odoo_cenit.mailchimp.user', default=None
         )
         return {'user': user or ''}
 
-    def get_default_password(self, cr, uid, ids, context=None):
-        password = self.pool.get('ir.config_parameter').get_param(
-            cr, uid, 'odoo_cenit.mailchimp.password', default=None, context=context
+    def get_default_password(self, context=None):
+        password = self.env['ir.config_parameter'].get_param(
+            'odoo_cenit.mailchimp.password', default=None
         )
         return {'password': password or ''}
 
-    def get_default_node(self, cr, uid, ids, context=None):
-        node = self.pool.get('ir.config_parameter').get_param(
-            cr, uid, 'odoo_cenit.mailchimp.node', default=None, context=context
+    def get_default_node(self, context=None):
+        node = self.env['ir.config_parameter'].get_param(
+            'odoo_cenit.mailchimp.node', default=None
         )
         return {'node': node or ''}
 
@@ -70,62 +70,53 @@ class CenitIntegrationSettings(models.TransientModel):
     ############################################################################
     # Default Setters
     ############################################################################
-    def set_user(self, cr, uid, ids, context=None):
-        config_parameters = self.pool.get('ir.config_parameter')
-        for record in self.browse(cr, uid, ids, context=context):
+    def set_user(self):
+        config_parameters = self.env['ir.config_parameter']
+        for record in self.browse(self.ids):
             config_parameters.set_param (
-                cr, uid, 'odoo_cenit.mailchimp.user', record.user or '',
-                context=context
+                'odoo_cenit.mailchimp.user', record.user or ''
             )
 
-    def set_password(self, cr, uid, ids, context=None):
-        config_parameters = self.pool.get('ir.config_parameter')
-        for record in self.browse(cr, uid, ids, context=context):
+    def set_password(self):
+        config_parameters = self.env['ir.config_parameter']
+        for record in self.browse(self.ids):
             config_parameters.set_param (
-                cr, uid, 'odoo_cenit.mailchimp.password', record.password or '',
-                context=context
+                'odoo_cenit.mailchimp.password', record.password or ''
             )
 
-    def set_node(self, cr, uid, ids, context=None):
-        config_parameters = self.pool.get('ir.config_parameter')
-        for record in self.browse(cr, uid, ids, context=context):
+    def set_node(self):
+        config_parameters = self.env['ir.config_parameter']
+        for record in self.browse(self.ids):
             config_parameters.set_param (
-                cr, uid, 'odoo_cenit.mailchimp.node', record.node or '',
-                context=context
+                'odoo_cenit.mailchimp.node', record.node or ''
             )
 
 
     ############################################################################
     # Actions
     ############################################################################
-    def execute(self, cr, uid, ids, context=None):
-        rc = super(CenitIntegrationSettings, self).execute(
-            cr, uid, ids, context=context
-        )
+    def execute(self, context=None):
+        rc = super(CenitIntegrationSettings, self).execute()
 
-        if not context.get('install', False):
-            return rc
-
-        objs = self.browse(cr, uid, ids)
+        objs = self.browse(self.ids)
         if not objs:
             return rc
         obj = objs[0]
 
-        installer = self.pool.get('cenit.collection.installer')
+        installer = self.env['cenit.collection.installer']
         data = installer.get_collection_data(
-            cr, uid,
             COLLECTION_NAME,
-            version = COLLECTION_VERSION,
-            context = context
+            version = COLLECTION_VERSION
         )
 
         params = {}
-        for p in data.get('params'):
-            k = p.get('parameter')
+        for p in data.get('pull_parameters'):
+            k = p['label']
             id_ = p.get('id')
             value = getattr(obj,COLLECTION_PARAMS.get(k))
             params.update ({id_: value})
 
-        installer.pull_shared_collection(cr, uid, data.get('id'), params=params, context=context)
+        installer.pull_shared_collection(data.get('id'), params=params)
+        installer.install_common_data(data['data'])
 
         return rc
