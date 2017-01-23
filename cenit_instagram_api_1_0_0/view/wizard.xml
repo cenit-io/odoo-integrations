@@ -21,7 +21,7 @@ Last update: 2015-11-28
             <field name="model">cenit.instagram_api_1_0_0.settings</field>
             <field name="inherit_id" ref="base.res_config_installer"/>
             <field name="arch" type="xml">
-                <form position="attributes">
+                <xpath expr="//form" position="attributes">
                     <attribute name="string">Description of Instagram RESTful API.
 
 Current limitations:
@@ -37,14 +37,14 @@ containing media objects no longer return the &#x60;data&#x60; field in &#x60;co
 
 Last update: 2015-11-28
  settings</attribute>
-                </form>
-                <footer position="replace">
+                </xpath>
+                <xpath expr="//footer" position="replace">
                     <footer>
                         <button string="Apply" type="object" name="execute"
                                 class="oe_highlight" context="{'install': True}"/>
                     </footer>
-                </footer>
-                <separator string="title" position="replace">
+                </xpath>
+                <xpath expr="//separator" string="title" position="replace">
                     <p class="oe_grey">
                         Configure Description of Instagram RESTful API.
 
@@ -65,7 +65,7 @@ Last update: 2015-11-28
                     <group>
                         <field name='api_key' placeholder='Your API Key'/>
                     </group>
-                </separator>
+                </xpath>
             </field>
         </record>
 

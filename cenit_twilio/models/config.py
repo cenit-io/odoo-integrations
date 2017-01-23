@@ -29,8 +29,8 @@ _logger = logging.getLogger(__name__)
 COLLECTION_NAME = "twilio"
 COLLECTION_VERSION = "1.0.0"
 COLLECTION_PARAMS = {
-  "On connection 'Twilio API Conection' template parameter 'Account SID'":'account_sid',
-  "On connection 'Twilio API Conection' template parameter 'Auth Token'":'auth_token',
+    'Account SID':'account_sid',
+    'Auth Token':'auth_token',
 }
 
 class CenitIntegrationSettings(models.TransientModel):
@@ -46,15 +46,15 @@ class CenitIntegrationSettings(models.TransientModel):
     ############################################################################
     # Default Getters
     ############################################################################
-    def get_default_account_sid(self, cr, uid, ids, context=None):
-        account_sid = self.pool.get('ir.config_parameter').get_param(
-            cr, uid, 'odoo_cenit.twilio.account_sid', default=None, context=context
+    def get_default_account_sid(self, context=None):
+        account_sid = self.env['ir.config_parameter'].get_param(
+            'odoo_cenit.twilio.account_sid', default=None
         )
         return {'account_sid': account_sid or ''}
 
-    def get_default_auth_token(self, cr, uid, ids, context=None):
-        auth_token = self.pool.get('ir.config_parameter').get_param(
-            cr, uid, 'odoo_cenit.twilio.auth_token', default=None, context=context
+    def get_default_auth_token(self, context=None):
+        auth_token = self.env['ir.config_parameter'].get_param(
+            'odoo_cenit.twilio.auth_token', default=None
         )
         return {'auth_token': auth_token or ''}
 
@@ -62,54 +62,46 @@ class CenitIntegrationSettings(models.TransientModel):
     ############################################################################
     # Default Setters
     ############################################################################
-    def set_account_sid(self, cr, uid, ids, context=None):
-        config_parameters = self.pool.get('ir.config_parameter')
-        for record in self.browse(cr, uid, ids, context=context):
+    def set_account_sid(self):
+        config_parameters = self.env['ir.config_parameter']
+        for record in self.browse(self.ids):
             config_parameters.set_param (
-                cr, uid, 'odoo_cenit.twilio.account_sid', record.account_sid or '',
-                context=context
+                'odoo_cenit.twilio.account_sid', record.account_sid or ''
             )
 
-    def set_auth_token(self, cr, uid, ids, context=None):
-        config_parameters = self.pool.get('ir.config_parameter')
-        for record in self.browse(cr, uid, ids, context=context):
+    def set_auth_token(self):
+        config_parameters = self.env['ir.config_parameter']
+        for record in self.browse(self.ids):
             config_parameters.set_param (
-                cr, uid, 'odoo_cenit.twilio.auth_token', record.auth_token or '',
-                context=context
+                'odoo_cenit.twilio.auth_token', record.auth_token or ''
             )
 
 
     ############################################################################
     # Actions
     ############################################################################
-    def execute(self, cr, uid, ids, context=None):
-        rc = super(CenitIntegrationSettings, self).execute(
-            cr, uid, ids, context=context
-        )
+    def execute(self, context=None):
+        rc = super(CenitIntegrationSettings, self).execute()
 
-        if not context.get('install', False):
-            return rc
-
-        objs = self.browse(cr, uid, ids)
+        objs = self.browse(self.ids)
         if not objs:
             return rc
         obj = objs[0]
 
-        installer = self.pool.get('cenit.collection.installer')
+        installer = self.env['cenit.collection.installer']
         data = installer.get_collection_data(
-            cr, uid,
             COLLECTION_NAME,
-            version = COLLECTION_VERSION,
-            context = context
+            version = COLLECTION_VERSION
         )
 
         params = {}
-        for p in data.get('params'):
-            k = p.get('parameter')
+        for p in data.get('pull_parameters'):
+            k = p['label']
             id_ = p.get('id')
             value = getattr(obj,COLLECTION_PARAMS.get(k))
             params.update ({id_: value})
 
-        installer.pull_shared_collection(cr, uid, data.get('id'), params=params, context=context)
+        installer.pull_shared_collection(data.get('id'), params=params)
+        installer.install_common_data(data['data'])
 
         return rc

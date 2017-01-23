@@ -54,13 +54,11 @@ class CenitIntegrationSettings(models.TransientModel):
     ############################################################################
     # Actions
     ############################################################################
-    def install(self, cr, uid, context=None):
-        installer = self.pool.get('cenit.collection.installer')
+    def install(self, context=None):
+        installer = self.env['cenit.collection.installer']
         data = installer.get_collection_data(
-            cr, uid,
             COLLECTION_NAME,
-            version = COLLECTION_VERSION,
-            context = context
+            version = COLLECTION_VERSION
         )
 
-        installer.install_collection(cr, uid, {'name': COLLECTION_NAME})
+        installer.install_common_data(data['data'])

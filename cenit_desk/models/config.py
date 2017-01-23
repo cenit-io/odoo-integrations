@@ -29,9 +29,9 @@ _logger = logging.getLogger(__name__)
 COLLECTION_NAME = "desk"
 COLLECTION_VERSION = "1.0.0"
 COLLECTION_PARAMS = {
-  "On connection 'Desk Connection' template parameter 'Desk URL'":'desk_url',
-  "On connection 'Desk Connection' template parameter 'Desk Username'":'desk_username',
-  "On connection 'Desk Connection' template parameter 'Desk Password'":'desk_password',
+    'Desk URL':'desk_url',
+    'Desk Username':'desk_username',
+    'Desk Password':'desk_password',
 }
 
 class CenitIntegrationSettings(models.TransientModel):
@@ -48,21 +48,21 @@ class CenitIntegrationSettings(models.TransientModel):
     ############################################################################
     # Default Getters
     ############################################################################
-    def get_default_desk_url(self, cr, uid, ids, context=None):
-        desk_url = self.pool.get('ir.config_parameter').get_param(
-            cr, uid, 'odoo_cenit.desk.desk_url', default=None, context=context
+    def get_default_desk_url(self, context=None):
+        desk_url = self.env['ir.config_parameter'].get_param(
+            'odoo_cenit.desk.desk_url', default=None
         )
         return {'desk_url': desk_url or ''}
 
-    def get_default_desk_username(self, cr, uid, ids, context=None):
-        desk_username = self.pool.get('ir.config_parameter').get_param(
-            cr, uid, 'odoo_cenit.desk.desk_username', default=None, context=context
+    def get_default_desk_username(self, context=None):
+        desk_username = self.env['ir.config_parameter'].get_param(
+            'odoo_cenit.desk.desk_username', default=None
         )
         return {'desk_username': desk_username or ''}
 
-    def get_default_desk_password(self, cr, uid, ids, context=None):
-        desk_password = self.pool.get('ir.config_parameter').get_param(
-            cr, uid, 'odoo_cenit.desk.desk_password', default=None, context=context
+    def get_default_desk_password(self, context=None):
+        desk_password = self.env['ir.config_parameter'].get_param(
+            'odoo_cenit.desk.desk_password', default=None
         )
         return {'desk_password': desk_password or ''}
 
@@ -70,62 +70,53 @@ class CenitIntegrationSettings(models.TransientModel):
     ############################################################################
     # Default Setters
     ############################################################################
-    def set_desk_url(self, cr, uid, ids, context=None):
-        config_parameters = self.pool.get('ir.config_parameter')
-        for record in self.browse(cr, uid, ids, context=context):
+    def set_desk_url(self):
+        config_parameters = self.env['ir.config_parameter']
+        for record in self.browse(self.ids):
             config_parameters.set_param (
-                cr, uid, 'odoo_cenit.desk.desk_url', record.desk_url or '',
-                context=context
+                'odoo_cenit.desk.desk_url', record.desk_url or ''
             )
 
-    def set_desk_username(self, cr, uid, ids, context=None):
-        config_parameters = self.pool.get('ir.config_parameter')
-        for record in self.browse(cr, uid, ids, context=context):
+    def set_desk_username(self):
+        config_parameters = self.env['ir.config_parameter']
+        for record in self.browse(self.ids):
             config_parameters.set_param (
-                cr, uid, 'odoo_cenit.desk.desk_username', record.desk_username or '',
-                context=context
+                'odoo_cenit.desk.desk_username', record.desk_username or ''
             )
 
-    def set_desk_password(self, cr, uid, ids, context=None):
-        config_parameters = self.pool.get('ir.config_parameter')
-        for record in self.browse(cr, uid, ids, context=context):
+    def set_desk_password(self):
+        config_parameters = self.env['ir.config_parameter']
+        for record in self.browse(self.ids):
             config_parameters.set_param (
-                cr, uid, 'odoo_cenit.desk.desk_password', record.desk_password or '',
-                context=context
+                'odoo_cenit.desk.desk_password', record.desk_password or ''
             )
 
 
     ############################################################################
     # Actions
     ############################################################################
-    def execute(self, cr, uid, ids, context=None):
-        rc = super(CenitIntegrationSettings, self).execute(
-            cr, uid, ids, context=context
-        )
+    def execute(self, context=None):
+        rc = super(CenitIntegrationSettings, self).execute()
 
-        if not context.get('install', False):
-            return rc
-
-        objs = self.browse(cr, uid, ids)
+        objs = self.browse(self.ids)
         if not objs:
             return rc
         obj = objs[0]
 
-        installer = self.pool.get('cenit.collection.installer')
+        installer = self.env['cenit.collection.installer']
         data = installer.get_collection_data(
-            cr, uid,
             COLLECTION_NAME,
-            version = COLLECTION_VERSION,
-            context = context
+            version = COLLECTION_VERSION
         )
 
         params = {}
-        for p in data.get('params'):
-            k = p.get('parameter')
+        for p in data.get('pull_parameters'):
+            k = p['label']
             id_ = p.get('id')
             value = getattr(obj,COLLECTION_PARAMS.get(k))
             params.update ({id_: value})
 
-        installer.pull_shared_collection(cr, uid, data.get('id'), params=params, context=context)
+        installer.pull_shared_collection(data.get('id'), params=params)
+        installer.install_common_data(data['data'])
 
         return rc
