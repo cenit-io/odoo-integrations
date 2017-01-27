@@ -63,4 +63,4 @@ class CenitIntegrationSettings(models.TransientModel):
             context = context
         )
 
-        installer.install_collection(cr, uid, {'name': COLLECTION_NAME})
+        installer.install_common_data(cr, uid, data['data'])
