@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="wizard_cenit_thetvdb_api_v2_2_1_1_install" model="ir.ui.view">
+            <field name="name">API v2 targets v1 functionality with a few minor additions. The API is accessible via https://api.thetvdb.com and provides the following REST endpoints in JSON format.
+
+
+How to use this API documentation
+----------------
+
+
+You may browse the API routes without authentication, but if you wish to send requests to the API and see response data, then you must authenticate.
+1. Obtain a JWT token by &#x60;POST&#x60;ing  to the &#x60;/login&#x60; route in the &#x60;Authentication&#x60; section with your API key and credentials.
+1. Paste the JWT token from the response into the &quot;JWT Token&quot; field at the top of the page and click the &#x27;Add Token&#x27; button.
+
+
+You will now be able to use the remaining routes to send requests to the API and get a response.
+
+
+Language Selection
+----------------
+
+
+Language selection is done via the &#x60;Accept-Language&#x60; header. At the moment, you may only pass one language abbreviation in the header at a time. Valid language abbreviations can be found at the &#x60;/languages&#x60; route..
+
+
+Authentication
+----------------
+
+
+Authentication to use the API is similar to the How-to section above. Users must &#x60;POST&#x60; to the &#x60;/login&#x60; route with their API key and credentials in the following format in order to obtain a JWT token.
+
+&#x60;{&quot;apikey&quot;:&quot;APIKEY&quot;,&quot;username&quot;:&quot;USERNAME&quot;,&quot;userkey&quot;:&quot;USERKEY&quot;}&#x60;
+
+Note that the username and key are ONLY required for the &#x60;/user&#x60; routes. The user&#x27;s key is labled &#x60;Account Identifier&#x60; in the account section of the main site.
+The token is then used in all subsequent requests by providing it in the &#x60;Authorization&#x60; header. The header will look like: &#x60;Authorization: Bearer &lt;yourJWTtoken&gt;&#x60;. Currently, the token expires after 24 hours. You can &#x60;GET&#x60; the &#x60;/refresh_token&#x60; route to extend that expiration date.
+
+
+Versioning
+----------------
+
+
+You may request a different version of the API by including an &#x60;Accept&#x60; header in your request with the following format: &#x60;Accept:application/vnd.thetvdb.v$VERSION&#x60;. This documentation automatically uses the version seen at the top and bottom of the page. settings</field>
+            <field name="model">cenit.thetvdb_api_v2_2_1_1.settings</field>
+            <field name="inherit_id" ref="base.res_config_installer"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form" position="attributes">
+                    <attribute name="string">API v2 targets v1 functionality with a few minor additions. The API is accessible via https://api.thetvdb.com and provides the following REST endpoints in JSON format.
+
+
+How to use this API documentation
+----------------
+
+
+You may browse the API routes without authentication, but if you wish to send requests to the API and see response data, then you must authenticate.
+1. Obtain a JWT token by &#x60;POST&#x60;ing  to the &#x60;/login&#x60; route in the &#x60;Authentication&#x60; section with your API key and credentials.
+1. Paste the JWT token from the response into the &quot;JWT Token&quot; field at the top of the page and click the &#x27;Add Token&#x27; button.
+
+
+You will now be able to use the remaining routes to send requests to the API and get a response.
+
+
+Language Selection
+----------------
+
+
+Language selection is done via the &#x60;Accept-Language&#x60; header. At the moment, you may only pass one language abbreviation in the header at a time. Valid language abbreviations can be found at the &#x60;/languages&#x60; route..
+
+
+Authentication
+----------------
+
+
+Authentication to use the API is similar to the How-to section above. Users must &#x60;POST&#x60; to the &#x60;/login&#x60; route with their API key and credentials in the following format in order to obtain a JWT token.
+
+&#x60;{&quot;apikey&quot;:&quot;APIKEY&quot;,&quot;username&quot;:&quot;USERNAME&quot;,&quot;userkey&quot;:&quot;USERKEY&quot;}&#x60;
+
+Note that the username and key are ONLY required for the &#x60;/user&#x60; routes. The user&#x27;s key is labled &#x60;Account Identifier&#x60; in the account section of the main site.
+The token is then used in all subsequent requests by providing it in the &#x60;Authorization&#x60; header. The header will look like: &#x60;Authorization: Bearer &lt;yourJWTtoken&gt;&#x60;. Currently, the token expires after 24 hours. You can &#x60;GET&#x60; the &#x60;/refresh_token&#x60; route to extend that expiration date.
+
+
+Versioning
+----------------
+
+
+You may request a different version of the API by including an &#x60;Accept&#x60; header in your request with the following format: &#x60;Accept:application/vnd.thetvdb.v$VERSION&#x60;. This documentation automatically uses the version seen at the top and bottom of the page. settings</attribute>
+                </xpath>
+                <xpath expr="//footer" position="replace">
+                    <footer>
+                        <button string="Apply" type="object" name="execute"
+                                class="oe_highlight" context="{'install': True}"/>
+                    </footer>
+                </xpath>
+                <xpath expr="//separator" string="title" position="replace">
+                    <p class="oe_grey">
+                        Configure API v2 targets v1 functionality with a few minor additions. The API is accessible via https://api.thetvdb.com and provides the following REST endpoints in JSON format.
+
+
+How to use this API documentation
+----------------
+
+
+You may browse the API routes without authentication, but if you wish to send requests to the API and see response data, then you must authenticate.
+1. Obtain a JWT token by &#x60;POST&#x60;ing  to the &#x60;/login&#x60; route in the &#x60;Authentication&#x60; section with your API key and credentials.
+1. Paste the JWT token from the response into the &quot;JWT Token&quot; field at the top of the page and click the &#x27;Add Token&#x27; button.
+
+
+You will now be able to use the remaining routes to send requests to the API and get a response.
+
+
+Language Selection
+----------------
+
+
+Language selection is done via the &#x60;Accept-Language&#x60; header. At the moment, you may only pass one language abbreviation in the header at a time. Valid language abbreviations can be found at the &#x60;/languages&#x60; route..
+
+
+Authentication
+----------------
+
+
+Authentication to use the API is similar to the How-to section above. Users must &#x60;POST&#x60; to the &#x60;/login&#x60; route with their API key and credentials in the following format in order to obtain a JWT token.
+
+&#x60;{&quot;apikey&quot;:&quot;APIKEY&quot;,&quot;username&quot;:&quot;USERNAME&quot;,&quot;userkey&quot;:&quot;USERKEY&quot;}&#x60;
+
+Note that the username and key are ONLY required for the &#x60;/user&#x60; routes. The user&#x27;s key is labled &#x60;Account Identifier&#x60; in the account section of the main site.
+The token is then used in all subsequent requests by providing it in the &#x60;Authorization&#x60; header. The header will look like: &#x60;Authorization: Bearer &lt;yourJWTtoken&gt;&#x60;. Currently, the token expires after 24 hours. You can &#x60;GET&#x60; the &#x60;/refresh_token&#x60; route to extend that expiration date.
+
+
+Versioning
+----------------
+
+
+You may request a different version of the API by including an &#x60;Accept&#x60; header in your request with the following format: &#x60;Accept:application/vnd.thetvdb.v$VERSION&#x60;. This documentation automatically uses the version seen at the top and bottom of the page. data
+                    </p>
+                    <group>
+                        <field name='api_key' placeholder='Your API Key'/>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="action_wizard_cenit_thetvdb_api_v2_2_1_1_install" model="ir.actions.act_window">
+            <field name="name">Configure API v2 targets v1 functionality with a few minor additions. The API is accessible via https://api.thetvdb.com and provides the following REST endpoints in JSON format.
+
+
+How to use this API documentation
+----------------
+
+
+You may browse the API routes without authentication, but if you wish to send requests to the API and see response data, then you must authenticate.
+1. Obtain a JWT token by &#x60;POST&#x60;ing  to the &#x60;/login&#x60; route in the &#x60;Authentication&#x60; section with your API key and credentials.
+1. Paste the JWT token from the response into the &quot;JWT Token&quot; field at the top of the page and click the &#x27;Add Token&#x27; button.
+
+
+You will now be able to use the remaining routes to send requests to the API and get a response.
+
+
+Language Selection
+----------------
+
+
+Language selection is done via the &#x60;Accept-Language&#x60; header. At the moment, you may only pass one language abbreviation in the header at a time. Valid language abbreviations can be found at the &#x60;/languages&#x60; route..
+
+
+Authentication
+----------------
+
+
+Authentication to use the API is similar to the How-to section above. Users must &#x60;POST&#x60; to the &#x60;/login&#x60; route with their API key and credentials in the following format in order to obtain a JWT token.
+
+&#x60;{&quot;apikey&quot;:&quot;APIKEY&quot;,&quot;username&quot;:&quot;USERNAME&quot;,&quot;userkey&quot;:&quot;USERKEY&quot;}&#x60;
+
+Note that the username and key are ONLY required for the &#x60;/user&#x60; routes. The user&#x27;s key is labled &#x60;Account Identifier&#x60; in the account section of the main site.
+The token is then used in all subsequent requests by providing it in the &#x60;Authorization&#x60; header. The header will look like: &#x60;Authorization: Bearer &lt;yourJWTtoken&gt;&#x60;. Currently, the token expires after 24 hours. You can &#x60;GET&#x60; the &#x60;/refresh_token&#x60; route to extend that expiration date.
+
+
+Versioning
+----------------
+
+
+You may request a different version of the API by including an &#x60;Accept&#x60; header in your request with the following format: &#x60;Accept:application/vnd.thetvdb.v$VERSION&#x60;. This documentation automatically uses the version seen at the top and bottom of the page. data</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">cenit.thetvdb_api_v2_2_1_1.settings</field>
+            <field name="view_id" ref="wizard_cenit_thetvdb_api_v2_2_1_1_install"/>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <record id="todo_wizard_cenit_thetvdb_api_v2_2_1_1_install" model="ir.actions.todo">
+            <field name="action_id" ref="action_wizard_cenit_thetvdb_api_v2_2_1_1_install"/>
+            <field name="sequence">1</field>
+            <field name="type">automatic</field>
+        </record>
+
+    </data>
+</openerp>

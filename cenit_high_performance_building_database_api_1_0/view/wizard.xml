@@ -7,23 +7,23 @@
             <field name="model">cenit.high_performance_building_database_api_1_0.settings</field>
             <field name="inherit_id" ref="base.res_config_installer"/>
             <field name="arch" type="xml">
-                <form position="attributes">
+                <xpath expr="//form" position="attributes">
                     <attribute name="string">The Buildings Database is a shared resource for the building industry. The Database, developed by the U.S. Department of Energy and the National Renewable Energy Laboratory (NREL), is a unique central repository of in-depth information and data on high-performance, green building projects across the United States and abroad.   settings</attribute>
-                </form>
-                <footer position="replace">
+                </xpath>
+                <xpath expr="//footer" position="replace">
                     <footer>
                         <button string="Apply" type="object" name="execute"
                                 class="oe_highlight" context="{'install': True}"/>
                     </footer>
-                </footer>
-                <separator string="title" position="replace">
+                </xpath>
+                <xpath expr="//separator" string="title" position="replace">
                     <p class="oe_grey">
                         Configure The Buildings Database is a shared resource for the building industry. The Database, developed by the U.S. Department of Energy and the National Renewable Energy Laboratory (NREL), is a unique central repository of in-depth information and data on high-performance, green building projects across the United States and abroad.   data
                     </p>
                     <group>
                         <field name='api_key' placeholder='Your API Key'/>
                     </group>
-                </separator>
+                </xpath>
             </field>
         </record>
 

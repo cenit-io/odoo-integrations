@@ -7,23 +7,23 @@
             <field name="model">cenit.getty_images_api_3_0.settings</field>
             <field name="inherit_id" ref="base.res_config_installer"/>
             <field name="arch" type="xml">
-                <form position="attributes">
+                <xpath expr="//form" position="attributes">
                     <attribute name="string">Build applications using the world&#x27;s most powerful imagery settings</attribute>
-                </form>
-                <footer position="replace">
+                </xpath>
+                <xpath expr="//footer" position="replace">
                     <footer>
                         <button string="Apply" type="object" name="execute"
                                 class="oe_highlight" context="{'install': True}"/>
                     </footer>
-                </footer>
-                <separator string="title" position="replace">
+                </xpath>
+                <xpath expr="//separator" string="title" position="replace">
                     <p class="oe_grey">
                         Configure Build applications using the world&#x27;s most powerful imagery data
                     </p>
                     <group>
                         <field name='api_key' placeholder='Your API Key'/>
                     </group>
-                </separator>
+                </xpath>
             </field>
         </record>
 

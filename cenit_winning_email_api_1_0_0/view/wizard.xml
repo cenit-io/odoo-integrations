@@ -7,23 +7,23 @@
             <field name="model">cenit.winning_email_api_1_0_0.settings</field>
             <field name="inherit_id" ref="base.res_config_installer"/>
             <field name="arch" type="xml">
-                <form position="attributes">
+                <xpath expr="//form" position="attributes">
                     <attribute name="string">The Winning Email API allows you to access our services from your applications. Contact us if you need help with anything, or require access to something we don&#x27;t yet offer. The API overview is available &lt;a href&#x3D;&#x27;/api/v1/docs&#x27; target&#x3D;&#x27;_blank&#x27;&gt;here&lt;/a&gt;. settings</attribute>
-                </form>
-                <footer position="replace">
+                </xpath>
+                <xpath expr="//footer" position="replace">
                     <footer>
                         <button string="Apply" type="object" name="execute"
                                 class="oe_highlight" context="{'install': True}"/>
                     </footer>
-                </footer>
-                <separator string="title" position="replace">
+                </xpath>
+                <xpath expr="//separator" string="title" position="replace">
                     <p class="oe_grey">
                         Configure The Winning Email API allows you to access our services from your applications. Contact us if you need help with anything, or require access to something we don&#x27;t yet offer. The API overview is available &lt;a href&#x3D;&#x27;/api/v1/docs&#x27; target&#x3D;&#x27;_blank&#x27;&gt;here&lt;/a&gt;. data
                     </p>
                     <group>
                         <field name='api_key' placeholder='Your API Key'/>
                     </group>
-                </separator>
+                </xpath>
             </field>
         </record>
 

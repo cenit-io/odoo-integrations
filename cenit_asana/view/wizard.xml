@@ -7,23 +7,23 @@
             <field name="model">cenit.asana.settings</field>
             <field name="inherit_id" ref="base.res_config_installer"/>
             <field name="arch" type="xml">
-                <form position="attributes">
+                <xpath expr="//form" position="attributes">
                     <attribute name="string">Asana shared collection settings</attribute>
-                </form>
-                <footer position="replace">
+                </xpath>
+                <xpath expr="//footer" position="replace">
                     <footer>
                         <button string="Apply" type="object" name="execute"
                                 class="oe_highlight" context="{'install': True}"/>
                     </footer>
-                </footer>
-                <separator string="title" position="replace">
+                </xpath>
+                <xpath expr="//separator" string="title" position="replace">
                     <p class="oe_grey">
                         Configure Asana shared collection data
                     </p>
                     <group>
                         <field name='personal_token' placeholder='Your personal token'/>
                     </group>
-                </separator>
+                </xpath>
             </field>
         </record>
 

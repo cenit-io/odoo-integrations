@@ -12,21 +12,21 @@
             <field name="model">cenit.wikimedia_api_1_0_0_beta.settings</field>
             <field name="inherit_id" ref="base.res_config_installer"/>
             <field name="arch" type="xml">
-                <form position="attributes">
+                <xpath expr="//form" position="attributes">
                     <attribute name="string">This API aims to provide coherent and low-latency access to Wikimedia content and services. It is currently in beta testing, so things aren&#x27;t completely locked down yet. Each entry point has explicit stability markers to inform you about development status and change policy, according to [our API version policy](https://www.mediawiki.org/wiki/API_versioning).
 ### High-volume access
   - Don&#x27;t perform more than 200 requests/s to this API.
   - Set a unique &#x60;User-Agent&#x60; header that allows us to contact you
     quickly. Email addresses or URLs of contact pages work well.
  settings</attribute>
-                </form>
-                <footer position="replace">
+                </xpath>
+                <xpath expr="//footer" position="replace">
                     <footer>
                         <button string="Apply" type="object" name="execute"
                                 class="oe_highlight" context="{'install': True}"/>
                     </footer>
-                </footer>
-                <separator string="title" position="replace">
+                </xpath>
+                <xpath expr="//separator" string="title" position="replace">
                     <p class="oe_grey">
                         Configure This API aims to provide coherent and low-latency access to Wikimedia content and services. It is currently in beta testing, so things aren&#x27;t completely locked down yet. Each entry point has explicit stability markers to inform you about development status and change policy, according to [our API version policy](https://www.mediawiki.org/wiki/API_versioning).
 ### High-volume access
@@ -38,7 +38,7 @@
                     <group>
                         <field name='api_key' placeholder='Your API Key'/>
                     </group>
-                </separator>
+                </xpath>
             </field>
         </record>
 

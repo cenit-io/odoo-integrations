@@ -29,12 +29,12 @@ _logger = logging.getLogger(__name__)
 COLLECTION_NAME = "tender"
 COLLECTION_VERSION = "1.0.0"
 COLLECTION_PARAMS = {
-  "On connection 'Tender Connection' template parameter 'API Key'":'tender_api_key',
-  "On connection 'Tender Connection' template parameter 'Author Name'":'tender_author_name',
-  "On connection 'Tender Connection' template parameter 'Author Email'":'tender_author_email',
-  "On connection 'Tender Connection' template parameter 'Domain'":'tender_domain',
-  "On connection 'Tender Connection' template parameter 'Category'":'tender_category_id',
-  "On connection 'Tender Connection' template parameter 'Public'":'tender_public',
+    'API Key':'tender_api_key',
+    'Author Name':'tender_author_name',
+    'Author Email':'tender_author_email',
+    'Domain':'tender_domain',
+    'Category':'tender_category_id',
+    'Public':'tender_public',
 }
 
 class CenitIntegrationSettings(models.TransientModel):
@@ -168,12 +168,13 @@ class CenitIntegrationSettings(models.TransientModel):
         )
 
         params = {}
-        for p in data.get('params'):
-            k = p.get('parameter')
+        for p in data.get('pull_parameters'):
+            k = p['label']
             id_ = p.get('id')
             value = getattr(obj,COLLECTION_PARAMS.get(k))
             params.update ({id_: value})
 
         installer.pull_shared_collection(cr, uid, data.get('id'), params=params, context=context)
+        installer.install_common_data(cr, uid, data['data'])
 
         return rc
