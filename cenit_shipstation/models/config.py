@@ -21,7 +21,7 @@
 
 import logging
 
-from openerp import models, fields
+from openerp import models, fields, api
 
 
 _logger = logging.getLogger(__name__)
@@ -48,19 +48,19 @@ class CenitIntegrationSettings(models.TransientModel):
     ############################################################################
     # Default Getters
     ############################################################################
-    def get_default_key(self, context=None):
+    def get_default_key(self, context):
         key = self.env['ir.config_parameter'].get_param(
             'odoo_cenit.shipstation.key', default=None
         )
         return {'key': key or ''}
 
-    def get_default_secret(self, context=None):
+    def get_default_secret(self, context):
         secret = self.env['ir.config_parameter'].get_param(
             'odoo_cenit.shipstation.secret', default=None
         )
         return {'secret': secret or ''}
 
-    def get_default_store_id(self, context=None):
+    def get_default_store_id(self, context):
         store_id = self.env['ir.config_parameter'].get_param(
             'odoo_cenit.shipstation.store_id', default=None
         )
@@ -95,8 +95,11 @@ class CenitIntegrationSettings(models.TransientModel):
     ############################################################################
     # Actions
     ############################################################################
-    def execute(self, context=None):
+    def execute(self):
         rc = super(CenitIntegrationSettings, self).execute()
+
+        if not self.env.context.get('install', False):
+            return rc
 
         objs = self.browse(self.ids)
         if not objs:

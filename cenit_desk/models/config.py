@@ -21,7 +21,7 @@
 
 import logging
 
-from openerp import models, fields
+from openerp import models, fields, api
 
 
 _logger = logging.getLogger(__name__)
@@ -48,19 +48,19 @@ class CenitIntegrationSettings(models.TransientModel):
     ############################################################################
     # Default Getters
     ############################################################################
-    def get_default_desk_url(self, context=None):
+    def get_default_desk_url(self, context):
         desk_url = self.env['ir.config_parameter'].get_param(
             'odoo_cenit.desk.desk_url', default=None
         )
         return {'desk_url': desk_url or ''}
 
-    def get_default_desk_username(self, context=None):
+    def get_default_desk_username(self, context):
         desk_username = self.env['ir.config_parameter'].get_param(
             'odoo_cenit.desk.desk_username', default=None
         )
         return {'desk_username': desk_username or ''}
 
-    def get_default_desk_password(self, context=None):
+    def get_default_desk_password(self, context):
         desk_password = self.env['ir.config_parameter'].get_param(
             'odoo_cenit.desk.desk_password', default=None
         )
@@ -95,8 +95,11 @@ class CenitIntegrationSettings(models.TransientModel):
     ############################################################################
     # Actions
     ############################################################################
-    def execute(self, context=None):
+    def execute(self):
         rc = super(CenitIntegrationSettings, self).execute()
+
+        if not self.env.context.get('install', False):
+            return rc
 
         objs = self.browse(self.ids)
         if not objs:

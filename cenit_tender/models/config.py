@@ -21,7 +21,7 @@
 
 import logging
 
-from openerp import models, fields
+from openerp import models, fields, api
 
 
 _logger = logging.getLogger(__name__)
@@ -54,37 +54,37 @@ class CenitIntegrationSettings(models.TransientModel):
     ############################################################################
     # Default Getters
     ############################################################################
-    def get_default_tender_api_key(self, context=None):
+    def get_default_tender_api_key(self, context):
         tender_api_key = self.env['ir.config_parameter'].get_param(
             'odoo_cenit.tender.tender_api_key', default=None
         )
         return {'tender_api_key': tender_api_key or ''}
 
-    def get_default_tender_author_name(self, context=None):
+    def get_default_tender_author_name(self, context):
         tender_author_name = self.env['ir.config_parameter'].get_param(
             'odoo_cenit.tender.tender_author_name', default=None
         )
         return {'tender_author_name': tender_author_name or ''}
 
-    def get_default_tender_author_email(self, context=None):
+    def get_default_tender_author_email(self, context):
         tender_author_email = self.env['ir.config_parameter'].get_param(
             'odoo_cenit.tender.tender_author_email', default=None
         )
         return {'tender_author_email': tender_author_email or ''}
 
-    def get_default_tender_domain(self, context=None):
+    def get_default_tender_domain(self, context):
         tender_domain = self.env['ir.config_parameter'].get_param(
             'odoo_cenit.tender.tender_domain', default=None
         )
         return {'tender_domain': tender_domain or ''}
 
-    def get_default_tender_category_id(self, context=None):
+    def get_default_tender_category_id(self, context):
         tender_category_id = self.env['ir.config_parameter'].get_param(
             'odoo_cenit.tender.tender_category_id', default=None
         )
         return {'tender_category_id': tender_category_id or ''}
 
-    def get_default_tender_public(self, context=None):
+    def get_default_tender_public(self, context):
         tender_public = self.env['ir.config_parameter'].get_param(
             'odoo_cenit.tender.tender_public', default=None
         )
@@ -140,8 +140,11 @@ class CenitIntegrationSettings(models.TransientModel):
     ############################################################################
     # Actions
     ############################################################################
-    def execute(self, context=None):
+    def execute(self):
         rc = super(CenitIntegrationSettings, self).execute()
+
+        if not self.env.context.get('install', False):
+            return rc
 
         objs = self.browse(self.ids)
         if not objs:

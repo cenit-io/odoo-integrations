@@ -21,7 +21,7 @@
 
 import logging
 
-from openerp import models, fields
+from openerp import models, fields, api
 
 
 _logger = logging.getLogger(__name__)
@@ -46,13 +46,13 @@ class CenitIntegrationSettings(models.TransientModel):
     ############################################################################
     # Default Getters
     ############################################################################
-    def get_default_account_sid(self, context=None):
+    def get_default_account_sid(self, context):
         account_sid = self.env['ir.config_parameter'].get_param(
             'odoo_cenit.twilio.account_sid', default=None
         )
         return {'account_sid': account_sid or ''}
 
-    def get_default_auth_token(self, context=None):
+    def get_default_auth_token(self, context):
         auth_token = self.env['ir.config_parameter'].get_param(
             'odoo_cenit.twilio.auth_token', default=None
         )
@@ -80,8 +80,11 @@ class CenitIntegrationSettings(models.TransientModel):
     ############################################################################
     # Actions
     ############################################################################
-    def execute(self, context=None):
+    def execute(self):
         rc = super(CenitIntegrationSettings, self).execute()
+
+        if not self.env.context.get('install', False):
+            return rc
 
         objs = self.browse(self.ids)
         if not objs:
