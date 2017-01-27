@@ -29,7 +29,7 @@ _logger = logging.getLogger(__name__)
 COLLECTION_NAME = "350000plus_recipe_and_grocery_list_api_v2_partner"
 COLLECTION_VERSION = "0.1"
 COLLECTION_PARAMS = {
-  "On connection 'Connection' template parameter 'API Key'":'api_key',
+    'API Key':'api_key',
 }
 
 class CenitIntegrationSettings(models.TransientModel):
@@ -88,12 +88,13 @@ class CenitIntegrationSettings(models.TransientModel):
         )
 
         params = {}
-        for p in data.get('params'):
-            k = p.get('parameter')
+        for p in data.get('pull_parameters'):
+            k = p['label']
             id_ = p.get('id')
             value = getattr(obj,COLLECTION_PARAMS.get(k))
             params.update ({id_: value})
 
         installer.pull_shared_collection(cr, uid, data.get('id'), params=params, context=context)
+        installer.install_common_data(cr, uid, data['data'])
 
         return rc

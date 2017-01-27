@@ -29,9 +29,9 @@ _logger = logging.getLogger(__name__)
 COLLECTION_NAME = "mailchimp"
 COLLECTION_VERSION = "1.0.0"
 COLLECTION_PARAMS = {
-  "On connection 'Mailchimp API Connection' template parameter 'Username'":'user',
-  "On connection 'Mailchimp API Connection' template parameter 'API Key'":'password',
-  "On connection 'Mailchimp API Connection' template parameter 'Service Node'":'node',
+    'Username':'user',
+    'API Key':'password',
+    'Service Node':'node',
 }
 
 class CenitIntegrationSettings(models.TransientModel):
@@ -120,12 +120,13 @@ class CenitIntegrationSettings(models.TransientModel):
         )
 
         params = {}
-        for p in data.get('params'):
-            k = p.get('parameter')
+        for p in data.get('pull_parameters'):
+            k = p['label']
             id_ = p.get('id')
             value = getattr(obj,COLLECTION_PARAMS.get(k))
             params.update ({id_: value})
 
         installer.pull_shared_collection(cr, uid, data.get('id'), params=params, context=context)
+        installer.install_common_data(cr, uid, data['data'])
 
         return rc
