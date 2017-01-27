@@ -21,7 +21,7 @@
 
 import logging
 
-from openerp import models, fields
+from openerp import models, fields, api
 
 
 _logger = logging.getLogger(__name__)
@@ -54,7 +54,8 @@ class CenitIntegrationSettings(models.TransientModel):
     ############################################################################
     # Actions
     ############################################################################
-    def install(self, context=None):
+    @api.model
+    def install(self):
         installer = self.env['cenit.collection.installer']
         data = installer.get_collection_data(
             COLLECTION_NAME,
