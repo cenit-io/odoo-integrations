@@ -3,12 +3,12 @@
     <data>
 
         <record id="wizard_cenit_shipwire_install" model="ir.ui.view">
-            <field name="name">Shipwire Integration settings</field>
+            <field name="name">Shipwire settings</field>
             <field name="model">cenit.shipwire.settings</field>
             <field name="inherit_id" ref="base.res_config_installer"/>
             <field name="arch" type="xml">
                 <form position="attributes">
-                    <attribute name="string">Shipwire Integration settings</attribute>
+                    <attribute name="string">Shipwire settings</attribute>
                 </form>
                 <footer position="replace">
                     <footer>
@@ -18,18 +18,18 @@
                 </footer>
                 <separator string="title" position="replace">
                     <p class="oe_grey">
-                        Configure Shipwire Integration data
+                        Configure Shipwire data
                     </p>
                     <group>
-                        <field name='shipwire_username' placeholder='Your Username'/>
-                        <field name='shipwire_password' placeholder='Your Password'/>
+                        <field name='user' placeholder='Your Shipwire user'/>
+                        <field name='passwd' placeholder='Your Shipwire password'/>
                     </group>
                 </separator>
             </field>
         </record>
 
         <record id="action_wizard_cenit_shipwire_install" model="ir.actions.act_window">
-            <field name="name">Configure Shipwire Integration data</field>
+            <field name="name">Configure Shipwire data</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">cenit.shipwire.settings</field>
             <field name="view_id" ref="wizard_cenit_shipwire_install"/>

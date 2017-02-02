@@ -26,8 +26,8 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': "Shipwire Integration",
-    'description': "Shipwire Integration",
+    'summary': "Shipwire API Integration",
+    'description': "Shipwire API Integration",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',
