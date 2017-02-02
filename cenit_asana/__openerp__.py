@@ -26,8 +26,8 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': "Asana shared collection",
-    'description': "Asana shared collection",
+    'summary': "Asana Integration",
+    'description': "Asana Integration",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',
