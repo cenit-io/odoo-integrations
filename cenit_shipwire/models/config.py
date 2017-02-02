@@ -29,8 +29,8 @@ _logger = logging.getLogger(__name__)
 COLLECTION_NAME = "shipwire"
 COLLECTION_VERSION = "1.0.0"
 COLLECTION_PARAMS = {
-    'Username':'shipwire_username',
-    'Password':'shipwire_password',
+    'Shipwire user':'user',
+    'Shipwire password':'passwd',
 }
 
 class CenitIntegrationSettings(models.TransientModel):
@@ -40,41 +40,41 @@ class CenitIntegrationSettings(models.TransientModel):
     ############################################################################
     # Pull Parameters
     ############################################################################
-    shipwire_username = fields.Char('Username')
-    shipwire_password = fields.Char('Password')
+    user = fields.Char('Shipwire user')
+    passwd = fields.Char('Shipwire password')
 
     ############################################################################
     # Default Getters
     ############################################################################
-    def get_default_shipwire_username(self, cr, uid, ids, context=None):
-        shipwire_username = self.pool.get('ir.config_parameter').get_param(
-            cr, uid, 'odoo_cenit.shipwire.shipwire_username', default=None, context=context
+    def get_default_user(self, cr, uid, ids, context=None):
+        user = self.pool.get('ir.config_parameter').get_param(
+            cr, uid, 'odoo_cenit.shipwire.user', default=None, context=context
         )
-        return {'shipwire_username': shipwire_username or ''}
+        return {'user': user or ''}
 
-    def get_default_shipwire_password(self, cr, uid, ids, context=None):
-        shipwire_password = self.pool.get('ir.config_parameter').get_param(
-            cr, uid, 'odoo_cenit.shipwire.shipwire_password', default=None, context=context
+    def get_default_passwd(self, cr, uid, ids, context=None):
+        passwd = self.pool.get('ir.config_parameter').get_param(
+            cr, uid, 'odoo_cenit.shipwire.passwd', default=None, context=context
         )
-        return {'shipwire_password': shipwire_password or ''}
+        return {'passwd': passwd or ''}
 
 
     ############################################################################
     # Default Setters
     ############################################################################
-    def set_shipwire_username(self, cr, uid, ids, context=None):
+    def set_user(self, cr, uid, ids, context=None):
         config_parameters = self.pool.get('ir.config_parameter')
         for record in self.browse(cr, uid, ids, context=context):
             config_parameters.set_param (
-                cr, uid, 'odoo_cenit.shipwire.shipwire_username', record.shipwire_username or '',
+                cr, uid, 'odoo_cenit.shipwire.user', record.user or '',
                 context=context
             )
 
-    def set_shipwire_password(self, cr, uid, ids, context=None):
+    def set_passwd(self, cr, uid, ids, context=None):
         config_parameters = self.pool.get('ir.config_parameter')
         for record in self.browse(cr, uid, ids, context=context):
             config_parameters.set_param (
-                cr, uid, 'odoo_cenit.shipwire.shipwire_password', record.shipwire_password or '',
+                cr, uid, 'odoo_cenit.shipwire.passwd', record.passwd or '',
                 context=context
             )
 
