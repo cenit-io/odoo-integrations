@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="view_cenit_magento_1_9_settings" model="ir.ui.view">
+            <field name="name">Magento 1.9 settings</field>
+            <field name="model">cenit.magento_1_9.settings</field>
+            <field name="arch" type="xml">
+                <form string="Configure Magento 1.9" class="oe_form_configuration">
+                    <header>
+                        <button string="Apply" type="object"
+                                name="execute" class="oe_highlight"/>
+                        or
+                        <button string="Cancel" type="object"
+                                name="cancel" class="oe_link"/>
+                    </header>
+                    <div>
+                        <group string="Magento 1.9 settings">
+                            <field name='magentohost' placeholder='Your Magento host' />
+                            <field name='oauth_key' placeholder='Your OAuth consumer key' />
+                            <field name='oauth_secret' placeholder='Your OAuth Consumer Secret' />
+                        </group>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_cenit_magento_1_9_settings" model="ir.actions.act_window">
+            <field name="name">Magento 1.9 settings</field>
+            <field name="res_model">cenit.magento_1_9.settings</field>
+            <field name="view_mode">form</field>
+            <field name="target">inline</field>
+            <field name="view_id" ref="view_cenit_magento_1_9_settings"/>
+        </record>
+
+        <menuitem id="menu_cenit_magento_1_9_settings"
+            parent="cenit_base.menu_cenit_integrations_settings"
+            sequence="1" action="action_cenit_magento_1_9_settings"/>
+
+        <menuitem id="menu_cenit_magento_1_9_settings_alt"
+            parent="cenit_base.menu_cenit_integrations_settings_alt"
+            sequence="1" action="action_cenit_magento_1_9_settings"/>
+
+    </data>
+</openerp>
