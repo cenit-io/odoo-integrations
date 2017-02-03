@@ -29,7 +29,7 @@ _logger = logging.getLogger(__name__)
 COLLECTION_NAME = "asana"
 COLLECTION_VERSION = "1.0.0"
 COLLECTION_PARAMS = {
-    'personal token':'personal_token',
+    'Personal token':'personal_token',
 }
 
 class CenitIntegrationSettings(models.TransientModel):
@@ -39,7 +39,7 @@ class CenitIntegrationSettings(models.TransientModel):
     ############################################################################
     # Pull Parameters
     ############################################################################
-    personal_token = fields.Char('personal token')
+    personal_token = fields.Char('Personal token')
 
     ############################################################################
     # Default Getters
