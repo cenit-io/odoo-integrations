@@ -29,9 +29,9 @@ _logger = logging.getLogger(__name__)
 COLLECTION_NAME = "mailchimp"
 COLLECTION_VERSION = "1.0.0"
 COLLECTION_PARAMS = {
-    'Username':'user',
-    'API Key':'password',
-    'Service Node':'node',
+    'Mailchimp username':'user',
+    'Mailchimp password':'password',
+    'Mailchimp service node':'node',
 }
 
 class CenitIntegrationSettings(models.TransientModel):
@@ -41,9 +41,9 @@ class CenitIntegrationSettings(models.TransientModel):
     ############################################################################
     # Pull Parameters
     ############################################################################
-    user = fields.Char('Username')
-    password = fields.Char('API Key')
-    node = fields.Char('Service Node')
+    user = fields.Char('Mailchimp username')
+    password = fields.Char('Mailchimp password')
+    node = fields.Char('Mailchimp service node')
 
     ############################################################################
     # Default Getters
