@@ -26,8 +26,8 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': "Mailchimp API Collection",
-    'description': "Mailchimp API Collection",
+    'summary': "Mailchimp Integration",
+    'description': "Mailchimp Integration",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',
