@@ -29,7 +29,7 @@ _logger = logging.getLogger(__name__)
 COLLECTION_NAME = "mandrill_api_1_0"
 COLLECTION_VERSION = "0.1"
 COLLECTION_PARAMS = {
-    # WITHOUT COLLECTION_PARAMS.
+    'Mandrill Api Key':'key',
 }
 
 class CenitIntegrationSettings(models.TransientModel):
@@ -39,27 +39,57 @@ class CenitIntegrationSettings(models.TransientModel):
     ############################################################################
     # Pull Parameters
     ############################################################################
-    # WITHOUT PULL PARAMETERS.
+    key = fields.Char('Mandrill Api Key')
 
     ############################################################################
     # Default Getters
     ############################################################################
-    # WITHOUT GETTERS.
+    def get_default_key(self, context):
+        key = self.env['ir.config_parameter'].get_param(
+            'odoo_cenit.mandrill_api_1_0.key', default=None
+        )
+        return {'key': key or ''}
+
 
     ############################################################################
     # Default Setters
     ############################################################################
-    # WITHOUT SETTERS.
+    def set_key(self):
+        config_parameters = self.env['ir.config_parameter']
+        for record in self.browse(self.ids):
+            config_parameters.set_param (
+                'odoo_cenit.mandrill_api_1_0.key', record.key or ''
+            )
+
 
     ############################################################################
     # Actions
     ############################################################################
-    @api.model
-    def install(self):
+    def execute(self):
+        rc = super(CenitIntegrationSettings, self).execute()
+
+        if not self.env.context.get('install', False):
+            return rc
+
+        objs = self.browse(self.ids)
+        if not objs:
+            return rc
+        obj = objs[0]
+
         installer = self.env['cenit.collection.installer']
         data = installer.get_collection_data(
             COLLECTION_NAME,
             version = COLLECTION_VERSION
         )
 
+        params = {}
+        for p in data.get('pull_parameters'):
+            k = p['label']
+            id_ = p.get('id')
+            value = getattr(obj,COLLECTION_PARAMS.get(k))
+            params.update ({id_: value})
+
+        installer.pull_shared_collection(data.get('id'), params=params)
         installer.install_common_data(data['data'])
+
+        return rc
