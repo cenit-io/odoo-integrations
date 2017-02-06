@@ -3,12 +3,12 @@
     <data>
 
         <record id="wizard_cenit_mailchimp_install" model="ir.ui.view">
-            <field name="name">Mailchimp API Collection settings</field>
+            <field name="name">Mailchimp settings</field>
             <field name="model">cenit.mailchimp.settings</field>
             <field name="inherit_id" ref="base.res_config_installer"/>
             <field name="arch" type="xml">
                 <form position="attributes">
-                    <attribute name="string">Mailchimp API Collection settings</attribute>
+                    <attribute name="string">Mailchimp settings</attribute>
                 </form>
                 <footer position="replace">
                     <footer>
@@ -18,19 +18,19 @@
                 </footer>
                 <separator string="title" position="replace">
                     <p class="oe_grey">
-                        Configure Mailchimp API Collection data
+                        Configure Mailchimp data
                     </p>
                     <group>
-                        <field name='user' placeholder='Your Username'/>
-                        <field name='password' placeholder='Your API Key'/>
-                        <field name='node' placeholder='Your Service Node'/>
+                        <field name='user' placeholder='Your Mailchimp username'/>
+                        <field name='password' placeholder='Your Mailchimp password'/>
+                        <field name='node' placeholder='Your Mailchimp service node'/>
                     </group>
                 </separator>
             </field>
         </record>
 
         <record id="action_wizard_cenit_mailchimp_install" model="ir.actions.act_window">
-            <field name="name">Configure Mailchimp API Collection data</field>
+            <field name="name">Configure Mailchimp data</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">cenit.mailchimp.settings</field>
             <field name="view_id" ref="wizard_cenit_mailchimp_install"/>
