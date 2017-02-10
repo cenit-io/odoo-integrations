@@ -29,7 +29,7 @@ _logger = logging.getLogger(__name__)
 COLLECTION_NAME = "odoo"
 COLLECTION_VERSION = "0.0.1"
 COLLECTION_PARAMS = {
-    # WITHOUT COLLECTION_PARAMS.
+    'Odoo host':'odoohost',
 }
 
 class CenitIntegrationSettings(models.TransientModel):
@@ -39,22 +39,46 @@ class CenitIntegrationSettings(models.TransientModel):
     ############################################################################
     # Pull Parameters
     ############################################################################
-    # WITHOUT PULL PARAMETERS.
+    odoohost = fields.Char('Odoo host')
 
     ############################################################################
     # Default Getters
     ############################################################################
-    # WITHOUT GETTERS.
+    def get_default_odoohost(self, cr, uid, ids, context=None):
+        odoohost = self.pool.get('ir.config_parameter').get_param(
+            cr, uid, 'odoo_cenit.odoo.odoohost', default=None, context=context
+        )
+        return {'odoohost': odoohost or ''}
+
 
     ############################################################################
     # Default Setters
     ############################################################################
-    # WITHOUT SETTERS.
+    def set_odoohost(self, cr, uid, ids, context=None):
+        config_parameters = self.pool.get('ir.config_parameter')
+        for record in self.browse(cr, uid, ids, context=context):
+            config_parameters.set_param (
+                cr, uid, 'odoo_cenit.odoo.odoohost', record.odoohost or '',
+                context=context
+            )
+
 
     ############################################################################
     # Actions
     ############################################################################
-    def install(self, cr, uid, context=None):
+    def execute(self, cr, uid, ids, context=None):
+        rc = super(CenitIntegrationSettings, self).execute(
+            cr, uid, ids, context=context
+        )
+
+        if not context.get('install', False):
+            return rc
+
+        objs = self.browse(cr, uid, ids)
+        if not objs:
+            return rc
+        obj = objs[0]
+
         installer = self.pool.get('cenit.collection.installer')
         data = installer.get_collection_data(
             cr, uid,
@@ -63,4 +87,14 @@ class CenitIntegrationSettings(models.TransientModel):
             context = context
         )
 
+        params = {}
+        for p in data.get('pull_parameters'):
+            k = p['label']
+            id_ = p.get('id')
+            value = getattr(obj,COLLECTION_PARAMS.get(k))
+            params.update ({id_: value})
+
+        installer.pull_shared_collection(cr, uid, data.get('id'), params=params, context=context)
         installer.install_common_data(cr, uid, data['data'])
+
+        return rc
