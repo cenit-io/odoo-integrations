@@ -29,7 +29,7 @@ _logger = logging.getLogger(__name__)
 COLLECTION_NAME = "odoo"
 COLLECTION_VERSION = "0.0.1"
 COLLECTION_PARAMS = {
-    # WITHOUT COLLECTION_PARAMS.
+    'Odoo host':'odoohost',
 }
 
 class CenitIntegrationSettings(models.TransientModel):
@@ -39,27 +39,57 @@ class CenitIntegrationSettings(models.TransientModel):
     ############################################################################
     # Pull Parameters
     ############################################################################
-    # WITHOUT PULL PARAMETERS.
+    odoohost = fields.Char('Odoo host')
 
     ############################################################################
     # Default Getters
     ############################################################################
-    # WITHOUT GETTERS.
+    def get_default_odoohost(self, context):
+        odoohost = self.env['ir.config_parameter'].get_param(
+            'odoo_cenit.odoo.odoohost', default=None
+        )
+        return {'odoohost': odoohost or ''}
+
 
     ############################################################################
     # Default Setters
     ############################################################################
-    # WITHOUT SETTERS.
+    def set_odoohost(self):
+        config_parameters = self.env['ir.config_parameter']
+        for record in self.browse(self.ids):
+            config_parameters.set_param (
+                'odoo_cenit.odoo.odoohost', record.odoohost or ''
+            )
+
 
     ############################################################################
     # Actions
     ############################################################################
-    @api.model
-    def install(self):
+    def execute(self):
+        rc = super(CenitIntegrationSettings, self).execute()
+
+        if not self.env.context.get('install', False):
+            return rc
+
+        objs = self.browse(self.ids)
+        if not objs:
+            return rc
+        obj = objs[0]
+
         installer = self.env['cenit.collection.installer']
         data = installer.get_collection_data(
             COLLECTION_NAME,
             version = COLLECTION_VERSION
         )
 
+        params = {}
+        for p in data.get('pull_parameters'):
+            k = p['label']
+            id_ = p.get('id')
+            value = getattr(obj,COLLECTION_PARAMS.get(k))
+            params.update ({id_: value})
+
+        installer.pull_shared_collection(data.get('id'), params=params)
         installer.install_common_data(data['data'])
+
+        return rc
