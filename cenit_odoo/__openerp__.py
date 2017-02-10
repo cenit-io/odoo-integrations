@@ -26,12 +26,13 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': "Odoo Integration",
-    'description': "Odoo Integration",
+    'summary': "Odoo shared collection.",
+    'description': "Odoo shared collection.",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',
-        'data/data.xml'
+        'view/config.xml',
+        'view/wizard.xml'
     ],
     'installable': True
 }
