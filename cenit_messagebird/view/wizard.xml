@@ -3,12 +3,12 @@
     <data>
 
         <record id="wizard_cenit_messagebird_install" model="ir.ui.view">
-            <field name="name">Messagebird shared collection of integration services settings</field>
+            <field name="name">MessageBird settings</field>
             <field name="model">cenit.messagebird.settings</field>
             <field name="inherit_id" ref="base.res_config_installer"/>
             <field name="arch" type="xml">
                 <xpath expr="//form" position="attributes">
-                    <attribute name="string">Messagebird shared collection of integration services settings</attribute>
+                    <attribute name="string">MessageBird settings</attribute>
                 </xpath>
                 <xpath expr="//footer" position="replace">
                     <footer>
@@ -18,7 +18,7 @@
                 </xpath>
                 <xpath expr="//separator" string="title" position="replace">
                     <p class="oe_grey">
-                        Configure Messagebird shared collection of integration services data
+                        Configure MessageBird data
                     </p>
                     <group>
                         <field name='access_key' placeholder='Your Access Key'/>
@@ -28,7 +28,7 @@
         </record>
 
         <record id="action_wizard_cenit_messagebird_install" model="ir.actions.act_window">
-            <field name="name">Configure Messagebird shared collection of integration services data</field>
+            <field name="name">Configure MessageBird data</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">cenit.messagebird.settings</field>
             <field name="view_id" ref="wizard_cenit_messagebird_install"/>
