@@ -27,7 +27,7 @@ from openerp import models, fields
 _logger = logging.getLogger(__name__)
 
 COLLECTION_NAME = "messagebird"
-COLLECTION_VERSION = "1.0.0"
+COLLECTION_VERSION = "0.0.1"
 COLLECTION_PARAMS = {
     'Access Key':'access_key',
 }
