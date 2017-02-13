@@ -3,10 +3,10 @@
     <data>
 
         <record id="view_cenit_messagebird_settings" model="ir.ui.view">
-            <field name="name">Messagebird shared collection of integration services settings</field>
+            <field name="name">MessageBird settings</field>
             <field name="model">cenit.messagebird.settings</field>
             <field name="arch" type="xml">
-                <form string="Configure Messagebird shared collection of integration services" class="oe_form_configuration">
+                <form string="Configure MessageBird" class="oe_form_configuration">
                     <header>
                         <button string="Apply" type="object"
                                 name="execute" class="oe_highlight"/>
@@ -15,7 +15,7 @@
                                 name="cancel" class="oe_link"/>
                     </header>
                     <div>
-                        <group string="Messagebird shared collection of integration services settings">
+                        <group string="MessageBird settings">
                             <field name='access_key' placeholder='Your Access Key' />
                         </group>
                     </div>
@@ -24,7 +24,7 @@
         </record>
 
         <record id="action_cenit_messagebird_settings" model="ir.actions.act_window">
-            <field name="name">Messagebird shared collection of integration services settings</field>
+            <field name="name">MessageBird settings</field>
             <field name="res_model">cenit.messagebird.settings</field>
             <field name="view_mode">form</field>
             <field name="target">inline</field>

@@ -21,13 +21,13 @@
 
 {
     'name': 'Messagebird Integration',
-    'version': '1.0.0',
+    'version': '0.0.1',
     'author': 'Cenit IO',
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': "Messagebird shared collection of integration services",
-    'description': "Messagebird shared collection of integration services",
+    'summary': "MessageBird integration",
+    'description': "MessageBird integration",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',
