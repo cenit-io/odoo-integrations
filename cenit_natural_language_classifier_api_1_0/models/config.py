@@ -20,7 +20,6 @@
 ##############################################################################
 
 import logging
-
 from openerp import models, fields, api
 
 
@@ -29,7 +28,8 @@ _logger = logging.getLogger(__name__)
 COLLECTION_NAME = "natural_language_classifier_api_1_0"
 COLLECTION_VERSION = "0.0.1"
 COLLECTION_PARAMS = {
-    'Natural Language host':'natural_language_host',
+    'Service username':'username',
+    'Service password':'password',
 }
 
 class CenitIntegrationSettings(models.TransientModel):
@@ -39,26 +39,40 @@ class CenitIntegrationSettings(models.TransientModel):
     ############################################################################
     # Pull Parameters
     ############################################################################
-    natural_language_host = fields.Char('Natural Language host')
+    username = fields.Char('Service username')
+    password = fields.Char('Service password')
 
     ############################################################################
     # Default Getters
     ############################################################################
-    def get_default_natural_language_host(self, context):
-        natural_language_host = self.env['ir.config_parameter'].get_param(
-            'odoo_cenit.natural_language_classifier_api_1_0.natural_language_host', default=None
+    def get_default_username(self, context):
+        username = self.env['ir.config_parameter'].get_param(
+            'odoo_cenit.natural_language_classifier_api_1_0.username', default=None
         )
-        return {'natural_language_host': natural_language_host or ''}
+        return {'username': username or ''}
+
+    def get_default_password(self, context):
+        password= self.env['ir.config_parameter'].get_param(
+            'odoo_cenit.natural_language_classifier_api_1_0.password', default=None
+        )
+        return {'password': password or ''}
 
 
     ############################################################################
     # Default Setters
     ############################################################################
-    def set_natural_language_host(self):
+    def set_username(self):
         config_parameters = self.env['ir.config_parameter']
         for record in self.browse(self.ids):
             config_parameters.set_param (
-                'odoo_cenit.natural_language_classifier_api_1_0.natural_language_host', record.natural_language_host or ''
+                'odoo_cenit.natural_language_classifier_api_1_0.username', record.username or ''
+            )
+
+    def set_password(self):
+        config_parameters = self.env['ir.config_parameter']
+        for record in self.browse(self.ids):
+            config_parameters.set_param (
+                'odoo_cenit.natural_language_classifier_api_1_0.password', record.password or ''
             )
 
 
