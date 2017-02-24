@@ -21,7 +21,8 @@
                         Configure Natural Language Classifier API 1.0 data
                     </p>
                     <group>
-                        <field name='natural_language_host' placeholder='Your Natural Language host'/>
+                        <field name='' placeholder='Your Service username'/>
+                        <field name='' placeholder='Your Service password'/>
                     </group>
                 </xpath>
             </field>
