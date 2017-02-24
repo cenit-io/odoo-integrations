@@ -16,7 +16,8 @@
                     </header>
                     <div>
                         <group string="Natural Language Classifier API 1.0 settings">
-                            <field name='natural_language_host' placeholder='Your Natural Language host' />
+                            <field name='' placeholder='Your Service username' />
+                            <field name='' placeholder='Your Service password' />
                         </group>
                     </div>
                 </form>

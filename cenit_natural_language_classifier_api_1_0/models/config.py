@@ -29,7 +29,8 @@ _logger = logging.getLogger(__name__)
 COLLECTION_NAME = "natural_language_classifier_api_1_0"
 COLLECTION_VERSION = "0.0.1"
 COLLECTION_PARAMS = {
-    'Natural Language host':'natural_language_host',
+    'Service username':'',
+    'Service password':'',
 }
 
 class CenitIntegrationSettings(models.TransientModel):
@@ -39,26 +40,41 @@ class CenitIntegrationSettings(models.TransientModel):
     ############################################################################
     # Pull Parameters
     ############################################################################
-    natural_language_host = fields.Char('Natural Language host')
+     = fields.Char('Service username')
+     = fields.Char('Service password')
 
     ############################################################################
     # Default Getters
     ############################################################################
-    def get_default_natural_language_host(self, cr, uid, ids, context=None):
-        natural_language_host = self.pool.get('ir.config_parameter').get_param(
-            cr, uid, 'odoo_cenit.natural_language_classifier_api_1_0.natural_language_host', default=None, context=context
+    def get_default_(self, cr, uid, ids, context=None):
+         = self.pool.get('ir.config_parameter').get_param(
+            cr, uid, 'odoo_cenit.natural_language_classifier_api_1_0.', default=None, context=context
         )
-        return {'natural_language_host': natural_language_host or ''}
+        return {'':  or ''}
+
+    def get_default_(self, cr, uid, ids, context=None):
+         = self.pool.get('ir.config_parameter').get_param(
+            cr, uid, 'odoo_cenit.natural_language_classifier_api_1_0.', default=None, context=context
+        )
+        return {'':  or ''}
 
 
     ############################################################################
     # Default Setters
     ############################################################################
-    def set_natural_language_host(self, cr, uid, ids, context=None):
+    def set_(self, cr, uid, ids, context=None):
         config_parameters = self.pool.get('ir.config_parameter')
         for record in self.browse(cr, uid, ids, context=context):
             config_parameters.set_param (
-                cr, uid, 'odoo_cenit.natural_language_classifier_api_1_0.natural_language_host', record.natural_language_host or '',
+                cr, uid, 'odoo_cenit.natural_language_classifier_api_1_0.', record. or '',
+                context=context
+            )
+
+    def set_(self, cr, uid, ids, context=None):
+        config_parameters = self.pool.get('ir.config_parameter')
+        for record in self.browse(cr, uid, ids, context=context):
+            config_parameters.set_param (
+                cr, uid, 'odoo_cenit.natural_language_classifier_api_1_0.', record. or '',
                 context=context
             )
 
