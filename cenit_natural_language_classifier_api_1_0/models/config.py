@@ -29,7 +29,8 @@ _logger = logging.getLogger(__name__)
 COLLECTION_NAME = "natural_language_classifier_api_1_0"
 COLLECTION_VERSION = "0.0.1"
 COLLECTION_PARAMS = {
-    'Natural Language host':'natural_language_host',
+    'Service username':'',
+    'Service password':'',
 }
 
 class CenitIntegrationSettings(models.TransientModel):
@@ -39,26 +40,40 @@ class CenitIntegrationSettings(models.TransientModel):
     ############################################################################
     # Pull Parameters
     ############################################################################
-    natural_language_host = fields.Char('Natural Language host')
+     = fields.Char('Service username')
+     = fields.Char('Service password')
 
     ############################################################################
     # Default Getters
     ############################################################################
-    def get_default_natural_language_host(self, context):
-        natural_language_host = self.env['ir.config_parameter'].get_param(
-            'odoo_cenit.natural_language_classifier_api_1_0.natural_language_host', default=None
+    def get_default_(self, context):
+         = self.env['ir.config_parameter'].get_param(
+            'odoo_cenit.natural_language_classifier_api_1_0.', default=None
         )
-        return {'natural_language_host': natural_language_host or ''}
+        return {'':  or ''}
+
+    def get_default_(self, context):
+         = self.env['ir.config_parameter'].get_param(
+            'odoo_cenit.natural_language_classifier_api_1_0.', default=None
+        )
+        return {'':  or ''}
 
 
     ############################################################################
     # Default Setters
     ############################################################################
-    def set_natural_language_host(self):
+    def set_(self):
         config_parameters = self.env['ir.config_parameter']
         for record in self.browse(self.ids):
             config_parameters.set_param (
-                'odoo_cenit.natural_language_classifier_api_1_0.natural_language_host', record.natural_language_host or ''
+                'odoo_cenit.natural_language_classifier_api_1_0.', record. or ''
+            )
+
+    def set_(self):
+        config_parameters = self.env['ir.config_parameter']
+        for record in self.browse(self.ids):
+            config_parameters.set_param (
+                'odoo_cenit.natural_language_classifier_api_1_0.', record. or ''
             )
 
 
