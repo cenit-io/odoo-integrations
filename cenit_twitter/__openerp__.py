@@ -26,8 +26,8 @@
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': "A basic Twitter integration",
-    'description': "A basic Twitter integration",
+    'summary': "Twitter API Integration",
+    'description': "Twitter API Integration",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',
