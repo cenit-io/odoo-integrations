@@ -2,13 +2,13 @@
 <openerp>
     <data>
 
-        <record id="wizard_cenit_natural_language_classifier_api_1_0_install" model="ir.ui.view">
-            <field name="name">Natural Language Classifier API 1.0 settings</field>
-            <field name="model">cenit.natural_language_classifier_api_1_0.settings</field>
+        <record id="wizard_cenit_document_conversion_service_api_1_0_0_install" model="ir.ui.view">
+            <field name="name">Document Conversion Service API 1.0.0 settings</field>
+            <field name="model">cenit.document_conversion_service_api_1_0_0.settings</field>
             <field name="inherit_id" ref="base.res_config_installer"/>
             <field name="arch" type="xml">
                 <xpath expr="//form" position="attributes">
-                    <attribute name="string">Natural Language Classifier API 1.0 settings</attribute>
+                    <attribute name="string">Document Conversion Service API 1.0.0 settings</attribute>
                 </xpath>
                 <xpath expr="//footer" position="replace">
                     <footer>
@@ -18,7 +18,7 @@
                 </xpath>
                 <xpath expr="//separator" string="title" position="replace">
                     <p class="oe_grey">
-                        Configure Natural Language Classifier API 1.0 data
+                        Configure Document Conversion Service API 1.0.0 data
                     </p>
                     <group>
                         <field name='username' placeholder='Your Service username'/>
@@ -28,18 +28,18 @@
             </field>
         </record>
 
-        <record id="action_wizard_cenit_natural_language_classifier_api_1_0_install" model="ir.actions.act_window">
-            <field name="name">Configure Natural Language Classifier API 1.0 data</field>
+        <record id="action_wizard_cenit_document_conversion_service_api_1_0_0_install" model="ir.actions.act_window">
+            <field name="name">Configure Document Conversion Service API 1.0.0 data</field>
             <field name="type">ir.actions.act_window</field>
-            <field name="res_model">cenit.natural_language_classifier_api_1_0.settings</field>
-            <field name="view_id" ref="wizard_cenit_natural_language_classifier_api_1_0_install"/>
+            <field name="res_model">cenit.document_conversion_service_api_1_0_0.settings</field>
+            <field name="view_id" ref="wizard_cenit_document_conversion_service_api_1_0_0_install"/>
             <field name="view_type">form</field>
             <field name="view_mode">form</field>
             <field name="target">new</field>
         </record>
 
-        <record id="todo_wizard_cenit_natural_language_classifier_api_1_0_install" model="ir.actions.todo">
-            <field name="action_id" ref="action_wizard_cenit_natural_language_classifier_api_1_0_install"/>
+        <record id="todo_wizard_cenit_document_conversion_service_api_1_0_0_install" model="ir.actions.todo">
+            <field name="action_id" ref="action_wizard_cenit_document_conversion_service_api_1_0_0_install"/>
             <field name="sequence">1</field>
             <field name="type">automatic</field>
         </record>

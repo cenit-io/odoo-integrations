@@ -26,7 +26,7 @@ from openerp import models, fields
 
 _logger = logging.getLogger(__name__)
 
-COLLECTION_NAME = "natural_language_classifier_api_1_0"
+COLLECTION_NAME = "document_conversion_service_api_1_0_0"
 COLLECTION_VERSION = "0.0.1"
 COLLECTION_PARAMS = {
     'Service username':'username',
@@ -34,7 +34,7 @@ COLLECTION_PARAMS = {
 }
 
 class CenitIntegrationSettings(models.TransientModel):
-    _name = "cenit.natural_language_classifier_api_1_0.settings"
+    _name = "cenit.document_conversion_service_api_1_0_0.settings"
     _inherit = 'res.config.settings'
 
     ############################################################################
@@ -48,13 +48,13 @@ class CenitIntegrationSettings(models.TransientModel):
     ############################################################################
     def get_default_username(self, cr, uid, ids, context=None):
         username = self.pool.get('ir.config_parameter').get_param(
-            cr, uid, 'odoo_cenit.natural_language_classifier_api_1_0.username', default=None, context=context
+            cr, uid, 'odoo_cenit.document_conversion_service_api_1_0_0.username', default=None, context=context
         )
         return {'username': username or ''}
 
     def get_default_password(self, cr, uid, ids, context=None):
         password = self.pool.get('ir.config_parameter').get_param(
-            cr, uid, 'odoo_cenit.natural_language_classifier_api_1_0.password', default=None, context=context
+            cr, uid, 'odoo_cenit.document_conversion_service_api_1_0_0.password', default=None, context=context
         )
         return {'password': password or ''}
 
@@ -66,7 +66,7 @@ class CenitIntegrationSettings(models.TransientModel):
         config_parameters = self.pool.get('ir.config_parameter')
         for record in self.browse(cr, uid, ids, context=context):
             config_parameters.set_param (
-                cr, uid, 'odoo_cenit.natural_language_classifier_api_1_0.username',
+                cr, uid, 'odoo_cenit.document_conversion_service_api_1_0_0.username',
                 record.username or '',
                 context=context
             )
@@ -75,7 +75,7 @@ class CenitIntegrationSettings(models.TransientModel):
         config_parameters = self.pool.get('ir.config_parameter')
         for record in self.browse(cr, uid, ids, context=context):
             config_parameters.set_param (
-                cr, uid, 'odoo_cenit.natural_language_classifier_api_1_0.password',
+                cr, uid, 'odoo_cenit.document_conversion_service_api_1_0_0.password',
                 record.password or '',
                 context=context
             )
