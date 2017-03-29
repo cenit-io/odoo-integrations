@@ -21,8 +21,8 @@
                         Configure Natural Language Classifier API 1.0 data
                     </p>
                     <group>
-                        <field name='' placeholder='Your Service username'/>
-                        <field name='' placeholder='Your Service password'/>
+                        <field name='username' placeholder='Your Service username'/>
+                        <field name='password' placeholder='Your Service password'/>
                     </group>
                 </separator>
             </field>

@@ -29,8 +29,8 @@ _logger = logging.getLogger(__name__)
 COLLECTION_NAME = "natural_language_classifier_api_1_0"
 COLLECTION_VERSION = "0.0.1"
 COLLECTION_PARAMS = {
-    'Service username':'',
-    'Service password':'',
+    'Service username':'username',
+    'Service password':'password',
 }
 
 class CenitIntegrationSettings(models.TransientModel):
@@ -40,41 +40,41 @@ class CenitIntegrationSettings(models.TransientModel):
     ############################################################################
     # Pull Parameters
     ############################################################################
-     = fields.Char('Service username')
-     = fields.Char('Service password')
+    username = fields.Char('Service username')
+    password = fields.Char('Service password')
 
     ############################################################################
     # Default Getters
     ############################################################################
-    def get_default_(self, cr, uid, ids, context=None):
-         = self.pool.get('ir.config_parameter').get_param(
-            cr, uid, 'odoo_cenit.natural_language_classifier_api_1_0.', default=None, context=context
+    def get_default_username(self, cr, uid, ids, context=None):
+        username = self.pool.get('ir.config_parameter').get_param(
+            cr, uid, 'odoo_cenit.natural_language_classifier_api_1_0.username', default=None, context=context
         )
-        return {'':  or ''}
+        return {'username': username or ''}
 
-    def get_default_(self, cr, uid, ids, context=None):
-         = self.pool.get('ir.config_parameter').get_param(
-            cr, uid, 'odoo_cenit.natural_language_classifier_api_1_0.', default=None, context=context
+    def get_default_password(self, cr, uid, ids, context=None):
+        password = self.pool.get('ir.config_parameter').get_param(
+            cr, uid, 'odoo_cenit.natural_language_classifier_api_1_0.password', default=None, context=context
         )
-        return {'':  or ''}
+        return {'password': password or ''}
 
 
     ############################################################################
     # Default Setters
     ############################################################################
-    def set_(self, cr, uid, ids, context=None):
+    def set_username(self, cr, uid, ids, context=None):
         config_parameters = self.pool.get('ir.config_parameter')
         for record in self.browse(cr, uid, ids, context=context):
             config_parameters.set_param (
-                cr, uid, 'odoo_cenit.natural_language_classifier_api_1_0.', record. or '',
+                cr, uid, 'odoo_cenit.natural_language_classifier_api_1_0.username', record.username or '',
                 context=context
             )
 
-    def set_(self, cr, uid, ids, context=None):
+    def set_password(self, cr, uid, ids, context=None):
         config_parameters = self.pool.get('ir.config_parameter')
         for record in self.browse(cr, uid, ids, context=context):
             config_parameters.set_param (
-                cr, uid, 'odoo_cenit.natural_language_classifier_api_1_0.', record. or '',
+                cr, uid, 'odoo_cenit.natural_language_classifier_api_1_0.password', record.password or '',
                 context=context
             )
 
