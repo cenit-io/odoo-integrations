@@ -62,11 +62,5 @@ class CenitIntegrationSettings(models.TransientModel):
             version = COLLECTION_VERSION,
             context = context
         )
-
-        coll_id = data.get('id')
+        installer.pull_shared_collection(cr, uid, data.get('id'), context=context)
         installer.install_common_data(cr, uid, data['data'])
-
-        cenit_api = self.env['cenit.api']
-        path = "/setup/cross_shared_collection/%s/pull" % (coll_id)
-        d = {'asynchronous': True, 'skip_pull_review': True}
-        cenit_api.post(path, d)
