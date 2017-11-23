@@ -37,5 +37,6 @@
     'images': [
         'static/screenshots/magento.jpg'
     ],
+    'images': ['static/images/banner.jpg'],
     'installable': True
 }
