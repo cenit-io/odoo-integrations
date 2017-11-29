@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<openerp>
-    <data noupdate="1">
-        <function model="cenit.double_click_search_api_v2.settings" name="install"/>
-    </data>
-</openerp>
