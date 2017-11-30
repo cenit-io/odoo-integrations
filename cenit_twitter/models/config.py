@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 ##############################################################################
 #
-#    OpenERP, Open Source Management Solution
+#    Odoo, Open Source Management Solution
 #    Copyright (C) 2004-2010, 2014 Tiny SPRL (<http://tiny.be>).
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -26,14 +26,14 @@ from odoo import models, fields, api
 
 _logger = logging.getLogger(__name__)
 
-COLLECTION_NAME = "slack_api_1_0_0"
-COLLECTION_VERSION = "0.1"
+COLLECTION_NAME = "twitter"
+COLLECTION_VERSION = "0.0.1"
 COLLECTION_PARAMS = {
     # WITHOUT COLLECTION_PARAMS.
 }
 
 class CenitIntegrationSettings(models.TransientModel):
-    _name = "cenit.slack_api_1_0_0.settings"
+    _name = "cenit.twitter.settings"
     _inherit = 'res.config.settings'
 
     ############################################################################
@@ -61,10 +61,11 @@ class CenitIntegrationSettings(models.TransientModel):
             COLLECTION_NAME,
             version = COLLECTION_VERSION
         )
-        coll_id = data.get('id')
-        installer.install_common_data(data['data'])
 
         cenit_api = self.env['cenit.api']
-        path = "/setup/cross_shared_collection/%s/pull" % (coll_id)
-        d = {'asynchronous': True, 'skip_pull_review': True}
-        cenit_api.post(path, d)
+        path = "/setup/cross_shared_collection/%s/pull" % (data.get('id'),)
+
+        dt = {'asynchronous': True, 'skip_pull_review': True}
+        cenit_api.post(path, dt)
+
+        installer.install_common_data(data['data'])
