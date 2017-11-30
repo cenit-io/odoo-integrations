@@ -1,18 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<openerp>
+<odoo>
     <data>
 
         <record id="wizard_cenit_trello_api_1_0_install" model="ir.ui.view">
-            <field name="name">This document describes the REST API of Trello as published by Trello.com.
- - &lt;a href&#x3D;&#x27;https://trello.com/docs/index.html&#x27; target&#x3D;&#x27;_blank&#x27;&gt;Official Documentation&lt;/a&gt;
- - &lt;a href&#x3D;&#x27;https://trello.com/docs/api&#x27; target&#x3D;&#x27;_blank&#x27;&gt;The HTML pages that were scraped in order to generate this specification.&lt;/a&gt; settings</field>
+            <field name="name">Configure Trello Integration</field>
             <field name="model">cenit.trello_api_1_0.settings</field>
             <field name="inherit_id" ref="base.res_config_installer"/>
             <field name="arch" type="xml">
                 <xpath expr="//form" position="attributes">
-                    <attribute name="string">This document describes the REST API of Trello as published by Trello.com.
- - &lt;a href&#x3D;&#x27;https://trello.com/docs/index.html&#x27; target&#x3D;&#x27;_blank&#x27;&gt;Official Documentation&lt;/a&gt;
- - &lt;a href&#x3D;&#x27;https://trello.com/docs/api&#x27; target&#x3D;&#x27;_blank&#x27;&gt;The HTML pages that were scraped in order to generate this specification.&lt;/a&gt; settings</attribute>
+                    <attribute name="string">Configure Trello Integration</attribute>
                 </xpath>
                 <xpath expr="//footer" position="replace">
                     <footer>
@@ -22,9 +18,7 @@
                 </xpath>
                 <xpath expr="//separator" string="title" position="replace">
                     <p class="oe_grey">
-                        Configure This document describes the REST API of Trello as published by Trello.com.
- - &lt;a href&#x3D;&#x27;https://trello.com/docs/index.html&#x27; target&#x3D;&#x27;_blank&#x27;&gt;Official Documentation&lt;/a&gt;
- - &lt;a href&#x3D;&#x27;https://trello.com/docs/api&#x27; target&#x3D;&#x27;_blank&#x27;&gt;The HTML pages that were scraped in order to generate this specification.&lt;/a&gt; data
+                        Configure Trello Integration
                     </p>
                     <group>
                         <field name='api_key' placeholder='Your API Key'/>
@@ -34,9 +28,7 @@
         </record>
 
         <record id="action_wizard_cenit_trello_api_1_0_install" model="ir.actions.act_window">
-            <field name="name">Configure This document describes the REST API of Trello as published by Trello.com.
- - &lt;a href&#x3D;&#x27;https://trello.com/docs/index.html&#x27; target&#x3D;&#x27;_blank&#x27;&gt;Official Documentation&lt;/a&gt;
- - &lt;a href&#x3D;&#x27;https://trello.com/docs/api&#x27; target&#x3D;&#x27;_blank&#x27;&gt;The HTML pages that were scraped in order to generate this specification.&lt;/a&gt; data</field>
+            <field name="name">Configure Trello Integration</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">cenit.trello_api_1_0.settings</field>
             <field name="view_id" ref="wizard_cenit_trello_api_1_0_install"/>
@@ -52,4 +44,4 @@
         </record>
 
     </data>
-</openerp>
+</odoo>

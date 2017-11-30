@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 ##############################################################################
 #
-#    OpenERP, Open Source Management Solution
+#    Odoo, Open Source Management Solution
 #    Copyright (C) 2004-2010, 2014 Tiny SPRL (<http://tiny.be>).
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -27,7 +27,7 @@ from openerp import models, fields, api
 _logger = logging.getLogger(__name__)
 
 COLLECTION_NAME = "twilio_api_2010_04_01"
-COLLECTION_VERSION = "0.1"
+COLLECTION_VERSION = "1.0.0"
 COLLECTION_PARAMS = {
     # WITHOUT COLLECTION_PARAMS.
 }
