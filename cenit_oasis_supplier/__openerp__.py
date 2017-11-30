@@ -34,5 +34,6 @@
         'view/config.xml',
         'view/wizard.xml'
     ],
+    'images': ['static/images/banner.jpg'],
     'installable': True
 }
