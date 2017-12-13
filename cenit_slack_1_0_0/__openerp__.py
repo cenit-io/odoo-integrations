@@ -26,10 +26,9 @@
     "website": "https://cenit.io",
     # ~ "license": "LGPL-3",
     "category": "Extra Tools",
-    "summary": "A messaging app for teams",
     "description": """
         [DEPRECATED] Odoo - Slack_1_0_0 integration via Cenit IO
     """,
     "images": ["static/images/banner.jpg"],
-    "installable": False
+    "installable": True
 }
