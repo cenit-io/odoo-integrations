@@ -20,17 +20,16 @@
 ##############################################################################
 
 {
-    'name': 'Slack_1_0_0 Integration',
-    'version': '0.1',
-    'author': 'Cenit IO',
-    'website': 'https://cenit.io',
-    # ~ 'license': 'LGPL-3',
-    'category': 'Extra Tools',
-    'summary': "A messaging app for teams",
-    'description': """
-        Odoo - Slack_1_0_0 integration via Cenit IO
+    "name": "Slack_1_0_0 Integration [DEPRECATED]",
+    "version": "0.1",
+    "author": "Cenit IO",
+    "website": "https://cenit.io",
+    # ~ "license": "LGPL-3",
+    "category": "Extra Tools",
+    "summary": "A messaging app for teams",
+    "description": """
+        [DEPRECATED] Odoo - Slack_1_0_0 integration via Cenit IO
     """,
-    'depends': ['cenit_base'],
-    'images': ['static/images/banner.jpg'],
-    'installable': False
+    "images": ["static/images/banner.jpg"],
+    "installable": False
 }
