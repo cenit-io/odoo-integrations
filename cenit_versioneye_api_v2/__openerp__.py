@@ -33,5 +33,6 @@
         'security/ir.model.access.csv',
         'data/data.xml'
     ],
-    'installable': True
+    'images': ['static/images/banner.jpg'],
+    'cenit_installable': True
 }
