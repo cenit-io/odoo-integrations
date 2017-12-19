@@ -33,6 +33,8 @@
         'security/ir.model.access.csv',
         'data/data.xml'
     ],
-    'images': ['static/images/banner.jpg'],
+    'images': [
+        'static/images/banner.jpg'
+    ],
     'installable': True
 }
