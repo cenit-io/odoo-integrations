@@ -20,19 +20,15 @@
 ##############################################################################
 
 {
-    'name': 'Twilio Integration',
-    'version': '1.0.0',
-    'author': 'Cenit IO',
-    'website': 'https://cenit.io',
-    # ~ 'license': 'LGPL-3',
-    'category': 'Extra Tools',
-    'summary': "Twilio API Integration",
-    'description': "Twilio API Integration",
-    'depends': ['cenit_base'],
-    'data': [
-        'security/ir.model.access.csv',
-        'view/config.xml',
-        'view/wizard.xml'
-    ],
-    'installable': True
+    "name": "Twilio Integration [DEPRECATED]",
+    "version": "0.1",
+    "author": "Cenit IO",
+    "website": "https://cenit.io",
+    # ~ "license": "LGPL-3",
+    "category": "Extra Tools",
+    "description": """
+        [DEPRECATED] Odoo - Twilio Integration via Cenit IO
+    """,
+    "images": ["static/images/banner.jpg"],
+    "installable": True
 }

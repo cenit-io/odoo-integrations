@@ -19,4 +19,16 @@
 #
 ##############################################################################
 
-import config
+{
+    "name": "Google_o_auth2_api_v2 Integration [DEPRECATED]",
+    "version": "0.1",
+    "author": "Cenit IO",
+    "website": "https://cenit.io",
+    # ~ "license": "LGPL-3",
+    "category": "Extra Tools",
+    "description": """
+        [DEPRECATED] Odoo - Google_o_auth2_api_v2 Integration via Cenit IO
+    """,
+    "images": ["static/images/banner.jpg"],
+    "installable": True
+}
