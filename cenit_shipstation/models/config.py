@@ -61,13 +61,14 @@ class CenitIntegrationSettings(models.TransientModel):
     ############################################################################
     # Default Setters
     ############################################################################
+    @api.multi
     def set_values(self):
         super(CenitIntegrationSettings, self).set_values()
         for record in self:
             self.env['ir.config_parameter'].sudo().set_param('odoo_cenit.shipstation.key', record.key or '')
             self.env['ir.config_parameter'].sudo().set_param('odoo_cenit.shipstation.secret', record.secret or '')
             self.env['ir.config_parameter'].sudo().set_param('odoo_cenit.shipstation.store_id', record.store_id or ''
-                                        )
+                                                             )
 
     ############################################################################
     # Actions

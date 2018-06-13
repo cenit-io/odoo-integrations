@@ -56,10 +56,12 @@ class CenitIntegrationSettings(models.TransientModel):
     ############################################################################
     # Default Setters
     ############################################################################
+    @api.multi
     def set_values(self):
         super(CenitIntegrationSettings, self).set_values()
         for record in self:
-            self.env['ir.config_parameter'].sudo().set_param('odoo_cenit.asana.personal_token', record.personal_token or '')
+            self.env['ir.config_parameter'].sudo().set_param('odoo_cenit.asana.personal_token',
+                                                             record.personal_token or '')
 
     ############################################################################
     # Actions
