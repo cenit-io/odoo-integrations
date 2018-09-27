@@ -20,19 +20,19 @@
 ##############################################################################
 
 {
-    'name': 'Twilio Integration',
-    'version': '1.0.0',
+    'name': 'Twilio_api_2010_04_01 Integration',
+    'version': '0.1',
     'author': 'Cenit IO',
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
     'category': 'Extra Tools',
-    'summary': "Twilio API Integration",
-    'description': "Twilio API Integration",
+    'summary': "Enabling phones, VoIP, and messaging to be embedded into web, desktop, and mobile software....",
+    'description': "Enabling phones, VoIP, and messaging to be embedded into web, desktop, and mobile software.\r\n",
     'depends': ['cenit_base'],
     'data': [
         'security/ir.model.access.csv',
-        'view/config.xml',
-        'view/wizard.xml'
+        'data/data.xml'
     ],
+    'images': ['static/images/banner.jpg'],
     'installable': True
 }

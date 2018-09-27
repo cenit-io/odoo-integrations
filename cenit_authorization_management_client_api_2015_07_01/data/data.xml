@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<openerp>
-    <data noupdate="1">
-        <function model="cenit.authorization_management_client_api_2015_07_01.settings" name="install"/>
-    </data>
-</openerp>

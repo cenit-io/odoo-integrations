@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<openerp>
-    <data noupdate="1">
-        <function model="cenit.content_api_for_shopping_v2sandbox.settings" name="install"/>
-    </data>
-</openerp>

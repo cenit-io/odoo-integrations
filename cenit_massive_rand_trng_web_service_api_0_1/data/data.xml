@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<openerp>
-    <data noupdate="1">
-        <function model="cenit.massive_rand_trng_web_service_api_0_1.settings" name="install"/>
-    </data>
-</openerp>

@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<openerp>
-    <data noupdate="1">
-        <function model="cenit.accelerated_mobile_pages_amp_url_api_v1.settings" name="install"/>
-    </data>
-</openerp>
