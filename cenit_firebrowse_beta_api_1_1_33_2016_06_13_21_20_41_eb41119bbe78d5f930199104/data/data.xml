@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<openerp>
-    <data noupdate="1">
-        <function model="cenit.firebrowse_beta_api_1_1_33_2016_06_13_21_20_41_eb41119bbe78d5f930199104.settings" name="install"/>
-    </data>
-</openerp>

@@ -20,24 +20,19 @@
 ##############################################################################
 
 {
-    "name": "Slack Integration [DEPRECATED]",
-    "version": "1.0.2",
-    "author": "Cenit IO",
-    "support": "support@cenit.io",
-    "website": "https://cenit.io",
-    # ~ "license": "LGPL-3",
-    "category": "Extra Tools",
-    "summary": "[DEPRECATED] Slack API Collection",
-    "description": """
-        [DEPRECATED] Odoo - Slack integration via Cenit IO
-    """,
-    "depends": ["cenit_base"],
-    "data": [
-        "security/ir.model.access.csv",
-        "view/config.xml",
-        "view/wizard.xml",
+    'name': 'Slack_api_1_0_0 Integration',
+    'version': '0.1',
+    'author': 'Cenit IO',
+    'website': 'https://cenit.io',
+    # ~ 'license': 'LGPL-3',
+    'category': 'Extra Tools',
+    'summary': "A messaging app for teams",
+    'description': "A messaging app for teams",
+    'depends': ['cenit_base'],
+    'data': [
+        'security/ir.model.access.csv',
+        'data/data.xml'
     ],
-    "images": ["static/images/banner.jpg"],
-    "installable": True,
-    "active": False
+    'images': ['static/images/banner.jpg'],
+    'installable': True
 }

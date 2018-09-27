@@ -26,61 +26,35 @@ from openerp import models, fields
 
 _logger = logging.getLogger(__name__)
 
-COLLECTION_NAME = "slack"
-COLLECTION_VERSION = "1.0.0"
+COLLECTION_NAME = "slack_api_1_0_0"
+COLLECTION_VERSION = "0.1"
 COLLECTION_PARAMS = {
-    # "On connection 'Slack API Connection' template parameter 'token'":'token',
+    # WITHOUT COLLECTION_PARAMS.
 }
 
-
 class CenitIntegrationSettings(models.TransientModel):
-    _name = "cenit.slack.settings"
+    _name = "cenit.slack_api_1_0_0.settings"
     _inherit = 'res.config.settings'
 
     ############################################################################
     # Pull Parameters
     ############################################################################
-    token = fields.Char('Slack Token')
+    # WITHOUT PULL PARAMETERS.
 
     ############################################################################
     # Default Getters
     ############################################################################
-    def get_default_token(self, cr, uid, ids, context=None):
-        token = self.pool.get('ir.config_parameter').get_param(
-            cr, uid,
-            'odoo_cenit.slack.token', default=None,
-            context=context
-        )
-        return {'token': token or ''}
-    
+    # WITHOUT GETTERS.
+
     ############################################################################
     # Default Setters
     ############################################################################
-    def set_token(self, cr, uid, ids, context=None):
-        config_parameters = self.pool.get('ir.config_parameter')
-        for record in self.browse(cr, uid, ids, context=context):
-            config_parameters.set_param (
-                cr, uid,
-                'odoo_cenit.slack.token', record.token or '',
-                context=context
-            )
-    
+    # WITHOUT SETTERS.
+
     ############################################################################
     # Actions
     ############################################################################
-    def execute(self, cr, uid, ids, context=None):
-        rc = super(CenitIntegrationSettings, self).execute(
-            cr, uid, ids, context=context
-        )
-
-        if not context.get('install', False):
-            return rc
-
-        objs = self.browse(cr, uid, ids)
-        if not objs:
-            return rc
-        obj = objs[0]
-
+    def install(self, cr, uid, context=None):
         installer = self.pool.get('cenit.collection.installer')
         data = installer.get_collection_data(
             cr, uid,
@@ -88,18 +62,5 @@ class CenitIntegrationSettings(models.TransientModel):
             version = COLLECTION_VERSION,
             context = context
         )
-
-        params = {}
-        for p in data.get('params'):
-            k = p.get('parameter')
-            id_ = p.get('id')
-            value = getattr(obj,
-                COLLECTION_PARAMS.get(k)
-            )
-            params.update ({
-                id_: value
-            })
-
-        installer.pull_shared_collection(cr, uid, data.get('id'), params=params, context=context)
-
-        return rc
+        installer.pull_shared_collection(cr, uid, data.get('id'), context=context)
+        installer.install_common_data(cr, uid, data['data'])
