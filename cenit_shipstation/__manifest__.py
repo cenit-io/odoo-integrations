@@ -28,7 +28,7 @@
     'category': 'Extra Tools',
     'summary': "Shipstation Integration",
     'description': "Shipstation Integration",
-    'depends': ['cenit_base'],
+    'depends': ['cenit_base', 'sale'],
     'data': [
         'security/ir.model.access.csv',
         'view/config.xml',
