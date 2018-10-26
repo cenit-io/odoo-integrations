@@ -1,0 +1,229 @@
+[
+    {
+    "name": "Address map",
+    "triggers": [],
+    "domains": [],
+    "lines": [
+      {
+        "line_cardinality": null,
+        "name": "name",
+        "reference": null,
+        "primary": false,
+        "value": "name",
+        "line_type": "field",
+        "inlined": false
+      },
+      {
+        "line_cardinality": null,
+        "name": "street",
+        "reference": null,
+        "primary": false,
+        "value": "street1",
+        "line_type": "field",
+        "inlined": false
+      },
+      {
+        "line_cardinality": null,
+        "name": "street2",
+        "reference": null,
+        "primary": false,
+        "value": "street2",
+        "line_type": "field",
+        "inlined": false
+      },
+      {
+        "line_cardinality": null,
+        "name": "city",
+        "reference": null,
+        "primary": false,
+        "value": "city",
+        "line_type": "field",
+        "inlined": false
+      },
+      {
+        "line_cardinality": null,
+        "name": "obj.state_id.name",
+        "reference": null,
+        "primary": false,
+        "value": "state",
+        "line_type": "code",
+        "inlined": false
+      },
+      {
+        "line_cardinality": null,
+        "name": "obj.country_id.code",
+        "reference": null,
+        "primary": false,
+        "value": "country",
+        "line_type": "code",
+        "inlined": false
+      },
+      {
+        "line_cardinality": null,
+        "name": "zip",
+        "reference": null,
+        "primary": false,
+        "value": "postalCode",
+        "line_type": "field",
+        "inlined": false
+      },
+      {
+        "line_cardinality": null,
+        "name": "phone",
+        "reference": null,
+        "primary": false,
+        "value": "phone",
+        "line_type": "field",
+        "inlined": false
+      },
+      {
+        "line_cardinality": null,
+        "name": "company_name",
+        "reference": null,
+        "primary": false,
+        "value": "company",
+        "line_type": "field",
+        "inlined": false
+      }
+    ],
+    "model": "res.partner",
+    "namespace": "Shipstation",
+    "id": 3,
+    "schema": "address.json"
+  },
+    {
+    "name": "SalesOrderLine",
+    "triggers": [],
+    "domains": [],
+    "lines": [
+      {
+        "line_cardinality": null,
+        "name": "obj.product_id.default_code",
+        "reference": null,
+        "primary": false,
+        "value": "sku",
+        "line_type": "code",
+        "inlined": false
+      },
+      {
+        "line_cardinality": null,
+        "name": "name",
+        "reference": null,
+        "primary": false,
+        "value": "name",
+        "line_type": "field",
+        "inlined": false
+      },
+      {
+        "line_cardinality": null,
+        "name": "price_unit",
+        "reference": null,
+        "primary": false,
+        "value": "unitPrice",
+        "line_type": "field",
+        "inlined": false
+      },
+      {
+        "line_cardinality": null,
+        "name": "product_uom_qty",
+        "reference": null,
+        "primary": false,
+        "value": "quantity",
+        "line_type": "field",
+        "inlined": false
+      }
+    ],
+    "model": "sale.order.line",
+    "namespace": "Shipstation",
+    "id": 2,
+    "schema": "order_item.json"
+  },
+    {
+    "name": "Order mapping",
+    "triggers": [
+      {
+        "cron_lapse": "10",
+        "cron_units": "minutes",
+        "cron_restrictions": "all",
+        "name": "on_write",
+        "cron_name": false
+      }
+    ],
+    "domains": [
+      {
+        "field": "state",
+        "value": "sale",
+        "op": "="
+      }
+    ],
+    "lines": [
+      {
+        "line_cardinality": null,
+        "name": "name",
+        "reference": null,
+        "primary": true,
+        "value": "orderNumber",
+        "line_type": "field",
+        "inlined": false
+      },
+      {
+        "line_cardinality": null,
+        "name": "date_order",
+        "reference": null,
+        "primary": false,
+        "value": "orderDate",
+        "line_type": "field",
+        "inlined": false
+      },
+      {
+        "line_cardinality": null,
+        "name": "awaiting_shipment",
+        "reference": null,
+        "primary": false,
+        "value": "orderStatus",
+        "line_type": "default",
+        "inlined": false
+      },
+      {
+        "line_cardinality": "2many",
+        "name": "order_line",
+        "reference": "SalesOrderLine",
+        "primary": false,
+        "value": "items",
+        "line_type": "model",
+        "inlined": false
+      },
+      {
+        "line_cardinality": "2one",
+        "name": "partner_shipping_id",
+        "reference": "Address map",
+        "primary": false,
+        "value": "shipTo",
+        "line_type": "model",
+        "inlined": false
+      },
+      {
+        "line_cardinality": "2one",
+        "name": "partner_invoice_id",
+        "reference": "Address map",
+        "primary": false,
+        "value": "billTo",
+        "line_type": "model",
+        "inlined": false
+      },
+      {
+        "line_cardinality": null,
+        "name": "obj.partner_id.email",
+        "reference": null,
+        "primary": false,
+        "value": "customerEmail",
+        "line_type": "code",
+        "inlined": false
+      }
+    ],
+    "model": "sale.order",
+    "namespace": "Shipstation",
+    "id": 1,
+    "schema": "Order.json"
+  }
+]

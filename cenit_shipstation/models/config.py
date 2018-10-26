@@ -19,7 +19,7 @@
 #
 ##############################################################################
 
-import logging
+import logging, os
 
 from odoo import models, fields, api
 
@@ -116,6 +116,6 @@ class CenitIntegrationSettings(models.TransientModel):
             params.update ({id_: value})
 
         installer.pull_shared_collection(data.get('id'), params=params)
-        installer.install_common_data(data['data'])
+        installer.install_common_data(data['data'], os.path.dirname(__file__))
 
         return rc
