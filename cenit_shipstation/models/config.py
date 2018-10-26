@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 ##############################################################################
 #
-#    OpenERP, Open Source Management Solution
+# OpenERP, Open Source Management Solution
 #    Copyright (C) 2004-2010, 2014 Tiny SPRL (<http://tiny.be>).
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -19,7 +19,8 @@
 #
 ##############################################################################
 
-import logging
+import logging, os
+import base64
 
 from openerp import models, fields, api
 
@@ -29,10 +30,11 @@ _logger = logging.getLogger(__name__)
 COLLECTION_NAME = "shipstation"
 COLLECTION_VERSION = "1.0.0"
 COLLECTION_PARAMS = {
-    'Shipstation API Key':'key',
-    'Shipstation API Secret':'secret',
-    'Shipstation Store':'store_id',
+    'Shipstation API Key': 'key',
+    'Shipstation API Secret': 'secret',
+    'Shipstation Store': 'store_id',
 }
+
 
 class CenitIntegrationSettings(models.TransientModel):
     _name = "cenit.shipstation.settings"
@@ -73,21 +75,21 @@ class CenitIntegrationSettings(models.TransientModel):
     def set_key(self):
         config_parameters = self.env['ir.config_parameter']
         for record in self.browse(self.ids):
-            config_parameters.set_param (
+            config_parameters.set_param(
                 'odoo_cenit.shipstation.key', record.key or ''
             )
 
     def set_secret(self):
         config_parameters = self.env['ir.config_parameter']
         for record in self.browse(self.ids):
-            config_parameters.set_param (
+            config_parameters.set_param(
                 'odoo_cenit.shipstation.secret', record.secret or ''
             )
 
     def set_store_id(self):
         config_parameters = self.env['ir.config_parameter']
         for record in self.browse(self.ids):
-            config_parameters.set_param (
+            config_parameters.set_param(
                 'odoo_cenit.shipstation.store_id', record.store_id or ''
             )
 
@@ -109,17 +111,17 @@ class CenitIntegrationSettings(models.TransientModel):
         installer = self.env['cenit.collection.installer']
         data = installer.get_collection_data(
             COLLECTION_NAME,
-            version = COLLECTION_VERSION
+            version=COLLECTION_VERSION
         )
 
         params = {}
         for p in data.get('pull_parameters'):
             k = p['label']
             id_ = p.get('id')
-            value = getattr(obj,COLLECTION_PARAMS.get(k))
-            params.update ({id_: value})
+            value = getattr(obj, COLLECTION_PARAMS.get(k))
+            params.update({id_: value})
 
         installer.pull_shared_collection(data.get('id'), params=params)
-        installer.install_common_data(data['data'])
+        installer.install_common_data(data['data'], os.path.dirname(__file__))
 
         return rc
