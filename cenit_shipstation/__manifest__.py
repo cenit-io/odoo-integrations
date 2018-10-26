@@ -24,7 +24,7 @@
     'version': '1.0.0',
     'author': 'Cenit IO',
     'website': 'https://cenit.io',
-    # ~ 'license': 'LGPL-3',
+    'license': 'LGPL-3',
     'category': 'Extra Tools',
     'summary': "Shipstation Integration",
     'description': "Shipstation Integration",
