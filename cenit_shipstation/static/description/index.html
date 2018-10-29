@@ -2,6 +2,7 @@
     <div class="oe_row oe_spaced">
         <div class="oe_span12">
             <h2 class="oe_slogan">Shipstation Integration</h2>
+
             <h3 class="oe_slogan">Powered by <a href="https://cenit.io/">Cenit IO</a></h3>
         </div>
         <div class="oe_span12">
@@ -9,117 +10,71 @@
                 <a href="https://cenit.io">
                     <img src="cenit_io.png">
                 </a>
+
                 <div class="oe_demo_footer oe_centeralign">Cenit IO</div>
             </div>
         </div>
         <div class="oe_span12 ow_websiteonly">
             <p class="oe_mt32">
                 This addon needs the
-                <a href="https://www.odoo.com/apps/modules/10.0/cenit_base/">Cenit Itegrations Client</a>
+                <a href="https://www.odoo.com/apps/modules/10.0/cenit_base/">Cenit Integrations Client</a>
                 (don't worry: try it for free)
             </p>
         </div>
     </div>
 </section>
 
-<!--
-<section class="oe_container oe_dark">
+<section>
     <div class="oe_row oe_spaced">
-        <h2 class="oe_slogan">Setting up...</h2>
+        <div class="oe_span12 ow_websiteonly">
+            <h2 class="oe_slogan">What you can do with this integration</h2>
 
-        <div class="oe_span6">
-            <div class="oe_picture oe_screenshot oe_demo">
-                <img src="shipstation.png">
-            </div>
-            <div>
-                <p>First things first: <a href="https://shipstation.com">Sign up with Shipstation</a></p>
-            </div>
-        </div>
-        <div class="oe_span6">
-            <div class="oe_picture oe_screenshot oe_demo">
-                <img src="account-info.png">
-            </div>
-            <div>
-                <p>...</p>
-            </div>
+            <p class="oe_mt32">You can send new shipments to Shipstation and update them,
+                create warehouses, mark order as shipped, add fund and many others options.</p>
         </div>
     </div>
 </section>
--->
-<!--
-<section class="oe_container oe_dark">
-    <h2 class="oe_slogan oe_mt32">Featuring...</h2>
+
+<section>
     <div class="oe_row oe_spaced">
-        <h3 class="oe_leftalign">Data definitions</h3>
-        <div class="oe_span6">
-            <p>Various <i>Schemas</i> that will allow you to map your Odoo models as Shipstation's.</p>
-        </div>
-        <div class="oe_span6">
-            <ul>
-                <li>....</li>
-                <li>....</li>
-                <li>....</li>
-            </ul>
-        </div>
-    </div>
-    <div class="oe_row oe_spaced">
-        <h3 class="oe_leftalign">Set ups</h3>
-        <div class="oe_span6">
-            <p>Several <i>Webhooks</i> where you can send or get data.</p>
-        </div>
-        <div class="oe_span6">
-            <ul>
-                <li>...</li>
-                <li>...</li>
-                <li>...</li>
-            </ul>
-        </div>
-        <div class="oe_span6">
-            <p>A handful of <i>Events</i> and <i>Translators</i> to decide when and how perform transformations.</p>
-        </div>
-        <div class="oe_span6">
-            <p>Events:</p>
-            <ul>
-                <li>...</li>
-                <li>...</li>
-            </ul>
-            <p>Translators:</p>
-            <ul>
-                <li>...</li>
-                <li>...</li>
-                <li>...</li>
-            </ul>
-        </div>
-        <div class="oe_span6">
-            <p>Out of the Box <i>Flows</i> so you can focus on what's really important.</p>
-        </div>
-        <div class="oe_span6">
-            <p></p>
-            <ul>
-                <li>...</li>
-                <li>...</li>
-                <li>...</li>
-            </ul>
-        </div>
-    </div>
-</section>
--->
-<section class="oe_container oe_dark">
-    <h2 class="oe_slogan oe_mt32">Steps</h2>
-    <div class="oe_row oe_spaced">
-        <div class="oe_span6">
-            <h3>There's really only one thing you need to do: Map your models</h3>
-            <p>That's it! Every Time you do something in Odoo, this is done.</p>
-        </div>
-        <div class="oe_span6">
-            <!--
-            <div class="oe_screenshot oe_demo">
-                <img src="mapping.png">
+        <div class="oe_span12 ow_websiteonly">
+            <h2 class="oe_slogan">Shipstation configuration</h2>
+
+            <p class="oe_mt32">You will need to have an active ShipStation account. If you do not
+                have one, you can easily request a free 30 day trial.
+                <a href="https://www.shipstation.com/step1/">Sign up with Shipstation</a>
+            </p>
+
+            <p class="oe_mt32"> You will need Key, Secret and StoreId from Shipstation. You can find Key
+                and Secret in Account Settings/Api Settings:
+            </p>
+
+            <div class="oe_demo oe_picture oe_screenshot">
+                <img src="shipstation_api_settings.png">
             </div>
-            -->
+            <br>
+
             <p class="oe_mt32">
-                For more on mapping check the Documentation tab of the
-                <a href="https://www.odoo.com/apps/modules/10.0/cenit_base/">Cenit IO Integrations Client</a>.
+                Now in Account Settings, go to Selling channels and copy the Id of the store.
+            </p>
+
+            <div class="oe_demo oe_picture oe_screenshot">
+                <img src="shipstation_store_setings.png">
+            </div>
+            <br>
+            <h4>That's it! Every time you have a Sales Order in "sale" status, it will be
+                sent automatically to Shipstation.</h4>
+
+            <p class="oe_mt32">
+                This is the default mapping of Sales Orders to Shipstation Orders:
+            </p>
+             <div class="oe_demo oe_picture oe_screenshot">
+                <img src="sales_order_mapping.png">
+            </div>
+
+            <p class="oe_mt32">
+                You can modify this behaviour and the fields sent to Shipstation. Check the mapping under Mappings
+                tab in Cenit module and create your own mappings.
             </p>
         </div>
     </div>
