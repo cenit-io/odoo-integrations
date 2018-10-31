@@ -139,7 +139,7 @@
     "schema": "order_item.json"
   },
     {
-    "name": "Order mapping",
+    "name": "SalesOrder mapping",
     "triggers": [
       {
         "cron_lapse": "10",
@@ -223,7 +223,6 @@
     ],
     "model": "sale.order",
     "namespace": "Shipstation",
-    "id": 1,
     "schema": "Order.json"
   }
 ]
