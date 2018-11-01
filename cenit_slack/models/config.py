@@ -19,7 +19,7 @@
 #
 ##############################################################################
 
-import logging
+import logging, os
 
 from openerp import models, fields, api
 
@@ -62,7 +62,7 @@ class CenitIntegrationSettings(models.TransientModel):
             version = COLLECTION_VERSION
         )
         coll_id = data.get('id')
-        installer.install_common_data(data['data'])
+        installer.install_common_data(data['data'], os.path.dirname(__file__))
 
         cenit_api = self.env['cenit.api']
         path = "/setup/cross_shared_collection/%s/pull" % (coll_id)
