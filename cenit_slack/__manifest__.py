@@ -20,7 +20,7 @@
 ##############################################################################
 
 {
-    'name': 'Slack_api_1_0_0 Integration',
+    'name': 'Slack Integration',
     'version': '0.1',
     'author': 'Cenit IO',
     'website': 'https://cenit.io',
