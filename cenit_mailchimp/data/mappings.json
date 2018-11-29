@@ -1,0 +1,62 @@
+[
+  {
+    "schema": "campaign.json",
+    "triggers": [
+      {
+        "name": "on_create",
+        "cron_units": "minutes",
+        "cron_restrictions": "all",
+        "cron_name": false,
+        "cron_lapse": "10"
+      }
+    ],
+    "model": "mail.mail",
+    "name": "MailMail mapping",
+    "lines": [
+      {
+        "line_cardinality": null,
+        "name": "regular",
+        "reference": null,
+        "primary": false,
+        "line_type": "default",
+        "inlined": false,
+        "value": "type"
+      },
+      {
+        "line_cardinality": null,
+        "name": "save",
+        "reference": null,
+        "primary": false,
+        "line_type": "default",
+        "inlined": false,
+        "value": "status"
+      },
+      {
+        "line_cardinality": null,
+        "name": "{ \"subject_line\": obj.subject , \"title\": obj.subject, \"from_name\": obj.author_id.name, \"reply_to\": obj.email_from, \"template_id\": \"134235\" }",
+        "reference": null,
+        "primary": false,
+        "line_type": "code",
+        "inlined": false,
+        "value": "settings"
+      },
+      {
+        "line_cardinality": null,
+        "name": "{\"list_id\": \"66d427bb65\"}",
+        "reference": null,
+        "primary": false,
+        "line_type": "code",
+        "inlined": false,
+        "value": "recipients"
+      }
+    ],
+    "namespace": "Mailchimp",
+    "domains": [
+      {
+        "op": "=",
+        "field": "state",
+        "value": "outgoing"
+      }
+    ]
+  }
+]
