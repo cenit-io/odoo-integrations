@@ -1,0 +1,98 @@
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <div class="oe_span12">
+            <h2 class="oe_slogan">Mailchimp Integration</h2>
+            <h3 class="oe_slogan">Powered by <a href="https://cenit.io/">Cenit IO</a></h3>
+        </div>
+        <div class="oe_span12">
+            <div class="oe_demo oe_picture oe_screenshot">
+                <a href="https://cenit.io">
+                    <img src="cenit_io.png">
+                </a>
+                <div class="oe_demo_footer oe_centeralign">Cenit IO</div>
+            </div>
+        </div>
+        <div class="oe_span12 ow_websiteonly">
+            <p class="oe_mt32">
+                This addon needs the
+                <a href="https://www.odoo.com/apps/modules/11.0/cenit_base/">Cenit Integrations Client</a>
+                (don't worry: try it for free)
+            </p>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="oe_row oe_spaced">
+        <div class="oe_span12 ow_websiteonly">
+            <h2 class="oe_slogan">What you can do with this integration</h2>
+
+            <p class="oe_mt32">You can create campaigns in Mailchimp create/get Mailchimp lists,
+                get templates and many other options.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="oe_row oe_spaced">
+        <div class="oe_span12 ow_websiteonly">
+            <h2 class="oe_slogan">Mailchimp configuration</h2>
+
+            <p class="oe_mt32"> During the installation of the module, you will have to provide your Mailchimp
+                node service.
+            </p>
+            <div class="oe_demo oe_picture oe_screenshot">
+                <img src="mailchimp_configuration.png">
+            </div>
+            You can find it in your Maichimp account:
+            <div class="oe_demo oe_picture oe_screenshot">
+                <img src="service_node.png">
+            </div>
+
+            <p class="oe_mt32"> After the module is install you should authorize Cenit's app to
+                send or get data from Mailchimp in your behalf. Go to your Cenit's account and select
+                Authorizations menu.
+            </p>
+            <div class="oe_demo oe_picture oe_screenshot">
+                <img src="authorization_menu.png">
+            </div>
+             <p class="oe_mt32">In the Mailchimp authorization record, select Authorize action
+                 and authorize Cenit's app.
+            </p>
+             <div class="oe_demo oe_picture oe_screenshot">
+                <img src="authorization.png">
+            </div>
+            <br>
+
+            <p class="oe_mt32">
+                This is the default mapping of Odoo emails to Mailchimp campaigns:
+            </p>
+             <div class="oe_demo oe_picture oe_screenshot">
+                <img src="emails_mapping.png">
+            </div>
+
+            <p class="oe_mt32">
+                You should set in the mapping a value for Mailchimp List and Template for sending campaigns.
+                Select one List and one Template from your Mailchimp account, take theirs ids and copy them as values
+                for both list_id and template_id in the mapping.
+            </p>
+
+            <div class="oe_demo oe_picture oe_screenshot">
+                <img src="list_id.png">
+            </div>
+            <div class="oe_demo oe_picture oe_screenshot">
+                <img src="template_id.png">
+            </div>
+
+            <h4>That's it! Every time an email is created, a campaign will be created automatically in Mailchimp.</h4>
+
+             <p>
+                You can modify this behaviour and the fields sent to Mailchimp. Check the mapping under Mappings
+                tab in Cenit module and create your own mappings.
+            </p>
+
+
+        </div>
+    </div>
+</section>
