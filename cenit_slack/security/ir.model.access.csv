@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_cenit_slack_cenit_slack,cenit_slack.cenit_slack,model_cenit_slack_cenit_slack,,1,0,0,0
