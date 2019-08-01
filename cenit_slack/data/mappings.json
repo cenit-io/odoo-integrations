@@ -1,0 +1,44 @@
+[
+  {
+    "name": "MailMessage mapping",
+    "triggers": [
+      {
+        "cron_lapse": "10",
+        "cron_units": "minutes",
+        "cron_restrictions": "all",
+        "name": "on_create",
+        "cron_name": false
+      }
+    ],
+    "domains": [
+      {
+        "field": "model",
+        "value": "sale.order,res.partner",
+        "op": "in"
+      }
+    ],
+    "lines": [
+      {
+        "line_cardinality": null,
+        "name": "general",
+        "reference": null,
+        "primary": false,
+        "value": "channel",
+        "line_type": "default",
+        "inlined": false
+      },
+      {
+        "line_cardinality": null,
+        "name": "html2text.html2text(obj.body)",
+        "reference": null,
+        "primary": false,
+        "value": "text",
+        "line_type": "code",
+        "inlined": false
+      }
+    ],
+    "model": "mail.message",
+    "namespace": "Slack API 1.0.0",
+    "schema": "Message"
+  }
+]
