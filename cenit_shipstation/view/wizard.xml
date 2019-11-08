@@ -34,7 +34,7 @@
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">cenit.shipstation.settings</field>
             <field name="view_id" ref="wizard_cenit_shipstation_install"/>
-            <field name="view_type">form</field>
+<!--            <field name="view_type">form</field>-->
             <field name="view_mode">form</field>
             <field name="target">new</field>
         </record>
@@ -42,7 +42,7 @@
         <record id="todo_wizard_cenit_shipstation_install" model="ir.actions.todo">
             <field name="action_id" ref="action_wizard_cenit_shipstation_install"/>
             <field name="sequence">1</field>
-            <field name="type">automatic</field>
+<!--            <field name="type">automatic</field>-->
         </record>
 
     </data>
