@@ -23,14 +23,14 @@ import logging
 
 from odoo import models, fields, api
 
-
 _logger = logging.getLogger(__name__)
 
 COLLECTION_NAME = "asana"
 COLLECTION_VERSION = "1.0.0"
 COLLECTION_PARAMS = {
-    'Personal token':'personal_token',
+    'Personal token': 'personal_token',
 }
+
 
 class CenitIntegrationSettings(models.TransientModel):
     _name = "cenit.asana.settings"
@@ -44,23 +44,24 @@ class CenitIntegrationSettings(models.TransientModel):
     ############################################################################
     # Default Getters
     ############################################################################
-    def get_values_personal_token(self, context):
-        personal_token = self.env['ir.config_parameter'].get_param(
-            'odoo_cenit.asana.personal_token', default=None
+    @api.model
+    def get_values(self):
+        res = super(CenitIntegrationSettings, self).get_values()
+        res.update(
+            personal_token=self.env['ir.config_parameter'].sudo().get_param('odoo_cenit.asana.personal_token',
+                                                                            default=None)
         )
-        return {'personal_token': personal_token or ''}
-
+        return res
 
     ############################################################################
     # Default Setters
     ############################################################################
+    @api.multi
     def set_values(self):
-        config_parameters = self.env['ir.config_parameter']
-        for record in self.browse(self.ids):
-            config_parameters.set_param (
-                'odoo_cenit.asana.personal_token', record.personal_token or ''
-            )
-
+        super(CenitIntegrationSettings, self).set_values()
+        for record in self:
+            self.env['ir.config_parameter'].sudo().set_param('odoo_cenit.asana.personal_token',
+                                                             record.personal_token or '')
 
     ############################################################################
     # Actions
@@ -79,15 +80,15 @@ class CenitIntegrationSettings(models.TransientModel):
         installer = self.env['cenit.collection.installer']
         data = installer.get_collection_data(
             COLLECTION_NAME,
-            version = COLLECTION_VERSION
+            version=COLLECTION_VERSION
         )
 
         params = {}
         for p in data.get('pull_parameters'):
             k = p['label']
             id_ = p.get('id')
-            value = getattr(obj,COLLECTION_PARAMS.get(k))
-            params.update ({id_: value})
+            value = getattr(obj, COLLECTION_PARAMS.get(k))
+            params.update({id_: value})
 
         installer.pull_shared_collection(data.get('id'), params=params)
         installer.install_common_data(data['data'])

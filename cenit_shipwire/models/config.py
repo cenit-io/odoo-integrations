@@ -21,7 +21,7 @@
 
 import logging
 
-from openerp import models, fields, api
+from odoo import models, fields, api
 
 
 _logger = logging.getLogger(__name__)
@@ -46,32 +46,25 @@ class CenitIntegrationSettings(models.TransientModel):
     ############################################################################
     # Default Getters
     ############################################################################
-    def get_values_user(self):
-        user = self.env['ir.config_parameter'].get_param(
-            'odoo_cenit.shipwire.user', default=None
+    @api.model
+    def get_values(self):
+        res = super(CenitIntegrationSettings, self).get_values()
+        res.update(
+            user=self.env['ir.config_parameter'].sudo().get_param('odoo_cenit.shipwire.user', default=None),
+            passwd=self.env['ir.config_parameter'].sudo().get_param('odoo_cenit.shipwire.passwd', default=None)
         )
-        return {'user': user or ''}
-
-    def get_values_passwd(self):
-        passwd = self.env['ir.config_parameter'].get_param(
-            'odoo_cenit.shipwire.passwd', default=None
-        )
-        return {'passwd': passwd or ''}
+        return res
 
 
     ############################################################################
     # Default Setters
     ############################################################################
+    @api.multi
     def set_values(self):
-        config_parameters = self.env['ir.config_parameter']
-        for record in self.browse(self.ids):
-            config_parameters.set_param (
-                'odoo_cenit.shipwire.user', record.user or ''
-            )
-        for record in self.browse(self.ids):
-            config_parameters.set_param (
-                'odoo_cenit.shipwire.passwd', record.passwd or ''
-            )
+        super(CenitIntegrationSettings, self).set_values()
+        for record in self:
+            self.env['ir.config_parameter'].sudo().set_param('odoo_cenit.shipwire.user', record.user or '')
+            self.env['ir.config_parameter'].sudo().set_param('odoo_cenit.shipwire.passwd', record.passwd or '')
 
 
     ############################################################################
