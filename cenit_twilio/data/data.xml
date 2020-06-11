@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <function model="cenit.twilio_api_2010_04_01.settings" name="install"/>
+    </data>
+</odoo>
