@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 ##############################################################################
 #
-#    Odoo, Open Source Management Solution
+#    OpenERP, Open Source Management Solution
 #    Copyright (C) 2004-2010, 2014 Tiny SPRL (<http://tiny.be>).
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -19,23 +19,4 @@
 #
 ##############################################################################
 
-{
-    'name': 'Shipstation Integration',
-    'version': '1.0.0',
-    'author': 'Cenit IO',
-    'website': 'https://cenit.io',
-    'license': 'LGPL-3',
-    'support': 'support@cenit.io',
-    'category': 'Extra Tools',
-    'summary': "Shipstation Integration",
-    'description': "This module allow you to connect your Shipstation Account with Odoo and synchronize all the shipping data through the Cenit IO platform.",
-    'depends': ['cenit_base', 'sale','sale_stock','delivery'],
-    'data': [
-        'security/ir.model.access.csv',
-        'view/config.xml',
-        'view/wizard.xml',
-        'view/delivery_view.xml'
-    ],
-    'images': ['static/images/banner.jpg'],
-    'installable': True
-}
+from . import main

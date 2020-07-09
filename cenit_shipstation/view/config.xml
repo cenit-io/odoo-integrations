@@ -21,6 +21,7 @@
                             <field name='store_id' placeholder='Your Shipstation Store' />
                         </group>
                     </div>
+                    <button string="Import Carriers" type="object" name="import_carriers"/>
                 </form>
             </field>
         </record>

@@ -152,8 +152,8 @@
     "domains": [
       {
         "field": "state",
-        "value": "sale",
-        "op": "="
+        "value": "sale,cancel",
+        "op": "in"
       }
     ],
     "lines": [
@@ -177,11 +177,11 @@
       },
       {
         "line_cardinality": null,
-        "name": "awaiting_shipment",
+        "name": "{'cancel': 'cancelled', 'sale':'awaiting_shipment'}.get(obj.state, 'awaiting_shipment')",
         "reference": null,
         "primary": false,
         "value": "orderStatus",
-        "line_type": "default",
+        "line_type": "code",
         "inlined": false
       },
       {
@@ -217,6 +217,15 @@
         "reference": null,
         "primary": false,
         "value": "customerEmail",
+        "line_type": "code",
+        "inlined": false
+      },
+      {
+        "line_cardinality": null,
+        "name": "obj.carrier_id.shipstation_carrier_id.carrier_code",
+        "reference": null,
+        "primary": false,
+        "value": "carrierCode",
         "line_type": "code",
         "inlined": false
       }

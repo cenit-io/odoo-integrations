@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!--Shipstation carriers-->
+
+        <record id="view_shipstation_carrier_tree" model="ir.ui.view">
+            <field name="name">Shipstation Carriers</field>
+            <field name="model">shipstation.carrier</field>
+            <field name="arch" type="xml">
+                <tree string="Carriers">
+                    <field name="name"/>
+                    <field name="carrier_code"/>
+                    <field name="account_number"/>
+                    <field name="balance"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_shipstation_carrier_form" model="ir.ui.view">
+            <field name="name">Shipstation Carrier</field>
+            <field name="model">shipstation.carrier</field>
+            <field name="arch" type="xml">
+                <form string="Carrier">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="carrier_code"/>
+                            </group>
+                            <group>
+                                <field name="account_number"/>
+                                <field name="balance"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_shipstation_carrier_form"
+                model="ir.actions.act_window">
+            <field name="name">Shipstation Carriers</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">shipstation.carrier</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem action="action_shipstation_carrier_form"
+                  id="menu_sale_action_shipstation_carrier_form"
+                  parent="sale.menu_sales_config" sequence="5"/>
+
+        <menuitem action="action_shipstation_carrier_form"
+                  id="menu_delivery_action_shipstation_carrier_form"
+                  parent="delivery.menu_delivery"
+                  sequence="2"/>
+
+
+        <!--Delivery Method-->
+
+        <record id="view_delivery_carrier_form" model="ir.ui.view">
+            <field name="name">delivery.carrier.form</field>
+            <field name="model">delivery.carrier</field>
+            <field name="inherit_id"
+                   ref="delivery.view_delivery_carrier_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='destination']" position="before">
+                    <page string="Shipstation Configuration" name="shipstation"
+                          attrs="{'invisible': [('delivery_type', '!=', 'shipstation')]}"
+                          autofocus="autofocus">
+                        <group>
+                            <group>
+                                <field name="shipstation_carrier_id"
+                                       attrs="{'required': [('delivery_type', '=', 'shipstation')]}"/>
+                            </group>
+                            <group></group>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>
