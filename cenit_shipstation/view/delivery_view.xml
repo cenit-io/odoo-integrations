@@ -52,8 +52,7 @@
 
         <menuitem action="action_shipstation_carrier_form"
                   id="menu_delivery_action_shipstation_carrier_form"
-                  parent="delivery.menu_delivery"
-                  sequence="2"/>
+                  parent="stock.menu_delivery" sequence="2"/>
 
 
         <!--Delivery Method-->
