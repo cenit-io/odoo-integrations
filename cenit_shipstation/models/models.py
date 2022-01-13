@@ -44,8 +44,7 @@ class ShipstationCarrier(models.Model):
 class DeliveryCarrier(models.Model):
     _inherit = 'delivery.carrier'
 
-    delivery_type = fields.Selection(
-        selection_add=[('shipstation', 'Shipstation')])
+    delivery_type = fields.Selection([('shipstation', 'Shipstation')])
     shipstation_carrier_id = fields.Many2one('shipstation.carrier', 'Carrier')
 
 
