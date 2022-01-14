@@ -21,7 +21,7 @@
 
 {
     'name': 'Google sheets api v4 Integration',
-    'version': '0.1',
+    'version': '0.14',
     'author': 'Cenit IO',
     'website': 'https://cenit.io',
     # ~ 'license': 'LGPL-3',
