@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<odoo>
+
+	<record id="delete_unlinked_products_cron" model="ir.cron">
+        <field name="name">Delete unlinked products from Omna</field>
+        <field name="model_id" ref="model_product_template"/>
+        <field name="state">code</field>
+        <field name="code">model.delete_after_unlink()</field>
+        <field name="interval_number">3</field>
+        <field name="interval_type">minutes</field>
+        <field name="numbercall">1</field>
+        <field name="user_id" ref="base.user_root"/>
+<!--        <field name="nextcall" eval="(datetime.now() + timedelta(minutes=5)).strftime('%Y-%m-%d %H:%M:%S')"/>-->
+        <field name="active" eval="False"/>
+        <field name="doall" eval="False"/>
+    </record>
+
+
+    <record id="delete_unlinked_variants_cron" model="ir.cron">
+        <field name="name">Delete unlinked variants from Omna</field>
+        <field name="model_id" ref="model_product_product"/>
+        <field name="state">code</field>
+        <field name="code">model.delete_after_unlink([])</field>
+        <field name="interval_number">3</field>
+        <field name="interval_type">minutes</field>
+        <field name="numbercall">1</field>
+        <field name="user_id" ref="base.user_root"/>
+        <field name="active" eval="False"/>
+        <field name="doall" eval="False"/>
+    </record>
+
+
+    <record id="test_omna_delayed_cron" model="ir.cron">
+        <field name="name">Test delayed function for Omna</field>
+        <field name="model_id" ref="model_omna_utilities"/>
+        <field name="state">code</field>
+        <field name="code">model.test_delayed_function()</field>
+        <field name="interval_number">3</field>
+        <field name="interval_type">minutes</field>
+        <field name="numbercall">1</field>
+        <field name="user_id" ref="base.user_root"/>
+        <field name="active" eval="False"/>
+        <field name="doall" eval="False"/>
+    </record>
+
+
+<!--    Estos records son para implementar de forma asíncrona la importación de los productos que se obtengan de Cenit-->
+    <record id="by_integration_import_products_cron" model="ir.cron">
+        <field name="name">Delayed importation by INTEGRATION products from Omna</field>
+        <field name="model_id" ref="model_omna_sync_products_wizard"/>
+        <field name="state">code</field>
+        <field name="code">model.by_integration_import_products(integration_id)</field>
+        <field name="interval_number">2</field>
+        <field name="interval_type">minutes</field>
+        <field name="numbercall">1</field>
+        <field name="user_id" ref="base.user_root"/>
+        <field name="active" eval="False"/>
+        <field name="doall" eval="False"/>
+    </record>
+
+
+<!--    Estos records son para implementar de forma automática y en background la importación de órdenes desde Cenit para Odoo-->
+    <record id="all_resources_prestashop_cenit_import_cron" model="ir.cron">
+        <field name="name">Tarea para importar ordenes desde Cenit para Odoo</field>
+        <field name="model_id" ref="model_omna_sync_orders_wizard"/>
+        <field name="state">code</field>
+        <field name="code">model.background_import_orders()</field>
+        <field name="interval_number">2</field>
+        <field name="interval_type">hours</field>
+        <field name="numbercall">1</field>
+        <field name="user_id" ref="base.user_root"/>
+        <field name="active" eval="True"/>
+        <field name="doall" eval="False"/>
+    </record>
+
+
+<!--    Estos records son para implementar en background la actualizacion de los registros de inventario tanto en Cenit, como en Prestashop-->
+    <record id="ecapi_lazada_inventory_cron" model="ir.cron">
+        <field name="name">Tarea para sincronizar y ajustar los registros de inventario en Cenit y Prestashop</field>
+        <field name="model_id" ref="model_omna_stock_items"/>
+        <field name="state">code</field>
+        <field name="code">model.update_omna_stock([])</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">minutes</field>
+        <field name="numbercall">1</field>
+        <field name="user_id" ref="base.user_root"/>
+        <field name="active" eval="False"/>
+        <field name="doall" eval="False"/>
+    </record>
+
+</odoo>

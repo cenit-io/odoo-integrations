@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <record id="view_export_orders_from_integration_wzd" model="ir.ui.view">
+            <field name="name">omna.export_orders_from_integration_wzd.form</field>
+            <field name="model">omna.export_orders_from_integration_wzd</field>
+            <field name="arch" type="xml">
+                <form string="Export Orders">
+                    <group>
+                        <!--You can import all orders or from a specific integration.-->
+                        <div>
+                            Wizard to export the updated orders of
+                            an integration to one or more target integrations.
+                        </div>
+                    </group>
+                    <group>
+                        <group>
+                            <field name="integration_id"/>
+                        </group>
+                        <group>
+                            <field name="target_integration_id"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button string='Export Orders' name="export_orders" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_export_orders_from_integration_wzd" model="ir.actions.act_window">
+            <field name="name">Export Orders</field>
+            <field name="res_model">omna.export_orders_from_integration_wzd</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_export_orders_from_integration_wzd"/>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem id="menu_omna_export_orders_from_integration_wzd" name="Export Orders"
+                  parent="menu_omna_settings_alt" sequence="8"
+                  action="action_export_orders_from_integration_wzd"/>
+
+
+</odoo>

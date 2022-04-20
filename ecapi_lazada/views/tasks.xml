@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <record id="omna_task_tree_view" model="ir.ui.view">
+            <field name="name">omna.task.tree</field>
+            <field name="model">omna.task</field>
+            <field name="arch" type="xml">
+                <tree decoration-success="status=='completed'" decoration-warning="status=='running'"
+                      decoration-danger="status=='failed'" decoration-info="status=='pending'" string="Tasks">
+                    <field name="status"/>
+                    <field name="progress" widget="progressbar"/>
+                    <field name="description"/>
+                    <field name="task_created_at"/>
+                    <field name="task_updated_at"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="omna_task_form_view" model="ir.ui.view">
+            <field name="name">omna.task.form</field>
+            <field name="model">omna.task</field>
+            <field name="arch" type="xml">
+                <form string="Task">
+                    <sheet>
+                        <group col="4">
+                            <field name="status"/>
+                            <field name="progress" widget="progressbar"/>
+                            <field name="task_created_at"/>
+                            <field name="task_updated_at"/>
+                        </group>
+                        <group>
+                            <field name="description"/>
+                        </group>
+                        <notebook>
+                            <page string="Executions">
+                                <field name="task_execution_ids">
+                                    <tree>
+                                        <field name="status"/>
+                                        <field name="exec_started_at"/>
+                                        <field name="exec_completed_at"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Notifications">
+                                <field name="task_notification_ids">
+                                    <tree>
+                                        <field name="type"/>
+                                        <field name="message"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                        <footer>
+                            <button string="Retry" name="retry" type="object" class="btn-primary"/>
+                        </footer>
+                    </sheet>
+
+                </form>
+            </field>
+        </record>
+
+        <record id="action_omna_task" model="ir.actions.act_window">
+            <field name="name">Tasks</field>
+            <field name="res_model">omna.task</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="omna_task_tree_view"/>
+        </record>
+
+        <record id="action_omna_task_tree" model="ir.actions.act_window.view">
+            <field name="act_window_id" ref="action_omna_task"/>
+            <field name="sequence" eval="1"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="omna_task_tree_view"/>
+        </record>
+
+        <menuitem id="menu_omna_my_tasks" name="Tasks" parent="menu_omna_system" sequence="0"
+                  action="action_omna_task"/>
+
+
+</odoo>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+        <record id="view_external_importer_wizard" model="ir.ui.view">
+            <field name="name">omna.external.importer.wizard.form</field>
+            <field name="model">omna.external_importer_wizard</field>
+            <field name="arch" type="xml">
+                <form string="External Resources Import">
+                    <group>
+                        <div>
+                            Wizard to import resources from external source to omna.
+                        </div>
+                    </group>
+                    <group>
+                        <group>
+                            <field name="resource_type" widget="radio"/>
+                        </group>
+                        <group>
+                            <field name="integration_id"/>
+                            <field name="limit_date" attrs="{'invisible': [('resource_type', 'not in', ['products', 'orders'])]}"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button string='Import Resources' name="external_import_resources" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_external_importer_wizard" model="ir.actions.act_window">
+            <field name="name">External Resources Import</field>
+            <field name="res_model">omna.external_importer_wizard</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_external_importer_wizard"/>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem id="menu_omna_external_importer" name="Import Lazada -> Omna"
+                  parent="menu_omna_settings_alt" sequence="15"
+                  action="action_external_importer_wizard"/>
+
+
+
+</odoo>

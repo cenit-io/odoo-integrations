@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="dow_0" model="omna.filters">
+            <field name="name">Sun</field>
+            <field name="title">Sunday</field>
+            <field name="type">dow</field>
+        </record>
+
+        <record id="dow_1" model="omna.filters">
+            <field name="name">Mon</field>
+            <field name="title">Monday</field>
+            <field name="type">dow</field>
+        </record>
+
+        <record id="dow_2" model="omna.filters">
+            <field name="name">Tue</field>
+            <field name="title">Tuesday</field>
+            <field name="type">dow</field>
+        </record>
+
+        <record id="dow_3" model="omna.filters">
+            <field name="name">Wed</field>
+            <field name="title">Wednesday</field>
+            <field name="type">dow</field>
+        </record>
+
+        <record id="dow_4" model="omna.filters">
+            <field name="name">Thu</field>
+            <field name="title">Thursday</field>
+            <field name="type">dow</field>
+        </record>
+
+        <record id="dow_5" model="omna.filters">
+            <field name="name">Fri</field>
+            <field name="title">Friday</field>
+            <field name="type">dow</field>
+        </record>
+
+        <record id="dow_6" model="omna.filters">
+            <field name="name">Sat</field>
+            <field name="title">Saturday</field>
+            <field name="type">dow</field>
+        </record>
+        </data>
+</odoo>

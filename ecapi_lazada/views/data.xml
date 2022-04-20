@@ -1,0 +1,658 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+        <menuitem id="menu_omna_data" name="Data" parent="menu_omna_integration" sequence="1"/>
+
+        <record id="omna_view_sales_order_filter_inherit" model="ir.ui.view">
+            <field name="name">omna.sale.order.list.select.inherit</field>
+            <field name="model">sale.order</field>
+            <field name="mode">primary</field>
+            <field name="priority">8</field>
+            <field name="inherit_id" ref="sale.view_sales_order_filter"/>
+            <field name="arch" type="xml">
+                <xpath expr="//filter[@name='my_sale_orders_filter']" position="before">
+                    <filter name="current_tenant" string="Current Tenant"
+                            domain="[('omna_tenant_id', '=', context.get('omna_current_tenant'))]"/>
+                    <filter name="integration_id" string="Integration"/>
+                    <filter string="Integration" name="integration_id" context="{'group_by': 'integration_id'}"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="omna_sale_order_view_tree_inherit" model="ir.ui.view">
+            <field name="name">omna.sale.order.tree</field>
+            <field name="model">sale.order</field>
+            <field name="priority">2</field>
+            <field name="inherit_id" ref="sale.view_order_tree"/>
+            <field name="arch" type="xml">
+                <field name="amount_total" position="after">
+                    <field name="integration_id"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="omna_view_order_form_inherit" model="ir.ui.view">
+            <field name="name">omna.sale.order.form</field>
+            <field name="model">sale.order</field>
+            <field name="priority">2</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <field name="payment_term_id" position="after">
+                    <field name="integration_name"/>
+                </field>
+
+<!--                <button name="%(sale.action_view_sale_advance_payment_inv)d" string="Create Invoice"-->
+<!--                        type="action" class="btn-primary"-->
+<!--                        attrs="{'invisible': [('invoice_status', '!=', 'to invoice')]}" position="replace">-->
+<!--                    <button name="action_view_sale_advance_payment_inv" string="Create Invoice"-->
+<!--                        type="object" class="btn-primary"-->
+<!--                        attrs="{'invisible': [('invoice_status', '!=', 'to invoice')]}"/>-->
+<!--                </button>-->
+
+                <xpath expr="//button[3]" position="replace">
+                    <button name="action_view_sale_advance_payment_inv" string="Create Invoice"
+                        type="object" class="btn-primary"
+                        attrs="{'invisible': [('invoice_status', '!=', 'to invoice')]}"/>
+                </xpath>
+
+
+
+<!--                <button name="%(sale.action_view_sale_advance_payment_inv)d" string="Create Invoice"-->
+<!--                        type="action" context="{'default_advance_payment_method': 'percentage'}"-->
+<!--                        attrs="{'invisible': ['|',('invoice_status', '!=', 'no'), ('state', '!=', 'sale')]}" position="replace">-->
+<!--                    <button name="action_view_sale_advance_payment_inv" string="Create Invoice"-->
+<!--                        type="action" context="{'default_advance_payment_method': 'percentage'}"-->
+<!--                        attrs="{'invisible': ['|',('invoice_status', '!=', 'no'), ('state', '!=', 'sale')]}"/>-->
+<!--                </button>-->
+
+                <xpath expr="//button[4]" position="replace">
+                    <button name="action_view_sale_advance_payment_inv" string="Create Invoice"
+                        type="object" context="{'default_advance_payment_method': 'percentage'}"
+                        attrs="{'invisible': ['|',('invoice_status', '!=', 'no'), ('state', '!=', 'sale')]}"/>
+                </xpath>
+
+
+                <xpath expr="//page[@name='order_lines']" position="after">
+                    <page name="document" string="Document">
+                        <group>
+                            <field name="doc_omna"/>
+                        </group>
+                    </page>
+
+                </xpath>
+                <xpath expr="//header/field[@name='state']" position="replace">
+                    <field name="state" widget="statusbar" statusbar_visible="draft,sent,sale"/>
+                </xpath>
+                <xpath expr="//group/group[1]/field[@name='partner_id']" position="before">
+                    <field name="omna_order_reference" readonly="1"/>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- Cancel from integration Button in action menu -->
+        <record id="sale_order_action_cancel_from_integration" model="ir.actions.server">
+            <field name="name">Cancel from Integration</field>
+            <field name="model_id" ref="sale.model_sale_order"/>
+            <field name="binding_model_id" ref="sale.model_sale_order"/>
+            <field name="state">code</field>
+            <field name="code">action = records.action_cancel_from_integration()</field>
+        </record>
+
+        <!-- Retrieve an Order -->
+        <record id="sale_order_action_retrieve_order" model="ir.actions.server">
+            <field name="name">Retrieve an Order</field>
+            <field name="model_id" ref="sale.model_sale_order"/>
+            <field name="binding_model_id" ref="sale.model_sale_order"/>
+            <field name="state">code</field>
+            <field name="code">action = records.retrieve_order()</field>
+        </record>
+
+        <!--Hide Invoice Order Button-->
+<!--        <record id="sale.action_view_sale_advance_payment_inv" model="ir.actions.act_window">-->
+<!--            <field name="name">Invoice Order</field>-->
+<!--            <field name="type">ir.actions.act_window</field>-->
+<!--            <field name="res_model">sale.advance.payment.inv</field>-->
+<!--            &lt;!&ndash;            <field name="view_type">form</field>&ndash;&gt;-->
+<!--            <field name="binding_view_types">form</field>-->
+<!--            <field name="view_mode">form</field>-->
+<!--            <field name="view_id" ref="sale.view_order_form"/>-->
+<!--            <field name="target">new</field>-->
+<!--            <field name="groups_id" eval="[(6,0,[ref('base.group_no_one')])]"/>-->
+<!--            <field name="binding_model_id" ref="sale.model_sale_order"/>-->
+<!--            <field name="domain">[('omna_id', '=', False)]</field>-->
+<!--        </record>-->
+
+        <!-- Order Menu and Views -->
+        <record id="action_omna_orders" model="ir.actions.act_window">
+            <field name="name">Orders</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sale.order</field>
+            <field name="view_mode">tree,kanban,form,calendar,pivot,graph,activity</field>
+            <field name="context">{'search_default_current_tenant': 1}</field>
+            <field name="domain">[]</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create a new quotation, the first step of a new sale!
+                </p>
+                <p>
+                    Once the quotation is confirmed, it becomes a sales order.
+                    <br/>
+                    You will be able to create an invoice and collect the payment.
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="menu_omna_orders" name="Orders" parent="menu_omna_data" sequence="1"
+                  action="action_omna_orders"/>
+        <!-- End Order -->
+
+
+        <!-- End Order -->
+        <record id="view_integration_product" model="ir.ui.view">
+            <field name="name">omna.integration.product.form</field>
+            <field name="model">omna.integration_product</field>
+            <field name="arch" type="xml">
+                <form string="Link Product">
+                    <group>
+                        <!--<field name="product_template_id" domain="[('id', '=', active_id)]"/>-->
+                        <field name="product_template_id" domain="[('id', '=', active_id)]" readonly="1"/>
+                        <!--<field name="integration_ids" widget="many2many_tags"/>-->
+                        <field name="integration_ids"/>
+                        <field name="link_with_its_variants"/>
+                        <field name="delete_from_integration"/>
+                    </group>
+
+                </form>
+            </field>
+        </record>
+
+        <!--         Product Menu and Views-->
+        <record id="omna_product_template_form_view" model="ir.ui.view">
+            <field name="name">omna.product.template.product.form</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_only_form_view"/>
+            <field name="priority" eval="5"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='categ_id']" position="after">
+                    <field name="omna_product_id" attrs="{'invisible': [('is_product_variant', '=', True)]}"/>
+                </xpath>
+
+                <xpath expr="//field[@name='categ_id']" position="replace">
+                    <field name="categ_id" string="Internal Category"/>
+<!--                    <field name="simple_product"/>-->
+                </xpath>
+
+                <xpath expr="//field[@name='default_code']" position="replace">
+                    <field name="locking_default_code" invisible="1"/>
+                    <field name="default_code" attrs="{'readonly': [('locking_default_code', '=', True)]}"/>
+                </xpath>
+
+                <xpath expr="//field[@name='barcode']" position="replace">
+                    <field name="barcode"/>
+                </xpath>
+
+                <xpath expr="//page[@name='general_information']" position="after">
+                    <page string="Additional Information" name="additional_information">
+                        <group string="Basic Data">
+                            <group>
+                                <field name="alto" widget="float"/>
+                                <field name="longitud" widget="float"/>
+                                <field name="ancho" widget="float"/>
+                            </group>
+                            <group>
+                                <field name="peso" widget="float"/>
+                                <field name="overwrite"/>
+                            </group>
+                        </group>
+                    </page>
+                </xpath>
+
+                <xpath expr="//page[@name='sales']" position="after">
+                    <page name="integrations" string="Integrations" invisible="1">
+                        <group>
+                            <field nolabel="1" name="integrations_data" widget="omna_integrations"
+                                   style="width: 100%;"/>
+                        </group>
+                    </page>
+                </xpath>
+
+                <xpath expr="//page[@name='general_information']" position="after">
+                    <field name="id" invisible="1"/>
+                    <page name="integration" string="Integrations" attrs="{'invisible': [('id', '=', False)]}">
+                        <field name="integration_ids" widget="one2many" context="{'default_product_template_id' : active_id}">
+                            <tree string="Integration" class="oe_inline" editable="bottom">
+                                <field name="integration_ids"/>
+                                <field name="link_with_its_variants"/>
+                                <field name="delete_from_integration"/>
+                                <button name="action_link" icon="fa-link" title="Link" type="object"/>
+                                <button name="action_unlink" icon="fa-chain-broken" title="UnLink" type="object"/>
+                                <button name="action_update" icon="fa-refresh" title="Update on integration" type="object"/>
+                                <button name="action_publish" icon="fa-cloud-upload" title="Publish" type="object"/>
+                                <button name="action_unpublish" icon="fa-cloud-download" title="UnPublish" type="object"/>
+<!--                                <button name="launch_wizard_list" icon="fa-search-plus" title="View Properties By Integrations" type="object" />-->
+                                <field name="state" string="Integration State" widget="badge" decoration-warning="state == 'unlinked'" decoration-success="state == 'linked'"/>
+                                <field name="marketplace_state" string="On Marketplace" widget="badge" decoration-warning="marketplace_state == 'unpublished'" decoration-info="marketplace_state == 'published'"/>
+                            </tree>
+
+                        </field>
+                        <p class="oe_grey">
+                            <strong>Warning</strong>: adding or deleting attributes
+                            will delete and recreate existing variants and lead
+                            to the loss of their possible customizations.
+                        </p>
+                    </page>
+                    <page string="Custom properties" name="custom_properties" attrs="{'invisible': [('property_ids','=',[])]}">
+                        <field name="property_ids">
+                            <tree>
+                                <field name="property_name"/>
+                                <field name="property_required"/>
+                                <field name="property_display_value"/>
+                            </tree>
+                        </field>
+                    </page>
+                </xpath>
+
+                <xpath expr="//page[@name='variants']/field[@name='attribute_line_ids']/tree/field[@name='attribute_id']" position="attributes">
+                    <attribute name="domain">[('omna_attribute_id', '!=', False)]</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='description']" position="replace">
+                    <field name="description" nolabel="1" placeholder="This note is only for internal purposes." required="1"/>
+                </xpath>
+
+                <xpath expr="//field[@name='description_sale']" position="replace">
+                    <field name="description_sale" nolabel="1" placeholder="This note is added to sales order and invoices." required="1"/>
+                </xpath>
+
+                <xpath expr="//field[@name='taxes_id']" position="after">
+                    <field name="omna_tax_id"/>
+                </xpath>
+
+                <!--                <xpath expr="//field[@name='categ_id']" position="after">-->
+                <!--                    <field name="brand_id"/>-->
+                <!--                </xpath>-->
+            </field>
+        </record>
+
+
+<!--        <record model="ir.ui.view" id="omna_product_template_form_view2">-->
+<!--            <field name="name">omna.product.template.form.view2</field>-->
+<!--            <field name="model">product.template</field>-->
+<!--            <field name="inherit_id" ref="product.product_template_form_view"/>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <xpath expr="//notebook/page[@name='general_information']/group[1]/group[1]/field[@name='categ_id']" position="replace">-->
+<!--                    <field name="categ_id" string="Internal Category"/>-->
+<!--                </xpath>-->
+<!--            </field>-->
+<!--        </record>-->
+
+
+
+        <record model="ir.ui.view" id="omna_product_template_website_tree_view_inherit">
+            <field name="name">product.template.omna.tree</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_tree_view"/>
+            <field name="arch" type="xml">
+                <field name="categ_id" position="after">
+                    <field name="integration_ids" widget="many2many_tags"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="omna_product_template_search_view_inherit" model="ir.ui.view">
+            <field name="name">omna.product.template.search.inherit</field>
+            <field name="model">product.template</field>
+            <field name="mode">primary</field>
+            <field name="priority">8</field>
+            <field name="inherit_id" ref="product.product_template_search_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//filter[@name='services']" position="before">
+                    <filter name="current_tenant" string="Current Tenant"
+                            domain="[('omna_tenant_id', '=', context.get('omna_current_tenant'))]"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="action_omna_products" model="ir.actions.act_window">
+            <field name="name">Products</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.template</field>
+            <field name="view_mode">kanban,tree,form,activity</field>
+            <field name="context">{"search_default_filter_to_sell":1, "sale_multi_pricelist_product_template": 1,
+                "search_default_current_tenant": 1, "search_default_filter_category": 1, "search_default_filter_brand":
+                1}
+            </field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create a new product
+                </p>
+                <p>
+                    You must define a product for everything you purchase,
+                    whether it's a physical product, a consumable or services.
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="menu_omna_products" name="Products" parent="menu_omna_data" sequence="2"
+                  action="action_omna_products"/>
+
+
+
+        <record id="omna_product_normal_form_view" model="ir.ui.view">
+        <field name="name">omna.product.product.form</field>
+        <field name="model">product.product</field>
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <form string="Product Variant" duplicate="false">
+                <header>
+                    <button string="Configure Variant" type="object"
+                        name="launch_config_variant"
+                        groups="product.group_product_variant"/>
+                </header>
+                <sheet>
+                    <field name='product_variant_count' invisible='1'/>
+                    <field name='is_product_variant' invisible='1'/>
+                    <field name='attribute_line_ids' invisible='1'/>
+                    <div class="oe_button_box" name="button_box"/>
+                    <widget name="web_ribbon" title="Archived" bg_color="bg-danger" attrs="{'invisible': [('active', '=', True)]}"/>
+                    <field name="id" invisible="True"/>
+                    <field name="image_1920" widget="image" class="oe_avatar" options="{'preview_image': 'image_128'}"/>
+                    <div class="oe_title">
+                        <label class="oe_edit_only" for="name" string="Product Name"/>
+                        <h1><field name="name" placeholder="Product Name"/></h1>
+                        <field name="product_tmpl_id" class="oe_inline" readonly="1" invisible="1" attrs="{'required': [('id', '!=', False)]}"/>
+                        <div name="options" groups="base.group_user">
+                            <div>
+                                <field name="sale_ok"/>
+                                <label for="sale_ok"/>
+                            </div>
+                            <div>
+                                <field name="purchase_ok"/>
+                                <label for="purchase_ok"/>
+                            </div>
+                        </div>
+                        <field name="product_template_attribute_value_ids" widget="many2many_tags" readonly="1"
+                        groups="product.group_product_variant"/>
+                    </div>
+                    <notebook>
+                        <page string="General Information" name="general_information">
+                            <group>
+                                <group name="group_general">
+                                    <field name="active" invisible="1"/>
+                                    <field name="type"/>
+                                    <field name="default_code"/>
+                                    <field name="barcode"/>
+                                    <field name="categ_id" string="Product Category"/>
+                                </group>
+                                <group name="group_standard_price">
+                                    <label for="lst_price"/>
+                                    <div name="pricing">
+                                      <field name="lst_price" class="oe_inline" widget='monetary'
+                                        options="{'currency_field': 'currency_id', 'field_digits': True}"
+                                      attrs="{'readonly': [('product_variant_count', '&gt;', 1)]}"/>
+                                      <button name="open_pricelist_rules" icon="fa-arrow-right" type="object"
+                                        groups="product.group_product_pricelist" class="oe_inline">
+                                        <field name="pricelist_item_count" attrs="{'invisible': [('pricelist_item_count', '=', 0)]}"/>
+                                        <span attrs="{'invisible': [('pricelist_item_count', '=', 1)]}">
+                                          Extra Prices
+                                        </span>
+                                        <span attrs="{'invisible': [('pricelist_item_count', '!=', 1)]}">
+                                          Extra Price
+                                        </span>
+                                      </button>
+                                    </div>
+                                    <label for="standard_price" groups="base.group_user" attrs="{'invisible': [('product_variant_count', '&gt;', 1), ('is_product_variant', '=', False)]}"/>
+                                    <div name="standard_price_uom" groups="base.group_user" attrs="{'invisible': [('product_variant_count', '&gt;', 1), ('is_product_variant', '=', False)]}" class="o_row">
+                                        <field name="standard_price" widget='monetary' options="{'currency_field': 'cost_currency_id', 'field_digits': True}"/>
+                                        <span groups="uom.group_uom" class="oe_read_only">per
+                                            <field name="uom_name"/>
+                                        </span>
+                                    </div>
+                                    <field name="company_id" groups="base.group_multi_company"
+                                        options="{'no_create': True}"/>
+                                    <field name="uom_id" groups="uom.group_uom" options="{'no_create': True}"/>
+                                    <field name="uom_po_id" groups="uom.group_uom" options="{'no_create': True}"/>
+                                    <field name="currency_id" invisible="1"/>
+                                    <field name="cost_currency_id" invisible="1"/>
+                                    <field name="product_variant_id" invisible="1"/>
+                                </group>
+                            </group>
+
+                            <separator string="Integration extra info" colspan="4" />
+                            <group>
+                                <group>
+                                    <field name="price_adjustment_type"/>
+                                </group>
+                                <group>
+                                    <field name="price_adjustment"/>
+                                </group>
+                            </group>
+
+                            <group string="Internal Notes">
+<!--                                <field name="description" nolabel="1" placeholder="This note is only for internal purposes." required="1"/>-->
+                                <field name="custom_description" nolabel="1" placeholder="This note is only for internal purposes." required="0"/>
+                            </group>
+                        </page>
+                        <page string="Additional Information" name="additional_information">
+                            <group>
+                                <group>
+                                    <field name="alto" widget="float"/>
+                                    <field name="ancho" widget="float"/>
+                                    <field name="longitud" widget="float"/>
+                                </group>
+                                <group>
+                                    <field name="quantity"/>
+                                    <field name="peso" widget="float"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Sales" attrs="{'invisible':[('sale_ok','=',False)]}" name="sales" invisible="1">
+                            <group name="sale">
+                            </group>
+                            <group string="Sales Description" name="description">
+                                <field name="description_sale" nolabel="1" placeholder="This note is added to sales orders and invoices."/>
+                            </group>
+                        </page>
+                        <page string="Purchase" name="purchase" attrs="{'invisible': [('purchase_ok','=',False)]}" invisible="1">
+                            <group name="purchase">
+                                <group string="Vendor Bills" name="bill"/>
+                            </group>
+                        </page>
+                        <page string="Inventory" name="inventory" groups="product.group_stock_packaging" attrs="{'invisible':[('type', '=', 'service')]}">
+                            <group name="inventory">
+                                <group name="group_lots_and_weight" string="Logistics" attrs="{'invisible': [('type', 'not in', ['product', 'consu'])]}">
+                                    <label for="weight" attrs="{'invisible':[('product_variant_count', '>', 1), ('is_product_variant', '=', False)]}"/>
+                                    <div class="o_row" name="weight" attrs="{'invisible':[('product_variant_count', '>', 1), ('is_product_variant', '=', False)]}">
+                                        <field name="weight"/>
+                                        <span><field name="weight_uom_name"/></span>
+                                    </div>
+                                    <label for="volume" attrs="{'invisible':[('product_variant_count', '>', 1), ('is_product_variant', '=', False)]}"/>
+                                    <div class="o_row" name="volume" attrs="{'invisible':[('product_variant_count', '>', 1), ('is_product_variant', '=', False)]}">
+                                        <field name="volume" string="Volume"/>
+                                        <span><field name="volume_uom_name"/></span>
+                                    </div>
+                                </group>
+                            </group>
+                            <group name="packaging" string="Packaging"
+                                colspan="4"
+                                attrs="{'invisible': 0}"
+                                groups="product.group_stock_packaging">
+                                <field name="packaging_ids" nolabel="1" context="{'tree_view_ref':'product.product_packaging_tree_view2', 'form_view_ref':'product.product_packaging_form_view2'}"/>
+                            </group>
+                        </page>
+                        <page string="Integration Options" name="integration_data">
+                            <field name="integration_ids" readonly="1" >
+                                <tree string="Integration" class="oe_inline">
+                                    <field name="integration_ids"/>
+                                    <field name="delete_from_integration"/>
+                                    <button name="action_link" icon="fa-link" title="Link" type="object"/>
+                                    <button name="action_unlink" icon="fa-chain-broken" title="UnLink" type="object"/>
+                                    <button name="action_update_ecommerce" icon="fa-refresh" title="Update on integration" type="object"/>
+                                    <field name="state" string="Integration State" widget="badge"
+                                           decoration-warning="state == 'unlinked'"
+                                           decoration-success="state == 'linked'"/>
+                                </tree>
+                            </field>
+                            <field nolabel="1" name="variant_integrations_data" widget="omna_integrations"
+                                   style="width: 100%;"
+                                   options="{'variant': True}"
+                                   attrs="{'invisible': [('is_product_variant', '=', False)]}"/>
+                        </page>
+
+                        <page string="Custom properties" name="custom_properties" attrs="{'invisible': [('property_ids','=',[])]}">
+                            <field name="property_ids">
+                                <tree>
+                                    <field name="property_name"/>
+                                    <field name="property_required"/>
+                                    <field name="property_display_value"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+
+
+
+    <record model="ir.ui.view" id="product_product_omna_tree_view_inherit">
+        <field name="name">product.product.omna.tree</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_product_tree_view"/>
+        <field name="arch" type="xml">
+            <field name="barcode" position="after">
+                <field name="integration_ids" widget="many2many_tags"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="omna_product_search_form_view" model="ir.ui.view">
+        <field name="name">omna.product.product.search</field>
+        <field name="model">product.product</field>
+        <field name="mode">primary</field>
+        <field name="inherit_id" ref="product.product_search_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='services']" position="before">
+                <filter name="current_tenant" string="Current Tenant"
+                        domain="[('omna_tenant_id', '=', context.get('omna_current_tenant'))]"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="action_omna_products_variants" model="ir.actions.act_window">
+        <field name="name">Products Variants</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">product.product</field>
+        <field name="view_mode">kanban,tree,form,activity</field>
+        <field name="view_ids" eval="[(5, 0, 0),
+            (0, 0, {'view_mode': 'kanban'}),
+            (0, 0, {'view_mode': 'tree'}),
+            (0, 0, {'view_mode': 'form', 'view_id': ref('omna_product_normal_form_view')}),
+            (0, 0, {'view_mode': 'activity'}),]"/>
+        <field name="context">{"search_default_filter_to_sell":1, "sale_multi_pricelist_product_template": 1,
+            "search_default_current_tenant": 1}
+        </field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new product variant
+            </p>
+            <p>
+                You must define a product for everything you purchase,
+                whether it's a physical product, a consumable or services.
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_omna_products_variants" name="Products Variants" parent="menu_omna_data" sequence="3"
+              action="action_omna_products_variants"/>
+
+    <!-- End Product -->
+
+    <record id="product_category_form_view_inherit" model="ir.ui.view">
+        <field name="name">product.category.form.view.inherit</field>
+        <field name="model">product.category</field>
+        <field name="inherit_id" ref="product.product_category_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='first']" position="after">
+                <group>
+                    <group>
+                        <field name="omna_category_id"/>
+                    </group>
+                </group>
+            </xpath>
+<!--            <xpath expr="//div[@name='button_box']" position="replace">-->
+<!--                <div class="oe_button_box" name="button_box">-->
+<!--                    <field name="product_category_ids" invisible="1"/>-->
+<!--                    <div class="oe_button_box" name="button_box">-->
+<!--                        <button class="oe_stat_button"-->
+<!--                                name="view_product_category"-->
+<!--                                icon="fa-th-list"-->
+<!--                                type="object">-->
+<!--                            <div class="o_field_widget o_stat_info">-->
+<!--                                <span class="o_stat_value">-->
+<!--                                    <field name="product_count_cat"/>-->
+<!--                                </span>-->
+<!--                                <span class="o_stat_text">Products</span>-->
+<!--                            </div>-->
+<!--                        </button>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+<!--            </xpath>-->
+        </field>
+    </record>
+
+    <record id="omna_category_search_view_inherit" model="ir.ui.view">
+        <field name="name">omna.category.search.inherit</field>
+        <field name="model">product.category</field>
+        <field name="inherit_id" ref="product.product_category_search_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='parent_id']" position="after">
+                <field name="omna_category_id" string="Omna ID"/>
+            </xpath>
+            <xpath expr="//field[@name='parent_id']" position="before">
+                <filter name="current_tenant" string="Current Tenant"
+                        domain="[('omna_tenant_id', '=', context.get('omna_current_tenant'))]"/>
+                <filter name="integration_id" string="Integration"/>
+                <filter string="Integration" name="integration_id" context="{'group_by': 'integration_id'}"/>
+            </xpath>
+
+        </field>
+    </record>
+
+    <record id="action_omna_product_category" model="ir.actions.act_window">
+        <field name="name">Product Categories</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">product.category</field>
+        <!--            <field name="view_type">form</field>-->
+        <field name="context">{'search_default_current_tenant': 1}</field>
+        <field name="search_view_id" ref="omna_category_search_view_inherit"/>
+        <field name="view_id" ref="product.product_category_list_view"/>
+    </record>
+
+    <menuitem id="categories" name="Categories" parent="menu_omna_data" sequence="4"
+              action="action_omna_product_category"/>
+
+
+    <record id="view_tax_form" model="ir.ui.view">
+        <field name="name">account.tax.form</field>
+        <field name="model">account.tax</field>
+        <field name="inherit_id" ref="account.view_tax_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group/group[1]/field[@name='name']" position="before">
+                <field name="omna_tax_rule_id"/>
+                <field name="integration_id"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

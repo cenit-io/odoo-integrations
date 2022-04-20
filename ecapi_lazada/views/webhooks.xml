@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+        <record id="omna_webhook_tree_view" model="ir.ui.view">
+            <field name="name">omna.webhook.tree</field>
+            <field name="model">omna.webhook</field>
+            <field name="arch" type="xml">
+                <tree string="Webhooks">
+                    <field name="topic"/>
+                    <field name="address"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="omna_webhook_form_view" model="ir.ui.view">
+            <field name="name">omna.webhook.form</field>
+            <field name="model">omna.webhook</field>
+            <field name="arch" type="xml">
+                <form string="Webhooks">
+                    <sheet>
+                        <group>
+                            <field name="topic"/>
+                            <field name="address"/>
+                            <field name="integration_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="omna_webhook_search_view" model="ir.ui.view">
+            <field name="name">omna.webhook.search</field>
+            <field name="model">omna.webhook</field>
+            <field name="arch" type="xml">
+                <search string="Flow">
+                    <field name="omna_tenant_id"/>
+                    <filter name="current_tenant" string="Current Tenant"
+                            domain="[('omna_tenant_id', '=', context.get('omna_current_tenant'))]"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_omna_webhook" model="ir.actions.act_window">
+            <field name="name">Webhooks</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">omna.webhook</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'search_default_current_tenant': 1}</field>
+        </record>
+
+        <menuitem id="menu_omna_webhooks" name="Webhooks" parent="menu_omna_system"
+                  sequence="0"
+                  action="action_omna_webhook"/>
+
+
+</odoo>

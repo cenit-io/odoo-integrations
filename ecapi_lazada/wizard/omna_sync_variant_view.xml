@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+        <record id="view_sync_variant_wizard" model="ir.ui.view">
+            <field name="name">omna.sync.variant.wizard.form</field>
+            <field name="model">omna.sync_variant_wizard</field>
+            <field name="arch" type="xml">
+                <form string="Import Product Variants">
+                    <group>
+                        <div>
+                            Wizard to import product variants from OMNA.
+                        </div>
+                    </group>
+                    <group>
+                        <group>
+                            <field name="sync_type" widget="radio"/>
+                        </group>
+                        <group>
+                            <field name="integration_id"/>
+                            <field name="template_id" attrs="{'invisible': [('sync_type', '=','all')], 'required': [('sync_type', '!=', 'all')]}"/>
+<!--                            <field name="omna_id" attrs="{'invisible': [('sync_type', 'in', ['all', 'by_product_id'])],-->
+<!--                                   'required': [('sync_type', '=', 'by_omna_id')]}"/>-->
+                        </group>
+                    </group>
+                    <footer>
+                        <button string='Import Product Variants' name="sync_variants" type="object"
+                                class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_sync_variant_wizard" model="ir.actions.act_window">
+            <field name="name">Import Product Variants</field>
+            <field name="res_model">omna.sync_variant_wizard</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_sync_variant_wizard"/>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem id="menu_omna_sync_variant" name="Import Products Variants"
+                  parent="menu_omna_settings_alt" sequence="4"
+                  action="action_sync_variant_wizard"/>
+
+
+
+</odoo>

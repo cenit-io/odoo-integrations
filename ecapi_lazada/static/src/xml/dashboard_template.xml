@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<templates xml:space="preserve">
+
+  <t t-extend="DashBoard">
+    <t t-jquery="div:first" t-operation="replace">
+    </t>
+<!--    <t t-jquery="div:first" t-operation="attributes">-->
+<!--        <attribute name="invisible">1</attribute>-->
+<!--    </t>-->
+  </t>
+</templates>

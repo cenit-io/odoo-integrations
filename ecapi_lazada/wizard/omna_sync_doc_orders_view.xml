@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_sync_doc_orders_wizard" model="ir.ui.view">
+        <field name="name">omna.sync.doc.orders.wizard.form</field>
+        <field name="model">omna.sync_doc_orders_wizard</field>
+        <field name="arch" type="xml">
+            <form string="Import Orders">
+                <group>
+                    <!--You can import all orders or from a specific integration.-->
+                    <div>
+                        Wizard to import from OMNA the types of documents of the orders in the first step and the
+                        documents of orders in the second. You can choose in the first step the integration and the
+                        order of which you want to know the types of documents and in the second the order and the
+                        type to obtain the document
+                    </div>
+                </group>
+                <group>
+                    <field name="flag" invisible="1"/>
+                    <field name="integration_id" attrs="{'invisible': [('flag', '=', True)]}"/>
+                    <field name="number"/>
+                    <field name="document_type" options="{'no_create': True}"
+                           attrs="{'invisible': [('flag', '=', False)]}"/>
+                </group>
+                <footer>
+                    <button string='Import' name="sync_doc_orders" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_sync_doc_orders_wizard" model="ir.actions.act_window">
+        <field name="name">Import Document Type</field>
+        <field name="res_model">omna.sync_doc_orders_wizard</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_sync_doc_orders_wizard"/>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="menu_omna_sync_doc_orders" name="Import Document Type"
+              parent="menu_omna_settings_alt" sequence="12"
+              action="action_sync_doc_orders_wizard"/>
+
+
+</odoo>

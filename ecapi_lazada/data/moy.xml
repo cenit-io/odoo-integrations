@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="moy_0" model="omna.filters">
+            <field name="name">Jan</field>
+            <field name="title">January</field>
+            <field name="type">moy</field>
+        </record>
+
+        <record id="moy_1" model="omna.filters">
+            <field name="name">Feb</field>
+            <field name="title">February</field>
+            <field name="type">moy</field>
+        </record>
+
+        <record id="moy_2" model="omna.filters">
+            <field name="name">Mar</field>
+            <field name="title">March</field>
+            <field name="type">moy</field>
+        </record>
+
+        <record id="moy_3" model="omna.filters">
+            <field name="name">Apr</field>
+            <field name="title">April</field>
+            <field name="type">moy</field>
+        </record>
+
+        <record id="moy_4" model="omna.filters">
+            <field name="name">May</field>
+            <field name="title">May</field>
+            <field name="type">moy</field>
+        </record>
+
+        <record id="moy_5" model="omna.filters">
+            <field name="name">Jun</field>
+            <field name="title">June</field>
+            <field name="type">moy</field>
+        </record>
+
+        <record id="moy_6" model="omna.filters">
+            <field name="name">Jul</field>
+            <field name="title">July</field>
+            <field name="type">moy</field>
+        </record>
+
+        <record id="moy_7" model="omna.filters">
+            <field name="name">Aug</field>
+            <field name="title">August</field>
+            <field name="type">moy</field>
+        </record>
+
+        <record id="moy_8" model="omna.filters">
+            <field name="name">Sep</field>
+            <field name="title">September</field>
+            <field name="type">moy</field>
+        </record>
+
+        <record id="moy_9" model="omna.filters">
+            <field name="name">Oct</field>
+            <field name="title">October</field>
+            <field name="type">moy</field>
+        </record>
+
+        <record id="moy_10" model="omna.filters">
+            <field name="name">Nov</field>
+            <field name="title">November</field>
+            <field name="type">moy</field>
+        </record>
+
+        <record id="moy_11" model="omna.filters">
+            <field name="name">Dec</field>
+            <field name="title">December</field>
+            <field name="type">moy</field>
+        </record>
+        </data>
+</odoo>

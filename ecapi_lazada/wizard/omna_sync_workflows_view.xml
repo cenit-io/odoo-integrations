@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+        <record id="view_sync_workflows_wizard" model="ir.ui.view">
+            <field name="name">omna.sync.workflows.wizard.form</field>
+            <field name="model">omna.sync_workflows_wizard</field>
+            <field name="arch" type="xml">
+                <form string="Import Workflows">
+                    <group>
+                        <div>
+                            Wizard to import workflows from OMNA.
+                        </div>
+                    </group>
+                    <footer>
+                        <button string='Import workflows' name="sync_workflows" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_sync_workflows_wizard" model="ir.actions.act_window">
+            <field name="name">Import Workflows</field>
+            <field name="res_model">omna.sync_workflows_wizard</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_sync_workflows_wizard"/>
+            <field name="target">new</field>
+        </record>
+
+
+        <menuitem id="menu_omna_sync_workflows" name="Import Workflows"
+                  parent="menu_omna_settings_alt" sequence="9"
+                  action="action_sync_workflows_wizard"/>
+
+
+
+</odoo>

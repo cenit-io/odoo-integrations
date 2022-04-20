@@ -1,0 +1,47 @@
+.o_notification_manager {
+    .o_notification {
+        &.o_success {
+            color: white;
+            background-color: theme-color('success');
+        }
+        &.o_danger {
+            color: white;
+            background-color: theme-color('danger');
+        }
+        &.o_warning {
+            color: white;
+            background-color: theme-color('warning');
+        }
+        &.o_info {
+            color: white;
+            background-color: theme-color('info');
+        }
+        &.o_default {
+            color: black;
+            background-color: theme-color('default');
+        }
+    }
+}
+
+.o_omna_input {
+    border: 1px solid #cfcfcf;
+    border-top-style: none;
+    border-right-style: none;
+    border-left-style: none;
+}
+
+.o_omna_required_modifier.o_omna_input, .o_omna_required_modifier .o_omna_input {
+    border-bottom: 2px solid #666666;
+}
+
+.o_field_widget input.o_omna_input {
+    display: inline-block;
+    text-align: inherit;
+}
+
+.o_field_invalid .o_omna_field_invalid {
+    &.o_omna_input, .o_omna_input, &.o_form_label {
+        color: theme-color('danger')!important;
+        border-color: theme-color('danger')!important;
+    }
+}

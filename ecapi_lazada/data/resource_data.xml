@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data noupdate="1">
+        <record id="omna_product_attribute" model="product.attribute">
+            <field name="name">Omna Related IDs</field>
+            <field name="sequence">50</field>
+        </record>
+    </data>
+</odoo>

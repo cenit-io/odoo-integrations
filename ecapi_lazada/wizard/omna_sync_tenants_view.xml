@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+        <record id="view_sync_tenants_wizard" model="ir.ui.view">
+            <field name="name">omna.sync.tenants.wizard.form</field>
+            <field name="model">omna.sync_tenants_wizard</field>
+            <field name="arch" type="xml">
+                <form string="Import Tenants">
+                    <group>
+                        <div>
+                            Wizard to import tenants from OMNA.
+                        </div>
+                    </group>
+                    <footer>
+                        <button string='Import tenants' name="sync_tenants" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_sync_tenants_wizard" model="ir.actions.act_window">
+            <field name="name">Import Tenants</field>
+            <field name="res_model">omna.sync_tenants_wizard</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_sync_tenants_wizard"/>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem id="menu_omna_sync_tenants" name="Import Tenants"
+                  parent="menu_omna_settings_alt" sequence="11"
+                  action="action_sync_tenants_wizard"/>
+
+
+
+</odoo>

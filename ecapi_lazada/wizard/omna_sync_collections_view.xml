@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+        <record id="view_sync_collections_wizard" model="ir.ui.view">
+            <field name="name">omna.sync.collections.wizard.form</field>
+            <field name="model">omna.sync_collections_wizard</field>
+            <field name="arch" type="xml">
+                <form string="Import Available Integrations">
+                    <group>
+                        <div>
+                            Wizard to import available integrations from OMNA.
+                        </div>
+                    </group>
+                    <footer>
+                        <button string='Import' name="sync_collections" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_sync_collections_wizard" model="ir.actions.act_window">
+            <field name="name">Import Available Integrations</field>
+            <field name="res_model">omna.sync_collections_wizard</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_sync_collections_wizard"/>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem id="menu_omna_sync_collections" name="Import Available Integrations"
+                  parent="menu_omna_settings_alt" sequence="7"
+                  action="action_sync_collections_wizard"/>
+
+
+
+</odoo>

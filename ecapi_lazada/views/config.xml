@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+        <record id="view_omna_settings" model="ir.ui.view">
+            <field name="name">Omna settings</field>
+            <field name="model">omna.settings</field>
+            <field name="arch" type="xml">
+                <form string="Configure Omnab"
+                      class="oe_form_configuration">
+                    <div>
+                        <group string="Connection settings">
+                            <field name="cenit_url"
+                                   placeholder="Omna API url (Default: 'https://cenit.io/app/ecapi-v1')"/>
+                            <field name="lazada_base_url"
+                                   placeholder="Lazada base url (Default: 'https://sellercenter.lazada.com.my')"/>
+                            <field name="lazada_ws_key"
+                                   placeholder="Lazada WebService key"/>
+                        </group>
+                    </div>
+                    <footer>
+                        <button string="Apply" type="object" name="execute"
+                                class="oe_highlight"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_omna_settings" model="ir.actions.act_window">
+            <field name="name">Settings</field>
+            <field name="res_model">omna.settings</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+            <field name="view_id" ref="view_omna_settings"/>
+        </record>
+
+        <menuitem id="menu_omna_settings" parent="base.menu_administration"
+                  sequence="90" name="Omna settings"/>
+
+        <menuitem id="menu_omna_hub_settings" parent="menu_omna_settings"
+                  sequence="0" action="action_omna_settings"/>
+
+
+
+        <record id="wizard_omna_sign_in_install" model="ir.ui.view">
+            <field name="name">Omna sign in</field>
+            <field name="model">omna.signin.settings</field>
+            <field name="mode">primary</field>
+            <field name="arch" type="xml">
+                <form>
+                    <p class="oe_grey">
+                        Set the OMNA API url.
+                    </p>
+                    <group>
+                        <field name="cenit_url"
+                               placeholder="Omna API url (Default: 'https://cenit.io/app/ecapi-v1')"/>
+                    </group>
+                    <footer>
+                        <button string="Apply" type="object" name="execute"
+                                class="oe_highlight" context="{'install': True}"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_wizard_omna_sign_in_install" model="ir.actions.act_window">
+            <field name="name">Sign in with Omna</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">omna.signin.settings</field>
+            <field name="view_id" ref="wizard_omna_sign_in_install"/>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+
+        <menuitem id="menu_omna_sign_in" name="Sign in with Omna"
+                  parent="menu_omna_settings_alt" sequence="12"
+                  action="action_wizard_omna_sign_in_install"/>
+
+        <menuitem id="menu_omna_settings_hub" name="Settings"
+                  parent="menu_omna_settings_alt" sequence="13"
+                  action="action_omna_settings"/>
+
+        <record id="todo_wizard_omna_install" model="ir.actions.todo">
+            <field name="action_id" ref="action_wizard_omna_sign_in_install"/>
+            <field name="sequence">0</field>
+        </record>
+
+</odoo>

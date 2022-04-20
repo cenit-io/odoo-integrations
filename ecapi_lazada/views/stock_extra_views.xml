@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="omna_stock_items_tree_view" model="ir.ui.view">
+        <field name="name">omna.stock.items.tree</field>
+        <field name="model">omna.stock.items</field>
+        <field name="arch" type="xml">
+            <tree string="Stock Items" create="false" edit="false">
+                <field name="product_product_name"/>
+                <field name="product_product_sku"/>
+                <field name="count_on_hand"/>
+                <field name="integration_id"/>
+                <field name="stock_location_id"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="omna_stock_items_search_view" model="ir.ui.view">
+        <field name="name">omna.stock.items.search</field>
+        <field name="model">omna.stock.items</field>
+        <field name="arch" type="xml">
+            <search string="Search Stock Items">
+                <field name="product_product_name"/>
+                <field name="product_product_sku"/>
+                <field name="product_product_omna_id"/>
+                <field name="product_template_omna_id"/>
+                <field name="integration_id"/>
+                <field name="stock_location_id"/>
+                <field name="omna_id"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_omna_stock_items" model="ir.actions.act_window">
+        <field name="name">Stock Items</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">omna.stock.items</field>
+        <field name="view_mode">tree</field>
+        <!--            <field name="context">{'search_default_current_tenant': 1}</field>-->
+    </record>
+
+    <menuitem id="menu_omna_stock_items" name="Stock Items" parent="menu_omna_data"
+              sequence="6"
+              action="action_omna_stock_items"/>
+
+
+    <record id="omna_view_picking_form" model="ir.ui.view">
+        <field name="name">omna.stock.picking.form</field>
+        <field name="model">stock.picking</field>
+        <field eval="12" name="priority"/>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//group/group[1]/field[@name='location_id']" position="attributes">
+                <attribute name="attrs">{'invisible': [('picking_type_code', '=', 'incoming')], 'readonly': [('state',
+                    'not in', ('draft', 'waiting', 'confirmed', 'assigned'))]}
+                </attribute>
+            </xpath>
+
+            <xpath expr="//group/group[1]/field[@name='location_dest_id']" position="attributes">
+                <attribute name="attrs">{'invisible': [('picking_type_code', '=', 'outgoing')], 'readonly': [('state',
+                    'not in', ('draft', 'waiting', 'confirmed', 'assigned'))]}
+                </attribute>
+            </xpath>
+
+            <xpath expr="//sheet" position="before">
+                <field name="show_warning_wh" invisible="1"/>
+                <field name="show_warning_op" invisible="1"/>
+                <div class="alert alert-warning text-center o_form_header" attrs="{'invisible': [('show_warning_wh', '=', False)]}" role="status">
+                    <a class="close" data-dismiss="alert" href="#" aria-label="Close">x</a>
+                    <div attrs="{'invisible': [('show_warning_op', '!=', 'dest')]}">
+                        <strong>Por favor verifique que la información suministrada en el campo: Destination Location, es la correcta.</strong>
+                    </div>
+                    <div attrs="{'invisible': [('show_warning_op', '!=', 'orig')]}">
+                        <strong>Por favor verifique que la información suministrada en el campo: Source Location, es la correcta.</strong>
+                    </div>
+                </div>
+            </xpath>
+
+        </field>
+    </record>
+
+
+</odoo>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+        <record id="view_sync_orders_wizard" model="ir.ui.view">
+            <field name="name">omna.sync.orders.wizard.form</field>
+            <field name="model">omna.sync_orders_wizard</field>
+            <field name="arch" type="xml">
+                <form string="Import Orders">
+                    <group>
+                        <!--You can import all orders or from a specific integration.-->
+                        <div>
+                            Wizard to import the orders from OMNA. You can choose
+                            the type of import you want to perform: all,
+                            by integration or by its number.
+                        </div>
+                    </group>
+                    <group>
+                        <group>
+                            <field name="sync_type" widget="radio"/>
+                        </group>
+                        <group>
+                            <field name="integration_id"
+                                   attrs="{'invisible': [('sync_type', '=', 'all')],
+                                   'required': [('sync_type', '!=', 'all')]}"/>
+                            <field name="number" attrs="{'invisible': [('sync_type', '!=', 'number')],
+                                   'required': [('sync_type', '=', 'number')]}"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button string='Import orders' name="sync_orders" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_sync_orders_wizard" model="ir.actions.act_window">
+            <field name="name">Import Orders</field>
+            <field name="res_model">omna.sync_orders_wizard</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_sync_orders_wizard"/>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem id="menu_omna_sync_orders" name="Import Orders"
+                  parent="menu_omna_settings_alt" sequence="10"
+                  action="action_sync_orders_wizard"/>
+
+</odoo>

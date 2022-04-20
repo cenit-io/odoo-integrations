@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="wom_0" model="omna.filters">
+            <field name="name">First</field>
+            <field name="title">First</field>
+            <field name="type">wom</field>
+        </record>
+
+        <record id="wom_1" model="omna.filters">
+            <field name="name">Second</field>
+            <field name="title">Second</field>
+            <field name="type">wom</field>
+        </record>
+
+        <record id="wom_2" model="omna.filters">
+            <field name="name">Third</field>
+            <field name="title">Third</field>
+            <field name="type">wom</field>
+        </record>
+
+        <record id="wom_3" model="omna.filters">
+            <field name="name">Fourth</field>
+            <field name="title">Fourth</field>
+            <field name="type">wom</field>
+        </record>
+
+        <record id="wom_4" model="omna.filters">
+            <field name="name">Last</field>
+            <field name="title">Last</field>
+            <field name="type">wom</field>
+        </record>
+        </data>
+</odoo>

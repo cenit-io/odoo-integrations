@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="omna_view_location_form_inherit" model="ir.ui.view">
+        <field name="name">omna.stock.location.form.inherit</field>
+        <field name="model">stock.location</field>
+        <field name="inherit_id" ref="stock.view_location_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='comment']" position="replace"/>
+
+            <xpath expr="//group" position="replace">
+                <notebook>
+                    <page string="Datos Generales" name="stock_location_general_data">
+                        <group>
+                            <group string="Additional Information" name="additional_info">
+                                <field name="active" invisible="1"/>
+                                <field name="usage"/>
+                                <field name="company_id" groups="base.group_multi_company"
+                                       options="{'no_create': True}"/>
+                                <field name="scrap_location"
+                                       attrs="{'invisible': [('usage', 'not in', ('inventory', 'internal'))]}"/>
+                                <field name="return_location"/>
+                            </group>
+                            <group string="Logistics" groups="stock.group_adv_location">
+                                <field name="omna_id"/>
+                                <field name="integration_id"/>
+                                <field name="removal_strategy_id" options="{'no_create': True}"/>
+                            </group>
+                        </group>
+                        <field name="comment" placeholder="External note..."/>
+                    </page>
+                </notebook>
+
+            </xpath>
+
+        </field>
+    </record>
+
+    <record id="view_warehouse_omna_inherit" model="ir.ui.view">
+        <field name="name">stock.warehouse</field>
+        <field name="model">stock.warehouse</field>
+        <field name="inherit_id" ref="stock.view_warehouse"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//group/group[1]/field[@name='code']" position="after">
+                <field name="omna_id"/>
+            </xpath>
+
+            <xpath expr="//group/group[2]/field[@name='partner_id']" position="after">
+                <field name="integration_id"/>
+            </xpath>
+
+        </field>
+    </record>
+
+</odoo>
