@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="wizard_stock_item_mov_view" model="ir.ui.view">
+        <field name="name">wizard.stock.item.mov.form</field>
+        <field name="model">wizard.stock.item.mov</field>
+        <field name="arch" type="xml">
+            <form string="Stock Item Movement">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="cantidad_movimiento" widget="numeric_step" attrs="{'ignore_value' : 0}" />
+                        </group>
+                        <group>
+                            <field name="cantidad" readonly="1" />
+                            <field name="cantidad_resultante" />
+                        </group>
+                    </group>
+
+                </sheet>
+                <footer>
+                    <button string="Save" name="update_quantity"
+                            type="object" default_focus="1" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+
+</odoo>

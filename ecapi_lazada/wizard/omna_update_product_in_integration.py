@@ -29,4 +29,4 @@ class OmnaUpdateProductInIntegration(models.TransientModel):
         }
         response = self.post('products/%s' % external.id, {'data': data})
         if not response.get('data').get('id'):
-            raise exceptions.AccessError(_("Error trying to update products in Omna's API."))
+            raise exceptions.AccessError(_("Error trying to update products in Ecapi's API."))

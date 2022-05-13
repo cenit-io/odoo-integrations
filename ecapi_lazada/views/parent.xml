@@ -2,7 +2,7 @@
 <odoo>
 
 
-        <menuitem id="menu_omna_integration" name="OMNA Integration" web_icon="ecapi_lazada,static/description/icon.png"
+        <menuitem id="menu_omna_integration" name="ECAPI Integration" web_icon="ecapi_lazada,static/description/icon.png"
                   groups="ecapi_lazada.group_omna_manager"/>
 
         <menuitem id="menu_omna_data" name="Data" parent="menu_omna_integration" sequence="0"/>

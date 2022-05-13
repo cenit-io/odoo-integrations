@@ -9,7 +9,7 @@
                 <form string="Import Brands">
                     <group>
                         <div>
-                            Wizard to import brands from OMNA.
+                            Wizard to import brands from ECAPI.
                         </div>
                     </group>
                     <group>

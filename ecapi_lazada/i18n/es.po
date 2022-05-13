@@ -639,8 +639,8 @@ msgstr "Ocurrió un error mientras se intentaba enviar un inquilino a Omna API"
 #. module: omna
 #: code:addons/omna/models/models.py:290
 #, python-format
-msgid "Error trying to push the workflow to Omna."
-msgstr "Ocurrió un error mientras se intentaba enviar un flujo de trabajo a Omna API"
+msgid "Error trying to push the workflow to Cenit."
+msgstr "Ocurrió un error mientras se intentaba enviar un flujo de trabajo a Cenit API"
 
 #. module: omna
 #: code:addons/omna/models/models.py:161
@@ -663,14 +663,14 @@ msgstr "Ocurrió un error mientras se intentaba actualizar una variante de produ
 #. module: omna
 #: code:addons/omna/models/models.py:341
 #, python-format
-msgid "Error trying to update the workflow in Omna."
-msgstr "Ocurrió un error mientras se intentaba actualizar un flujo de trabajo en Omna API"
+msgid "Error trying to update the workflow in Cenit."
+msgstr "Ocurrió un error mientras se intentaba actualizar un flujo de trabajo en Cenit API"
 
 #. module: omna
 #: code:addons/omna/models/models.py:182
 #, python-format
-msgid "Error trying to update webhook in Omna's API."
-msgstr "Ocurrió un error mientras se intentaba actualizar un webhook en Omna API"
+msgid "Error trying to update webhook in Cenit's API."
+msgstr "Ocurrió un error mientras se intentaba actualizar un webhook en Cenit API"
 
 #. module: omna
 #: model:ir.model.fields,field_description:omna.field_omna_settings__currency_exchange_journal_id
@@ -1338,7 +1338,7 @@ msgstr "Conector Plaid"
 #. module: omna
 #: code:addons/omna/models/omna_api.py:174
 #, python-format
-msgid "Please sign in with OMNA."
+msgid "Please sign in with CENIT."
 msgstr ""
 
 #. module: omna
@@ -1534,8 +1534,8 @@ msgstr "Establecer como inquilino actual"
 
 #. module: omna
 #: model_terms:ir.ui.view,arch_db:omna.wizard_omna_sign_in_install
-msgid "Set the OMNA API url."
-msgstr "Establezca la URL de la API OMNA."
+msgid "Set the CENIT API url."
+msgstr "Establezca la URL de la API CENIT."
 
 #. module: omna
 #: model:ir.actions.act_window,name:omna.action_omna_settings
@@ -1615,8 +1615,8 @@ msgstr "Mostrar tarifas a los clientes"
 #. module: omna
 #: model:ir.actions.act_window,name:omna.action_wizard_omna_sign_in_install
 #: model:ir.ui.menu,name:omna.menu_omna_sign_in
-msgid "Sign in with Omna"
-msgstr "Iniciar session con OMNA"
+msgid "Sign in with Cenit"
+msgstr "Iniciar session con CENIT"
 
 #. module: omna
 #: model:ir.model.fields,field_description:omna.field_omna_integration__image_small
@@ -1978,33 +1978,33 @@ msgstr "Unidad de Medida de Peso"
 
 #. module: omna
 #: model_terms:ir.ui.view,arch_db:omna.view_sync_collections_wizard
-msgid "Wizard to import available integrations from OMNA."
-msgstr "Asistente para importar las integraciones disponibles desde OMNA."
+msgid "Wizard to import available integrations from CENIT."
+msgstr "Asistente para importar las integraciones disponibles desde CENIT."
 
 #. module: omna
 #: model_terms:ir.ui.view,arch_db:omna.view_sync_integrations_wizard
-msgid "Wizard to import integrations from OMNA."
-msgstr "Asistente para importar integraciones desde OMNA"
+msgid "Wizard to import integrations from CENIT."
+msgstr "Asistente para importar integraciones desde CENIT"
 
 #. module: omna
 #: model_terms:ir.ui.view,arch_db:omna.view_sync_orders_wizard
-msgid "Wizard to import orders from OMNA."
-msgstr "Asistente para importar órdenes desde OMNA"
+msgid "Wizard to import orders from CENIT."
+msgstr "Asistente para importar órdenes desde CENIT"
 
 #. module: omna
 #: model_terms:ir.ui.view,arch_db:omna.view_sync_products_wizard
-msgid "Wizard to import products from OMNA."
-msgstr "Asistente para importar productos desde OMNA"
+msgid "Wizard to import products from CENIT."
+msgstr "Asistente para importar productos desde CENIT"
 
 #. module: omna
 #: model_terms:ir.ui.view,arch_db:omna.view_sync_tenants_wizard
-msgid "Wizard to import tenants from OMNA."
-msgstr "Asistente para importar inquilinos desde OMNA"
+msgid "Wizard to import tenants from CENIT."
+msgstr "Asistente para importar inquilinos desde CENIT"
 
 #. module: omna
 #: model_terms:ir.ui.view,arch_db:omna.view_sync_workflows_wizard
-msgid "Wizard to import workflows from OMNA."
-msgstr "Asistente para importar flujos de trabajo desde OMNA"
+msgid "Wizard to import workflows from CENIT."
+msgstr "Asistente para importar flujos de trabajo desde CENIT"
 
 #. module: omna
 #: model_terms:ir.ui.view,arch_db:omna.omna_flow_form_view

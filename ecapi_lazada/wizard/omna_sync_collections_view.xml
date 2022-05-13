@@ -9,7 +9,7 @@
                 <form string="Import Available Integrations">
                     <group>
                         <div>
-                            Wizard to import available integrations from OMNA.
+                            Wizard to import available integrations from ECAPI.
                         </div>
                     </group>
                     <footer>

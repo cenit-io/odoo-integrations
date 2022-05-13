@@ -23,11 +23,11 @@ class LinkVariantWizard(models.TransientModel):
     def _onchange_omna_integration_id(self):
         # product_template_obj = self.env['product.template']
         product_product_obj = self.env['product.product']
-        variant_integration_obj = self.env['omna.integration_variant']
+        # variant_integration_obj = self.env['omna.integration_variant']
         # product = product_template_obj.search([('id', '=', self.env.context.get('default_product_template_id'))])
         variant = product_product_obj.search([('id', '=', self.env.context.get('active_id'))])
-        result = variant_integration_obj.search([('integration_ids', '=', self.omna_integration_id.id), ('product_product_id', '=', variant.id)]).ids
-        if result:
+        # result = variant_integration_obj.search([('integration_ids', '=', self.omna_integration_id.id), ('product_product_id', '=', variant.id)]).ids
+        if variant.integration_ids:
             self.state = 'linked'
         else:
             self.state = 'unlinked'
@@ -38,7 +38,7 @@ class LinkVariantWizard(models.TransientModel):
         try:
             product_template_obj = self.env['product.template']
             product_product_obj = self.env['product.product']
-            variant_integration_obj = self.env['omna.integration_variant']
+            # variant_integration_obj = self.env['omna.integration_variant']
             integrations = [self.omna_integration_id.integration_id]
             data = {
                 'data': {
@@ -84,31 +84,32 @@ class LinkVariantWizard(models.TransientModel):
 
 
     def action_unlink_variant(self):
-        # Agregar validacion para que no se intente deslinkear con una integracion que ya tenga deslinkeada.
-        try:
-            product_template_obj = self.env['product.template']
-            product_product_obj = self.env['product.product']
-            variant_integration_obj = self.env['omna.integration_variant']
-            integrations = [self.omna_integration_id.integration_id]
-            data = {
-                'data': {
-                    'integration_ids': integrations,
-                    'delete_from_integration': True
-                }
-            }
-            # https: // cenit.io / app / ecapi - v1 / products / {product_id} / variants / {variant_id}
-            product = product_template_obj.search([('id', '=', self.env.context.get('default_product_template_id'))])
-            variant = product_product_obj.search([('id', '=', self.env.context.get('active_id'))])
-            integrated = variant_integration_obj.search([('product_product_id', '=', variant.id), ('integration_ids', '=', self.omna_integration_id.id)])
-            route = 'products/%s/variants/%s/link' % (product.omna_product_id, variant.omna_variant_id)
-            response = self.delete(route, data)
-            integrated.unlink()
-            variant.with_context(synchronizing=True).write({'integration_linked_ids': [(3, self.omna_integration_id.id)]})
-            # variant.write({'variant_integration_ids': [(3, self.omna_integration_id.id)]})
-            self.env.cr.commit()
-            return True
-        except Exception as e:
-            _logger.error(e)
-            raise exceptions.ValidationError(e)
-            # raise exceptions.AccessError(_("Error trying to update variant products in Omna's API."))
-        return {'type': 'ir.actions.act_window_close'}
+        pass
+        # # Agregar validacion para que no se intente deslinkear con una integracion que ya tenga deslinkeada.
+        # try:
+        #     product_template_obj = self.env['product.template']
+        #     product_product_obj = self.env['product.product']
+        #     # variant_integration_obj = self.env['omna.integration_variant']
+        #     integrations = [self.omna_integration_id.integration_id]
+        #     data = {
+        #         'data': {
+        #             'integration_ids': integrations,
+        #             'delete_from_integration': True
+        #         }
+        #     }
+        #     # https: // cenit.io / app / ecapi - v1 / products / {product_id} / variants / {variant_id}
+        #     product = product_template_obj.search([('id', '=', self.env.context.get('default_product_template_id'))])
+        #     variant = product_product_obj.search([('id', '=', self.env.context.get('active_id'))])
+        #     integrated = variant_integration_obj.search([('product_product_id', '=', variant.id), ('integration_ids', '=', self.omna_integration_id.id)])
+        #     route = 'products/%s/variants/%s/link' % (product.omna_product_id, variant.omna_variant_id)
+        #     response = self.delete(route, data)
+        #     integrated.unlink()
+        #     variant.with_context(synchronizing=True).write({'integration_linked_ids': [(3, self.omna_integration_id.id)]})
+        #     # variant.write({'variant_integration_ids': [(3, self.omna_integration_id.id)]})
+        #     self.env.cr.commit()
+        #     return True
+        # except Exception as e:
+        #     _logger.error(e)
+        #     raise exceptions.ValidationError(e)
+        #     # raise exceptions.AccessError(_("Error trying to update variant products in Omna's API."))
+        # return {'type': 'ir.actions.act_window_close'}

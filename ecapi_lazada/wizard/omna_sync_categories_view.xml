@@ -9,17 +9,17 @@
                 <form string="Import Categories">
                     <group>
                         <div>
-                            Wizard to import categories from OMNA.
+                            Wizard to import categories from ECAPI.
                         </div>
                     </group>
                     <group>
                         <group>
-                            <field name="sync_type" widget="radio"/>
+<!--                            <field name="sync_type" widget="radio"/>-->
                         </group>
                         <group>
                             <field name="integration_id" required="1"/>
-                            <field name="category_id" attrs="{'invisible': [('sync_type', '=', 'by_integration')],
-                                   'required': [('sync_type', '!=', 'by_integration')]}"/>
+<!--                            <field name="category_id" attrs="{'invisible': [('sync_type', '=', 'by_integration')],-->
+<!--                                   'required': [('sync_type', '!=', 'by_integration')]}"/>-->
                         </group>
                     </group>
                     <footer>

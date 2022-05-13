@@ -7,7 +7,6 @@ from odoo.exceptions import UserError
 from odoo.tools.image import image_data_uri
 from odoo.tools import float_compare, pycompat
 from odoo.tools import ImageProcess
-# from odoo.addons.ecapi_lazada.library import prestashop_api
 import dateutil.parser
 import werkzeug
 import pytz
@@ -30,103 +29,74 @@ class OmnaStockItems(models.Model):
 
 
     omna_id = fields.Char("Stock Item ID", index=True)
-    integration_id = fields.Many2one('omna.integration', 'OMNA Integration', required=True, ondelete='cascade', index=True)
-    stock_location_id = fields.Many2one('stock.location', string='Stock Location', required=True, ondelete='cascade', index=True)
+    integration_id = fields.Many2one('omna.integration', 'Integration', required=True, ondelete='cascade', index=True)
+    stock_warehouse_id = fields.Many2one('stock.warehouse', string='Location', required=True, ondelete='cascade', index=True)
     product_product_name = fields.Char(string='Variant name')
     product_template_name = fields.Char(string='Product name')
-    product_product_sku = fields.Char(string="Variant sku")
+    product_product_sku = fields.Char(string="SKU Variant")
     product_template_sku = fields.Char(string="Product sku")
-    product_product_omna_id = fields.Char(string="Variant OMNA ID")
-    product_template_omna_id = fields.Char(string="Product OMNA ID")
-    count_on_hand = fields.Integer(string="Count on hand")
+    product_product_omna_id = fields.Char(string="Variant ECAPI ID")
+    product_template_omna_id = fields.Char(string="Product ECAPI ID")
+    count_on_hand = fields.Integer(string="Quantity")
+    previous_quantity = fields.Integer(string='Previous Quantity')
 
-    def update_omna_stock(self, stock_move_line_list):
-        pass
-        # stock_move_line_result = self.env["stock.move.line"].search([('id', 'in', stock_move_line_list)])
-        # # stock_move_line_result = stock_move_line_list
-        # for res in stock_move_line_result:
-        #     if res.product_id.product_tmpl_id.integration_ids and res.product_id.product_tmpl_id.integration_linked_ids and res.product_id.product_tmpl_id.omna_product_id:
-        #         data = {"data": {"quantity": int(res.qty_done)}}
-        #         # integration_id = res.location_dest_id.integration_id.integration_id if res.location_dest_id.omna_id else res.location_id.integration_id.integration_id
-        #         integration_id = res.product_id.product_tmpl_id.integration_linked_ids.integration_id
-        #         omna_product_id = res.product_id.omna_product_id
-        #         omna_variant_id = res.product_id.omna_variant_id
-        #
-        #         query_param = {'integration_id': integration_id}
-        #         if omna_product_id:
-        #             query_param.update({'product_id': omna_product_id})
-        #         if omna_variant_id:
-        #             query_param.update({'variant_id': omna_variant_id})
-        #         query_result = self.get('stock/items', query_param)
-        #         # qty = response.get('data')[0].get('count_on_hand')
-        #         omna_stock_item_id = query_result.get('data')[0].get('id')
-        #         # omna_stock_item_result = self.search([('omna_id', '=', omna_stock_item_id), ('integration_id.integration_id', '=', integration_id)])
-        #         omna_stock_item_result = self.search([('omna_id', '=', omna_stock_item_id)])
-        #
-        #         if (res.picking_id.picking_type_id.code == 'incoming'):
-        #             data['data']['quantity'] = int(1 * res.qty_done)
-        #             response1 = self.post('stock/items/%s' % (omna_stock_item_id,), data)
-        #             omna_stock_item_result.write({'count_on_hand': data['data']['quantity']})
-        #         if (res.picking_id.picking_type_id.code == 'outgoing'):
-        #             data['data']['quantity'] = int(-1 * res.qty_done)
-        #             response2 = self.post('stock/items/%s' % (omna_stock_item_id,), data)
-        #             omna_stock_item_result.write({'count_on_hand': data['data']['quantity']})
-        #             # https://cenit.io/app/ecapi-v1/integrations/{integration_id}/products/{product_id}/variants/{variant_id}
-        #             variant_remote = self.get('integrations/%s/products/%s/variants/%s' % (integration_id,
-        #                                                                                    omna_stock_item_result.product_template_omna_id,
-        #                                                                                    omna_stock_item_result.product_product_omna_id))
-        #             variant_data = variant_remote.get('data').get('integration').get('variant')
-        #
-        #             # https://cenit.io/app/ecapi-v1/integrations/prestashop_col10/call/native/service
-        #             data_aux = {"data": {"path": "/stock_availables",
-        #                                  "method": "GET",
-        #                                  "params": {"display": "full",
-        #                                             "filter[id_product]": variant_data.get('remote_product_id'),
-        #                                             "filter[id_product_attribute]": variant_data.get('remote_variant_id')}}}
-        #             response3 = self.post('integrations/%s/call/native/service' % (integration_id,), data_aux)
-        #             external_adjust = response3.get('data').get('stock_availables')[0]
-        #
-        #             lazada_base_url = self.env['ir.config_parameter'].sudo().get_param("ecapi_lazada.lazada_base_url", default='https://qa.futurevisions.com.pe')
-        #             lazada_ws_key = self.env['ir.config_parameter'].sudo().get_param("ecapi_lazada.lazada_ws_key")
-        #             api = lazada_api.PrestashopApi(lazada_base_url + '/api', lazada_ws_key)
-        #
-        #             print('Edit')
-        #             to_update_data = {'stock_availables': external_adjust}
-        #             to_update_data['stock_availables']['quantity'] = external_adjust['quantity'] + res.qty_done
-        #             res = api.edit('stock_availables', to_update_data)['stock_available']
-        #             print(res)
-        #
-        #         if not (res.picking_id.picking_type_id.code):
-        #             omna_stock_item_result.reset_quantity(data)
+    def update_omna_stock(self):
+        self.write({'previous_quantity': self.count_on_hand})
+        view_id = self.env.ref('ecapi_lazada.wizard_stock_item_mov_view').id
+        context = dict(
+            self.env.context,
+            integration_id=self.integration_id.integration_id,
+            omna_product_id=self.product_template_omna_id,
+            omna_variant_id=self.product_product_omna_id,
+            omna_stock_item_id=self.omna_id,
+            count_on_hand=self.count_on_hand,
+        )
+        return {
+            'name': 'Actualizar Cantidad',
+            'type': 'ir.actions.act_window',
+            'view_mode': 'form',
+            'res_model': 'wizard.stock.item.mov',
+            'view_id': view_id,
+            'views': [(view_id, 'form')],
+            'target': 'new',
+            'context': context,
+        }
+
+
+    def restore_omna_stock(self):
+        adjustment = self.count_on_hand - self.previous_quantity
+        data = {"data": {"quantity": -1 * adjustment}}
+        self.post('stock/items/%s' % (self.omna_id,), data)
+        return self.write({'count_on_hand': self.previous_quantity})
 
 
 
     def reset_quantity(self, data):
         # https://cenit.io/app/ecapi-v1/stock/items
-        query_param = {'integration_id': self.integration_id.integration_id}
-        if self.product_template_omna_id:
-            query_param.update({'product_id': self.product_template_omna_id})
-        if self.product_product_omna_id:
-            query_param.update({'variant_id': self.product_product_omna_id})
-        response = self.get('stock/items', query_param)
-        qty = response.get('data')[0].get('count_on_hand')
-        omna_stock_item_id = response.get('data')[0].get('id')
+        # query_param = {'integration_id': self.integration_id.integration_id}
+        # if self.product_template_omna_id:
+        #     query_param.update({'product_id': self.product_template_omna_id})
+        # if self.product_product_omna_id:
+        #     query_param.update({'variant_id': self.product_product_omna_id})
+        # response = self.get('stock/items', query_param)
+        # qty = response.get('data')[0].get('count_on_hand')
+        # omna_stock_item_id = response.get('data')[0].get('id')
 
         # https://cenit.io/app/ecapi-v1/stock/items/{stock_item_id}
+        qty = self.count_on_hand
         to_reset = {"data": {"quantity": -1 * qty}}
-        response = self.post('stock/items/%s' % (omna_stock_item_id,), to_reset)
-        response = self.post('stock/items/%s' % (omna_stock_item_id,), data)
-        aux = self.count_on_hand
-        self.write({'count_on_hand': -1 * aux})
+        response = self.post('stock/items/%s' % (self.omna_id,), to_reset)
+        response = self.post('stock/items/%s' % (self.omna_id,), data)
         self.write({'count_on_hand': data['data']['quantity']})
 
-    
-    def write(self, values):
-        # for item in self:
-        if values.get('count_on_hand'):
-            values['count_on_hand'] = self.count_on_hand + values.get('count_on_hand')
-        return super(OmnaStockItems, self).write(values)
 
+    # def _url_related_task(self):
+    #     # http://localhost:8070/web#action=412&model=omna.task&view_type=list&cids=1&menu_id=256
+    #     # http://localhost:8070/web#id=1-6266e5885a5a232b4800a7e4&action=412&model=omna.task&view_type=form&cids=1&menu_id=256
+    #     link = self.env['ir.config_parameter'].sudo().get_param('web.base.url') + \
+    #            '/web#action=' + str(self.env.ref('ecapi_lazada.action_omna_task').id) + \
+    #            '&model=omna.task&view_type=list&cids=1&menu_id=' + str(self.env.ref('ecapi_lazada.menu_omna_my_tasks').id)
+    #     self.url_related_task = link
 
 
 
@@ -137,19 +107,39 @@ class StockMoveLine(models.Model):
 
     def write(self, vals):
         result = super(StockMoveLine, self).write(vals)
-        # Agregar validacion o filtro para solo aplicar esta funcionalidad a los productos que se encuentran en Cenit y Prestashop respectivamente.
-        stock_move_line_list = [X.id for X in self]
-        record_id = self.env.ref('ecapi_lazada.ecapi_lazada_inventory_cron').id
-        data = {'active': True,
-                'nextcall': (datetime.now() + timedelta(minutes=1)).strftime('%Y-%m-%d %H:%M:%S'),
-                'user_id': self.env.uid,
-                'code': "model.update_omna_stock(%s)" % (str(stock_move_line_list))}
-        self.env['ir.cron'].browse(record_id).write(data)
 
-        # start_time = threading.Timer(15, self.env['omna.stock.items'].update_omna_stock, args=(self,))
-        # start_time.start()
+        for res in result:
+            if res.product_id.product_tmpl_id.integration_ids and res.product_id.product_tmpl_id.integration_linked_ids and res.product_id.product_tmpl_id.omna_product_id:
+                data = {"data": {"quantity": int(res.qty_done)}}
+                # integration_id = res.location_dest_id.integration_id.integration_id if res.location_dest_id.omna_id else res.location_id.integration_id.integration_id
+                integration_id = res.product_id.product_tmpl_id.integration_linked_ids.integration_id
+                omna_product_id = res.product_id.omna_product_id
+                omna_variant_id = res.product_id.omna_variant_id
 
-        # self.env['omna.stock.items'].update_omna_stock(stock_move_line_list)
+                query_param = {'integration_id': integration_id}
+                if omna_product_id:
+                    query_param.update({'product_id': omna_product_id})
+                if omna_variant_id:
+                    query_param.update({'variant_id': omna_variant_id})
+                # query_result = self.get('stock/items', query_param)
+                # qty = response.get('data')[0].get('count_on_hand')
+                # omna_stock_item_id = query_result.get('data')[0].get('id')
+                # omna_stock_item_result = self.search([('omna_id', '=', omna_stock_item_id), ('integration_id.integration_id', '=', integration_id)])
+                omna_stock_item_result = self.env['omna.stock.items'].search(['|', ('product_template_omna_id', '=', omna_product_id), ('product_product_omna_id', '=', omna_variant_id)])
+
+                if (res.picking_id.picking_type_id.code == 'incoming'):
+                    data['data']['quantity'] = int(1 * res.qty_done)
+                    response1 = self.post('stock/items/%s' % (omna_stock_item_result.omna_id,), data)
+                    aux = omna_stock_item_result.count_on_hand
+                    omna_stock_item_result.write({'count_on_hand': aux + data['data']['quantity']})
+                if (res.picking_id.picking_type_id.code == 'outgoing'):
+                    data['data']['quantity'] = int(-1 * res.qty_done)
+                    response2 = self.post('stock/items/%s' % (omna_stock_item_result.omna_id,), data)
+                    aux = omna_stock_item_result.count_on_hand
+                    omna_stock_item_result.write({'count_on_hand': aux + data['data']['quantity']})
+                if not (res.picking_id.picking_type_id.code):
+                    omna_stock_item_result.reset_quantity(data)
+
         return result
 
 
@@ -177,23 +167,6 @@ class Picking(models.Model):
             else:
                 item.show_warning_wh = False
 
-
-
-# class StockItemLog(models.Model):
-#     _name = 'stock.item.log'
-#
-#
-#
-#     integration_id = fields.Many2one('omna.integration', 'OMNA Integration', required=True, ondelete='cascade', index=True)
-#     stock_location_id = fields.Many2one('stock.location', string='Stock Location', required=True, ondelete='cascade', index=True)
-#     variant_name = fields.Char(string='Variant name')
-#     product_name = fields.Char(string='Product name')
-#     variant_sku = fields.Char(string="Variant sku")
-#     product_sku = fields.Char(string="Product sku")
-#     omna_variant_id = fields.Char(string="Variant OMNA ID")
-#     omna_product_id = fields.Char(string="Product OMNA ID")
-#     count_moved = fields.Integer(string="Count moved")
-#     moved_description = fields.Text(string="Description")
 
 
 

@@ -81,7 +81,7 @@
         </record>
 
         <record model="ir.actions.act_window" id="open_action_board">
-            <field name="name">Omna Dashboard</field>
+            <field name="name">Ecapi Dashboard</field>
             <field name="res_model">board.board</field>
             <!--            <field name="view_type">form</field>-->
             <field name="binding_view_types">form</field>
@@ -98,7 +98,7 @@
             <field name="inherit_id" ref="product.product_category_search_view"/>
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='parent_id']" position="after">
-                    <field name="omna_category_id" string="Omna ID"/>
+                    <field name="omna_category_id" string="Ecapi ID"/>
                 </xpath>
             </field>
         </record>

@@ -21,7 +21,7 @@ class OmnaExtraImport(models.TransientModel):
     integration_id = fields.Many2one('omna.integration', 'Integration')
     function_selection = fields.Selection(
         [('import_attributes_values', 'Attributes / Values'), ('import_stock_warehouse', 'Stock Warehouse'),
-         ('import_stock_items', 'Stock Items'), ('import_tax_rules', 'Tax Rules'),
+         ('import_stock_items', 'Stock Items'), ('import_order_statuses', 'Order Statuses'), ('import_tax_rules', 'Tax Rules'),
          ('import_carriers', 'Carriers')], string='Operation')
 
 
@@ -38,6 +38,8 @@ class OmnaExtraImport(models.TransientModel):
             self.import_tax_rules()
         if self.function_selection == "import_carriers":
             self.import_carriers()
+        if self.function_selection == "import_order_statuses":
+            self.import_order_statuses()
 
         # form_view_id = self.env.ref('ecapi_lazada.view_omna_extra_import_wizard').id
 
@@ -153,8 +155,8 @@ class OmnaExtraImport(models.TransientModel):
 
         for location in result:
             data = {
-                'name': location.get('name'),
-                'code': location.get('name'),
+                'name': location.get('name') + "[" + self.integration_id.integration_id + "]",
+                'code': self.integration_id.integration_id,
                 'omna_id': location.get('id'),
                 'integration_id': self.integration_id.id,
 
@@ -189,10 +191,10 @@ class OmnaExtraImport(models.TransientModel):
             response = self.get('stock/items', {'limit': limit, 'offset': offset, 'integration_id': self.integration_id.integration_id})
             data = response.get('data')
 
-            filtered = filter(lambda item: item.get('count_on_hand') > 0, data)
-            stock_items.extend(list(filtered))
+            # filtered = filter(lambda item: item.get('count_on_hand') > 0, data)
+            # stock_items.extend(list(filtered))
 
-            # stock_items.extend(data)
+            stock_items.extend(data)
             if len(data) < limit:
                 flag = False
             else:
@@ -201,7 +203,7 @@ class OmnaExtraImport(models.TransientModel):
         stock_items_obj = self.env['omna.stock.items']
         aux_list = []
         query_items = stock_items_obj.search([]).mapped('omna_id')
-        stock_location_id = self.env['stock.location'].search([('omna_id', '!=', False)])
+        stock_warehouse_id = self.env['stock.warehouse'].search([('integration_id', '=', self.integration_id.id)])
         result = [X for X in stock_items if X.get('id') not in query_items]
 
         for item in result:
@@ -221,14 +223,16 @@ class OmnaExtraImport(models.TransientModel):
             data = {
                 'omna_id': item.get('id', False),
                 'integration_id': self.integration_id.id,
-                'stock_location_id': stock_location_id.id,
-                'product_product_name': "%s [%s]" % (item.get('product').get('name'), item.get('product').get('variant').get('sku')),
+                'stock_warehouse_id': stock_warehouse_id.id,
+                'product_product_name': item.get('product').get('variant').get('name'),
                 'product_template_name': item.get('product').get('name'),
                 'product_product_omna_id': item.get('product').get('variant').get('id'),
                 'product_template_omna_id': item.get('product').get('id'),
+                'product_product_sku': item.get('product').get('variant').get('sku'),
+                'product_template_sku': item.get('product').get('sku'),
                 'count_on_hand': item.get('count_on_hand', 0),
+                'previous_quantity': item.get('count_on_hand', 0),
             }
-
             aux_list.append(data)
 
         stock_items_obj.create(aux_list)
@@ -346,3 +350,49 @@ class OmnaExtraImport(models.TransientModel):
             'type': 'ir.actions.client',
             'tag': 'reload'
         }
+
+
+    def import_order_statuses(self):
+        limit = 50
+        offset = 0
+        flag = True
+        statuses = []
+
+        while flag:
+            # https://cenit.io/app/ecapi-v1/integrations/{integration_id}/order/statuses
+            response = self.get('integrations/%s/order/statuses' % (self.integration_id.integration_id), {'limit': limit, 'offset': offset})
+            data = response.get('data')
+            statuses.extend(data)
+            if len(data) < limit:
+                flag = False
+            else:
+                offset += limit
+
+        order_statuses_obj = self.env['order.statuses']
+        aux_list = []
+        query_items = order_statuses_obj.search([('integration_id', '=', self.integration_id.id)]).mapped('remote_id')
+        result = [X for X in statuses if X.get('id') not in query_items]
+
+        for state in result:
+            data = {
+                'remote_name': state.get('name'),
+                'remote_id': state.get('id'),
+                'integration_id': self.integration_id.id,
+            }
+
+            aux_list.append(data)
+
+        if aux_list:
+            order_statuses_obj.create(aux_list)
+            self.env.cr.commit()
+
+        return {
+            'type': 'ir.actions.client',
+            'tag': 'reload'
+        }
+
+        # else:
+        #     self.env.user.notify_channel('danger',
+        #                                  'The import process for stock warehouse from Prestashop is not possible.\n'
+        #                                  ' Please verify your access data.',
+        #                                  "Error", True)

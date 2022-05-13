@@ -17,37 +17,36 @@ class OmnaSyncCategories(models.TransientModel):
     _name = 'omna.sync_categories_wizard'
     _inherit = 'omna.api'
 
-    sync_type = fields.Selection([('by_integration', 'By Integration'),
-                                  ('by_external_id', 'By External Id')], 'Import Type',
-                                 required=True, default='by_integration')
+    # sync_type = fields.Selection([('by_integration', 'By Integration'),
+    #                               ('by_external_id', 'By External Id')], 'Import Type',
+    #                              required=True, default='by_integration')
     integration_id = fields.Many2one('omna.integration', 'Integration')
-    category_id = fields.Many2one('product.category', 'Category')
+    # category_id = fields.Many2one('product.category', 'Category')
 
     def sync_categories(self):
         try:
-            limit = 50
+            limit = 100
             offset = 0
             requester = True
             categories = []
 
-            if self.sync_type == 'by_integration':
-                while requester:
-                    response = self.get('integrations/%s/categories' % self.integration_id.integration_id,
-                                        {'limit': limit, 'offset': offset, 'with_details': True})
-                    data = response.get('data')
-                    categories.extend(data)
-                    if len(data) < limit:
-                        requester = False
-                    else:
-                        offset += limit
-            else:
-                external = self.category_id.omna_category_id
-                if external:
-                    response = self.get(
-                        'integrations/%s/categories/%s' % (self.integration_id.integration_id, external),
-                        {})
+            # if self.sync_type == 'by_integration':
+            while requester:
+                response = self.get('integrations/%s/categories' % self.integration_id.integration_id, {'limit': limit, 'offset': offset, 'with_details': True})
                 data = response.get('data')
-                categories.append(data)
+                categories.extend(data)
+                if len(data) < limit:
+                    requester = False
+                else:
+                    offset += limit
+            # else:
+            #     external = self.category_id.omna_category_id
+            #     if external:
+            #         response = self.get(
+            #             'integrations/%s/categories/%s' % (self.integration_id.integration_id, external),
+            #             {})
+            #     data = response.get('data')
+            #     categories.append(data)
 
             category_obj = self.env['product.category']
             categories.sort(key=lambda x: x.get("name"))

@@ -11,11 +11,11 @@
                     <div>
                         <group string="Connection settings">
                             <field name="cenit_url"
-                                   placeholder="Omna API url (Default: 'https://cenit.io/app/ecapi-v1')"/>
+                                   placeholder="Ecapi API url (Default: 'https://cenit.io/app/ecapi-v1')"/>
                             <field name="lazada_base_url"
                                    placeholder="Lazada base url (Default: 'https://sellercenter.lazada.com.my')"/>
-                            <field name="lazada_ws_key"
-                                   placeholder="Lazada WebService key"/>
+<!--                            <field name="lazada_ws_key"-->
+<!--                                   placeholder="Lazada WebService key"/>-->
                         </group>
                     </div>
                     <footer>
@@ -49,11 +49,11 @@
             <field name="arch" type="xml">
                 <form>
                     <p class="oe_grey">
-                        Set the OMNA API url.
+                        Set the ECAPI API url.
                     </p>
                     <group>
                         <field name="cenit_url"
-                               placeholder="Omna API url (Default: 'https://cenit.io/app/ecapi-v1')"/>
+                               placeholder="Ecapi API url (Default: 'https://cenit.io/app/ecapi-v1')"/>
                     </group>
                     <footer>
                         <button string="Apply" type="object" name="execute"
@@ -64,7 +64,7 @@
         </record>
 
         <record id="action_wizard_omna_sign_in_install" model="ir.actions.act_window">
-            <field name="name">Sign in with Omna</field>
+            <field name="name">Sign in with Ecapi</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">omna.signin.settings</field>
             <field name="view_id" ref="wizard_omna_sign_in_install"/>
@@ -73,7 +73,7 @@
         </record>
 
 
-        <menuitem id="menu_omna_sign_in" name="Sign in with Omna"
+        <menuitem id="menu_omna_sign_in" name="Sign in with Ecapi"
                   parent="menu_omna_settings_alt" sequence="12"
                   action="action_wizard_omna_sign_in_install"/>
 

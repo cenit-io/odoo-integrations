@@ -9,7 +9,7 @@
                 <form string="Import Tenants">
                     <group>
                         <div>
-                            Wizard to import tenants from OMNA.
+                            Wizard to import tenants from ECAPI.
                         </div>
                     </group>
                     <footer>

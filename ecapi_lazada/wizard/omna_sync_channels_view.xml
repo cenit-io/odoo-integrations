@@ -9,7 +9,7 @@
                 <form string="Import Channels">
                     <group>
                         <div>
-                            Wizard to import channels from OMNA.
+                            Wizard to import channels from ECAPI.
                         </div>
                     </group>
                     <footer>

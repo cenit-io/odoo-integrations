@@ -33,21 +33,23 @@
                         </group>
                         <notebook>
                             <page string="Executions">
-                                <field name="task_execution_ids">
-                                    <tree>
-                                        <field name="status"/>
-                                        <field name="exec_started_at"/>
-                                        <field name="exec_completed_at"/>
-                                    </tree>
-                                </field>
+                                <field name="task_executions_text" nolabel="1" widget="html"/>
+<!--                                <field name="task_execution_ids">-->
+<!--                                    <tree>-->
+<!--                                        <field name="status"/>-->
+<!--                                        <field name="exec_started_at"/>-->
+<!--                                        <field name="exec_completed_at"/>-->
+<!--                                    </tree>-->
+<!--                                </field>-->
                             </page>
                             <page string="Notifications">
-                                <field name="task_notification_ids">
-                                    <tree>
-                                        <field name="type"/>
-                                        <field name="message"/>
-                                    </tree>
-                                </field>
+                                <field name="task_notifications_text" nolabel="1" widget="html"/>
+<!--                                <field name="task_notification_ids">-->
+<!--                                    <tree>-->
+<!--                                        <field name="type"/>-->
+<!--                                        <field name="message"/>-->
+<!--                                    </tree>-->
+<!--                                </field>-->
                             </page>
                         </notebook>
                         <footer>

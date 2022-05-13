@@ -33,7 +33,9 @@ class OmnaExternalImporter(models.TransientModel):
 
             form_view_id = self.env.ref('ecapi_lazada.view_external_importer_wizard').id
             # date_formated = self.limit_date.strftime('%Y-%m-%dT%H:%M:%S.%f%z')
-            date_formated = self.limit_date.strftime('%Y-%m-%dT%H:%M:%SZ') if self.resource_type in ['products', 'orders'] else False
+            date_formated = None
+            if self.limit_date:
+                date_formated = self.limit_date.strftime('%Y-%m-%dT%H:%M:%SZ') if self.resource_type in ['products', 'orders'] else False
             temp_result = self.get('integrations/%s/%s/import' % (self.integration_id.integration_id, self.resource_type), {'updated_after': date_formated} if date_formated else {})
             self.env.user.notify_channel('info',
                                          'The task to import %s records from marketplace have been created, please go to "System\Tasks" to check out the task status.' % (self.resource_type,),

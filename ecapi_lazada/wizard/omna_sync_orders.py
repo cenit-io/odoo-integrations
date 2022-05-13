@@ -21,10 +21,20 @@ class OmnaSyncOrders(models.TransientModel):
 
     def sync_orders(self):
         try:
-            limit = 10
+            limit = 100
             offset = 0
             requester = True
             orders = []
+
+            prod_list = self.env['product.template'].search([])
+            var_list = self.env['product.product'].search([])
+
+            if not (prod_list and var_list):
+                self.env.user.notify_channel('danger', _(
+                    "Lo sentimos, pero no es posible realizar la importacion de ordenes. \n Por favor importe primero los productos, para luego proceder con la importacion de ordenes."),
+                                             _("Error"), True)
+                return
+
             if self.sync_type != 'number':
                 while requester:
                     if self.sync_type == 'all':
@@ -34,6 +44,7 @@ class OmnaSyncOrders(models.TransientModel):
                     data = response.get('data')
                     orders.extend(data)
                     if len(data) < limit:
+                    # if offset >= 5:
                         requester = False
                     else:
                         offset += limit
@@ -49,7 +60,7 @@ class OmnaSyncOrders(models.TransientModel):
                     'tag': 'reload'
                 }
             else:
-                self.env.user.notify_channel('warning', _("Sorry, we don't find results for this criteria. \n Please execute from Settings / Import Lazada -> Omna the option for import Orders, later try to execute this functionality."), _("Information"), True)
+                self.env.user.notify_channel('warning', _("Sorry, we don't find results for this criteria. \n Please execute from Settings / Import Lazada -> Ecapi the option for import Orders, later try to execute this functionality."), _("Information"), True)
 
         except Exception as e:
             _logger.error(e)
@@ -63,33 +74,60 @@ class OmnaSyncOrders(models.TransientModel):
                     line_items = order.get('line_items')
 
                     act_order = self.env['sale.order'].search([('omna_id', '=', order.get('id'))])
+                    with_error = False
 
                     if not act_order:
-                        partner_related = self._create_partner(order)
-                        # partner_invoice = self._create_partner(order.get('ship_address'))
-                        # partner_shipping = self._create_partner(order.get('bill_address'))
+                        partner_related = self._create_partner(order.get('customer'), contact_type='contact')
+                        partner_invoice = self._create_partner(order.get('ship_address'), contact_type='delivery')
+                        partner_shipping = self._create_partner(order.get('bill_address'), contact_type='invoice')
 
                         if order.get('integration'):
                             integration = self.env['omna.integration'].search([('integration_id', '=', order.get('integration').get('id'))], limit=1)
                             warehouse_delivery = self.env['stock.warehouse'].search([('integration_id', '=', integration.id), ('omna_id', '!=', False)], limit=1)
-
+                            payment_list = [(0, 0, {'currency': X.get('currency_id'), 'payment_method': X.get('payment_method'),
+                                     'payment_ml_id': str(X.get('id')), 'total_paid_amount': X.get('total_paid_amount'), 'integration_id': integration.id, 'status': X.get('status')})for X in order.get('original_raw_data').get('payments')]
                             if integration:
 
                                 data = {
                                     'omna_id': order.get('id'),
                                     'integration_id': integration.id,
                                     'omna_order_reference': order.get('number'),
-                                    'origin': 'OMNA',
+                                    'omna_remote_state': order.get('status'),
+                                    'origin': 'CENIT',
                                     'state': 'draft',
                                     'amount_total': round(float(order.get('total_price'))) ,
                                     # 'amount_total': '22.5',
                                     'date_order': fields.Datetime.to_string(parse(order.get('last_import_date').split('T')[0])),
                                     'create_date': fields.Datetime.to_string(datetime.now(timezone.utc)),
                                     'partner_id': partner_related.id,
-                                    'partner_invoice_id': partner_related.id,
-                                    'partner_shipping_id': partner_related.id,
+                                    'partner_invoice_id': partner_invoice.id,
+                                    'partner_shipping_id': partner_shipping.id,
                                     'warehouse_id': warehouse_delivery.id,
                                     'pricelist_id': self.env.ref('product.list0').id,
+
+                                    'ship_first_name': order.get('ship_address').get('first_name'),
+                                    'ship_last_name': order.get('ship_address').get('last_name'),
+                                    'ship_country': order.get('ship_address').get('country'),
+                                    'ship_state': order.get('ship_address').get('state'),
+                                    'ship_city': order.get('ship_address').get('city'),
+                                    'ship_district': order.get('ship_address').get('district'),
+                                    'ship_town': order.get('ship_address').get('town'),
+                                    'ship_phone': order.get('ship_address').get('phone'),
+                                    'ship_zip_code': order.get('ship_address').get('zip_code'),
+                                    'ship_address': ", ".join(order.get('ship_address').get('address')),
+                                    'bill_first_name': order.get('bill_address').get('first_name'),
+                                    'bill_last_name': order.get('bill_address').get('last_name'),
+                                    'bill_country': order.get('bill_address').get('country'),
+                                    'bill_state': order.get('bill_address').get('state'),
+                                    'bill_city': order.get('bill_address').get('city'),
+                                    'bill_district': order.get('bill_address').get('district'),
+                                    'bill_town': order.get('bill_address').get('town'),
+                                    'bill_phone': order.get('bill_address').get('phone'),
+                                    'bill_zip_code': order.get('bill_address').get('zip_code'),
+                                    'bill_address': ", ".join(order.get('bill_address').get('address')),
+                                    'doc_type': order.get('original_raw_data').get('address_billing').get('billing_info').get('doc_type'),
+                                    'doc_number': order.get('original_raw_data').get('address_billing').get('billing_info').get('doc_number'),
+                                    'order_payment_ids': payment_list,
 
                                 }
                                 if order.get('omna_tenant_id'):
@@ -102,21 +140,30 @@ class OmnaSyncOrders(models.TransientModel):
                                 aux = []
                                 for line_item in line_items:
                                     # self._create_orderline(omna_order, line_item, order.get('payments')[0].get('currency'))
-                                    aux.append((0, 0, self._create_orderline(line_item, order.get('currency'))))
+                                    temp_line = self._create_orderline(line_item, order.get('currency'))
+                                    if temp_line:
+                                        aux.append((0, 0, temp_line))
+                                    if not temp_line:
+                                        message = "La importacion de la orden # %s ha fallado. El producto: %s [%s], no se ha encontrado en el sistema." % (order.get('number'), line_item.get('name'), line_item.get('id'))
+                                        self.env['ecapi.import.log'].create({'integration_id': self.integration_id.id, 'message': message})
+                                        with_error = True
 
-                                # aux.append((0, 0, self._create_carrier_cost(order)))
-                                data['order_line'] = aux
-                                omna_order = self.env['sale.order'].create(data)
 
-                                amount_untaxed = amount_tax = 0.0
-                                for line in omna_order.order_line:
-                                    amount_untaxed += line.price_subtotal
-                                    amount_tax += line.price_tax
-                                omna_order.write({
-                                    'amount_untaxed': amount_untaxed,
-                                    'amount_tax': amount_tax,
-                                    'amount_total': amount_untaxed + amount_tax,
-                                })
+                                if not with_error:
+                                    data['order_line'] = aux
+                                    omna_order = self.env['sale.order'].create(data)
+
+                                    amount_untaxed = amount_tax = 0.0
+                                    for line in omna_order.order_line:
+                                        amount_untaxed += line.price_subtotal
+                                        amount_tax += line.price_tax
+                                    omna_order.write({
+                                        'amount_untaxed': amount_untaxed,
+                                        'amount_tax': amount_tax,
+                                        'amount_total': amount_untaxed + amount_tax,
+                                    })
+                                if with_error:
+                                    pass
                                 # omna_order._amount_all()
 
         except Exception as e:
@@ -124,28 +171,20 @@ class OmnaSyncOrders(models.TransientModel):
             raise exceptions.AccessError(e)
 
 
-    def _create_partner(self, dict_param):
+    def _create_partner(self, dict_param, contact_type):
         if not dict_param:
             return False
-        dict_key = dict_param.get('bill_address') or dict_param.get('ship_address') or dict_param.get('customer')
-        # partner_related = self.env['res.partner'].search(['&', '&', '&', '&', ('integration_id', '=', self.integration_id.id),
-        #                                                   ('email', '=', dict_key.get('email')),
-        #                                                   ('omna_id', '=', dict_key.get('phone')),
-        #                                                   ('name', '=', '%s %s' % (dict_key.get('first_name') , dict_key.get('last_name'))),
-        #                                                   ('omna_id', '=', dict_key.get('last_name'))], limit=1)
-        # if partner_related:
-        #     return partner_related
-        # else:
+
         data = {
-            'name': '%s %s' % (dict_key.get('first_name'), dict_key.get('last_name')),
+            'name': '%s %s' % (dict_param.get('first_name'), dict_param.get('last_name')),
             'company_type': 'person',
-            'type': 'contact',
-            'email': dict_key.get('email'),
+            'type': contact_type,
+            'email': dict_param.get('email'),
             'lang': self.env.user.lang,
             'integration_id': self.integration_id.id,
-            'phone':  dict_key.get('phone'),
-            # 'country_id':  self.env['res.country'].search([('code', '=', dict_key.get('country').lower())]).id,
-            # 'omna_id':  str(dict_key.get('id'))
+            'phone':  dict_param.get('phone'),
+            'street':  ", ".join(dict_param.get('address')),
+            'zip':  dict_param.get('zip_code')
         }
 
         # data['country_id'] = self.env.ref('base.ar').id
@@ -157,32 +196,38 @@ class OmnaSyncOrders(models.TransientModel):
         if not currency:
             currency = self.env['res.currency'].search([('name', '=', 'USD')], limit=1)
 
-        product = self.env['product.product'].search([('default_code', '=', line_item.get('sku'))], limit=1)
+        product = self.env['product.template'].search([('remote_product_id', '=', line_item.get('id'))], limit=1)
+        if not product:
+            return False
 
         data = {
             # 'order_id': omna_order.id,
             'omna_id': line_item.get('id'),
-            # 'name': product.product_tmpl_id.name if product else line_item.get('name'),
-            'name': product.name,
-            'price_unit': product.product_tmpl_id.list_price,
+            'name': product.name if product else line_item.get('name'),
+            # 'name': line_item.get('name'),
+            'price_unit': product.list_price if product else line_item.get('price'),
+            # 'price_unit': line_item.get('price'),
             # 'state': omna_order.state,
             'state': "draft",
             'qty_delivered_manual': 0,
-            'product_id': product.id if product else False,
+            'product_id': product.product_variant_id.id if product else False,
+            # 'product_id': False,
             'display_type': False,
-            'product_uom': product.product_tmpl_id.uom_id.id if product else self.env.ref('uom.product_uom_unit').id,
+            'product_uom': product.uom_id.id if product else self.env.ref('uom.product_uom_unit').id,
+            # 'product_uom': self.env.ref('uom.product_uom_unit').id,
             'product_uom_qty': line_item.get('quantity'),
             'customer_lead': 0,  #
             'currency_id': currency.id,
             'product_packaging': False,
             'discount': 0,
-            'product_template_id': product.product_tmpl_id.id,
+            'product_template_id': product.id if product else False,
+            # 'product_template_id': False,
             'route_id': False,
             # 'tax_id': [[6, False, [56]]],
         }
 
-        if not product.id:
-            data['display_type'] = 'line_section'
+        # if not product.id:
+        #     data['display_type'] = 'line_section'
 
         return data
 

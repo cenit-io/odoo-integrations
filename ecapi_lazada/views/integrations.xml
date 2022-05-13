@@ -9,6 +9,7 @@
                     <field name="name"/>
                     <field name="channel"/>
                     <field name="authorized"/>
+                    <field name="company_id"/>
                 </tree>
             </field>
         </record>
@@ -28,7 +29,11 @@
                             </h1>
                             <label for="channel" class=""/>
                             <h2>
-                                <field name="channel"/>
+                                <field name="channel" placeholder="Integration's Channel"/>
+                            </h2>
+                            <label for="company_id" class=""/>
+                            <h2>
+                                <field name="company_id" placeholder="Integration's Company"/>
                             </h2>
 
                         </div>

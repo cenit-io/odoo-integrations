@@ -9,7 +9,7 @@
                 <form string="Import Product Variants">
                     <group>
                         <div>
-                            Wizard to import product variants from OMNA.
+                            Wizard to import product variants from ECAPI.
                         </div>
                     </group>
                     <group>
@@ -18,9 +18,7 @@
                         </group>
                         <group>
                             <field name="integration_id"/>
-                            <field name="template_id" attrs="{'invisible': [('sync_type', '=','all')], 'required': [('sync_type', '!=', 'all')]}"/>
-<!--                            <field name="omna_id" attrs="{'invisible': [('sync_type', 'in', ['all', 'by_product_id'])],-->
-<!--                                   'required': [('sync_type', '=', 'by_omna_id')]}"/>-->
+                            <field name="template_id" attrs="{'invisible': [('sync_type', '=','all')], 'required': [('sync_type', '=', 'by_product_id')]}"/>
                         </group>
                     </group>
                     <footer>

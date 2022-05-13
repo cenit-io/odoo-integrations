@@ -6,11 +6,13 @@
         <field name="model">omna.stock.items</field>
         <field name="arch" type="xml">
             <tree string="Stock Items" create="false" edit="false">
-                <field name="product_product_name"/>
+                <field name="product_template_name"/>
                 <field name="product_product_sku"/>
                 <field name="count_on_hand"/>
                 <field name="integration_id"/>
-                <field name="stock_location_id"/>
+                <field name="stock_warehouse_id"/>
+                <button name="update_omna_stock" icon="fa-edit" title="Actualizar" type="object" string="Actualizar"/>
+                <button name="restore_omna_stock" icon="fa-undo" title="Restaurar" type="object" string="Restaurar"/>
             </tree>
         </field>
     </record>
@@ -26,7 +28,7 @@
                 <field name="product_product_omna_id"/>
                 <field name="product_template_omna_id"/>
                 <field name="integration_id"/>
-                <field name="stock_location_id"/>
+                <field name="stock_warehouse_id"/>
                 <field name="omna_id"/>
             </search>
         </field>

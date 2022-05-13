@@ -9,6 +9,7 @@ from datetime import datetime, timezone, time, timedelta
 from odoo.exceptions import ValidationError
 from odoo import models, api, exceptions, fields
 # from odoo.addons.ecapi_lazada.library import prestashop_api
+from urllib.parse import urlencode
 
 
 _logger = logging.getLogger(__name__)
@@ -182,21 +183,4 @@ class OmnaUtilities(models.TransientModel):
 
     def native_prestashop_api(self):
         pass
-        # prestashop_base_url = self.env['ir.config_parameter'].sudo().get_param("ecapi_lazada.prestashop_base_url", default='https://qa.futurevisions.com.pe')
-        # prestashop_ws_key = self.env['ir.config_parameter'].sudo().get_param("ecapi_lazada.prestashop_ws_key")
-        # api = prestashop_api.PrestashopApi(prestashop_base_url + '/api', prestashop_ws_key)
-        #
-        # print('Edit')
-        # data = {'stock_availables': {
-        #     "id": 27300,
-        #     "id_product": 2727,
-        #     "id_product_attribute": 12853,
-        #     "quantity": 250,
-        #     "depends_on_stock": 0,
-        #     "out_of_stock": 2,
-        #     "id_shop": 0,
-        #     "id_shop_group": 1
-        # }}
-        # res = api.edit('stock_availables', data)['stock_available']
-        # print(res)
-        # return True
+

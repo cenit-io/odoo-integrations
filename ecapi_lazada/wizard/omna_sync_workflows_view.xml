@@ -9,7 +9,7 @@
                 <form string="Import Workflows">
                     <group>
                         <div>
-                            Wizard to import workflows from OMNA.
+                            Wizard to import workflows from ECAPI.
                         </div>
                     </group>
                     <footer>

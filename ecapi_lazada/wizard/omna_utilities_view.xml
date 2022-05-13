@@ -6,10 +6,10 @@
         <field name="name">omna.utilities.form</field>
         <field name="model">omna.utilities</field>
         <field name="arch" type="xml">
-            <form string="Omna Utilities">
+            <form string="Ecapi Utilities">
                 <group>
                     <div>
-                        Wizard to access an extra functions in Omna.
+                        Wizard to access an extra functions in Ecapi.
                     </div>
                 </group>
                 <group>
@@ -23,7 +23,7 @@
                         <field name="omna_id"/>
                     </group>
                 </group>
-                <separator string="List separated by semicolon of products IDs in Omna." colspan="8"/>
+                <separator string="List separated by semicolon of products IDs in Ecapi." colspan="8"/>
                 <field name="omna_ids" nolabel="1" colspan="8"/>
                 <footer>
                     <button name="execute_action" type="object" class="btn btn-labeled btn-primary" role="button">
@@ -44,14 +44,14 @@
     </record>
 
     <record id="action_omna_utilities_wizard" model="ir.actions.act_window">
-        <field name="name">Omna Utilities</field>
+        <field name="name">Ecapi Utilities</field>
         <field name="res_model">omna.utilities</field>
         <field name="view_mode">tree,form</field>
         <field name="view_id" ref="view_omna_utilities_wizard"/>
         <field name="target">new</field>
     </record>
 
-    <menuitem id="menu_omna_utilities" name="Omna Utilities"
+    <menuitem id="menu_omna_utilities" name="Ecapi Utilities"
               parent="menu_omna_settings_alt" sequence="16"
               action="action_omna_utilities_wizard"/>
 

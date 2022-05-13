@@ -25,8 +25,8 @@ class PropertiesValuesOptionsProduct(models.Model):
 
 
     property_value_product_id = fields.Many2one('properties.values.product', string='Property', ondelete='cascade')
-    option_value = fields.Char(string='Value', required=True)
-    option_label = fields.Char(string='Label', required=True)
+    option_value = fields.Char(string='Value')
+    option_label = fields.Char(string='Label')
     property_name = fields.Char(related='property_value_product_id.property_name', store=True)
 
 
@@ -115,8 +115,8 @@ class PropertiesValuesOptionsVariant(models.Model):
 
 
     property_value_variant_id = fields.Many2one('properties.values.variant', string='Property', ondelete='cascade')
-    option_value = fields.Char(string='Value', required=True)
-    option_label = fields.Char(string='Label', required=True)
+    option_value = fields.Char(string='Value')
+    option_label = fields.Char(string='Label')
     property_name = fields.Char(related='property_value_variant_id.property_name', store=True)
 
 

@@ -9,7 +9,7 @@
                 <form string="External Resources Import">
                     <group>
                         <div>
-                            Wizard to import resources from external source to omna.
+                            Wizard to import resources from external source to ecapi.
                         </div>
                     </group>
                     <group>
@@ -37,7 +37,7 @@
             <field name="target">new</field>
         </record>
 
-        <menuitem id="menu_omna_external_importer" name="Import Lazada -> Omna"
+        <menuitem id="menu_omna_external_importer" name="Import Lazada -> Ecapi"
                   parent="menu_omna_settings_alt" sequence="15"
                   action="action_external_importer_wizard"/>
 

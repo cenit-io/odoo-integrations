@@ -41,4 +41,4 @@ class OmnaUpdateVariantInIntegration(models.TransientModel):
                                                                               variant_external_id.id_external),
                                  {'data': data})
             if not response.get('data').get('id'):
-                raise exceptions.AccessError(_("Error trying to update products in Omna's API."))
+                raise exceptions.AccessError(_("Error trying to update products in Ecapi's API."))

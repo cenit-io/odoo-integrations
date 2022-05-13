@@ -8,7 +8,7 @@
                 <form string="Reimport Order">
                     <group>
                         <div>
-                            Wizard to reimport order from OMNA.
+                            Wizard to reimport order from ECAPI.
                         </div>
                     </group>
                     <footer>

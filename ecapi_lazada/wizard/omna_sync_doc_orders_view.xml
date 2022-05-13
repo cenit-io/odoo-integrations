@@ -9,7 +9,7 @@
                 <group>
                     <!--You can import all orders or from a specific integration.-->
                     <div>
-                        Wizard to import from OMNA the types of documents of the orders in the first step and the
+                        Wizard to import from ECAPI the types of documents of the orders in the first step and the
                         documents of orders in the second. You can choose in the first step the integration and the
                         order of which you want to know the types of documents and in the second the order and the
                         type to obtain the document

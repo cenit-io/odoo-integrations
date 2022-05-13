@@ -50,6 +50,7 @@ class OmnaSyncIntegrations(models.TransientModel):
                         'authorized': integration.get('authorized')
                     }
                     act_integration = integration_obj.with_context(synchronizing=True).create(data)
+            self.env.cr.commit()
             return {
                 'type': 'ir.actions.client',
                 'tag': 'reload'

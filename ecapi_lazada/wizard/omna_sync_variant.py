@@ -17,10 +17,9 @@ class OmnaSyncVariant(models.TransientModel):
     _name = 'omna.sync_variant_wizard'
     _inherit = 'omna.api'
 
-    sync_type = fields.Selection([('all', 'All Variants of all Products'), ('by_product_id', 'All Variants of the Product')], 'Import Type', required=True, default='all')
+    sync_type = fields.Selection([('all', 'All Variants in the Integration'), ('by_product_id', 'All Variants of the Product')], 'Import Type', required=True, default='all')
     integration_id = fields.Many2one('omna.integration', 'Integration')
     template_id = fields.Many2one('product.template', 'Product')
-    omna_id = fields.Char('Variant OMNA ID')
 
 
 
@@ -28,13 +27,12 @@ class OmnaSyncVariant(models.TransientModel):
     def _onchange_sync_type(self):
         self.integration_id = False
         self.template_id = False
-        self.omna_id = False
 
 
     @api.onchange('integration_id')
     def _onchange_integration_id(self):
         product_obj = self.env['product.template']
-        result = product_obj.search([('integration_ids.integration_ids', '=', self.integration_id.id)])
+        result = product_obj.search([('integration_ids', '=', self.integration_id.id)])
         self.template_id = False
         return {'domain': {'template_id': [('id', 'in', result.ids)]}}
 
@@ -85,11 +83,11 @@ class OmnaSyncVariant(models.TransientModel):
 
             for product in products:
                 act_product = product_obj.search([('omna_variant_id_related', '=', product.get('id'))])
-
+                remote_variant_id = product.get('integration').get('variant').get('remote_variant_id')
                 if act_product:
                     data = {
                         'name': product.get('product').get('name'),
-                        # 'omna_variant_id': product.get('id'),
+                        'omna_variant_id': product.get('id'),
                         'description': product.get('description'),
                         'lst_price': product.get('price'),
                         'default_code': product.get('sku'),
@@ -101,7 +99,9 @@ class OmnaSyncVariant(models.TransientModel):
                         'alto': product.get('package').get('height'),
                         'longitud': product.get('package').get('length'),
                         'ancho': product.get('package').get('width'),
-                        'custom_description': product.get('package').get('content')
+                        'custom_description': product.get('package').get('content'),
+                        'integration_ids': self.integration_id.id,
+                        'remote_variant_id': remote_variant_id,
                     }
                     if len(product.get('images')):
                         url = product.get('images')[0]
@@ -109,23 +109,8 @@ class OmnaSyncVariant(models.TransientModel):
                             image = base64.b64encode(requests.get(url.strip()).content).replace(b'\n', b'')
                             data['image_variant_1024'] = image
 
-                    if product.get('integration', False):
-                        aux = []
-                        new_linked = False
-
-                        integration = product.get('integration', False)
-                        if integration:
-                            linked = next((i for i in act_product.integration_linked_ids if
-                                           i.integration_id == self.integration_id.integration_id), False)
-                            if not linked:
-                                aux.append((0, 0, {'integration_ids': self.integration_id.id,
-                                                   'remote_variant_id': integration.get('variant').get(
-                                                       'remote_variant_id'),
-                                                   'delete_from_integration': True}))
-                                new_linked = True
-
-                        data['integration_linked_ids'] = [(6, 0, [self.integration_id.id])]
-                        data['integration_ids'] = aux if new_linked else []
+                    if len(product.get('integration', [])):
+                        data.update({'state_integration': 'linked'})
 
                     act_product.with_context(from_omna_api=True).write(data)
 
@@ -161,7 +146,7 @@ class OmnaSyncVariant(models.TransientModel):
             if act_product:
                 data = {
                     'name': product.get('product').get('name'),
-                    # 'omna_variant_id': product.get('id'),
+                    'omna_variant_id': product.get('id'),
                     'description': product.get('description'),
                     'lst_price': product.get('price'),
                     'default_code': product.get('sku'),
@@ -173,7 +158,8 @@ class OmnaSyncVariant(models.TransientModel):
                     'alto': product.get('package').get('height'),
                     'longitud': product.get('package').get('length'),
                     'ancho': product.get('package').get('width'),
-                    'custom_description': product.get('package').get('content')
+                    'custom_description': product.get('package').get('content'),
+                    'integration_ids': self.integration_id.id,
                 }
                 if len(product.get('images')):
                     url = product.get('images')[0]
@@ -181,22 +167,8 @@ class OmnaSyncVariant(models.TransientModel):
                         image = base64.b64encode(requests.get(url.strip()).content).replace(b'\n', b'')
                         data['image_variant_1024'] = image
 
-                if product.get('integration', False):
-                    aux = []
-                    new_linked = False
-
-                    integration = product.get('integration', False)
-                    if integration:
-                        linked = next((i for i in act_product.integration_linked_ids if
-                                       i.integration_id == self.integration_id.integration_id), False)
-                        if not linked:
-                            aux.append((0, 0, {'integration_ids': self.integration_id.id,
-                                               'remote_variant_id': integration.get('variant').get('remote_variant_id'),
-                                               'delete_from_integration': True}))
-                            new_linked = True
-
-                    data['integration_linked_ids'] = [(6, 0, [self.integration_id.id])]
-                    data['integration_ids'] = aux if new_linked else []
+                if len(product.get('integration', [])):
+                    data.update({'state_integration': 'linked'})
 
                 act_product.with_context(from_omna_api=True).write(data)
 

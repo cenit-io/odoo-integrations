@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'ECAPI Ecommerce Lazada',
-    'version': '14.0.20220419',
+    'version': '13.0.20220513',
     'category': 'Sales',
     'summary': 'Integration: Lazada',
     'description': 'Integrate global online marketplaces & web-stores with Odoo. Sync products, inventory and orders from multiple channels',
@@ -11,7 +11,7 @@
     'support': 'support@cenit.io',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'sale', 'sale_management', 'board', 'stock', 'purchase'],
+    'depends': ['base', 'sale', 'sale_management', 'board', 'stock', 'purchase', 'web_widget_numeric_step', 'web_widget_url_advanced'],
 
     # always loaded
     'data': [
@@ -36,7 +36,8 @@
         'views/stock_location_inherit_views.xml',
         'views/stock_extra_views.xml',
         'views/product_attribute_inherit_views.xml',
-        # 'views/product_brand_view.xml',
+        'views/import_log.xml',
+        'views/order_payment_views.xml',
         # wizard
         'wizard/omna_sync_products_view.xml',
         'wizard/omna_sync_variant_view.xml',
@@ -68,6 +69,7 @@
         'wizard/omna_extra_import_view.xml',
         'wizard/omna_massive_product_opt.xml',
         'wizard/omna_massive_variant_opt.xml',
+        'wizard/wizard_stock_item_mov.xml',
 
 
         # initial data

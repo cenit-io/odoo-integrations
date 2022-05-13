@@ -36,9 +36,9 @@ class OmnaSettings(models.TransientModel):
     _name = 'omna.settings'
     _inherit = 'res.config.settings'
 
-    cenit_url = fields.Char('Cenit URL', default='https://cenit.io/app/ecapi-v1')
+    cenit_url = fields.Char('Ecapi URL', default='https://cenit.io/app/ecapi-v1')
     lazada_base_url = fields.Char('Lazada Base URL', default='https://sellercenter.lazada.com.my/')
-    lazada_ws_key = fields.Char('Lazada WS Key')
+    # lazada_ws_key = fields.Char('Mercado Libre WS Key')
 
 
     ############################################################################
@@ -50,7 +50,7 @@ class OmnaSettings(models.TransientModel):
         res.update(
             cenit_url=self.env["ir.config_parameter"].sudo().get_param("ecapi_lazada.cenit_url", default=None),
             lazada_base_url=self.env["ir.config_parameter"].sudo().get_param("ecapi_lazada.lazada_base_url", default=None),
-            lazada_ws_key=self.env["ir.config_parameter"].sudo().get_param("ecapi_lazada.lazada_ws_key", default=None),
+            # lazada_ws_key=self.env["ir.config_parameter"].sudo().get_param("ecapi_lazada.lazada_ws_key", default=None),
         )
         return res
 
@@ -63,7 +63,7 @@ class OmnaSettings(models.TransientModel):
         for record in self:
             self.env['ir.config_parameter'].sudo().set_param("ecapi_lazada.cenit_url", record.cenit_url or '')
             self.env['ir.config_parameter'].sudo().set_param("ecapi_lazada.lazada_base_url", record.lazada_base_url or '')
-            self.env['ir.config_parameter'].sudo().set_param("ecapi_lazada.lazada_ws_key", record.lazada_ws_key or '')
+            # self.env['ir.config_parameter'].sudo().set_param("ecapi_lazada.lazada_ws_key", record.lazada_ws_key or '')
 
 
 class OnmaSignInSettings(models.TransientModel):
@@ -72,7 +72,7 @@ class OnmaSignInSettings(models.TransientModel):
     def _default_url(self):
         return self.env['ir.config_parameter'].sudo().get_param("ecapi_lazada.cenit_url", 'https://cenit.io/app/ecapi-v1')
 
-    cenit_url = fields.Char('OMNA API URL', default=_default_url)
+    cenit_url = fields.Char('ECAPI BASE URL', default=_default_url)
 
     def execute(self):
         redirect = self.env['ir.config_parameter'].sudo().get_param('web.base.url') + '/omna/sign_in/'

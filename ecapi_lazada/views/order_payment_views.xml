@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="order_payment_items_tree_view" model="ir.ui.view">
+        <field name="name">order.payment.items.tree</field>
+        <field name="model">order.payment.items</field>
+        <field name="arch" type="xml">
+            <tree string="Order Payments" create="false" edit="false">
+                <field name="payment_ml_id"/>
+                <field name="order_id"/>
+                <field name="currency"/>
+                <field name="payment_method"/>
+                <field name="total_paid_amount"/>
+                <field name="integration_id"/>
+                <field name="status"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="order_payment_items_search_view" model="ir.ui.view">
+        <field name="name">order.payment.items.search</field>
+        <field name="model">order.payment.items</field>
+        <field name="arch" type="xml">
+            <search string="Search Order Payments">
+                <field name="payment_ml_id"/>
+                <field name="order_id"/>
+                <field name="integration_id"/>
+                <field name="payment_method"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_order_payment_items" model="ir.actions.act_window">
+        <field name="name">Order Payments</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">order.payment.items</field>
+        <field name="view_mode">tree</field>
+        <!--            <field name="context">{'search_default_current_tenant': 1}</field>-->
+    </record>
+
+    <menuitem id="menu_order_payment_items" name="Order Payments" parent="menu_omna_data"
+              sequence="7"
+              action="action_order_payment_items"/>
+
+</odoo>

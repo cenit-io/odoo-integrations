@@ -26,7 +26,7 @@ class OmnaSyncCollections(models.TransientModel):
             collections = []
             while requester:
                 response = self.get('available/integrations', {'limit': limit, 'offset': offset})
-                data = list(filter(lambda d: 'lazada' in d['name'], response.get('data')))
+                data = list(filter(lambda d: d['name'] == 'edge_integration_lazada' , response.get('data')))
                 collections.extend(data)
                 if len(data) < limit:
                     requester = False
@@ -59,6 +59,7 @@ class OmnaSyncCollections(models.TransientModel):
                         'installed_at': fields.Datetime.to_string(dateutil.parser.parse(collection.get('installed_at'), tzinfos=tzinfos).astimezone(pytz.utc)) if collection.get('installed_at') else None
                     }
                     act_collection = collection_obj.with_context(synchronizing=True).create(data)
+            self.env.cr.commit()
             return {
                 'type': 'ir.actions.client',
                 'tag': 'reload'

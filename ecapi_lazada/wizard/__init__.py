@@ -30,4 +30,5 @@ from . import omna_utilities
 from . import omna_extra_import
 from . import omna_massive_product_opt
 from . import omna_massive_variant_opt
+from . import wizard_stock_item_mov
 

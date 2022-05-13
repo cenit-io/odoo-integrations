@@ -182,7 +182,7 @@ class OmnaApi(models.AbstractModel):
         config = self.get_config()
 
         if not config['cenit_user_secret'] or not config['cenit_user_token']:
-            raise exceptions.AccessError(_("Please sign in with OMNA."))
+            raise exceptions.AccessError(_("Please sign in with ECAPI."))
 
         timestamp = datetime.now(timezone.utc)
         # payload['token'] = config['cenit_user_token']
