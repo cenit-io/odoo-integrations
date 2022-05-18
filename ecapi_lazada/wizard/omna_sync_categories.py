@@ -6,7 +6,9 @@ import json
 import logging
 import hmac
 import hashlib
-from datetime import datetime, timezone, time
+import threading
+import time
+# from datetime import datetime, timezone, time
 from itertools import groupby
 from odoo import models, api, exceptions, fields
 
@@ -23,31 +25,45 @@ class OmnaSyncCategories(models.TransientModel):
     integration_id = fields.Many2one('omna.integration', 'Integration')
     # category_id = fields.Many2one('product.category', 'Category')
 
+
+
+    def function_aux(self, limit, offset, integration_id, categories):
+        with api.Environment.manage():
+            # As this function is in a new thread, I need to open a new cursor, because the old one may be closed
+            new_cr = self.pool.cursor()
+            self = self.with_env(self.env(cr=new_cr))
+            response = self.get('integrations/%s/categories' % integration_id,
+                                {'limit': limit, 'offset': offset, 'with_details': True})
+            data = response.get('data')
+            categories.extend(data)
+            new_cr.close()
+            return {}
+
+
+
+
     def sync_categories(self):
         try:
             limit = 100
             offset = 0
-            requester = True
             categories = []
+            response_temp = self.get('integrations/%s/categories' % self.integration_id.integration_id, {'limit': 5, 'offset': 0, 'with_details': True})
+            total_categories = response_temp.get('pagination').get('total')
 
-            # if self.sync_type == 'by_integration':
-            while requester:
-                response = self.get('integrations/%s/categories' % self.integration_id.integration_id, {'limit': limit, 'offset': offset, 'with_details': True})
-                data = response.get('data')
-                categories.extend(data)
-                if len(data) < limit:
-                    requester = False
-                else:
-                    offset += limit
-            # else:
-            #     external = self.category_id.omna_category_id
-            #     if external:
-            #         response = self.get(
-            #             'integrations/%s/categories/%s' % (self.integration_id.integration_id, external),
-            #             {})
+            for item in list(range(0, total_categories, limit)):
+                threaded_api_request = threading.Thread(target=self.function_aux, args=([limit, item, self.integration_id.integration_id, categories]))
+                threaded_api_request.start()
+
+            # while requester:
+            #     response = self.get('integrations/%s/categories' % self.integration_id.integration_id, {'limit': limit, 'offset': offset, 'with_details': True})
             #     data = response.get('data')
-            #     categories.append(data)
+            #     categories.extend(data)
+            #     if len(data) < limit:
+            #         requester = False
+            #     else:
+            #         offset += limit
 
+            time.sleep(60)
             category_obj = self.env['product.category']
             categories.sort(key=lambda x: x.get("name"))
             for category in categories:
@@ -71,23 +87,3 @@ class OmnaSyncCategories(models.TransientModel):
             _logger.error(e)
             raise exceptions.AccessError(e)
 
-    # # def category_tree(self, arr, parent_id, category_id, integration_id, category_obj):
-    # def category_tree(self, arr, parent_id, category_id, integration_id, category_obj):
-    #     if len(arr) == 1:
-    #         name = arr[0]
-    #         # c = category_obj.search(['|', ('omna_category_id', '=', category_id), '&',
-    #         #                          ('name', '=', name), ('parent_id', '=', parent_id), ('integration_id', '=', integration_id)], limit=1)
-    #         c = category_obj.search(['&', ('omna_category_id', '=', category_id), '&', '&', ('name', '=', name), ('parent_id', '=', parent_id), ('integration_id', '=', integration_id)], limit=1)
-    #         if not c:
-    #             category_obj.create({'name': name, 'omna_category_id': category_id, 'parent_id': parent_id, 'integration_id': integration_id})
-    #         else:
-    #             c.write({'name': name, 'parent_id': parent_id, 'integration_id': integration_id})
-    #
-    #         return
-    #     elif len(arr) > 1:
-    #         name = arr[0]
-    #         c = category_obj.search([('name', '=', name), ('integration_id', '=', integration_id)], limit=1)
-    #         if not c:
-    #             c= category_obj.create({'name': name, 'parent_id': parent_id, 'integration_id': integration_id})
-    #
-    #         self.category_tree(arr[1:], c.id if c else False, category_id, integration_id, category_obj)

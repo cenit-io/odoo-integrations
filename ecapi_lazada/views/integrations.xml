@@ -78,6 +78,9 @@
                                         <span>
                                             <field name="channel"></field>
                                         </span>
+                                        <span>
+                                            <field name="company_id"/>
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="w-100 card-footer b-white">

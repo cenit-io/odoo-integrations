@@ -14,8 +14,8 @@ class OmnaSyncOrders(models.TransientModel):
 
     sync_type = fields.Selection([('all', 'All'),
                                   ('by_integration', 'By Integration'),
-                                  ('number', 'Number')], 'Import Type', required=True, default='all', help="If you select Number option, you have to provide the Reference value of an Order in Lazada.")
-    integration_id = fields.Many2one('omna.integration', 'Integration')
+                                  ('number', 'Number')], 'Import Type', required=True, default='all', help="If you select Number option, you have to provide the Reference value of an Order in Mercado Libre.")
+    integration_id = fields.Many2one('omna.integration', 'Integration', domain=lambda self:[('company_id', '=', self.env.company.id)])
     number = fields.Char("Order Number")
 
 
@@ -60,7 +60,7 @@ class OmnaSyncOrders(models.TransientModel):
                     'tag': 'reload'
                 }
             else:
-                self.env.user.notify_channel('warning', _("Sorry, we don't find results for this criteria. \n Please execute from Settings / Import Lazada -> Ecapi the option for import Orders, later try to execute this functionality."), _("Information"), True)
+                self.env.user.notify_channel('warning', _("Sorry, we don't find results for this criteria. \n Please execute from Settings / Import Mercado Libre -> Ecapi the option for import Orders, later try to execute this functionality."), _("Information"), True)
 
         except Exception as e:
             _logger.error(e)
@@ -78,12 +78,12 @@ class OmnaSyncOrders(models.TransientModel):
 
                     if not act_order:
                         partner_related = self._create_partner(order.get('customer'), contact_type='contact')
-                        partner_invoice = self._create_partner(order.get('ship_address'), contact_type='delivery')
-                        partner_shipping = self._create_partner(order.get('bill_address'), contact_type='invoice')
+                        partner_shipping  = self._create_partner(order.get('ship_address'), contact_type='delivery')
+                        partner_invoice = self._create_partner(order.get('bill_address'), contact_type='invoice')
 
                         if order.get('integration'):
                             integration = self.env['omna.integration'].search([('integration_id', '=', order.get('integration').get('id'))], limit=1)
-                            warehouse_delivery = self.env['stock.warehouse'].search([('integration_id', '=', integration.id), ('omna_id', '!=', False)], limit=1)
+                            warehouse_delivery = self.env['stock.warehouse'].sudo().search([('company_id', '=', integration.company_id.id), ('integration_id', '=', integration.id)])
                             payment_list = [(0, 0, {'currency': X.get('currency_id'), 'payment_method': X.get('payment_method'),
                                      'payment_ml_id': str(X.get('id')), 'total_paid_amount': X.get('total_paid_amount'), 'integration_id': integration.id, 'status': X.get('status')})for X in order.get('original_raw_data').get('payments')]
                             if integration:
@@ -100,33 +100,34 @@ class OmnaSyncOrders(models.TransientModel):
                                     'date_order': fields.Datetime.to_string(parse(order.get('last_import_date').split('T')[0])),
                                     'create_date': fields.Datetime.to_string(datetime.now(timezone.utc)),
                                     'partner_id': partner_related.id,
-                                    'partner_invoice_id': partner_invoice.id,
-                                    'partner_shipping_id': partner_shipping.id,
+                                    'partner_invoice_id': partner_invoice.id if partner_invoice else False,
+                                    'partner_shipping_id': partner_shipping.id if partner_shipping else False,
                                     'warehouse_id': warehouse_delivery.id,
                                     'pricelist_id': self.env.ref('product.list0').id,
+                                    'company_id': integration.company_id.id,
 
-                                    'ship_first_name': order.get('ship_address').get('first_name'),
-                                    'ship_last_name': order.get('ship_address').get('last_name'),
-                                    'ship_country': order.get('ship_address').get('country'),
-                                    'ship_state': order.get('ship_address').get('state'),
-                                    'ship_city': order.get('ship_address').get('city'),
-                                    'ship_district': order.get('ship_address').get('district'),
-                                    'ship_town': order.get('ship_address').get('town'),
-                                    'ship_phone': order.get('ship_address').get('phone'),
-                                    'ship_zip_code': order.get('ship_address').get('zip_code'),
-                                    'ship_address': ", ".join(order.get('ship_address').get('address')),
-                                    'bill_first_name': order.get('bill_address').get('first_name'),
-                                    'bill_last_name': order.get('bill_address').get('last_name'),
-                                    'bill_country': order.get('bill_address').get('country'),
-                                    'bill_state': order.get('bill_address').get('state'),
-                                    'bill_city': order.get('bill_address').get('city'),
-                                    'bill_district': order.get('bill_address').get('district'),
-                                    'bill_town': order.get('bill_address').get('town'),
-                                    'bill_phone': order.get('bill_address').get('phone'),
-                                    'bill_zip_code': order.get('bill_address').get('zip_code'),
-                                    'bill_address': ", ".join(order.get('bill_address').get('address')),
-                                    'doc_type': order.get('original_raw_data').get('address_billing').get('billing_info').get('doc_type'),
-                                    'doc_number': order.get('original_raw_data').get('address_billing').get('billing_info').get('doc_number'),
+                                    'ship_first_name': order.get('ship_address').get('first_name') if order.get('ship_address', False) else False,
+                                    'ship_last_name': order.get('ship_address').get('last_name') if order.get('ship_address', False) else False,
+                                    'ship_country': order.get('ship_address').get('country') if order.get('ship_address', False) else False,
+                                    'ship_state': order.get('ship_address').get('state') if order.get('ship_address', False) else False,
+                                    'ship_city': order.get('ship_address').get('city') if order.get('ship_address', False) else False,
+                                    'ship_district': order.get('ship_address').get('district') if order.get('ship_address', False) else False,
+                                    'ship_town': order.get('ship_address').get('town') if order.get('ship_address', False) else False,
+                                    'ship_phone': order.get('ship_address').get('phone') if order.get('ship_address', False) else False,
+                                    'ship_zip_code': order.get('ship_address').get('zip_code') if order.get('ship_address', False) else False,
+                                    'ship_address': ", ".join(order.get('ship_address').get('address')) if order.get('ship_address', False) else False,
+                                    'bill_first_name': order.get('bill_address').get('first_name') if order.get('bill_address', False) else False,
+                                    'bill_last_name': order.get('bill_address').get('last_name') if order.get('bill_address', False) else False,
+                                    'bill_country': order.get('bill_address').get('country') if order.get('bill_address', False) else False,
+                                    'bill_state': order.get('bill_address').get('state') if order.get('bill_address', False) else False,
+                                    'bill_city': order.get('bill_address').get('city') if order.get('bill_address', False) else False,
+                                    'bill_district': order.get('bill_address').get('district') if order.get('bill_address', False) else False,
+                                    'bill_town': order.get('bill_address').get('town') if order.get('bill_address', False) else False,
+                                    'bill_phone': order.get('bill_address').get('phone') if order.get('bill_address', False) else False,
+                                    'bill_zip_code': order.get('bill_address').get('zip_code') if order.get('bill_address', False) else False,
+                                    'bill_address': ", ".join(order.get('bill_address').get('address')) if order.get('bill_address', False) else False,
+                                    'doc_type': order.get('original_raw_data').get('address_billing').get('billing_info').get('doc_type') if order.get('original_raw_data').get('address_billing', False) else False,
+                                    'doc_number': order.get('original_raw_data').get('address_billing').get('billing_info').get('doc_number') if order.get('original_raw_data').get('address_billing', False) else False,
                                     'order_payment_ids': payment_list,
 
                                 }
@@ -175,6 +176,9 @@ class OmnaSyncOrders(models.TransientModel):
         if not dict_param:
             return False
 
+        street =  "País: {0}, Estado: {1}, Ciudad: {2}, Distrito: {3}, Barrio/Localidad: {4}, ".format(dict_param.get('country') or '-',
+                dict_param.get('state') or '-', dict_param.get('city') or '-', dict_param.get('district') or '-', dict_param.get('town') or '-')
+        street += ", ".join(dict_param.get('address', []))
         data = {
             'name': '%s %s' % (dict_param.get('first_name'), dict_param.get('last_name')),
             'company_type': 'person',
@@ -183,8 +187,9 @@ class OmnaSyncOrders(models.TransientModel):
             'lang': self.env.user.lang,
             'integration_id': self.integration_id.id,
             'phone':  dict_param.get('phone'),
-            'street':  ", ".join(dict_param.get('address')),
-            'zip':  dict_param.get('zip_code')
+            'street':  street,
+            'zip':  dict_param.get('zip_code'),
+            # 'company_id':  self.integration_id.company_id.id
         }
 
         # data['country_id'] = self.env.ref('base.ar').id
