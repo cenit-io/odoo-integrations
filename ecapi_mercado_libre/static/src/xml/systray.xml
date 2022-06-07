@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates>
+   <t t-name="ecapi_systray_item.tenant_icon">
+
+       <div class="o_mail_systray_item dropdown">
+           <label class="mail_icon" style="margin-bottom:0px;" title="Active Tenant">
+               <div class="icon_div o-dropdown o-dropdown--no-caret o_user_menu">
+                   <a href="#" role="button" class="tenant_icon dropdown-toggle o-no-caret o-dropdown--narrow">
+                       <img class="rounded-circle o_user_avatar" src="/ecapi_lazada/static/src/img/ebanux-logo.png" alt="Avatar"/>
+                   </a>
+               </div>
+           </label>
+       </div>
+
+   </t>
+</templates>

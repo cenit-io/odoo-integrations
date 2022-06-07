@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_activate_tenant_wizard" model="ir.ui.view">
+        <field name="name">activate.tenant.wizard.form</field>
+        <field name="model">activate.tenant.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Set active tenant">
+<!--                <script>$(document).ready(function(){-->
+<!--                    $('.modal-dialog').css({'max-width': '497px'});-->
+<!--                    $('.modal-content').css({'max-height': '45%'});-->
+
+<!--                    });-->
+<!--                </script>-->
+                <group>
+                    <field name="omna_tenant_id" options="{'no_quick_create':True,'no_create_edit':True,'no_open': True}" />
+                </group>
+                <footer>
+                    <button string="Apply" name="action_switch_tenant" type="object" default_focus="1" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="action_activate_tenant_wizard" model="ir.actions.act_window">
+        <field name="name">Set active tenant</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">activate.tenant.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="view_id" ref="view_activate_tenant_wizard"/>
+        <!-- TODO: check if we need this -->
+        <!--            <field name="binding_model_id" ref="product.model_product_template" />-->
+        <!--            <field name="binding_view_types">list</field>-->
+    </record>
+</odoo>

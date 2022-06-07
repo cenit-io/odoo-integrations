@@ -1,0 +1,6 @@
+<odoo noupdate="1">
+    <record id="job_function_product_omnaid_update" model="queue.job.function">
+        <field name="model_id" ref="ecapi_mercado_libre.model_properties_values_wizard" />
+        <field name="method">update_product_publish_id</field>
+    </record>
+</odoo>

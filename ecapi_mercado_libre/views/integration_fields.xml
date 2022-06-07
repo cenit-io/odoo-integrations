@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <record id="properties_values_tree_view" model="ir.ui.view">
+        <field name="name">properties.values.product.tree</field>
+        <field name="model">properties.values.product</field>
+        <field name="arch" type="xml">
+            <tree string="Properties Values Product">
+                <field name="product_template_id"/>
+                <field name="integration_id"/>
+                <field name="property_name"/>
+                <field name="property_display_value"/>
+                <field name="property_required"/>
+                <groupby name="product_template_id">
+                    <field name="name" invisible="1"/>
+                </groupby>
+            </tree>
+        </field>
+    </record>
+
+    <record id="properties_values_form_view" model="ir.ui.view">
+        <field name="name">properties.values.product.form</field>
+        <field name="model">properties.values.product</field>
+        <field name="arch" type="xml">
+            <form string="Properties Values Product">
+                <sheet>
+                    <group>
+                        <field name="integration_id"/>
+                        <field name="product_template_id"/>
+                        <field name="property_type" invisible="1"/>
+                        <field name="id" invisible="1"/>
+                    </group>
+                    <group>
+                        <field name="property_name"/>
+                        <field name="property_value" attrs="{'invisible': [('property_type', '!=', 'text')]}"/>
+                        <field name="property_integer_value" attrs="{'invisible': [('property_type', '!=', 'numeric')]}"/>
+                        <field name="property_float_value" attrs="{'invisible': [('property_type', '!=', 'numeric')]}"/>
+                        <field name="property_boolean_value" attrs="{'invisible': [('property_type', '!=', 'to invoice')]}"/>
+                        <field name="property_date_value" attrs="{'invisible': [('property_type', '!=', 'date')]}"/>
+                        <field name="property_selection_value" widget="selection" attrs="{'invisible': [('property_type', 'not in', ['single_select', 'enum_input'])]}"/>
+                        <field name="property_rich_text_value" attrs="{'invisible': [('property_type', '!=', 'rich_text')]}"/>
+                        <field name="property_multi_selection_value" widget="many2many_tags" domain="[('property_name', '=', property_name), ('property_value_product_id', '=', id)]" attrs="{'invisible': [('property_type', '!=', 'multi_enum_input')]}"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="properties_values_search_view" model="ir.ui.view">
+        <field name="name">properties.values.product.search</field>
+        <field name="model">properties.values.product</field>
+        <field name="arch" type="xml">
+            <search string="Properties Values Product">
+                <field name="integration_id"/>
+                <field name="product_template_id"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_properties_values" model="ir.actions.act_window">
+        <field name="name">Properties Values Product</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">properties.values.product</field>
+        <field name="view_mode">tree,form</field>
+        <!--            <field name="context">{'search_default_current_tenant': 1}</field>-->
+    </record>
+
+    <menuitem id="menu_properties_values" name="Properties Values Product" parent="menu_omna_integrations"
+              sequence="12"
+              action="action_properties_values"/>
+
+
+<!--    -->
+
+    <record id="properties_values_variant_tree_view" model="ir.ui.view">
+        <field name="name">properties.values.variant.tree</field>
+        <field name="model">properties.values.variant</field>
+        <field name="arch" type="xml">
+            <tree string="Properties Values Variant">
+                <field name="product_product_id"/>
+                <field name="integration_id"/>
+                <field name="property_name"/>
+                <field name="property_display_value"/>
+                <field name="property_required"/>
+                <groupby name="product_product_id">
+                    <field name="name" invisible="1"/>
+                </groupby>
+            </tree>
+        </field>
+    </record>
+
+    <record id="properties_values_variant_form_view" model="ir.ui.view">
+        <field name="name">properties.values.variant.form</field>
+        <field name="model">properties.values.variant</field>
+        <field name="arch" type="xml">
+            <form string="Properties Values Variant">
+                <sheet>
+                    <group>
+                        <field name="integration_id"/>
+                        <field name="product_product_id"/>
+                        <field name="property_type" invisible="1"/>
+                        <field name="id" invisible="1"/>
+                    </group>
+                    <group>
+                        <field name="property_name"/>
+                        <field name="property_value" attrs="{'invisible': [('property_type', '!=', 'text')]}"/>
+                        <field name="property_integer_value" attrs="{'invisible': [('property_type', '!=', 'numeric')]}"/>
+                        <field name="property_float_value" attrs="{'invisible': [('property_type', '!=', 'numeric')]}"/>
+                        <field name="property_boolean_value" attrs="{'invisible': [('property_type', '!=', 'to invoice')]}"/>
+                        <field name="property_date_value" attrs="{'invisible': [('property_type', '!=', 'date')]}"/>
+                        <field name="property_selection_value" widget="selection" attrs="{'invisible': [('property_type', 'not in', ['single_select', 'enum_input'])]}"/>
+                        <field name="property_rich_text_value" attrs="{'invisible': [('property_type', '!=', 'rich_text')]}"/>
+                        <field name="property_multi_selection_value" widget="many2many_tags" domain="[('property_name', '=', property_name), ('property_value_variant_id', '=', id)]" attrs="{'invisible': [('property_type', '!=', 'multi_enum_input')]}"/>
+
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="properties_values_variant_search_view" model="ir.ui.view">
+        <field name="name">properties.values.variant.search</field>
+        <field name="model">properties.values.variant</field>
+        <field name="arch" type="xml">
+            <search string="Properties Values Variant">
+                <field name="integration_id"/>
+                <field name="product_product_id"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_properties_values_variant" model="ir.actions.act_window">
+        <field name="name">Properties Values Variant</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">properties.values.variant</field>
+        <field name="view_mode">tree,form</field>
+        <!--            <field name="context">{'search_default_current_tenant': 1}</field>-->
+    </record>
+
+    <menuitem id="menu_properties_values_variant" name="Properties Values Variant" parent="menu_omna_integrations"
+              sequence="13"
+              action="action_properties_values_variant"/>
+
+
+</odoo>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+        <record id="view_export_order_wzd" model="ir.ui.view">
+            <field name="name">omna.export.order.wzd.form</field>
+            <field name="model">omna.export_order_wzd</field>
+            <field name="arch" type="xml">
+                <form string="Export Order">
+                    <group col="4">
+                        <field name="integration_id"/>
+                    </group>
+                    <footer>
+                        <button string='Export Order' name="export_order" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <!-- Add action entry in the Action Menu for Product -->
+<!--        <record id="action_export_order_wzd"-->
+<!--                    name="Export Order"-->
+<!--                    src_model="sale.order"-->
+<!--                    res_model="omna.export_order_wzd"-->
+<!--                    binding_view_types="form"-->
+<!--                    view_mode="form"-->
+<!--                    key2="client_action_relate"-->
+<!--                    target="new"-->
+<!--                    model="ir.actions.act_window"/>-->
+
+        <record id="action_export_order_wzd" model="ir.actions.act_window">
+                <field name="name">Export Orders</field>
+                <field name="res_model">omna.export_order_wzd</field>
+                <field name="binding_model_id" ref="sale.model_sale_order" />
+                <field name="binding_view_types">form</field>
+                <field name="view_mode">form</field>
+<!--                <field name="key2">client_action_relate</field>-->
+                <field name="target">new</field>
+            </record>
+
+
+
+</odoo>

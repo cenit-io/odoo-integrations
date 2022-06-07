@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_link_variant_wizard" model="ir.ui.view">
+        <field name="name">link.variant.wizard.form</field>
+        <field name="model">link.variant.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Integration to Link Product Variant">
+                <group>
+                    <group>
+                        <field name="omna_integration_id" />
+                        <field name="state" widget="badge" decoration-warning="state == 'unlinked'" decoration-success="state == 'linked'"/>
+                    </group>
+                    <group>
+                        <button string='Execute Link Action' name="action_link_variant" type="object" class="fa fa-link btn-primary" />
+                        <button string='Execute UnLink Action' name="action_unlink_variant" type="object" class="fa fa-chain-broken btn-primary" />
+                    </group>
+                </group>
+                <footer>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="action_link_variant_wizard" model="ir.actions.act_window">
+        <field name="name">Link Product Variant with Integration</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">link.variant.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="view_id" ref="view_link_variant_wizard"/>
+        <!-- TODO: check if we need this -->
+        <!--            <field name="binding_model_id" ref="product.model_product_template" />-->
+        <!--            <field name="binding_view_types">list</field>-->
+    </record>
+</odoo>

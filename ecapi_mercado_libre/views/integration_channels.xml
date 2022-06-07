@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <record id="omna_integration_channel_tree_view" model="ir.ui.view">
+            <field name="name">omna.integration_channel.tree</field>
+            <field name="model">omna.integration_channel</field>
+            <field name="arch" type="xml">
+                <tree string="Available Integration Channels" create="false" delete="false">
+                    <field name="title"/>
+                    <field name="name"/>
+                    <field name="group"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="omna_kanban_view_integration_channel" model="ir.ui.view">
+            <field name="name">omna.integration.channel.kanban</field>
+            <field name="model">omna.integration_channel</field>
+            <field name="priority">10</field>
+            <field name="arch" type="xml">
+                <kanban class="o_kanban_mobile o_omna_kanban_integrations" quick_create="false" create="false" delete="false">
+                    <field name="name"/>
+                    <field name="group"/>
+                    <field name="logo"/>
+                    <field name="title"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click">
+                                <div class="oe_omna_kanban_integration_title b-white">
+                                    <img t-attf-src="#{record.logo.raw_value}"
+                                         alt="Integration Channel" class="o_image_64_contain"/>
+                                    <strong class="">
+                                        <field name="name" placeholder="Integration's Name"/>
+                                    </strong>
+                                </div>
+                                <div class="w-100 card-footer b-white">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <strong class="text-uppercase" t-esc="record.title.value"
+                                                placeholder="Integration Channel's Name"/>
+                                        <button type="object" name="add_integration" string="ADD"
+                                                style="border-radius: 50%;" class="btn btn-outline-success">ADD
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record id="action_omna_integration_channel" model="ir.actions.act_window">
+            <field name="name">Available Integration Channels</field>
+            <field name="res_model">omna.integration_channel</field>
+            <field name="view_mode">kanban,tree</field>
+            <field name="domain">[('group', '=', 'MercadoLibre')]</field>
+        </record>
+
+        <menuitem id="menu_omna_my_integration_channels" name="Available Integration Channels"
+                  parent="menu_omna_integrations"
+                  sequence="10"
+                  action="action_omna_integration_channel"/>
+
+
+</odoo>

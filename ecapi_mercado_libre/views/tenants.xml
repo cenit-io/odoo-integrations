@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <record id="omna_tenant_tree_view" model="ir.ui.view">
+            <field name="name">omna.tenant.tree</field>
+            <field name="model">omna.tenant</field>
+            <field name="arch" type="xml">
+                <tree string="Tenants">
+                    <field name="name"/>
+                    <field name="deactivation"/>
+                    <field name="is_ready_to_omna"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="omna_tenant_form_view" model="ir.ui.view">
+            <field name="name">omna.tenant.form</field>
+            <field name="model">omna.tenant</field>
+            <field name="arch" type="xml">
+                <form string="Tenant">
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <field name="current" invisible="1"/>
+                            <button name="switch" type="object" string="Set as Current Tenant"
+                                    class="oe_stat_button"
+                                    attrs="{'invisible':[('current','=',True)]}" icon="fa-refresh">
+                            </button>
+                        </div>
+                        <group col="4">
+                            <field name="name" attrs="{'readonly': [('id', '!=', False)]}"/>
+                            <field name="token"
+                                   attrs="{'invisible': [('id', '=', False)], 'required': [('id', '!=', False)]}"/>
+                            <field name="secret"
+                                   attrs="{'invisible': [('id', '=', False)], 'required': [('id', '!=', False)]}"/>
+                            <field name="deactivation"
+                                   attrs="{'invisible': [('id', '=', False)], 'required': [('id', '!=', False)]}"/>
+                            <field name="is_ready_to_omna"
+                                   attrs="{'invisible': [('id', '=', False)], 'required': [('id', '!=', False)]}"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="omna_tenant_search_view" model="ir.ui.view">
+            <field name="name">omna.tenant.search</field>
+            <field name="model">omna.tenant</field>
+            <field name="arch" type="xml">
+                <search string="Tenant">
+                    <field name="name"/>
+                    <filter name="current" string="Current" domain="[('current', '=', True)]"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_omna_tenant" model="ir.actions.act_window">
+            <field name="name">Tenants</field>
+            <field name="res_model">omna.tenant</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{}</field>
+        </record>
+
+        <menuitem id="menu_omna_tenants" name="Tenants" parent="menu_omna_system" sequence="0"
+                  action="action_omna_tenant"/>
+
+
+</odoo>

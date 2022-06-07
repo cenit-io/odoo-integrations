@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_properties_values_wizard" model="ir.ui.view">
+        <field name="name">properties.values.wizard.form</field>
+        <field name="model">properties.values.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Property List By Integrations">
+                <group>
+                    <!--                    <separator string="Primary Property" colspan="8"/>-->
+                    <group>
+                        <field name="omna_integration_id"/>
+                    </group>
+
+
+                    <!--                    <separator string="Product Category" colspan="8"/>-->
+                    <group>
+                        <field name="brand_id"/>
+                    </group>
+                </group>
+                <separator string="Filtered Properties" colspan="4"/>
+                <group>
+                    <field name="property_value_ids" nolabel="1">
+                        <tree create="0" delete="0">
+                            <field name="integration_id"/>
+                            <field name="property_label"/>
+                            <field name="property_display_value"/>
+<!--                            <field name="property_options"/>-->
+                            <!--<field name="property_value"/>-->
+                            <groupby name="integration_id">
+                                <field name="name" invisible="1"/>
+                            </groupby>
+                        </tree>
+
+                        <form string="Properties Values" create="0" edit="1">
+                            <sheet>
+                                <group>
+                                    <field name="property_id"/>
+                                    <field name="integration_id"/>
+                                    <field name="product_template_id"/>
+                                </group>
+                                <group>
+                                    <field name="property_name"/>
+                                    <field name="property_type" invisible="1"/>
+                                    <field name="property_value" attrs="{'invisible':[('property_type','!=','text')]}"/>
+                                    <!--                <field name="property_integer_value" attrs="{'invisible':[('property_type','!=','numeric')]}"/>-->
+                                    <field name="property_float_value"
+                                           attrs="{'invisible':[('property_type','!=','numeric')]}"/>
+                                    <field name="property_boolean_value"
+                                           attrs="{'invisible':[('property_type','!=','boolean')]}"/>
+                                    <field name="property_date_value"
+                                           attrs="{'invisible':[('property_type','!=','date')]}"/>
+                                    <field name="property_selection_value" widget="selection"
+                                           attrs="{'invisible':[('property_type','not in',['single_select', 'enum_input'])]}"/>
+                                    <field name="property_rich_text_value"
+                                           attrs="{'invisible':[('property_type','!=','rich_text')]}"/>
+                                    <field name="property_multi_selection_value" widget="many2many_tags"
+                                           domain="[('property_id', '=', property_id)]"
+                                           attrs="{'invisible':[('property_type','not in',['multi_select', 'multi_enum_input'])]}"/>
+                                    <field name="property_category_value"
+                                           attrs="{'invisible':[('property_name','!=','category_id')]}"/>
+                                    <field name="property_brand_value"
+                                           attrs="{'invisible':[('property_name','!=','brand_id')]}"/>
+                                </group>
+                            </sheet>
+                        </form>
+                    </field>
+                </group>
+                <footer>
+<!--                    <button string='Get All Properties' name="get_properties_product" type="object" class="btn-primary" context="{'for_save': False, 'for_query': True}" invisible="context.get('for_query',False)" />-->
+                    <button string='Get All Properties' name="get_properties_product" type="object" class="btn-primary"/>
+<!--                    <button string='Save All Values' name="save_all_values" type="object" class="btn-primary" invisible="context.get('for_save',True)" />-->
+                    <button string='Save All Values' name="save_all_values" type="object" class="btn-primary" />
+                    <button string='Publish Product' name="publish_product" type="object" class="btn-primary"/>
+                    <button string='Unpublish Product' name="unpublish_product" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="action_properties_values_wizard" model="ir.actions.act_window">
+        <field name="name">Property List By Integrations</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">properties.values.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="view_id" ref="view_properties_values_wizard"/>
+        <!-- TODO: check if we need this -->
+        <!--            <field name="binding_model_id" ref="product.model_product_template" />-->
+        <!--            <field name="binding_view_types">list</field>-->
+    </record>
+</odoo>

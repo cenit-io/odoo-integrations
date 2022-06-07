@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <record id="ecapi_import_log_tree_view" model="ir.ui.view">
+            <field name="name">ecapi.import.log.tree</field>
+            <field name="model">ecapi.import.log</field>
+            <field name="arch" type="xml">
+                <tree string="Import Logs" create="0">
+                    <field name="integration_id"/>
+                    <field name="message"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="ecapi_import_log_form_view" model="ir.ui.view">
+            <field name="name">ecapi.import.log.form</field>
+            <field name="model">ecapi.import.log</field>
+            <field name="arch" type="xml">
+                <form string="Import Log" create="0" edit="0">
+                    <sheet>
+                        <group>
+                            <field name="integration_id"/>
+                            <group string="Message">
+                                <field name="message" nolabel="1"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="ecapi_import_log_search_view" model="ir.ui.view">
+            <field name="name">ecapi.import.log.search</field>
+            <field name="model">ecapi.import.log</field>
+            <field name="arch" type="xml">
+                <search string="Import Logs">
+                    <field name="integration_id"/>
+                    <group expand="0" string="Group By">
+                        <filter string="Integration" name="integration_id" domain="[]" context="{'group_by': 'integration_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_ecapi_import_log" model="ir.actions.act_window">
+            <field name="name">Import Logs</field>
+            <field name="res_model">ecapi.import.log</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{}</field>
+        </record>
+
+        <menuitem id="menu_ecapi_import_logs" name="Import Logs" parent="menu_omna_system" sequence="5"
+                  action="action_ecapi_import_log"/>
+
+
+</odoo>

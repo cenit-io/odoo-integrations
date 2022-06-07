@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+        <template id="assets_backend" name="mail assets" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <!--                <link rel="stylesheet" href="/omna/static/src/less/omna_integrations_kanban.less"/>-->
+                <link rel="stylesheet" href="/ecapi_mercado_libre/static/src/css/omna_integrations_kanban.css"/>
+                <link rel="stylesheet" href="/ecapi_mercado_libre/static/src/scss/numeric_step.scss"/>
+                <!-- systray -->
+                <script type="text/javascript" src="/ecapi_mercado_libre/static/src/js/omna_sign_in.js"></script>
+                <script type="text/javascript" src="/ecapi_mercado_libre/static/src/js/systray_tenant_menu.js"></script>
+                <!-- notifications-->
+                <script type="text/javascript" src="/ecapi_mercado_libre/static/src/js/web_client.js"/>
+                <script type="text/javascript" src="/ecapi_mercado_libre/static/src/js/widgets/notification.js"/>
+                <script type="text/javascript" src="/ecapi_mercado_libre/static/src/js/widgets/numeric_step.js"/>
+                <!--                Fields-->
+                <script type="text/javascript" src="/ecapi_mercado_libre/static/src/js/fields/omna_basic_fields.js"/>
+                <script type="text/javascript" src="/ecapi_mercado_libre/static/src/js/fields/omna_field_registry.js"/>
+            </xpath>
+
+            <link rel="stylesheet" type="text/scss" href="/web/static/src/scss/webclient.scss" position="after">
+                <link rel="stylesheet" type="text/scss" href="/ecapi_mercado_libre/static/src/scss/webclient.scss"/>
+            </link>
+        </template>
+
+
+</odoo>

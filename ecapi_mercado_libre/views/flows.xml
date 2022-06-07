@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+        <record id="omna_flow_tree_view" model="ir.ui.view">
+            <field name="name">omna.flow.tree</field>
+            <field name="model">omna.flow</field>
+            <field name="arch" type="xml">
+                <tree string="flows">
+                    <field name="type"/>
+                    <field name="integration_id"/>
+                    <field name="start_date"/>
+                    <field name="active"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="omna_flow_form_view" model="ir.ui.view">
+            <field name="name">omna.flow.form</field>
+            <field name="model">omna.flow</field>
+            <field name="arch" type="xml">
+                <form string="flows">
+                    <sheet>
+                        <header>
+                            <button name="start" string="Start" class="oe_highlight" type="object"/>
+                            <button name="toggle_status" string="Toggle Status" class="btn btn-secondary oe_inline"
+                                    type="object"/>
+                        </header>
+                        <group string="Workflow">
+                            <field name="type"/>
+                            <field name="integration_id"/>
+                        </group>
+                        <group string="Scheduler">
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                            <field name="days_of_week" widget="many2many_tags" options="{'no_create_edit':'1'}"/>
+                            <field name="weeks_of_month" widget="many2many_tags" options="{'no_create_edit':'1'}"/>
+                            <field name="months_of_year" widget="many2many_tags" options="{'no_create_edit':'1'}"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="omna_flow_search_view" model="ir.ui.view">
+            <field name="name">omna.flow.search</field>
+            <field name="model">omna.flow</field>
+            <field name="arch" type="xml">
+                <search string="Flow">
+                    <field name="omna_tenant_id"/>
+                    <filter name="current_tenant" string="Current Tenant"
+                            domain="[('omna_tenant_id', '=', context.get('omna_current_tenant'))]"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_omna_flow" model="ir.actions.act_window">
+            <field name="name">Workflows</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">omna.flow</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'search_default_current_tenant': 1}</field>
+        </record>
+
+        <menuitem id="menu_omna_flows" name="Workflows" parent="menu_omna_system"
+                  sequence="0" action="action_omna_flow"/>
+
+
+</odoo>

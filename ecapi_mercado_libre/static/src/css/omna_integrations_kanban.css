@@ -1,0 +1,22 @@
+.o_kanban_view.o_kanban_mobile.o_omna_kanban_integrations .o_kanban_record {
+  padding: 0px !important;
+  width: 300px !important;
+}
+.o_kanban_view.o_kanban_mobile.o_omna_kanban_integrations .o_kanban_record .o_image_64_contain {
+  border-radius: 50%;
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+}
+.o_kanban_view.o_kanban_mobile.o_omna_kanban_integrations .o_kanban_record button {
+  background-color: transparent;
+}
+.o_kanban_view.o_kanban_mobile.o_omna_kanban_integrations .oe_omna_kanban_integration_title {
+  padding: 8px;
+}
+.o_kanban_view.o_kanban_mobile.o_omna_kanban_integrations img {
+  margin-right: 16px;
+}
+.o_kanban_view.o_kanban_mobile.o_omna_kanban_integrations .b-white {
+  background-color: white;
+}

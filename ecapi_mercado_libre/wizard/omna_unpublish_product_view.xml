@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <record id="view_unpublish_product_wzd" model="ir.ui.view">
+            <field name="name">omna.unpublish.product.wzd.form</field>
+            <field name="model">omna.unpublish_product_wzd</field>
+            <field name="arch" type="xml">
+                <form string="Publish Product">
+                    <group col="4">
+                        <field name="delete_from_integration"/>
+                        <field name="integration_ids" widget="many2many_tags"/>
+                    </group>
+                    <footer>
+                        <button string='Publish Product' name="unpublish_product" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <!-- Add action entry in the Action Menu for Product -->
+<!--        <record id="action_unpublish_product_wzd"-->
+<!--                name="Unpublish Product"-->
+<!--                src_model="product.template"-->
+<!--                res_model="omna.unpublish_product_wzd"-->
+<!--                view_type="form"-->
+<!--                view_mode="form"-->
+<!--                key2="client_action_multi"-->
+<!--                target="new"-->
+<!--                model="ir.actions.act_window"/>-->
+
+
+
+        <record id="action_unpublish_product_wzd" model="ir.actions.act_window">
+            <field name="name">Unpublish Product</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">omna.unpublish_product_wzd</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+            <field name="view_id" ref="view_unpublish_product_wzd"/>
+            <!-- TODO: check if we need this -->
+            <field name="binding_model_id" ref="product.model_product_template" />
+            <field name="binding_view_types">list</field>
+        </record>
+
+
+</odoo>
