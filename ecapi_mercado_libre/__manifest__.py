@@ -3,7 +3,7 @@
     'name': 'ECAPI Ecommerce Mercado Libre',
     'version': '15.0.20220607',
     'category': 'Sales',
-    'summary': 'Integration: Mercado Libre',
+    'summary': 'Our Mercado Libre integration connect Multiple Seller Accounts, Sync products, inventory, orders and much more',
     'description': 'Integrate global online marketplaces & web-stores with Odoo. Sync products, inventory and orders from multiple channels',
     'author': 'Cenit IO',
     'website': 'https://web.cenit.io',
