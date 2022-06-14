@@ -1,43 +1,103 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
 
-    <record id="product_brand_search_form_view_inherit" model="ir.ui.view">
-        <field name="name">product.brand.search.form</field>
-        <field name="model">product.brand</field>
-        <field name="inherit_id" ref="product_brand.product_brand_search_form_view" />
-        <field name="arch" type="xml">
-            <field name="partner_id" position="after">
-                <field name="integration_id" />
-                <field name="omna_brand_id" />
-            </field>
-        </field>
-    </record>
+    <act_window
+            id="action_open_brand_products"
+            name="Brand Products"
+            res_model="product.template"
+            view_mode="kanban,form,tree"
+            domain="[('product_brand_id', '=', active_id)]"
+    />
 
-
-    <record id="view_product_brand_form_inherit" model="ir.ui.view">
+    <record id="product_brand_form_view" model="ir.ui.view">
         <field name="name">product.brand.form</field>
         <field name="model">product.brand</field>
-        <field name="inherit_id" ref="product_brand.view_product_brand_form" />
         <field name="arch" type="xml">
-            <xpath expr="//group[1]/group" position="after">
-                <group>
-                    <field name="omna_brand_id"/>
-                </group>
-            </xpath>
+            <form string="Product Brand">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button
+                                name="%(action_open_brand_products)d"
+                                type="action"
+                                class="oe_stat_button"
+                                icon="fa-cubes"
+                        >
+                            <field
+                                    name="products_count"
+                                    widget="statinfo"
+                                    string="Products"
+                                    context="{'default_product_brand_id': active_id}"
+                            />
+                        </button>
+                    </div>
+                    <field name="logo" widget="image" class="oe_avatar"/>
+                    <div class="oe_title">
+                        <label for="name" string="Brand Name" class="oe_edit_only"/>
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="integration_id"/>
+                        </group>
+                        <group>
+                            <field name="omna_brand_id"/>
+                        </group>
+                    </group>
+                    <group string="Description">
+                        <field name="description" nolabel="1"/>
+                    </group>
+                </sheet>
+            </form>
         </field>
     </record>
 
+    <record id="product_brand_search_view" model="ir.ui.view">
+        <field name="name">product.brand.search</field>
+        <field name="model">product.brand</field>
+        <field name="arch" type="xml">
+            <search string="Product Brand">
+                <field name="name" string="Product Brand"/>
+                <field name="omna_brand_id" string="Omna ID"/>
+                <filter name="current_tenant" string="Current Tenant"
+                        domain="[('omna_tenant_id', '=', context.get('omna_current_tenant'))]"/>
+                <filter name="integration_id" string="Integration"/>
+                <filter string="Integration" name="integration_id" context="{'group_by': 'integration_id'}"/>
+            </search>
+        </field>
+    </record>
 
-    <record id="view_product_brand_tree_inherit" model="ir.ui.view">
+    <record id="product_brand_view" model="ir.ui.view">
         <field name="name">product.brand.tree</field>
         <field name="model">product.brand</field>
-        <field name="inherit_id" ref="product_brand.view_product_brand_tree"/>
         <field name="arch" type="xml">
-            <field name="partner_id" position="after">
-                <field name="integration_id"/>
+            <tree string="Product Brand">
+                <field name="name"/>
                 <field name="omna_brand_id"/>
-            </field>
+                <field name="integration_id"/>
+            </tree>
         </field>
     </record>
+    <!-- Actions-->
+    <record model="ir.actions.act_window" id="product_brand_action">
+        <field name="name">Product Brand</field>
+        <field name="res_model">product.brand</field>
+        <!--            <field name="view_type">form</field>-->
+        <field name="view_mode">tree,form</field>
+        <field name="context">{'search_default_current_tenant': 1}</field>
+        <field name="search_view_id" ref="product_brand_search_view"/>
+    </record>
+
+    <menuitem name="Product Brand"
+              id="menu_product_brand"
+              action="product_brand_action"
+              parent="menu_omna_data"
+              sequence="5"/>
+
+<!--    <menuitem id="menu_omna_product_brand" name="Product Brand" parent="menu_omna_data"-->
+<!--              sequence="5"-->
+<!--              action="product_brand_action"/>-->
+
 
 </odoo>

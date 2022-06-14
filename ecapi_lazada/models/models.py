@@ -162,7 +162,7 @@ class OmnaIntegration(models.Model):
     def authorize(self):
         self.ensure_one()
         omna_api_url = self.env['ir.config_parameter'].sudo().get_param(
-            "ecapi_lazada.cenit_url", default='https://cenit.io/app/ecapi-v1'
+            "ecapi_lazada.cenit_url", default='https://server.cenit.io/app/ecapi_v1_prod'
         )
         redirect = self.env['ir.config_parameter'].sudo().get_param(
             'web.base.url') + '/omna/integrations/authorize/' + self.integration_id
@@ -431,6 +431,52 @@ class OmnaFlow(models.Model):
 
 
 
+class ProductBrand(models.Model):
+    _name = "product.brand"
+    _description = "Product Brand"
+    _inherit = 'omna.api'
+    _order = "name"
+
+
+    @api.model
+    def _current_tenant(self):
+        current_tenant = self.env['omna.tenant'].search([('id', '=', self.env.user.context_omna_current_tenant.id)],
+                                                        limit=1)
+        if current_tenant:
+            return current_tenant.id
+        else:
+            return None
+
+
+
+    name = fields.Char("Brand Name", required=True)
+    omna_tenant_id = fields.Many2one('omna.tenant', 'Tenant', default=_current_tenant)
+    omna_brand_id = fields.Char("Brand identifier in OMNA", index=True)
+    integration_id = fields.Many2one('omna.integration', 'OMNA Integration')
+    description = fields.Text(translate=True)
+    logo = fields.Binary("Logo File")
+    product_ids = fields.One2many(
+        "product.template", "product_brand_id", string="Brand Products"
+    )
+    products_count = fields.Integer(
+        string="Number of products", compute="_compute_products_count"
+    )
+
+    @api.depends("product_ids")
+    def _compute_products_count(self):
+        product_model = self.env["product.template"]
+        groups = product_model.read_group(
+            [("product_brand_id", "in", self.ids)],
+            ["product_brand_id"],
+            ["product_brand_id"],
+            lazy=False,
+        )
+        data = {group["product_brand_id"][0]: group["__count"] for group in groups}
+        for brand in self:
+            brand.products_count = data.get(brand.id, 0)
+
+
+
 class ProductTemplate(models.Model):
     _name = 'product.template'
     _inherit = ['product.template', 'omna.api']
@@ -473,7 +519,9 @@ class ProductTemplate(models.Model):
                                              help="Set whether the product should be removed from the remote integration source.")
     state_integration = fields.Selection([('linked', 'LINKED'), ('unlinked', 'UNLINKED')], default='unlinked', string="On Integration")
     marketplace_state = fields.Selection([('published', 'PUBLISHED'), ('unpublished', 'UNPUBLISHED')], default='unpublished', string="On Marketplace")
-    # active_on_sale = fields.Boolean("Active On Sale", default=False)
+    product_brand_id = fields.Many2one(
+        "product.brand", string="Brand", help="Select a brand for this product"
+    )
 
 
     def _create_variant_ids(self):
@@ -600,6 +648,8 @@ class ProductTemplate(models.Model):
     def read(self, fields=None, load='_classic_read'):
         category_id = False
         categ_result = False
+        brand_id = False
+        brand_result = False
         vals = {}
 
         if (len(self) <= 1) and self.integration_ids and not (self.categ_id.omna_category_id):
@@ -608,13 +658,21 @@ class ProductTemplate(models.Model):
             category_or_brands = data.get('integration').get('product').get('properties', [])
             for cat_br in category_or_brands:
                 if (cat_br.get('id') == 'category_id') and (cat_br.get('options')):
-                    category_id = cat_br.get('value')
+                    category_id = cat_br.get('options')[0][0].get('id', False)
+                if (cat_br.get('id') == 'brand') and (cat_br.get('options')):
+                    brand_id = cat_br.get('options')[0].get('id', False)
 
             if category_id:
                 categ_result = self.env['product.category'].search([('omna_category_id', '=', category_id)])
 
             if categ_result:
                 vals.update({'categ_id': categ_result.id})
+
+            if brand_id:
+                brand_result = self.env['product.brand'].search([('omna_brand_id', '=', brand_id)])
+
+            if brand_result:
+                vals.update({'product_brand_id': brand_result.id})
 
             self.with_context(from_omna_api=True).write(vals)
             self.env.cr.commit()
@@ -802,7 +860,7 @@ class ProductTemplate(models.Model):
             temp_01 = {"data": {"properties": [{"id": "category_id", "value": self.categ_id.omna_category_id}]}}
 
             prop_response = self.post('integrations/%s/products/%s' % (self.integration_ids.integration_id, self.omna_product_id), temp_01)
-            # https://cenit.io/app/ecapi-v1/integrations/{integration_id}/categories/{category_id}/product/properties
+            # https://server.cenit.io/app/ecapi_v1_prod/integrations/{integration_id}/categories/{category_id}/product/properties
             # prop_response = self.get('integrations/%s/categories/%s/product/properties' % (self.integration_ids.integration_id, self.product_template_id.categ_id.omna_category_id,))
             list_properties = prop_response.get('data').get('integration').get('product').get('properties')
             list_data = []
@@ -1103,7 +1161,7 @@ class ProductProduct(models.Model):
 
             self.with_context(synchronizing=True).write({'remote_variant_id': "PENDING-PUBLISH-FROM-" + self.omna_variant_id, 'state_integration': 'linked'})
 
-            # https://cenit.io/app/ecapi-v1/products/{product_id}/variants/{variant_id}/stock/items
+            # https://server.cenit.io/app/ecapi_v1_prod/products/{product_id}/variants/{variant_id}/stock/items
             query_result = self.get('products/%s/variants/%s/stock/items' % (self.product_tmpl_id.omna_product_id, self.omna_variant_id))
             list_data = query_result.get('data')
             stock_warehouse_id = self.env['stock.warehouse'].search([('integration_id', '=', self.integration_ids.id)])
@@ -1252,7 +1310,7 @@ class ProductProduct(models.Model):
             # response2 = self.post('integrations/%s/products/%s/variants/%s' % (self.integration_ids.integration_id, self.product_product_id.product_tmpl_id.omna_product_id, self.product_product_id.omna_variant_id), {'data': temp})
 
             if not self.property_ids:
-                # https://cenit.io/app/ecapi-v1/integrations/{integration_id}/categories/{category_id}/product/properties
+                # https://server.cenit.io/app/ecapi_v1_prod/integrations/{integration_id}/categories/{category_id}/product/properties
                 prop_response = self.get('integrations/%s/categories/%s/variant/properties' % (self.integration_ids.integration_id, self.categ_id.omna_category_id))
                 list_properties = prop_response.get('data')
                 list_data = []
@@ -1324,13 +1382,13 @@ class ProductProduct(models.Model):
                                 }
                 }
 
-                # # POST https://cenit.io/app/ecapi-v1/products/{product_id}/variants/{variant_id}
+                # # POST https://server.cenit.io/app/ecapi_v1_prod/products/{product_id}/variants/{variant_id}
                 # response1 = self.post('products/%s/variants/%s' % (product_template_id.omna_product_id, item.omna_variant_id), {'data': data})
 
                 query1.append(data)
 
         if query1:
-            # POST https://cenit.io/app/ecapi-v1/products/{product_id}/variants/{variant_id}
+            # POST https://server.cenit.io/app/ecapi_v1_prod/products/{product_id}/variants/{variant_id}
             response1 = self.put('products/%s/variants' % (omna_product_id,), {'data': query1})
 
         query2 = []
@@ -1351,13 +1409,13 @@ class ProductProduct(models.Model):
                 #                    item.product_template_attribute_value_ids]
                 # }
 
-                # # POST https://cenit.io/app/ecapi-v1/integrations/{integration_id}/products/{product_id}/variants/{variant_id}
+                # # POST https://server.cenit.io/app/ecapi_v1_prod/integrations/{integration_id}/products/{product_id}/variants/{variant_id}
                 # response2 = self.post('integrations/%s/products/%s/variants/%s' % (integration_id, product_template_id.omna_product_id, item.omna_variant_id), {"data": data2})
 
                 query2.append(data2)
 
         if query2:
-            # POST https://cenit.io/app/ecapi-v1/integrations/{integration_id}/products/{product_id}/variants/{variant_id}
+            # POST https://server.cenit.io/app/ecapi_v1_prod/integrations/{integration_id}/products/{product_id}/variants/{variant_id}
             response2 = self.post('integrations/%s/products/%s/variants' % (integration_id, omna_product_id,), {"data": query2})
 
         # if response1 and response2:
@@ -1444,7 +1502,7 @@ class SaleOrder(models.Model):
         try:
             orders = []
             for order in self:
-                # https://cenit.io/app/ecapi-v1/orders/{order_id}
+                # https://server.cenit.io/app/ecapi_v1_prod/orders/{order_id}
                 response = self.get(
                     'orders/%s' % order.omna_id, {})
                 data = response.get('data')

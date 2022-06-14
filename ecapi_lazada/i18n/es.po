@@ -1243,8 +1243,8 @@ msgstr "Omna"
 #. module: omna
 #: model_terms:ir.ui.view,arch_db:omna.view_omna_settings
 #: model_terms:ir.ui.view,arch_db:omna.wizard_omna_sign_in_install
-msgid "Omna API url (Default: 'https://cenit.io/app/ecapi-v1')"
-msgstr "API url de Omna (Por defecto: 'https://cenit.io/app/ecapi-v1')"
+msgid "Omna API url (Default: 'https://server.cenit.io/app/ecapi_v1_prod')"
+msgstr "API url de Omna (Por defecto: 'https://server.cenit.io/app/ecapi_v1_prod')"
 
 #. module: omna
 #: model:ir.model,name:omna.model_omna_api

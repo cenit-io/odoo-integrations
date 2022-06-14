@@ -246,7 +246,7 @@ class OmnaMassiveProductOpt(models.TransientModel):
             stock_list = []
             stock_location_id = self.env['stock.location'].search([('integration_id', '=', self.integration_id.id)])
             for query_item in query_list:
-                # https://cenit.io/app/ecapi-v1/products/{product_id}/stock/items
+                # https://server.cenit.io/app/ecapi_v1_prod/products/{product_id}/stock/items
                 stock_result = self.get('products/%s/stock/items' % (query_item.get('id'), ))
                 stock_result = stock_result.get('data')[0]
                 stock_data = {

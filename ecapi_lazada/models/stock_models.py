@@ -72,7 +72,7 @@ class OmnaStockItems(models.Model):
 
 
     def reset_quantity(self, data):
-        # https://cenit.io/app/ecapi-v1/stock/items
+        # https://server.cenit.io/app/ecapi_v1_prod/stock/items
         # query_param = {'integration_id': self.integration_id.integration_id}
         # if self.product_template_omna_id:
         #     query_param.update({'product_id': self.product_template_omna_id})
@@ -82,7 +82,7 @@ class OmnaStockItems(models.Model):
         # qty = response.get('data')[0].get('count_on_hand')
         # omna_stock_item_id = response.get('data')[0].get('id')
 
-        # https://cenit.io/app/ecapi-v1/stock/items/{stock_item_id}
+        # https://server.cenit.io/app/ecapi_v1_prod/stock/items/{stock_item_id}
         qty = self.count_on_hand
         to_reset = {"data": {"quantity": -1 * qty}}
         response = self.post('stock/items/%s' % (self.omna_id,), to_reset)

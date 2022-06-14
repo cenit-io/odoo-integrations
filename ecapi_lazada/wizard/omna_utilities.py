@@ -102,7 +102,7 @@ class OmnaUtilities(models.TransientModel):
 
     def delete_unlinked_products(self):
         try:
-            # https://cenit.io/app/ecapi-v1/products/all
+            # https://server.cenit.io/app/ecapi_v1_prod/products/all
             temp_result = self.delete('products/all')
             self.env.user.notify_channel('info',
                                          'Por favor revise el resultado de la tarea en Ebanux u Odoo.',
@@ -116,7 +116,7 @@ class OmnaUtilities(models.TransientModel):
 
     def delete_one_product(self):
         try:
-            # https://cenit.io/app/ecapi-v1/products/{product_id}
+            # https://server.cenit.io/app/ecapi_v1_prod/products/{product_id}
             temp_result = self.delete('products/%s' % (self.omna_id,))
             self.env.user.notify_channel('info',
                                          'Por favor revise el resultado de la tarea en Ebanux u Odoo.',
@@ -135,7 +135,7 @@ class OmnaUtilities(models.TransientModel):
                     "product_ids": self.omna_ids.split(';'),
                 }
             }
-            # https://cenit.io/app/ecapi-v1/products
+            # https://server.cenit.io/app/ecapi_v1_prod/products
             temp_result = self.delete('products', parameters)
             self.env.user.notify_channel('info',
                                          'Por favor revise el resultado de la tarea en Ebanux u Odoo.',
@@ -163,8 +163,8 @@ class OmnaUtilities(models.TransientModel):
 
     def get_one_product(self):
         try:
-            # GET https://cenit.io/app/ecapi-v1/products/{product_id}
-            # GET https://cenit.io/app/ecapi-v1/integrations/{integration_id}/products/{product_id}
+            # GET https://server.cenit.io/app/ecapi_v1_prod/products/{product_id}
+            # GET https://server.cenit.io/app/ecapi_v1_prod/integrations/{integration_id}/products/{product_id}
             if self.integration_id:
                 temp_result = self.get('integrations/%s/products/%s' % (self.integration_id.integration_id, self.omna_id,))
 

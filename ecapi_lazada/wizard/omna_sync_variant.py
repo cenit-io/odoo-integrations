@@ -55,7 +55,7 @@ class OmnaSyncVariant(models.TransientModel):
 
 
     def all_import_variants(self):
-        # https://cenit.io/app/ecapi-v1/integrations/{integration_id}/products/{product_id}/variants
+        # https://server.cenit.io/app/ecapi_v1_prod/integrations/{integration_id}/products/{product_id}/variants
         product_template_obj = self.env['product.template']
         product_obj = self.env['product.product']
         product_list = product_template_obj.search([('omna_product_id', '!=', False), ('omna_variant_qty', '>', 0)])
@@ -121,7 +121,7 @@ class OmnaSyncVariant(models.TransientModel):
 
 
     def by_product_id_import_variants(self):
-        # https://cenit.io/app/ecapi-v1/integrations/{integration_id}/products/{product_id}/variants
+        # https://server.cenit.io/app/ecapi_v1_prod/integrations/{integration_id}/products/{product_id}/variants
         product_template_obj = self.env['product.template']
         product_obj = self.env['product.product']
 

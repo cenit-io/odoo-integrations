@@ -98,7 +98,7 @@ class OmnaExtraImport(models.TransientModel):
                 ' Please verify that you have products with variants or combinations created previously.',
                                          "Error", True)
 
-        # # https://cenit.io/app/ecapi-v1/integrations/prestashop_col10/call/native/service
+        # # https://server.cenit.io/app/ecapi_v1_prod/integrations/prestashop_col10/call/native/service
         # data_aux1 = {"data": {"path": "/product_features",
         #                      "method": "GET",
         #                      "params": {"display": "full"}}}
@@ -136,7 +136,7 @@ class OmnaExtraImport(models.TransientModel):
         locations = []
 
         while flag:
-            # https://cenit.io/app/ecapi-v1/integrations/{integration_id}/stock/locations
+            # https://server.cenit.io/app/ecapi_v1_prod/integrations/{integration_id}/stock/locations
             response = self.get('integrations/%s/stock/locations' % (self.integration_id.integration_id), {'limit': limit, 'offset': offset})
             data = response.get('data')
             # match_data = [x for x in response.get('data') if x.get('variants') >= 1]
@@ -187,7 +187,7 @@ class OmnaExtraImport(models.TransientModel):
 
         while flag:
         # if flag:
-            # https://cenit.io/app/ecapi-v1/stock/items
+            # https://server.cenit.io/app/ecapi_v1_prod/stock/items
             response = self.get('stock/items', {'limit': limit, 'offset': offset, 'integration_id': self.integration_id.integration_id})
             data = response.get('data')
 
@@ -300,7 +300,7 @@ class OmnaExtraImport(models.TransientModel):
     def import_carriers(self):
         carriers = []
 
-        # https://cenit.io/app/ecapi-v1/integrations/prestashop_col10/call/native/service
+        # https://server.cenit.io/app/ecapi_v1_prod/integrations/prestashop_col10/call/native/service
         data = {"data": {"path": "/carriers", "method": "GET", "params": {"display": "full", "limit": "0,100", "filter[deleted]": "0"}}}
         response = self.post('integrations/%s/call/native/service' % (self.integration_id.integration_id, ), data)
         carriers.extend(response.get('data').get('carriers'))
@@ -359,7 +359,7 @@ class OmnaExtraImport(models.TransientModel):
         statuses = []
 
         while flag:
-            # https://cenit.io/app/ecapi-v1/integrations/{integration_id}/order/statuses
+            # https://server.cenit.io/app/ecapi_v1_prod/integrations/{integration_id}/order/statuses
             response = self.get('integrations/%s/order/statuses' % (self.integration_id.integration_id), {'limit': limit, 'offset': offset})
             data = response.get('data')
             statuses.extend(data)

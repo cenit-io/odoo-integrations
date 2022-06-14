@@ -29,7 +29,7 @@ class OmnaExternalImporter(models.TransientModel):
     def external_import_resources(self):
         try:
             # self.import_products()
-            # https://cenit.io/app/ecapi-v1/integrations/{integration_id}/{resource_type}/import
+            # https://server.cenit.io/app/ecapi_v1_prod/integrations/{integration_id}/{resource_type}/import
 
             form_view_id = self.env.ref('ecapi_lazada.view_external_importer_wizard').id
             # date_formated = self.limit_date.strftime('%Y-%m-%dT%H:%M:%S.%f%z')

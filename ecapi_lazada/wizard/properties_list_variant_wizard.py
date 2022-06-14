@@ -105,7 +105,7 @@ class PropertiesListVariantWizard(models.TransientModel):
         integration = omna_integration_obj.search([('id', '=', self.omna_integration_id.id)])
         product = product_template_obj.search([('id', '=', self.env.context.get('default_product_template_id'))])
         variant = product_product_obj.search([('id', '=', self.env.context.get('default_product_product_id', False))])
-        # https://cenit.io/app/ecapi-v1/products/{product_id}/variants/{variant_id}
+        # https://server.cenit.io/app/ecapi_v1_prod/products/{product_id}/variants/{variant_id}
         remote_variant = product_product_obj.get('products/%s/variants/%s' % (product.omna_product_id, variant.omna_variant_id))
         # aux2 = list(filter(lambda lolo: lolo.integration_id.id == integration.id, variant.category_ids))
         aux2 = next((i for i in variant.category_ids if i.integration_id.id == integration.id), False)

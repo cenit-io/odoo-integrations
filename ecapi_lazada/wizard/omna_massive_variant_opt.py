@@ -61,7 +61,7 @@ class OmnaMassiveVariantOpt(models.TransientModel):
                             'width': item.ancho, 'content': "No definido"}
             }
 
-            # https://cenit.io/app/ecapi-v1/products/{product_id}/variants
+            # https://server.cenit.io/app/ecapi_v1_prod/products/{product_id}/variants
             response = self.post('products/%s/variants' % item.product_tmpl_id.omna_product_id, {'data': data})
             if response.get('data').get('id'):
                 item.with_context(synchronizing=True).write({'omna_variant_id': response.get('data').get('id')})
@@ -83,7 +83,7 @@ class OmnaMassiveVariantOpt(models.TransientModel):
                         "integration_ids": [self.integration_id.integration_id]
                     }
                 }
-                # https://cenit.io/app/ecapi-v1/products/{product_id}/variants/link
+                # https://server.cenit.io/app/ecapi_v1_prod/products/{product_id}/variants/link
                 response = self.put('products/%s/variants/link' % item, parameters)
 
             for item in result_list:
@@ -119,7 +119,7 @@ class OmnaMassiveVariantOpt(models.TransientModel):
                         "delete_from_integration": False
                     }
                 }
-                # https://cenit.io/app/ecapi-v1/products/{product_id}/variants/link
+                # https://server.cenit.io/app/ecapi_v1_prod/products/{product_id}/variants/link
                 response = self.delete('products/%s/variants/link' % item, parameters)
 
             for item in result_list:
@@ -197,7 +197,7 @@ class OmnaMassiveVariantOpt(models.TransientModel):
         stock_list = []
         stock_location_id = self.env['stock.location'].search([('integration_id', '=', self.integration_id.id)])
         for query_item in query_list:
-            # https://cenit.io/app/ecapi-v1/products/{product_id}/variants/{variant_id}/stock/items
+            # https://server.cenit.io/app/ecapi_v1_prod/products/{product_id}/variants/{variant_id}/stock/items
             stock_result = self.get('products/%s/variants/%s/stock/items' % (query_item.get('product').get('id'), query_item.get('id')))
             stock_result = stock_result.get('data')[0]
             stock_data = {

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'ECAPI Ecommerce Lazada',
-    'version': '13.0.20220518',
+    'version': '14.0.20220614',
     'category': 'Sales',
     'summary': 'Integration: Lazada',
     'description': 'Integrate global online marketplaces & web-stores with Odoo. Sync products, inventory and orders from multiple channels',
@@ -40,6 +40,7 @@
         'views/import_log.xml',
         'views/order_payment_views.xml',
         'views/res_users_view.xml',
+        'views/product_brand_view.xml',
         # wizard
         'wizard/omna_sync_products_view.xml',
         'wizard/omna_sync_variant_view.xml',
@@ -60,7 +61,7 @@
         'wizard/omna_update_variant_in_integration.xml',
         'wizard/wizard_create_variant.xml',
         'wizard/omna_sync_categories_view.xml',
-        # 'wizard/omna_sync_brands_view.xml',
+        'wizard/omna_sync_brands_view.xml',
         'wizard/omna_sync_doc_orders_view.xml',
         # 'wizard/properties_list_values_view.xml',
         'wizard/link_variant_wizard_view.xml',

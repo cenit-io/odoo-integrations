@@ -27,7 +27,7 @@ class OmnaExportOrdersFromIntegrationWizard(models.TransientModel):
 
     def export_orders(self):
         try:
-            # https://cenit.io/app/ecapi-v1/integrations/{integration_id}/orders
+            # https://server.cenit.io/app/ecapi_v1_prod/integrations/{integration_id}/orders
             order = self.env['sale.order'].search(
                 [('id', '=', self._context.get('active_id'))])
             data = {}

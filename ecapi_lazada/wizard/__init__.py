@@ -18,7 +18,7 @@ from . import omna_update_product_in_integration
 from . import omna_update_variant_in_integration
 from . import wizard_create_variant
 from . import omna_sync_categories
-# from . import omna_sync_brands
+from . import omna_sync_brands
 from . import omna_export_orders_from_integration
 from . import omna_sync_doc_orders
 # from . import properties_list_values

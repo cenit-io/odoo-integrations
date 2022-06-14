@@ -14,6 +14,10 @@ from odoo import models, api, exceptions, fields
 
 _logger = logging.getLogger(__name__)
 
+maxthreads = 10
+sema = threading.Semaphore(value=maxthreads)
+threads = list()
+
 
 class OmnaSyncCategories(models.TransientModel):
     _name = 'omna.sync_categories_wizard'
@@ -22,23 +26,23 @@ class OmnaSyncCategories(models.TransientModel):
     # sync_type = fields.Selection([('by_integration', 'By Integration'),
     #                               ('by_external_id', 'By External Id')], 'Import Type',
     #                              required=True, default='by_integration')
-    integration_id = fields.Many2one('omna.integration', 'Integration')
+    integration_id = fields.Many2one('omna.integration', 'Integration', domain=lambda self:[('company_id', '=', self.env.company.id)])
     # category_id = fields.Many2one('product.category', 'Category')
 
 
 
     def function_aux(self, limit, offset, integration_id, categories):
+        sema.acquire()
+        _logger.info("Starting process %s" % (offset,))
         with api.Environment.manage():
             # As this function is in a new thread, I need to open a new cursor, because the old one may be closed
             new_cr = self.pool.cursor()
             self = self.with_env(self.env(cr=new_cr))
-            response = self.get('integrations/%s/categories' % integration_id,
-                                {'limit': limit, 'offset': offset, 'with_details': True})
+            response = self.get('integrations/%s/categories' % integration_id, {'limit': limit, 'offset': offset, 'with_details': True})
             data = response.get('data')
             categories.extend(data)
             new_cr.close()
-            return {}
-
+        sema.release()
 
 
 
@@ -53,7 +57,10 @@ class OmnaSyncCategories(models.TransientModel):
             for item in list(range(0, total_categories, limit)):
                 threaded_api_request = threading.Thread(target=self.function_aux, args=([limit, item, self.integration_id.integration_id, categories]))
                 threaded_api_request.start()
+                threads.append(threaded_api_request)
 
+            for item in threads:
+                item.join()
             # while requester:
             #     response = self.get('integrations/%s/categories' % self.integration_id.integration_id, {'limit': limit, 'offset': offset, 'with_details': True})
             #     data = response.get('data')
@@ -63,7 +70,7 @@ class OmnaSyncCategories(models.TransientModel):
             #     else:
             #         offset += limit
 
-            time.sleep(60)
+            # time.sleep(300)
             category_obj = self.env['product.category']
             categories.sort(key=lambda x: x.get("name"))
             for category in categories:
@@ -86,4 +93,3 @@ class OmnaSyncCategories(models.TransientModel):
         except Exception as e:
             _logger.error(e)
             raise exceptions.AccessError(e)
-

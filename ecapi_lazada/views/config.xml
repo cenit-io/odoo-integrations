@@ -11,7 +11,7 @@
                     <div>
                         <group string="Connection settings">
                             <field name="cenit_url"
-                                   placeholder="Ecapi API url (Default: 'https://cenit.io/app/ecapi-v1')"/>
+                                   placeholder="Ecapi API url (Default: 'https://server.cenit.io/app/ecapi_v1_prod')"/>
                             <field name="lazada_base_url"
                                    placeholder="Lazada base url (Default: 'https://sellercenter.lazada.com.my')"/>
 <!--                            <field name="lazada_ws_key"-->
@@ -53,7 +53,7 @@
                     </p>
                     <group>
                         <field name="cenit_url"
-                               placeholder="Ecapi API url (Default: 'https://cenit.io/app/ecapi-v1')"/>
+                               placeholder="Ecapi API url (Default: 'https://server.cenit.io/app/ecapi_v1_prod')"/>
                     </group>
                     <footer>
                         <button string="Apply" type="object" name="execute"

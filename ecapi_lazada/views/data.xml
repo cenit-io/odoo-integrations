@@ -256,7 +256,7 @@
 
                 <xpath expr="//field[@name='categ_id']" position="replace">
                     <field name="categ_id" string="Internal Category"/>
-<!--                    <field name="simple_product"/>-->
+                    <field name="product_brand_id" string="Product Brand"/>
                 </xpath>
 
                 <xpath expr="//field[@name='default_code']" position="replace">
