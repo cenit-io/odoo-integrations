@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'ECAPI Ecommerce Mercado Libre',
-    'version': '15.0.20220607',
+    'version': '15.0.20220615',
     'category': 'Sales',
     'summary': 'Our Mercado Libre integration connect Multiple Seller Accounts, Sync products, inventory, orders and much more',
     'description': 'Integrate global online marketplaces & web-stores with Odoo. Sync products, inventory and orders from multiple channels',
@@ -33,7 +33,6 @@
         'views/flows.xml',
         'views/tenants.xml',
         'views/collections.xml',
-        # 'views/omna_templates.xml',
         'views/dashboard.xml',
         'views/integration_fields.xml',
         'views/stock_location_inherit_views.xml',
@@ -82,10 +81,7 @@
 
     'assets': {
         'web.assets_backend': [
-            # "/ecapi_mercado_libre/static/src/css/omna_integrations_kanban.css",
-            # "/ecapi_mercado_libre/static/src/css/ebanux_style.css",
             "/ecapi_mercado_libre/static/src/scss/numeric_step.scss",
-            # "/ecapi_mercado_libre/static/src/scss/webclient.scss",
             "/ecapi_mercado_libre/static/src/js/omna_sign_in.js",
             "/ecapi_mercado_libre/static/src/js/systray_tenant_menu.js" ,
             "/ecapi_mercado_libre/static/src/js/widgets/numeric_step.js",

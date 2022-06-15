@@ -8,20 +8,13 @@
             <field name="arch" type="xml">
                 <form string="Import Products">
                     <group>
-                        <div>
-                            Wizard to import / synchronize products from ECAPI.
-                        </div>
-                    </group>
-                    <group>
                         <group>
-<!--                            <field name="sync_type"/>-->
+                            <div>
+                                Wizard to import / synchronize products from ECAPI.
+                            </div>
                         </group>
                         <group>
                             <field name="integration_id"/>
-<!--                            <field name="omna_id" attrs="{'invisible': [('sync_type', '!=', 'by_omna_id')],-->
-<!--                                   'required': [('sync_type', '=', 'by_omna_id')]}"/>-->
-<!--                            <field name="product_sku" attrs="{'invisible': [('sync_type', '!=', 'by_product_sku')],-->
-<!--                                   'required': [('sync_type', '=', 'by_product_sku')]}"/>-->
                         </group>
                     </group>
                     <footer>
