@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'ECAPI Ecommerce Lazada',
-    'version': '14.0.20220614',
+    'version': '14.0.20220615',
     'category': 'Sales',
     'summary': 'Integration: Lazada',
     'description': 'Integrate global online marketplaces & web-stores with Odoo. Sync products, inventory and orders from multiple channels',

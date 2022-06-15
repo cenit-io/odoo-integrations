@@ -123,7 +123,8 @@ class OmnaSyncOrders(models.TransientModel):
         try:
             for order in orders:
                 if order['status']:
-                    line_items = order.get('line_items')
+                    # line_items = order.get('line_items')
+                    line_items = order.get('original_raw_data').get('line_items')
 
                     # act_order = self.env['sale.order'].search([('omna_id', '=', order.get('id'))])
                     with_error = False
@@ -206,8 +207,10 @@ class OmnaSyncOrders(models.TransientModel):
                         # for line_item in order.get('line_items'):
                         aux = []
                         for line_item in line_items:
+                            temp_dict = next(item for item in order.get('line_items') if item.get('id') == str(line_item.get('order_item_id')))
                             # self._create_orderline(omna_order, line_item, order.get('payments')[0].get('currency'))
-                            temp_line = self._create_orderline(line_item, order.get('currency'))
+                            line_item.update(temp_dict)
+                            temp_line = self._create_orderline(line_item)
                             if temp_line:
                                 aux.append((0, 0, temp_line))
                             if not temp_line:
@@ -267,23 +270,23 @@ class OmnaSyncOrders(models.TransientModel):
         return self.env['res.partner'].create(data)
 
 
-    def _create_orderline(self, line_item, currency):
-        currency = self.env['res.currency'].search([('name', '=', currency)], limit=1)
+    def _create_orderline(self, line_item):
+        currency = self.env['res.currency'].search([('name', '=', line_item.get('currency'))], limit=1)
         if not currency:
             currency = self.env['res.currency'].search([('name', '=', 'USD')], limit=1)
 
         lolo = self.env['product.template'].search([('integration_ids', '!=', False)])
 
-        product = self.env['product.template'].search([('remote_product_id', '=', line_item.get('id'))], limit=1)
+        product = self.env['product.template'].search([('remote_product_id', '=', line_item.get('product_id'))], limit=1)
         if not product:
             return False
 
         data = {
             # 'order_id': omna_order.id,
-            'omna_id': line_item.get('id'),
+            'omna_id': str(line_item.get('order_item_id')),
             'name': product.name if product else line_item.get('name'),
             # 'name': line_item.get('name'),
-            'price_unit': product.list_price if product else line_item.get('price'),
+            'price_unit': product.list_price if product else line_item.get('item_price'),
             # 'price_unit': line_item.get('price'),
             # 'state': omna_order.state,
             'state': "draft",

@@ -215,7 +215,7 @@
                 <xpath expr="//div[@name='options']" position="before">
                     <field name="id" invisible="1"/>
                     <h1>
-                        <field name="integration_ids" placeholder="Integration" nolabel="1" attrs="{'readonly': [('id', '!=', False)]}"/>
+                        <field name="integration_ids" placeholder="Integration" nolabel="1"/>
                     </h1>
                 </xpath>
 
