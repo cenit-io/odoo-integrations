@@ -495,7 +495,7 @@ class ProductTemplate(models.Model):
                                 domain=['&', '&', ('type_tax_use', '=', 'sale'), ('omna_tax_rule_id', '=', False), ('integration_id', '=', False)],
                                 default=lambda self: self.env.company.account_sale_tax_id)
     omna_tenant_id = fields.Many2one('omna.tenant', 'Tenant', default=_current_tenant)
-    omna_product_id = fields.Char("Cenit ID", index=True)
+    omna_product_id = fields.Char("Ecapi ID", index=True)
     integration_ids = fields.Many2one('omna.integration', string='Integration')
     integrations_data = fields.Char('Integrations data')
     simple_product = fields.Boolean('Simple product', default=False)
@@ -508,7 +508,7 @@ class ProductTemplate(models.Model):
     locking_default_code = fields.Boolean('Overwrite package information in all variants', compute='_locking_default_code', store=True)
     omna_variant_qty = fields.Integer('Omna Variant Qty', default=0)
     property_ids = fields.One2many('properties.values.product', 'product_template_id', 'Properties')
-    remote_product_id = fields.Char("ML Product ID", index=True)
+    remote_product_id = fields.Char("Store ID", index=True)
 
     link_with_its_variants = fields.Selection([
         ('NONE', 'NONE'),
