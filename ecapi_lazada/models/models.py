@@ -1651,12 +1651,11 @@ class OmnaTask(models.Model):
 
             ul1 = '<ul class="list-group">'
             for execution in data.get('executions', []):
-                started = fields.Datetime.to_string(
-                        dateutil.parser.parse(execution.get('started_at'), tzinfos=tzinfos).astimezone(
-                            pytz.utc))
-                completed = fields.Datetime.to_string(
-                        dateutil.parser.parse(execution.get('completed_at'), tzinfos=tzinfos).astimezone(
-                            pytz.utc))
+                started = fields.Datetime.to_string(dateutil.parser.parse(execution.get('started_at'), tzinfos=tzinfos).astimezone(pytz.utc))
+                if execution.get('status') == 'completed':
+                    completed = fields.Datetime.to_string(dateutil.parser.parse(execution.get('completed_at'), tzinfos=tzinfos).astimezone(pytz.utc))
+                else:
+                    completed = ''
                 var_text = "Status: %s  Start Date: %s  Complete Date: %s \n" % (execution.get('status'), started, completed)
                 if execution.get('status') == "completed":
                     ul1 += '<li class="list-group-item list-group-item-success">' + var_text + '</li>'

@@ -26,7 +26,8 @@ class OmnaSyncCollections(models.TransientModel):
             collections = []
             while requester:
                 response = self.get('available/integrations', {'limit': limit, 'offset': offset})
-                data = list(filter(lambda d: d['name'] == 'edge_integration_lazada' , response.get('data')))
+                data = list(filter(lambda d: d['name'] in ['edge_integration_lazada', 'edge_integration_core'] , response.get('data')))
+                # data = response.get('data')
                 collections.extend(data)
                 if len(data) < limit:
                     requester = False

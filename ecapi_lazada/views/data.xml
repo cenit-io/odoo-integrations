@@ -212,11 +212,11 @@
             <field name="priority" eval="5"/>
             <field name="arch" type="xml">
 
-                <xpath expr="//div[@name='options']" position="before">
+                <xpath expr="//div[@class='oe_title']/div[@name='options']" position="before">
                     <field name="id" invisible="1"/>
-                    <h1>
-                        <field name="integration_ids" placeholder="Integration" nolabel="1"/>
-                    </h1>
+                    <h2>
+                        <field name="integration_ids" placeholder="Select integration" nolabel="1"/>
+                    </h2>
                 </xpath>
 
 <!--                <div name="button_box" position="inside">-->
